@@ -5,8 +5,8 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 
 | # | Công đoạn | Thư mục | Trạng thái tool |
 |---|---|---|---|
-| 0 | Brief & bộ nhận diện | `00_brief` | checklist ✅ · tool ⏳ |
-| 1 | Kịch bản | `01_script` | checklist ✅ (cổng này = Tool 2 kiểm duyệt kịch bản) · tool ⏳ |
+| 0 | Brief & bộ nhận diện | `00_brief` | checklist ✅ · tool ✅ (`vp brief new`, skill `vp-brief`) |
+| 1 | Kịch bản | `01_script` | checklist ✅ (cổng này = Tool 2 kiểm duyệt kịch bản) · tool ✅ (`vp script …`, skill `vp-kich-ban`) |
 | 2 | Thiết kế nội dung & storyboard | `02_design` | checklist ✅ · tool ⏳ |
 | 3 | Animatic | `03_animatic` | checklist ✅ · tool ⏳ |
 | 4 | Giọng đọc (VieNeu-TTS) | `04_voice` | checklist ✅ · tool ⏳ |
@@ -25,6 +25,14 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 
 ## Lệnh
 ```bash
+# Tool 0 — brief (dùng hồ sơ kênh trong channels/)
+python -m vp brief new projects/<dự án> --channel kenh-khoa-hoc-mau --title "…" --goal "…"
+# Tool 1 — kịch bản
+python -m vp script import   projects/<dự án> <bản-thảo.md>   # khi đã có bản thảo
+python -m vp script estimate projects/<dự án>
+python -m vp script view     projects/<dự án>
+python -m vp script lint     projects/<dự án>
+# Cổng duyệt
 python -m vp new projects/<dự án> --title "Tên video"
 python -m vp status projects/<dự án>
 python -m vp review start    projects/<dự án> <công đoạn>

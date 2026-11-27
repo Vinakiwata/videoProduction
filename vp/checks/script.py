@@ -53,22 +53,34 @@ def source_refs(project: Path, params: dict) -> CheckResult:
     return CheckResult("pass", f"{len(known)} nguồn, {used} đoạn có trích nguồn, mọi tham chiếu hợp lệ.")
 
 
-@register("script_no_placeholders")
+def _walk(node, label):
+    """Duyệt mọi chuỗi; nhãn dùng mã 'id' gần nhất nếu có (vd. S01-01.text)."""
+    if isinstance(node, dict):
+        base = node.get("id", label) if isinstance(node.get("id"), str) else label
+        for k, v in node.items():
+            yield from _walk(v, f"{base}.{k}" if base else str(k))
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            yield from _walk(v, f"{label}[{i}]")
+    elif isinstance(node, str):
+        yield label, node
+
+
+@register("no_placeholders")
 def no_placeholders(project: Path, params: dict) -> CheckResult:
-    s = load_yaml(project, params["path"])
+    data = load_yaml(project, params["path"])
     bad = []
-    for scene, seg in segments(s):
-        for field in ("text", "visual"):
-            val = str(seg.get(field) or "")
-            m = PLACEHOLDER.search(val)
-            if m:
-                bad.append(f"{seg['id']}.{field}: '{m.group(0)}'")
+    for label, val in _walk(data, ""):
+        m = PLACEHOLDER.search(val)
+        if m:
+            bad.append(f"{label}: '{m.group(0)}'")
+        if label.endswith(".text"):
             for tag in BRACKET.findall(val):
-                if field == "text" and tag.strip() not in EMOTION_TAGS:
-                    bad.append(f"{seg['id']}.{field}: '[{tag}]' (không phải thẻ cảm xúc hợp lệ)")
+                if tag.strip() not in EMOTION_TAGS:
+                    bad.append(f"{label}: '[{tag}]' (không phải thẻ cảm xúc hợp lệ)")
     if bad:
         return _fmt(bad, "Còn chỗ trống/đánh dấu tạm:")
-    return CheckResult("pass", "Không còn chỗ trống hay đánh dấu tạm.")
+    return CheckResult("pass", f"{params['path']}: không còn chỗ trống hay đánh dấu tạm.")
 
 
 @register("script_segment_length")
@@ -111,3 +123,15 @@ def total_duration(project: Path, params: dict) -> CheckResult:
     diff = abs(total - target) / target
     msg = f"Tổng ước tính {total:g}s so với mục tiêu {target:g}s (lệch {diff:.0%}, cho phép {tol:.0%})."
     return CheckResult("pass" if diff <= tol else "fail", msg)
+
+
+@register("script_view_in_sync")
+def view_in_sync(project: Path, params: dict) -> CheckResult:
+    from vp.script_view import render_view
+    s = load_yaml(project, params["path"])
+    vpath = project / params["view"]
+    if not vpath.is_file():
+        return CheckResult("fail", f"Chưa có bản đọc {params['view']}. Chạy: python -m vp script view <dự án>")
+    if vpath.read_text(encoding="utf-8") != render_view(s):
+        return CheckResult("fail", f"{params['view']} đã cũ so với {params['path']}. Chạy lại: python -m vp script view <dự án>")
+    return CheckResult("pass", f"{params['view']} khớp {params['path']}.")

@@ -2,36 +2,138 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Brief video (00_brief/brief.yaml)",
   "type": "object",
-  "required": ["title", "goal", "audience", "channel", "format", "target_duration_s", "tone", "cta", "brand"],
+  "required": [
+    "title",
+    "goal",
+    "audience",
+    "channel",
+    "format",
+    "target_duration_s",
+    "tone",
+    "cta",
+    "brand"
+  ],
   "properties": {
-    "title": {"type": "string", "minLength": 3},
-    "goal": {"type": "string", "minLength": 10},
-    "audience": {"type": "string", "minLength": 5},
-    "channel": {"type": "string", "enum": ["youtube", "youtube_shorts", "tiktok", "facebook", "other"]},
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 10
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 5
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "youtube",
+        "youtube_shorts",
+        "tiktok",
+        "facebook",
+        "other"
+      ]
+    },
     "format": {
       "type": "object",
-      "required": ["width", "height", "fps"],
+      "required": [
+        "width",
+        "height",
+        "fps"
+      ],
       "properties": {
-        "width": {"type": "integer", "minimum": 320},
-        "height": {"type": "integer", "minimum": 320},
-        "fps": {"type": "number", "enum": [24, 25, 30, 50, 60]}
+        "width": {
+          "type": "integer",
+          "minimum": 320
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 320
+        },
+        "fps": {
+          "type": "number",
+          "enum": [
+            24,
+            25,
+            30,
+            50,
+            60
+          ]
+        }
       }
     },
-    "target_duration_s": {"type": "number", "exclusiveMinimum": 0},
-    "tone": {"type": "string", "minLength": 3},
-    "cta": {"type": "string", "minLength": 3},
+    "target_duration_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tone": {
+      "type": "string",
+      "minLength": 3
+    },
+    "cta": {
+      "type": "string",
+      "minLength": 3
+    },
     "brand": {
       "type": "object",
-      "required": ["colors", "fonts", "voice"],
+      "required": [
+        "colors",
+        "fonts",
+        "voice"
+      ],
       "properties": {
-        "colors": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}},
-        "fonts": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "voice": {"type": "string", "minLength": 3},
-        "logo": {"type": "string"}
+        "colors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          }
+        },
+        "fonts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "voice": {
+          "type": "string",
+          "minLength": 3
+        },
+        "logo": {
+          "type": "string"
+        }
       }
     },
-    "is_advertising": {"type": "boolean", "description": "Video có quảng cáo/tài trợ sản phẩm không"},
-    "constraints": {"type": "array", "items": {"type": "string"}},
-    "references": {"type": "array", "items": {"type": "string"}}
+    "is_advertising": {
+      "type": "boolean",
+      "description": "Video có quảng cáo/tài trợ sản phẩm không"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "channel_ref": {
+      "type": "string",
+      "description": "Tên hồ sơ kênh trong channels/"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Giả định Claude tự đưa ra khi chủ dự án vắng mặt"
+    }
   }
 }

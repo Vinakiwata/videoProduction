@@ -47,10 +47,10 @@ def test_source_refs(project, good_script):
 
 
 def test_no_placeholders(project, good_script):
-    assert run_check("script_no_placeholders", project, {"path": P}).status == "pass"
+    assert run_check("no_placeholders", project, {"path": P}).status == "pass"
     bad = copy.deepcopy(good_script)
     bad["scenes"][0]["segments"][0]["text"] = "Chỗ này TODO viết sau"
-    r = run_check("script_no_placeholders", _with(project, bad), {"path": P})
+    r = run_check("no_placeholders", _with(project, bad), {"path": P})
     assert r.status == "fail" and "S01-01" in r.evidence
 
 

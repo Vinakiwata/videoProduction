@@ -1,0 +1,145 @@
+meta:
+  title: Vì sao nước biển lại mặn?
+  language: vi
+  target_duration_s: 60
+  audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
+  goal: Sau 60 giây, người xem giải thích lại được vì sao biển mặn còn sông thì không (mưa hoà tan khoáng chất trong đá, sông mang muối ra biển, nước bốc hơi còn muối ở lại) và muốn xem tiếp kênh
+pronunciation:
+  cacbonic: các-bon-níc
+sources:
+- id: SRC1
+  title: USGS - Why is the ocean salty?
+  url: https://www.usgs.gov/faqs/why-ocean-salty
+  accessed: '2026-11-27'
+- id: SRC2
+  title: NOAA Ocean Service - Why is the ocean salty, but rivers flowing into it are not?
+  url: https://oceanservice.noaa.gov/facts/riversnotsalty.html
+  accessed: '2026-11-27'
+- id: SRC3
+  title: Britannica - Why Is There Fresh and Salt Water on Earth?
+  url: https://www.britannica.com/story/why-is-there-fresh-and-salt-water-on-earth
+  accessed: '2026-11-27'
+- id: SRC4
+  title: NOAA Ocean Service - Why is the ocean salty?
+  url: https://oceanservice.noaa.gov/facts/whysalty.html
+  accessed: '2026-11-27'
+- id: SRC5
+  title: National Marine Sanctuary Foundation - Why is the Ocean So Salty?
+  url: https://marinesanctuary.org/blog/why-is-the-ocean-so-salty/
+  accessed: '2026-11-27'
+scenes:
+- id: S01
+  title: Móc
+  purpose: Nêu nghịch lý sông ngọt đổ ra biển mặn để gợi tò mò
+  segments:
+  - id: S01-01
+    kind: voice
+    text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
+    est_duration_s: 5.7
+    visual: Dòng sông xanh nhạt chảy vào biển xanh đậm; hai cốc nước bật lên cạnh nhau, cốc nước sông có giọt nước, cốc nước biển có hạt muối; dấu chấm hỏi lớn màu vàng bật ra giữa hai cốc để người xem thấy rõ sự trái ngược
+    on_screen_text: Muối từ đâu ra?
+    sfx:
+    - pop
+  - id: S01-02
+    kind: silent
+    est_duration_s: 1
+    visual: Dấu chấm hỏi lắc nhẹ, hai cốc nước giữ nguyên
+- id: S02
+  title: Mưa hoà tan muối trong đá
+  purpose: Giải thích mắt xích thứ nhất — mưa hơi chua hoà tan khoáng chất từ đá
+  segments:
+  - id: S02-01
+    kind: voice
+    text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
+    est_duration_s: 5.0
+    visual: Giọt mưa rơi qua đám mây, các phân tử khí nhỏ bay vào trong giọt mưa; giọt mưa đổi sang viền vàng nhạt, nhãn chữ "axit nhẹ" để người xem nhận ra mưa không hoàn toàn trung tính
+    on_screen_text: Mưa hơi chua (axit nhẹ)
+    source_ids:
+    - SRC1
+    - SRC3
+  - id: S02-02
+    kind: voice
+    text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
+    est_duration_s: 7.2
+    visual: Cận cảnh mặt đá xám, mưa chảy qua làm bong ra các hạt li ti màu trắng; vài hạt được đánh dấu hình lập phương muối để người xem thấy muối đến từ đá
+    sfx:
+    - lách tách nhẹ
+    source_ids:
+    - SRC1
+    - SRC3
+  - id: S02-03
+    kind: silent
+    est_duration_s: 1.0
+    visual: Các hạt muối trắng theo dòng nước mưa trôi khỏi mặt đá, hướng về phía chân núi
+    sfx:
+    - nước chảy róc rách
+- id: S03
+  title: Sông chở muối ra biển
+  purpose: Giải thích vì sao sông vẫn ngọt dù mang muối, còn biển gom muối của mọi con sông
+  segments:
+  - id: S03-01
+    kind: voice
+    text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
+    est_duration_s: 6.3
+    visual: Các dòng suối nhỏ nhập thành sông, trong dòng nước có vài hạt muối thưa thớt; kính lúp phóng to cho thấy muối rất ít
+    source_ids:
+    - SRC1
+    - SRC2
+  - id: S03-02
+    kind: voice
+    text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
+    est_duration_s: 7.2
+    visual: Bản đồ phẳng nhiều con sông từ các phía cùng đổ vào một vùng biển, mỗi sông mang một dòng chấm trắng nhỏ dồn về biển để người xem thấy muối gom lại một chỗ
+    source_ids:
+    - SRC2
+- id: S04
+  title: Bốc hơi giữ muối lại
+  purpose: Giải thích mắt xích cuối — nước bốc hơi còn muối ở lại, tích dần qua hàng triệu năm
+  segments:
+  - id: S04-01
+    kind: voice
+    text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
+    est_duration_s: 6.0
+    visual: Mặt trời vàng chiếu xuống mặt biển; các phân tử nước màu xanh bay lên thành mây, các hạt muối trắng ở lại dưới biển, mũi tên lên chỉ có nước để người xem thấy muối bị bỏ lại
+    on_screen_text: Nước bay đi, muối ở lại
+    source_ids:
+    - SRC3
+  - id: S04-02
+    kind: silent
+    est_duration_s: 1
+    visual: Các hạt muối dưới biển lấp lánh nhẹ, mây trôi sang phía đất liền
+    sfx:
+    - whoosh nhẹ
+  - id: S04-03
+    kind: voice
+    text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
+    est_duration_s: 7.5
+    visual: Vòng tuần hoàn mưa → đá → sông → biển → mây chạy nhanh vài vòng, bộ đếm năm chạy tới hàng triệu, mặt biển đậm màu dần rồi dừng lại để người xem thấy độ mặn đã đạt mức hiện nay
+    source_ids:
+    - SRC5
+    - SRC2
+  - id: S04-04
+    kind: voice
+    text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
+    est_duration_s: 6.3
+    visual: Mặt cắt đáy biển với một núi lửa nhỏ và khe nứt toả hơi nóng, các chấm khoáng chất bay lên hoà vào nước
+    source_ids:
+    - SRC4
+    - SRC1
+- id: S05
+  title: Chốt và kêu gọi
+  purpose: Tóm ba mắt xích trong một câu và mời đăng ký kênh
+  segments:
+  - id: S05-01
+    kind: voice
+    text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
+    est_duration_s: 6.3
+    visual: Ba biểu tượng nối bằng mũi tên hiện lần lượt theo từng vế câu — giọt mưa trên đá, dòng sông, mặt trời trên biển
+    on_screen_text: Mưa → Sông → Bốc hơi
+  - id: S05-02
+    kind: voice
+    text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
+    est_duration_s: 5.4
+    visual: Nút đăng ký tự thiết kế màu vàng FFD23F nảy lên giữa nền xanh đậm 0B3D91, có chuông nhỏ rung
+    sfx:
+    - click
