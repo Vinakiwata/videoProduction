@@ -39,4 +39,4 @@ def run_check(name: str, project: Path, params: dict | None) -> CheckResult:
 
 
 # Nạp các module để chúng tự đăng ký.
-from vp.checks import files, script, media  # noqa: E402,F401
+from vp.checks import files, script, media, design  # noqa: E402,F401

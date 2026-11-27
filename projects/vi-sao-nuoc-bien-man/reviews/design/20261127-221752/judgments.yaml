@@ -1,0 +1,30 @@
+DSN-C02:
+  verdict: fail
+  evidence: 'Xem 18 ảnh phác thảo: 17 khung có điểm nhìn rõ. Riêng S03-02-a (ý "mưa bổ sung nước ngọt nên sông vẫn ngọt") đặt focal là e2 (đám mây), trong khi nội dung cần nhìn là mưa rơi xuống sông (e3); dải sông e1 rộng toàn khung, mây 50%, cả hai cùng tranh chú ý, còn giọt mưa (thứ nối hai bên) lại không được nhấn.'
+  fix: 'S03-02-a: đổi focal sang e3 (A-GIOT-MUA). Thu mây e2 còn khoảng 36% chiều rộng, đẩy lên y=4. Cho mưa e3 rơi thành cột rõ xuống đúng giữa dòng sông.'
+DSN-C03:
+  verdict: fail
+  evidence: 'Hình khớp nghĩa lời ở hầu hết các khung (vd. S04-01-a: mũi tên hơi nước chỉ mang chấm trắng, muối sáng lên khi nói "muối thì không bay theo"; S04-03-b: cốc biển dừng ở mức hiện nay, đúng NOAA). Nhưng S04-04-a: hình quan trọng nhất của câu ("thả khoáng chất vào nước", khoảng 0.7) chỉ nằm trong notes và trong mô tả asset A-DAY-BIEN, không phải phần tử có enter.at. Tool hoạt ảnh và web trình chiếu sẽ không biết đặt khoảng nào, nên hình có thể không xuất hiện đúng lúc lời nói tới nó.'
+  fix: 'Thêm asset A-KHOANG-CHAT (chấm khoáng chất trắng bay lên). Trong S04-04-a thêm phần tử e3 với enter slide_up at 0.7, loop flow, đặt trên miệng núi lửa và khe nứt. Bỏ phần "chấm khoáng chất trắng bay lên" khỏi mô tả A-DAY-BIEN để không vẽ trùng.'
+DSN-C04:
+  verdict: pass
+  evidence: '6 tiếng động, mỗi cái gắn với một hành động có nghĩa: pop ← dấu hỏi bật (S01-01-b); lách tách ← hạt bong khỏi đá (S02-02-b); róc rách ← muối trôi (S02-03); pop nhẹ ← mây hình thành (S04-01-a, rơi đúng chữ "thành mây", củng cố từ đó chứ không che, vì là tiếng nhẹ dưới giọng); whoosh ← mây trôi đi trong đoạn im lặng S04-02; click ← nút đăng ký. Dày nhất 1–2 cái mỗi 10 giây.'
+DSN-C05:
+  verdict: pass
+  evidence: 'brand.style là "flat, nét tròn, bóng đổ nhẹ, ≤ 4 màu mỗi khung". 22 asset đều mô tả hình phẳng bo tròn, mỗi asset 1–4 màu thuộc palette. Có quy ước màu xuyên suốt ghi ở đầu file (biển/trời xanh đậm, đất tối, nước/muối trắng, nhấn vàng). Mỗi khung dùng tối đa 4 màu (vd. S04-04-a: xanh, tối, vàng, trắng).'
+DSN-C06:
+  verdict: fail
+  evidence: 'Phần lớn chữ là từ khoá ("axit nhẹ", "muối", "rất ít muối", "Nước bay đi, muối ở lại", "Mưa/Sông/Bốc hơi"). Nhưng S01-01-b và S01-02-a có tiêu đề "Muối từ đâu ra?", trùng nguyên văn câu đang nói ở cuối S01-01, nên người xem đọc và nghe cùng một câu.'
+  fix: 'Đổi chữ ở S01-01-b và S01-02-a thành từ khoá thể hiện nghịch lý, ví dụ "Sông ngọt → Biển mặn?" (title, 96px, vàng). Giữ nguyên thời điểm và hộp; kiểm lại chữ có tràn hộp không.'
+DSN-C07:
+  verdict: pass
+  evidence: 'Mọi asset là hình phẳng vẽ được bằng SVG: cốc, giọt, mây, đá, sông, bản đồ, mặt cắt đáy biển, nút. Các hiệu ứng nằm trong tập anim của schema. Hiệu ứng phức tạp có ghi chú cách làm: morph giọt trắng → giọt viền vàng (S02-01-a), typewriter "hàng triệu năm" (S04-03-b), zoom xuyên mặt biển (S01-01-b). Không cần 3D hay ảnh chụp.'
+DSN-C08:
+  verdict: pass
+  evidence: 'A-NUT-DANG-KY ghi rõ "tự thiết kế — không dùng logo YouTube". Không nhân vật, không logo, không phỏng theo tác phẩm nào. Mọi asset là hình học cơ bản.'
+DSN-C09:
+  verdict: pass
+  evidence: 'Khung dài nhất S04-04-a (6,3s) có chữ vào ở 0.1, camera zoom_in suốt khung, nhịp sáng của núi lửa. S04-03-b (5,9s) có vòng tuần hoàn xoay, chữ gõ ở 0.15, cốc biển vào ở 0.6, camera lùi. Các khung khác ≤ 5s hoặc có phần tử mới trong 2–4 giây. Đoạn dài được tách khung (S01-01, S02-02, S03-01, S03-02, S04-03).'
+DSN-C10:
+  verdict: pass
+  evidence: 'Quy ước hướng trái → phải giữ suốt: S01-01-a sông trái, biển phải; S02-03 muối trôi sang phải; S04-02 mây trôi sang trái về đất liền rồi S04-03-a mây vào từ phải đổ mưa lên đá. Cùng đối tượng dùng cùng asset (A-SONG, A-MAY, A-DA, A-COC-BIEN lặp lại ở S04-03-b). Khung giống nhau S01-01-b → S01-02-a có ghi chú "nối tiếp liền mạch" với match_cut, có lý do.'
