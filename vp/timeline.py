@@ -105,7 +105,7 @@ def input_hash(project: Path, params: dict) -> str:
     return h.hexdigest()
 
 
-def build(project: Path, breath: float = 0.30, breath_question: float = 0.45, max_chars: int = 42,
+def build(project: Path, breath: float = 0.35, breath_question: float = 0.45, max_chars: int = 42,
           max_lines: int = 2, min_sub_s: float = 1.0, check_gate: bool = True) -> Path:
     project = Path(project)
     if check_gate:

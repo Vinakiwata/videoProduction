@@ -12,7 +12,7 @@ Mọi thời điểm đều suy ra từ ba nguồn:
 
 ## 2. Mục tiêu / Không làm / Thất bại nếu
 **Mục tiêu**
-- **Nhịp thở:** chèn khoảng nghỉ giữa hai đoạn giọng liền nhau. Mặc định 0,30 giây; 0,45 giây sau câu hỏi hoặc câu cảm thán; không chèn khi đoạn kế là im lặng (đã có nghỉ sẵn).
+- **Nhịp thở:** chèn khoảng nghỉ giữa hai đoạn giọng liền nhau. Mặc định 0,35 giây (khớp khoảng ngắt giữa các câu trong đoạn); 0,45 giây sau câu hỏi hoặc câu cảm thán; không chèn khi đoạn kế là im lặng (đã có nghỉ sẵn).
   Khoảng thở được tính vào **khung cuối** của đoạn trước, nên hình đứng lại trong lúc thở, không đứt.
 - **Làm tròn theo khung:** mọi mốc làm tròn về khung gần nhất. Thời lượng một đoạn tính bằng hiệu hai mốc đã làm tròn, nên không có sai số cộng dồn.
 - **Rãnh (track):**
@@ -44,6 +44,6 @@ Checklist `timeline` v2: ba mục trên ở mức **chặn**. Bỏ TML-C01, C02,
 `python -m vp timeline build <dự án> [--breath 0.30] [--breath-question 0.45]`. Lệnh chỉ chạy khi cổng `voice` đang MỞ.
 
 ## 5. Quyết định của Claude (cần xem lại)
-1. Nhịp thở mặc định 0,30 giây, sau câu hỏi hoặc cảm thán 0,45 giây.
+1. Nhịp thở mặc định 0,35 giây, sau câu hỏi hoặc cảm thán 0,45 giây.
 2. Phụ đề ≤ 42 ký tự mỗi dòng, ≤ 2 dòng, ≥ 1 giây (theo thói quen phụ đề phát sóng và gợi ý của YouTube).
 3. Khoảng thở thuộc về khung cuối của đoạn trước.

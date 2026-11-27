@@ -6,7 +6,7 @@ description: Dùng khi cần dựng, sửa hoặc duyệt timeline tổng (05_ti
 # Timeline tổng (05_timeline)
 
 1. `python -m vp gate projects/<dự án> voice` phải báo MỞ.
-2. `python -m vp timeline build projects/<dự án>` (tham số nhịp thở: `--breath 0.30`, `--breath-question 0.45`) tạo:
+2. `python -m vp timeline build projects/<dự án>` (tham số nhịp thở: `--breath 0.35`, `--breath-question 0.45`) tạo:
    - `05_timeline/timeline.yaml`, tính bằng khung hình nguyên, gồm các rãnh `segments / voice / shots / cues / sfx / music`;
    - `subtitles.srt`;
    - `manifest.json`.

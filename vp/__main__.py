@@ -132,7 +132,8 @@ def cmd_voice(a):
         else:
             eng = voice.RecordingEngine(p, name=a.source_name or "recording")
         only = set(a.only.split(",")) if a.only else None
-        man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only, tempo=a.tempo)
+        man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only, tempo=a.tempo,
+                               pause_sentence=a.pause_sentence, pause_question=a.pause_question)
         for e in man["segments"]:
             print(f"  {e['id']}: {e['duration_s']:.2f}s, {e['sps']} âm tiết/giây, lặng giữa câu {e['max_gap_s']}s")
         print(f"Tổng {man['total_s']:.1f}s; tốc độ trung vị {man['measured_sps_median']} âm tiết/giây ({man['engine']}, {man['voice']})")
@@ -194,10 +195,12 @@ def main(argv=None):
     vo.add_argument("project"); vo.add_argument("--engine", choices=["vieneu", "recording"], default="vieneu")
     vo.add_argument("--takes", type=int); vo.add_argument("--only"); vo.add_argument("--apply", action="store_true")
     vo.add_argument("--tempo", type=float, default=1.0, help="<1 làm chậm giọng, giữ cao độ (vd. 0.9)")
+    vo.add_argument("--pause-sentence", type=float, default=0.35, help="khoảng ngắt sau câu kết thúc bằng dấu chấm (giây)")
+    vo.add_argument("--pause-question", type=float, default=0.45, help="khoảng ngắt sau câu hỏi/cảm thán (giây)")
     vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
     tlp = sub.add_parser("timeline"); tlp.add_argument("action", choices=["build"]); tlp.add_argument("project")
-    tlp.add_argument("--breath", type=float, default=0.30); tlp.add_argument("--breath-question", type=float, default=0.45)
+    tlp.add_argument("--breath", type=float, default=0.35); tlp.add_argument("--breath-question", type=float, default=0.45)
     tlp.set_defaults(fn=cmd_timeline)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
