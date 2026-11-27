@@ -1,8 +1,8 @@
 # Tool giọng đọc (VieNeu-TTS). Manifest: mỗi đoạn giọng -> file wav + thời lượng đo thật.
 stage: voice
-version: 1
+version: 2
 title: Kiểm duyệt giọng đọc
-artifacts: [04_voice]
+artifacts: [04_voice, 01_script/script.yaml]
 items:
   - id: VOI-A01
     group: Cấu trúc
@@ -18,6 +18,20 @@ items:
     method: auto
     check: audio_loudness
     params: {path: 04_voice/voice_full.wav, target_lufs: -16, tolerance: 1.5, max_true_peak: -1.0}
+  - id: VOI-A03
+    group: Đồng bộ
+    title: Manifest khớp kịch bản hiện tại và file thật (văn bản đã đọc, mã băm, thời lượng đo)
+    severity: chan
+    method: auto
+    check: voice_manifest
+    params: {path: 04_voice/voice_manifest.yaml, script: 01_script/script.yaml}
+  - id: VOI-A04
+    group: Chất lượng âm
+    title: Không dấu hiệu lỗi TTS — đỉnh ≤ −1 dBFS, lặng hai đầu ≤ 0,35s, lặng giữa câu ≤ 1s, tốc độ 2–5 âm tiết/giây
+    severity: chan
+    method: auto
+    check: voice_segment_quality
+    params: {path: 04_voice/voice_manifest.yaml, max_peak_dbfs: -1.0, max_edge_silence_s: 0.35, max_gap_s: 1.0, min_sps: 2.0, max_sps: 5.0}
   - id: VOI-C01
     group: Độ chính xác
     title: Đọc đúng 100% chữ trong kịch bản, không đọc sót, thừa hay sai
@@ -50,12 +64,6 @@ items:
     severity: nghiem_trong
     method: ai
     guidance: Ghi đoạn có ngữ điệu đều đều, sai cảm xúc, hoặc nhấn sai từ.
-  - id: VOI-C06
-    group: Thời lượng
-    title: Thời lượng thật mỗi đoạn được đo và ghi vào manifest
-    severity: chan
-    method: ai
-    guidance: Manifest phải có duration_s đo từ file thật cho từng đoạn. Timeline sẽ dựng hoàn toàn theo số này.
   - id: VOI-C07
     group: Pháp lý
     title: Giọng nhân bản (nếu có) có sự đồng ý của chủ giọng
