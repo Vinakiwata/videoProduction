@@ -1,6 +1,6 @@
 # Tool 2 — Kiểm duyệt kịch bản. Cổng quan trọng nhất: lỗi lọt qua đây sẽ nhân lên ở mọi công đoạn sau.
 stage: script
-version: 3
+version: 4
 title: Kiểm duyệt kịch bản
 artifacts: [01_script/script.yaml, 00_brief/brief.yaml]
 items:
@@ -55,6 +55,13 @@ items:
     method: auto
     check: script_total_duration
     params: {path: 01_script/script.yaml, tolerance: 0.15}
+  - id: SCR-A09
+    group: Ngôn ngữ
+    title: Cách đọc (meta.pronunciation) viết rời từng âm tiết, không gạch nối/ký hiệu
+    severity: nghiem_trong
+    method: auto
+    check: script_pronunciation_format
+    params: {path: 01_script/script.yaml}
   - id: SCR-A08
     group: Cấu trúc
     title: Bản đọc script.md khớp script.yaml

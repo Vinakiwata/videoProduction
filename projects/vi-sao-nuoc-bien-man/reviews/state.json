@@ -16,28 +16,28 @@
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261127-230055",
+        "review": "reviews/script/20261127-234648",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "01_script/script.yaml": "a4b83bc98b2b13a6e2eff8db2016bdaf159b10620b7a40c14cc46d3945c6095c",
+          "01_script/script.yaml": "f1e243f1430c98b5a589d8d7961d3cf637e073806ab568fa22a1d37dff2865f1",
           "00_brief/brief.yaml": "e9f680f5cf7a49eb73ff31884d8c8a9181e10ba81ecc0e10269bd31ae88affff"
         },
-        "finalized_at": "2026-11-27T23:00:56+07:00",
+        "finalized_at": "2026-11-27T23:46:49+07:00",
         "override": null
       }
     },
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261127-230056",
+        "review": "reviews/design/20261127-234649",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:ad11249944a19057dda965afd58d7e813990f3efca6432444a6b4b9532250a8d",
-          "01_script/script.yaml": "a4b83bc98b2b13a6e2eff8db2016bdaf159b10620b7a40c14cc46d3945c6095c"
+          "02_design": "dir:169b5fc46f4752d9cc9af3026d2485bc113eebbfd10b0b8582ef02d30be5b157",
+          "01_script/script.yaml": "f1e243f1430c98b5a589d8d7961d3cf637e073806ab568fa22a1d37dff2865f1"
         },
-        "finalized_at": "2026-11-27T23:00:57+07:00",
+        "finalized_at": "2026-11-27T23:46:50+07:00",
         "override": null
       }
     },

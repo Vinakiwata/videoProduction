@@ -13,3 +13,5 @@
 | 2026-11-27T23:00:55+07:00 | brief | ✅ ĐẠT | 100 | — | [brief/20261127-230055/report.md](brief/20261127-230055/report.md) |
 | 2026-11-27T23:00:56+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261127-230055/report.md](script/20261127-230055/report.md) |
 | 2026-11-27T23:00:57+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261127-230056/report.md](design/20261127-230056/report.md) |
+| 2026-11-27T23:46:49+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261127-234648/report.md](script/20261127-234648/report.md) |
+| 2026-11-27T23:46:50+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261127-234649/report.md](design/20261127-234649/report.md) |
