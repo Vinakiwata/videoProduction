@@ -7,7 +7,7 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 |---|---|---|---|
 | 0 | Brief & bộ nhận diện | `00_brief` | checklist ✅ · tool ✅ (`vp brief new`, skill `vp-brief`) |
 | 1 | Kịch bản | `01_script` | checklist ✅ (cổng này = Tool 2 kiểm duyệt kịch bản) · tool ✅ (`vp script …`, skill `vp-kich-ban`) |
-| 2 | Thiết kế nội dung & storyboard | `02_design` | checklist ✅ · tool ⏳ |
+| 2 | Thiết kế nội dung & storyboard | `02_design` | checklist ✅ · tool ✅ (`vp design …`, skill `vp-thiet-ke`) |
 | 3 | Animatic | `03_animatic` | checklist ✅ · tool ⏳ |
 | 4 | Giọng đọc (VieNeu-TTS) | `04_voice` | checklist ✅ · tool ⏳ |
 | 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ⏳ |
@@ -32,6 +32,8 @@ python -m vp script import   projects/<dự án> <bản-thảo.md>   # khi đã 
 python -m vp script estimate projects/<dự án>
 python -m vp script view     projects/<dự án>
 python -m vp script lint     projects/<dự án>
+# Tool 3 — storyboard
+python -m vp design init|preview|view|lint projects/<dự án>
 # Cổng duyệt
 python -m vp new projects/<dự án> --title "Tên video"
 python -m vp status projects/<dự án>

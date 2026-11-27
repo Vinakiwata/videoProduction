@@ -1,0 +1,87 @@
+meta:
+  title: Vì sao bầu trời có màu xanh
+  canvas: {width: 1920, height: 1080, fps: 30}
+palette: ['#0B3D91', '#FFD23F', '#FFFFFF']
+fonts: {title: Be Vietnam Pro, body: Be Vietnam Pro}
+style: Minh hoạ phẳng, nét tròn
+assets:
+  - {id: A-TROI, kind: background, description: Bầu trời xanh đậm có vài đám mây trắng, colors: ['#0B3D91', '#FFFFFF']}
+  - {id: A-HOI, kind: icon, description: Dấu chấm hỏi lớn bo tròn, colors: ['#FFD23F']}
+  - {id: A-TIA, kind: diagram, description: Tia sáng trắng tách thành các đường sóng màu, colors: ['#FFFFFF', '#FFD23F']}
+  - {id: A-PHANTU, kind: illustration, description: Phân tử khí hình tròn nhỏ, colors: ['#FFFFFF']}
+shots:
+  - id: S01-01-a
+    segment: S01-01
+    span: [0, 1]
+    purpose: Đặt câu hỏi
+    background: '#0B3D91'
+    focal: e2
+    camera: {move: zoom_in}
+    transition_in: cut
+    elements:
+      - {id: e1, asset: A-TROI, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.4, ease: ease_out}}
+      - {id: e2, asset: A-HOI, box: {x: 42, y: 30, w: 16, h: 30}, enter: {anim: pop, at: 0.1, dur_s: 0.3, ease: back_out}, loop: {anim: bob}}
+      - {id: e3, text: "Vì sao trời xanh?", style: title, font_px: 96, color: '#FFD23F', box: {x: 20, y: 70, w: 60, h: 14}, enter: {anim: fade, at: 0.3, dur_s: 0.3, ease: ease_out}}
+    sfx: [{name: pop, target: e2, event: enter}]
+  - id: S01-02-a
+    segment: S01-02
+    span: [0, 1]
+    purpose: Nghỉ cho câu hỏi ngấm
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: static}
+    transition_in: cut
+    elements:
+      - {id: e1, asset: A-HOI, box: {x: 42, y: 30, w: 16, h: 30}, loop: {anim: wiggle}}
+  - id: S02-01-a
+    segment: S02-01
+    span: [0, 1]
+    purpose: Ánh sáng trắng gồm nhiều màu
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: static}
+    transition_in: crossfade
+    elements:
+      - {id: e1, asset: A-TIA, box: {x: 10, y: 25, w: 80, h: 40}, enter: {anim: draw, at: 0, dur_s: 1.2, ease: ease_in_out}}
+      - {id: e2, text: bước sóng, style: label, font_px: 56, color: '#FFFFFF', box: {x: 60, y: 70, w: 30, h: 8}, enter: {anim: fade, at: 0.5, dur_s: 0.3}}
+  - id: S02-02-a
+    segment: S02-02
+    span: [0, 0.5]
+    purpose: Tia xanh gặp phân tử
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: static}
+    transition_in: cut
+    elements:
+      - {id: e1, asset: A-PHANTU, box: {x: 30, y: 30, w: 40, h: 40}, enter: {anim: scale_in, at: 0, dur_s: 0.4}}
+  - id: S02-02-b
+    segment: S02-02
+    span: [0.5, 1]
+    purpose: Tia xanh dội ra mọi hướng
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: zoom_out}
+    transition_in: match_cut
+    elements:
+      - {id: e1, asset: A-TIA, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: grow, at: 0, dur_s: 0.8}}
+    sfx: [{name: whoosh, target: e1, event: enter}]
+  - id: S02-03-a
+    segment: S02-03
+    span: [0, 1]
+    purpose: Cả bầu trời xanh
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: zoom_out}
+    transition_in: crossfade
+    elements:
+      - {id: e1, asset: A-TROI, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.6}}
+  - id: S03-01-a
+    segment: S03-01
+    span: [0, 1]
+    purpose: Chốt
+    background: '#0B3D91'
+    focal: e1
+    camera: {move: static}
+    transition_in: crossfade
+    elements:
+      - {id: e1, asset: A-TROI, box: {x: 0, y: 0, w: 100, h: 100}}

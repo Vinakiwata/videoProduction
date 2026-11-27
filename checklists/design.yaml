@@ -1,61 +1,144 @@
-# Tool 3 — Thiết kế nội dung & storyboard. Schema storyboard sẽ được định nghĩa khi xây tool 3.
+# Tool 3 — Thiết kế nội dung & storyboard. Xem docs/superpowers/specs/2026-11-27-tool-thiet-ke-design.md
 stage: design
-version: 1
+version: 2
 title: Kiểm duyệt thiết kế nội dung & storyboard
-artifacts: [02_design]
+artifacts: [02_design, 01_script/script.yaml]
 items:
+  # ---------- máy đo ----------
   - id: DSN-A01
     group: Cấu trúc
-    title: Có file storyboard
+    title: Storyboard đúng định dạng chuẩn (schema)
     severity: chan
     method: auto
-    check: file_exists
-    params: {paths: [02_design/storyboard.yaml]}
-  - id: DSN-C01
-    group: Độ phủ
-    title: Mọi đoạn trong kịch bản có thiết kế tương ứng, không thừa, không thiếu
+    check: yaml_schema
+    params: {path: 02_design/storyboard.yaml, schema: storyboard}
+  - id: DSN-A02
+    group: Cấu trúc
+    title: Không còn chỗ trống (TODO)
     severity: chan
-    method: ai
-    guidance: Đối chiếu từng mã đoạn trong 01_script/script.yaml với storyboard. Liệt kê đoạn thiếu hoặc đoạn thừa.
+    method: auto
+    check: no_placeholders
+    params: {path: 02_design/storyboard.yaml}
+  - id: DSN-A03
+    group: Độ phủ
+    title: Mọi đoạn kịch bản được phủ kín bởi khung hình, không hở, không chồng
+    severity: chan
+    method: auto
+    check: storyboard_coverage
+    params: {path: 02_design/storyboard.yaml, script: 01_script/script.yaml}
+  - id: DSN-A04
+    group: Cấu trúc
+    title: Tham chiếu asset / điểm nhìn / tiếng động hợp lệ
+    severity: chan
+    method: auto
+    check: storyboard_refs
+    params: {path: 02_design/storyboard.yaml}
+  - id: DSN-A05
+    group: Khả năng đọc
+    title: Tương phản chữ/nền ≥ 4,5:1
+    severity: chan
+    method: auto
+    check: storyboard_contrast
+    params: {path: 02_design/storyboard.yaml, min_ratio: 4.5}
+  - id: DSN-A06
+    group: Nhận diện
+    title: Mọi màu thuộc bảng màu nhận diện của brief
+    severity: nghiem_trong
+    method: auto
+    check: storyboard_palette
+    params: {path: 02_design/storyboard.yaml, brief: 00_brief/brief.yaml}
+  - id: DSN-A07
+    group: Khả năng đọc
+    title: Chữ đủ lớn, ≤ 7 từ/dòng, hiển thị đủ lâu để đọc
+    severity: nghiem_trong
+    method: auto
+    check: storyboard_text
+    params: {path: 02_design/storyboard.yaml, script: 01_script/script.yaml, min_px: 48, min_title_px: 72, max_words_per_line: 7, s_per_word: 0.3, base_s: 1.0}
+  - id: DSN-A08
+    group: Bố cục
+    title: Chữ trong vùng an toàn 5%, hình không tràn quá 10%
+    severity: nghiem_trong
+    method: auto
+    check: storyboard_safe_area
+    params: {path: 02_design/storyboard.yaml, text_margin_pct: 5, max_bleed_pct: 10}
+  - id: DSN-A09
+    group: Âm thanh
+    title: Tiếng động không dày quá 5 cái mỗi 10 giây
+    severity: nhe
+    method: auto
+    check: storyboard_sfx_density
+    params: {path: 02_design/storyboard.yaml, script: 01_script/script.yaml, max_per_10s: 5}
+  - id: DSN-A10
+    group: Cấu trúc
+    title: Ảnh phác thảo khớp storyboard hiện tại
+    severity: nhe
+    method: auto
+    check: storyboard_preview_in_sync
+    params: {path: 02_design/storyboard.yaml, manifest: 02_design/frames/manifest.json}
+
+  # ---------- phán đoán ----------
   - id: DSN-C02
     group: Truyền đạt
-    title: Mỗi khung hình có một điểm nhìn chính (focal point)
+    title: Mỗi khung có một điểm nhìn chính rõ ràng
     severity: nghiem_trong
     method: ai
-    guidance: Người xem phải biết nhìn vào đâu trong 0,5 giây. Khung có hơn 2 thứ cùng tranh sự chú ý là TRƯỢT.
+    guidance: |
+      Xem ảnh phác thảo từng khung (02_design/frames/*.png, điểm nhìn chính có viền vàng và dấu ★).
+      Người xem phải biết nhìn vào đâu trong 0,5 giây: focal lớn nhất, hoặc tương phản nhất, hoặc chuyển động.
+      Khung có hơn 2 thứ cùng tranh sự chú ý là TRƯỢT. Ghi mã khung.
   - id: DSN-C03
     group: Truyền đạt
     title: Hình minh hoạ đúng nghĩa lời đọc, không gây hiểu sai
     severity: chan
     method: ai
-    guidance: Hình phải đúng về khoa học/sự thật (ví dụ tỉ lệ, hướng, thứ tự). Hình nói khác lời là TRƯỢT.
+    guidance: |
+      Đặt lời đọc của từng đoạn (ghi dưới mỗi ô trong storyboard.png) cạnh hình. Hình phải đúng về khoa học/sự thật
+      (tỉ lệ, hướng, thứ tự nhân quả), và xuất hiện đúng lúc lời nói tới nó (enter.at). Hình nói khác lời là TRƯỢT.
   - id: DSN-C04
     group: Nhịp
-    title: Điểm rơi (beat) và SFX đặt đúng khoảnh khắc ý nghĩa
+    title: Điểm rơi và tiếng động đặt đúng khoảnh khắc có nghĩa
     severity: nghiem_trong
     method: ai
-    guidance: Mỗi SFX (click, pop, whoosh, rơi) gắn với một hành động trên hình. Không SFX liên tục làm mệt tai.
+    guidance: Mỗi SFX gắn với một hành động trên hình và một ý trong lời. Không dùng SFX trang trí vô nghĩa, không SFX đè lên từ khoá đang được nói.
   - id: DSN-C05
     group: Nhận diện
-    title: Dùng đúng màu, font, phong cách trong brief
+    title: Phong cách hình đúng brand.style
     severity: nghiem_trong
     method: ai
-    guidance: Liệt kê màu hay font ngoài bộ nhận diện. Nếu có ngoại lệ thì phải có lý do.
+    guidance: Màu đã đo tự động. Ở đây xét mô tả asset và bố cục có theo đúng style trong brief không (ví dụ flat, nét tròn, ≤ 4 màu mỗi khung).
   - id: DSN-C06
     group: Khả năng đọc
-    title: Chữ trên màn hình đọc kịp và đủ lớn
+    title: Chữ trên màn hình bổ trợ lời, không chép nguyên lời
     severity: nghiem_trong
     method: ai
-    guidance: Chữ ≥ 48px ở khung 1080p cho nội dung chính, tối đa khoảng 7 từ mỗi dòng, hiển thị đủ lâu (≥ 0,3 giây/từ + 1 giây). Tương phản ≥ 4.5:1.
+    guidance: Chữ chỉ là từ khoá hoặc nhãn. Chữ chép lại cả câu lời đọc là TRƯỢT, vì người xem phải vừa đọc vừa nghe cùng một thứ.
   - id: DSN-C07
     group: Khả thi
-    title: Mọi hoạt ảnh làm được bằng SVG/CSS/Canvas/Lottie
+    title: Mọi asset và chuyển động làm được bằng SVG/CSS/Canvas/Lottie
     severity: nghiem_trong
     method: ai
-    guidance: Không yêu cầu 3D, video quay thật hay ảnh chụp có bản quyền. Hiệu ứng phức tạp phải được chia thành các bước làm được.
+    guidance: |
+      Đọc mô tả từng asset. Không yêu cầu 3D, ảnh chụp, video quay thật. Hiệu ứng phức tạp (morph, draw) phải có mô tả đủ để dựng.
+      Ghi asset nào khó hoặc mơ hồ.
   - id: DSN-C08
     group: Bản quyền
     title: Không phỏng theo nhân vật, logo, tác phẩm có bản quyền
     severity: chan
     method: ai
-    guidance: Mọi nhân vật và biểu tượng phải là thiết kế gốc.
+    guidance: Mọi nhân vật, biểu tượng là thiết kế gốc. Nút đăng ký, chuông… phải tự thiết kế, không dùng logo YouTube.
+  - id: DSN-C09
+    group: Nhịp
+    title: Nhịp thị giác — có thay đổi có nghĩa mỗi khoảng 2–4 giây, không khung tĩnh > 5 giây
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Dựa vào thời lượng ghi dưới mỗi ô và các mốc enter/loop/camera. Một khung dài hơn 5 giây thì phải có
+      chuyển động mới, phần tử mới hoặc camera di chuyển bên trong. Ghi khung "chết".
+  - id: DSN-C10
+    group: Liên tục
+    title: Liên tục giữa các khung — cùng đối tượng dùng cùng asset, cùng vị trí logic, hướng chuyển động nhất quán
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Xem các khung liền nhau. Một đối tượng xuyên suốt (ví dụ dòng sông) không đổi asset hay nhảy vị trí vô lý.
+      Dòng chảy thời gian và nhân quả đi một hướng (ví dụ trái → phải). Cắt (cut) giữa hai khung giống hệt nhau mà không có lý do là TRƯỢT.

@@ -26,6 +26,20 @@
         "finalized_at": "2026-11-27T21:56:28+07:00",
         "override": null
       }
+    },
+    "design": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/design/20261127-221831",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "02_design": "dir:4121699a3040c22f37770af01090d8509770aeac159418d3b722bb4210a0f8d2",
+          "01_script/script.yaml": "acd0288e8539eda30077ceb879ee8e3b7a00337479bcc164cc2b0820995b43f2"
+        },
+        "finalized_at": "2026-11-27T22:18:32+07:00",
+        "override": null
+      }
     }
   }
 }
