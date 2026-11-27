@@ -117,3 +117,27 @@ def av_duration_match(project: Path, params: dict) -> CheckResult:
         if abs(dv - exp) > mx:
             return CheckResult("fail", msg)
     return CheckResult("pass" if abs(dv - da) <= mx else "fail", msg)
+
+
+@register("animatic_in_sync")
+def animatic_in_sync(project: Path, params: dict) -> CheckResult:
+    from vp.animatic import input_hash
+    mp = project / params["manifest"]
+    if not mp.is_file() or not (project / params["path"]).is_file():
+        return CheckResult("fail", "Chưa dựng animatic. Chạy: python -m vp animatic build <dự án>")
+    man = json.loads(mp.read_text(encoding="utf-8"))
+    if man.get("hash") != input_hash(project, man.get("fps", 15)):
+        return CheckResult("fail", "Animatic đã cũ so với kịch bản/storyboard/giọng nháp. Chạy lại: python -m vp animatic build <dự án>")
+    return CheckResult("pass", f"Animatic khớp đầu vào hiện tại (nguồn lời: {man.get('voice_source')}, {man.get('fps')} fps).")
+
+
+@register("animatic_duration")
+def animatic_duration(project: Path, params: dict) -> CheckResult:
+    from vp.checks.files import load_yaml
+    p = _file(project, params["path"])
+    total = float(load_yaml(project, params["timing"])["total_s"])
+    v = _stream(probe(p), "video")
+    dv = float(v["duration"])
+    mx = float(params.get("max_diff_s", 0.1))
+    msg = f"Video {dv:.3f}s, timing {total:.3f}s, lệch {abs(dv - total):.3f}s (tối đa {mx:g}s)."
+    return CheckResult("pass" if abs(dv - total) <= mx else "fail", msg)
