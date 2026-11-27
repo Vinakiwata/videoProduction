@@ -1,49 +1,84 @@
+# Animatic — video nháp duyệt nhịp. Xem docs/superpowers/specs/2026-11-27-tool-animatic-design.md
 stage: animatic
-version: 1
+version: 2
 title: Kiểm duyệt animatic (bản nháp thô)
-artifacts: [03_animatic]
+artifacts: [03_animatic, 02_design/storyboard.yaml, 01_script/script.yaml]
 items:
   - id: ATC-A01
     group: Cấu trúc
-    title: Có file animatic
+    title: Có animatic và bảng thời gian
     severity: chan
     method: auto
     check: file_exists
-    params: {paths: [03_animatic/animatic.mp4]}
+    params: {paths: [03_animatic/animatic.mp4, 03_animatic/timing.yaml, 03_animatic/manifest.json]}
   - id: ATC-A02
     group: Kỹ thuật
     title: Animatic có cả hình và tiếng, thời lượng khớp nhau
     severity: nghiem_trong
     method: auto
     check: av_duration_match
-    params: {path: 03_animatic/animatic.mp4, max_diff_s: 0.5}
+    params: {path: 03_animatic/animatic.mp4, max_diff_s: 0.2}
+  - id: ATC-A03
+    group: Kỹ thuật
+    title: Định dạng nháp 960×636 @ 15 fps (hình 960×540 + dải phụ đề riêng)
+    severity: nhe
+    method: auto
+    check: video_format
+    params: {path: 03_animatic/animatic.mp4, width: 960, height: 636, fps: 15}
+  - id: ATC-A04
+    group: Đồng bộ
+    title: Animatic dựng từ đúng kịch bản, storyboard, giọng nháp hiện tại
+    severity: chan
+    method: auto
+    check: animatic_in_sync
+    params: {path: 03_animatic/animatic.mp4, manifest: 03_animatic/manifest.json}
+  - id: ATC-A05
+    group: Đồng bộ
+    title: Thời lượng video khớp bảng thời gian (±1 khung)
+    severity: chan
+    method: auto
+    check: animatic_duration
+    params: {path: 03_animatic/animatic.mp4, timing: 03_animatic/timing.yaml, max_diff_s: 0.07}
   - id: ATC-C01
     group: Nhịp
     title: Nhịp tổng thể không chậm, không dồn
     severity: chan
     method: ai
-    guidance: Xem hết animatic. Ghi mốc thời gian chỗ bị lê thê (> 4 giây không có thay đổi thị giác) hoặc chỗ dồn dập khó theo.
+    guidance: |
+      Xem hết animatic, hoặc trích khung mỗi 1 giây bằng ffmpeg và xem tuần tự, đối chiếu timing.yaml.
+      Ghi mốc thời gian chỗ lê thê (> 4 giây không có thay đổi thị giác) hoặc chỗ dồn dập (phần tử mới < 0,5 giây sau phần tử trước, liên tiếp ≥ 3 lần).
   - id: ATC-C02
     group: Truyền đạt
-    title: Chỉ nhìn hình (tắt tiếng) vẫn hiểu được mạch chính
+    title: Chỉ nhìn hình (bỏ phụ đề, tắt tiếng) vẫn hiểu được mạch chính
     severity: nghiem_trong
     method: ai
-    guidance: Nhiều người xem không bật tiếng. Ghi cảnh nào mất nghĩa khi tắt tiếng.
+    guidance: Che dải phụ đề, xem chuỗi khung. Ghi cảnh nào mất nghĩa khi không có lời.
   - id: ATC-C03
     group: Truyền đạt
     title: Chỉ nghe (không nhìn) vẫn không bị hiểu sai
     severity: nghiem_trong
     method: ai
-    guidance: Lời không được phụ thuộc vào "cái này, chỗ kia" mà thiếu ngữ cảnh.
+    allow_na: true
+    guidance: |
+      Cần giọng nháp. na CHỈ khi manifest.voice_source = estimate (chưa có giọng); phải ghi rõ, và mục này sẽ được kiểm ở cổng voice/mix.
+      Khi có giọng: lời không phụ thuộc "cái này, chỗ kia" mà thiếu ngữ cảnh.
   - id: ATC-C04
     group: Mở đầu
     title: 5 giây đầu có thay đổi thị giác mạnh và câu móc
     severity: nghiem_trong
     method: ai
-    guidance: Ghi rõ điều xảy ra ở giây 0–5.
+    guidance: Trích khung ở 0, 1, 2, 3, 4, 5 giây. Ghi rõ điều xảy ra.
   - id: ATC-C05
     group: Sửa sớm
     title: Không còn thay đổi lớn nào cần làm trước khi dựng hoạt ảnh thật
     severity: chan
     method: ai
-    guidance: Sau cổng này, đổi cấu trúc rất tốn kém. Nếu còn nghi ngờ về thứ tự cảnh hay lời thoại thì TRƯỢT và ghi rõ.
+    guidance: Sau cổng này, đổi cấu trúc rất tốn kém. Còn nghi ngờ về thứ tự cảnh, lời thoại hoặc độ dài thì TRƯỢT và ghi rõ.
+  - id: ATC-C06
+    group: Rủi ro
+    title: Nguồn thời lượng được biết rõ — giọng nháp thật, hoặc ghi nhận rủi ro của ước tính
+    severity: nhe
+    method: ai
+    guidance: |
+      Đọc manifest.voice_source và timing.yaml. Toàn bộ là ước tính thì TRƯỢT (nhẹ), kèm hướng: "kiểm lại nhịp ở cổng voice/timeline khi có giọng VieNeu".
+      Có giọng nháp thì ĐẠT, ghi số đoạn dùng giọng thật.

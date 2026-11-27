@@ -7,3 +7,4 @@
 | 2026-11-27T21:56:28+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261127-215542/report.md](script/20261127-215542/report.md) |
 | 2026-11-27T22:17:53+07:00 | design | ❌ KHÔNG ĐẠT | 84 | DSN-C02, DSN-C03, DSN-C06 | [design/20261127-221752/report.md](design/20261127-221752/report.md) |
 | 2026-11-27T22:18:32+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261127-221831/report.md](design/20261127-221831/report.md) |
+| 2026-11-27T22:26:12+07:00 | animatic | ✅ ĐẠT | 97 | ATC-C06 | [animatic/20261127-222612/report.md](animatic/20261127-222612/report.md) |

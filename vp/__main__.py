@@ -12,6 +12,7 @@
   script view <dự án>                          ghi bản đọc 01_script/script.md
   script lint <dự án>                          kiểm nhanh các mục tự động (không ghi nhật ký)
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
+  animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
 import argparse
 import json
@@ -21,7 +22,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
-from vp import design_tools, review, script_tools, stages
+from vp import animatic, design_tools, review, script_tools, stages
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -113,6 +114,13 @@ def cmd_design(a):
         _print_lint(design_tools.lint(p))
 
 
+def cmd_animatic(a):
+    out = animatic.build(Path(a.project), fps=a.fps, check_gate=True)
+    import json as _j
+    man = _j.loads((Path(a.project) / "03_animatic" / "manifest.json").read_text(encoding="utf-8"))
+    print(f"Đã dựng {out} — {man['total_s']:.1f}s, nguồn lời: {man['voice_source']}")
+
+
 def cmd_gate(a):
     g = review.gate(Path(a.project), a.stage)
     print(("MỞ: " if g.ok else "ĐÓNG: ") + g.message)
@@ -148,12 +156,14 @@ def main(argv=None):
     sc.add_argument("--force", action="store_true"); sc.set_defaults(fn=cmd_script)
     dz = sub.add_parser("design"); dz.add_argument("action", choices=["init", "view", "preview", "lint"])
     dz.add_argument("project"); dz.add_argument("--force", action="store_true"); dz.set_defaults(fn=cmd_design)
+    am = sub.add_parser("animatic"); am.add_argument("action", choices=["build"]); am.add_argument("project")
+    am.add_argument("--fps", type=int, default=15); am.set_defaults(fn=cmd_animatic)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
-            design_tools.DesignToolError) as e:
+            design_tools.DesignToolError, animatic.AnimaticError) as e:
         sys.exit(f"LỖI: {e}")
 
 
