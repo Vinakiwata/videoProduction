@@ -14,6 +14,7 @@
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
   voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
+  timeline build <dự án> [--breath 0.30]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
 import argparse
@@ -24,7 +25,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
-from vp import animatic, design_tools, review, script_tools, stages, voice
+from vp import animatic, design_tools, review, script_tools, stages, timeline, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -144,6 +145,14 @@ def cmd_voice(a):
         print(f"Đã chép {voice.to_animatic(p)} đoạn giọng sang 03_animatic/scratch_voice — dựng lại animatic và duyệt lại nhịp.")
 
 
+def cmd_timeline(a):
+    out = timeline.build(Path(a.project), breath=a.breath, breath_question=a.breath_question)
+    import yaml as _y
+    t = _y.safe_load(out.read_text(encoding="utf-8"))
+    print(f"Đã khoá timeline {out}: {t['total_frames']} khung = {t['total_s']}s @ {t['fps']:g} fps, "
+          f"{len(t['shots'])} khung hình, {len(t['cues'])} cue, {len(t['sfx'])} SFX; phụ đề 05_timeline/subtitles.srt")
+
+
 def cmd_gate(a):
     g = review.gate(Path(a.project), a.stage)
     print(("MỞ: " if g.ok else "ĐÓNG: ") + g.message)
@@ -187,12 +196,15 @@ def main(argv=None):
     vo.add_argument("--tempo", type=float, default=1.0, help="<1 làm chậm giọng, giữ cao độ (vd. 0.9)")
     vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
+    tlp = sub.add_parser("timeline"); tlp.add_argument("action", choices=["build"]); tlp.add_argument("project")
+    tlp.add_argument("--breath", type=float, default=0.30); tlp.add_argument("--breath-question", type=float, default=0.45)
+    tlp.set_defaults(fn=cmd_timeline)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
-            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError) as e:
+            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError) as e:
         sys.exit(f"LỖI: {e}")
 
 

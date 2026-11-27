@@ -1,50 +1,57 @@
-# Tool 5 — Timeline tổng (khoá). Mọi công đoạn sau dựng theo file này.
+# Tool 5 — Timeline tổng (khoá). Xem docs/superpowers/specs/2026-11-27-tool-timeline-design.md
 stage: timeline
-version: 1
+version: 2
 title: Kiểm duyệt timeline tổng
-artifacts: [05_timeline]
+artifacts: [05_timeline, 04_voice/voice_manifest.yaml, 02_design/storyboard.yaml, 01_script/script.yaml]
 items:
   - id: TML-A01
     group: Cấu trúc
-    title: Có timeline và phụ đề
+    title: Có timeline, phụ đề và manifest
     severity: chan
     method: auto
     check: file_exists
-    params: {paths: [05_timeline/timeline.yaml, 05_timeline/subtitles.srt]}
-  - id: TML-C01
+    params: {paths: [05_timeline/timeline.yaml, 05_timeline/subtitles.srt, 05_timeline/manifest.json]}
+  - id: TML-A02
     group: Đồng bộ
-    title: Mốc thời gian giọng lấy từ thời lượng đo thật, không phải ước tính
+    title: Timeline nhất quán — giọng khớp đo thật ±1 khung, khung hình phủ kín, cue nằm trong khung, thứ tự đúng kịch bản
     severity: chan
-    method: ai
-    guidance: Đối chiếu từng đoạn giọng trong timeline với 04_voice/voice_manifest.yaml. Lệch > 1 khung hình (33 ms ở 30 fps) là TRƯỢT.
-  - id: TML-C02
+    method: auto
+    check: timeline_consistency
+    params: {path: 05_timeline/timeline.yaml, script: 01_script/script.yaml, voice: 04_voice/voice_manifest.yaml}
+  - id: TML-A03
+    group: Phụ đề
+    title: Phụ đề ≤ 2 dòng, ≤ 42 ký tự/dòng, ≥ 1 giây, không chồng, chữ khớp lời
+    severity: chan
+    method: auto
+    check: subtitles_valid
+    params: {path: 05_timeline/subtitles.srt, script: 01_script/script.yaml, max_chars: 42, max_lines: 2, min_s: 1.0}
+  - id: TML-A04
     group: Đồng bộ
-    title: Phân tách rõ đoạn có giọng / không giọng, không chồng lấn
+    title: Timeline dựng từ đúng kịch bản, storyboard, giọng, brief hiện tại
     severity: chan
-    method: ai
-    guidance: Không có hai đoạn giọng chồng nhau. Khoảng im lặng có chủ đích được đánh dấu silent, không phải khe hở do lỗi.
+    method: auto
+    check: timeline_in_sync
+    params: {manifest: 05_timeline/manifest.json}
   - id: TML-C03
     group: Đồng bộ
-    title: Mọi hoạt ảnh và SFX neo vào mốc của giọng (từ khoá/đầu câu)
+    title: Mọi hoạt ảnh và SFX rơi đúng khoảnh khắc có nghĩa của lời
     severity: nghiem_trong
     method: ai
-    guidance: Mỗi cue hình hay SFX phải có anchor là mã đoạn kèm độ lệch, không dùng thời gian tuyệt đối "trôi nổi".
-  - id: TML-C04
-    group: Phụ đề
-    title: Phụ đề khớp lời đọc, ≤ 2 dòng, ≤ 42 ký tự/dòng, hiển thị ≥ 1 giây
-    severity: nghiem_trong
-    method: ai
-    guidance: Đối chiếu text phụ đề với kịch bản. Ghi dòng vi phạm.
+    guidance: |
+      Đối chiếu bảng cues/sfx (khung) với lời đọc từng đoạn: phần tử minh hoạ từ khoá phải vào ngay trước hoặc đúng lúc từ khoá
+      (ước theo vị trí âm tiết trong câu). Ghi cue nào vào muộn so với lời > 0,5 giây.
   - id: TML-C05
     group: Âm thanh
-    title: Nhạc nền có đánh dấu giảm âm (ducking) khi có giọng, và có nguồn/giấy phép
+    title: Nhạc nền có đánh dấu giảm âm (ducking) khi có giọng, có nguồn và giấy phép
     severity: nghiem_trong
     method: ai
     allow_na: true
-    guidance: na nếu không dùng nhạc nền. Nếu có nhạc thì phải ghi tên, nguồn, giấy phép.
-  - id: TML-C06
-    group: Tổng
-    title: Tổng thời lượng và thứ tự cảnh khớp kịch bản đã duyệt
-    severity: chan
+    guidance: na nếu chưa dùng nhạc nền ở công đoạn này (music rỗng). Nếu có nhạc thì ghi tên, nguồn, giấy phép.
+  - id: TML-C07
+    group: Nhịp
+    title: Nhịp thở giữa các câu tự nhiên — không hụt hơi, không lê thê
+    severity: nghiem_trong
     method: ai
-    guidance: Không được thêm, bớt hay đổi thứ tự cảnh so với kịch bản đã qua cổng.
+    guidance: |
+      Đọc params và breath_s của từng đoạn: giữa hai câu liền mạch khoảng 0,25–0,5 giây; sau câu hỏi hoặc ý lớn dài hơn.
+      Khi nghe được thì nghe bản giọng nối theo timeline. Ghi chỗ dồn hoặc chỗ hẫng.
