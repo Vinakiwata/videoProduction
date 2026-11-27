@@ -1,0 +1,52 @@
+# Tool 7 — Render từng khung hình có kiểm soát (thay cho quay màn hình). Ra video chưa có tiếng.
+stage: render
+version: 1
+title: Kiểm duyệt render khung hình
+artifacts: [08_render]
+items:
+  - id: RND-A01
+    group: Cấu trúc
+    title: Có video render
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [08_render/video_silent.mp4]}
+  - id: RND-A02
+    group: Kỹ thuật
+    title: Đúng 1920×1080, 30 fps, H.264, yuv420p
+    severity: chan
+    method: auto
+    check: video_format
+    params: {path: 08_render/video_silent.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+  - id: RND-A03
+    group: Kỹ thuật
+    title: Không có khung đen ngoài ý muốn (> 0,2 giây)
+    severity: chan
+    method: auto
+    check: black_frames
+    params: {path: 08_render/video_silent.mp4, max_black_s: 0.2}
+  - id: RND-A04
+    group: Kỹ thuật
+    title: Không đứng hình quá 4 giây
+    severity: nghiem_trong
+    method: auto
+    check: freeze_frames
+    params: {path: 08_render/video_silent.mp4, max_freeze_s: 4.0}
+  - id: RND-C01
+    group: Đồng bộ
+    title: Số khung hình = thời lượng timeline × fps (không rớt, không thừa khung)
+    severity: chan
+    method: ai
+    guidance: Dùng ffprobe -count_frames so với tổng thời lượng trong 05_timeline/timeline.yaml.
+  - id: RND-C02
+    group: Chất lượng hình
+    title: Lấy mẫu khung tại mỗi đầu cảnh — giống ảnh chụp từ web trình chiếu
+    severity: nghiem_trong
+    method: ai
+    guidance: Trích khung ở đầu mỗi cảnh, so với ảnh chụp tương ứng từ 07_presentation. Ghi khác biệt (mờ, sai màu, banding).
+  - id: RND-C03
+    group: Chất lượng hình
+    title: Bitrate đủ cao, không vỡ khối (blocking) ở cảnh chuyển động nhiều
+    severity: nghiem_trong
+    method: ai
+    guidance: Xem chậm các cảnh chuyển động mạnh. Khuyến nghị CRF ≤ 18 cho bản master.

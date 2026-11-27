@@ -1,0 +1,186 @@
+# Phần chấm cho các mục phán đoán (method: ai).
+# verdict: pass | fail | na   — evidence bắt buộc (≥20 ký tự, trích dẫn/vị trí/số liệu)
+# fail bắt buộc có fix. na chỉ dùng khi mục cho phép (allow_na) và phải nêu lý do.
+# Không được chấm các mục auto.
+
+# [Chặn] Mọi khẳng định sự thật đều đúng
+#   Liệt kê từng khẳng định có thể kiểm chứng (số liệu, ngày tháng, tên, quan hệ nhân quả, "nghiên cứu cho thấy").
+#   Đối chiếu với nguồn đáng tin (cơ quan nhà nước, tổ chức khoa học, tạp chí bình duyệt, tài liệu gốc); tra web khi không chắc.
+#   ĐẠT: mọi khẳng định đúng. Ghi số khẳng định đã kiểm và nguồn đối chiếu.
+#   TRƯỢT: có một khẳng định sai hoặc gây hiểu nhầm. Ghi mã đoạn, câu sai, sự thật đúng kèm nguồn.
+SCR-F01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Khẳng định quan trọng có nguồn ghi trong kịch bản
+#   Mọi số liệu và khẳng định không phải kiến thức phổ thông phải có source_ids, và nguồn phải thật sự nói điều đó.
+#   TRƯỢT: có khẳng định quan trọng thiếu nguồn, hoặc nguồn không hỗ trợ khẳng định. Ghi mã đoạn.
+SCR-F02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Không đơn giản hoá tới mức sai bản chất
+#   Đơn giản hoá được phép nhưng không được tạo hiểu lầm (ví dụ: "lưỡi có vùng vị giác riêng" là sai).
+#   TRƯỢT: ghi đoạn nào, hiểu lầm gì, cách nói đúng mà vẫn dễ hiểu.
+SCR-F03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không có nội dung bị cấm trên không gian mạng
+#   Căn cứ: Luật An ninh mạng 116/2025/QH15 (hiệu lực 01/7/2026) và các văn bản hướng dẫn.
+#   TRƯỢT nếu có: chống Nhà nước, xuyên tạc lịch sử, chia rẽ dân tộc/tôn giáo; kích động bạo lực, khủng bố;
+#   đồi truỵ, tệ nạn; xúc phạm danh dự, nhân phẩm, uy tín cá nhân hoặc tổ chức; vu khống; thông tin sai sự thật gây hoang mang.
+#   Ghi đoạn vi phạm và căn cứ.
+SCR-L01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không thông tin sai sự thật, giả mạo về cá nhân/tổ chức/sự kiện có thật
+#   Căn cứ: Nghị định 174/2026/NĐ-CP về xử phạt thông tin sai sự thật trên mạng (hiệu lực 01/7/2026).
+#   Nhắc tới người hoặc tổ chức có thật thì chỉ được nêu sự thật có nguồn. Không bịa lời nói, không gán hành vi.
+SCR-L02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Nếu có quảng cáo/tài trợ — tuân thủ Luật Quảng cáo  (được phép na)
+#   Căn cứ: Luật sửa đổi Luật Quảng cáo 75/2025/QH15 (hiệu lực 01/01/2026) và Nghị định 342/2025/NĐ-CP.
+#   Áp dụng khi brief.is_advertising = true, hoặc kịch bản giới thiệu sản phẩm/dịch vụ/thương hiệu.
+#   ĐẠT: nội dung trung thực, chính xác, không gây hiểu nhầm; có thông báo rõ đây là quảng cáo; không so sánh hạ thấp đối thủ;
+#   không quảng cáo hàng cấm; nhóm hàng đặc biệt (thực phẩm chức năng, thuốc, mỹ phẩm, y tế, tài chính) có cảnh báo hoặc giấy tờ theo luật.
+#   na: chỉ khi video không quảng cáo gì. Phải nêu rõ lý do.
+SCR-L03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không xâm phạm đời tư, hình ảnh, dữ liệu cá nhân
+#   Không nêu thông tin cá nhân của người thật (tên + địa chỉ, số điện thoại, bệnh án…) khi chưa có đồng ý.
+#   Không dùng tên hay hình ảnh người thật để quảng bá khi chưa có đồng ý.
+SCR-L04:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Nội dung chuyên môn nhạy cảm (y tế, pháp lý, tài chính) có giới hạn trách nhiệm  (được phép na)
+#   Nếu đưa lời khuyên sức khoẻ, pháp lý, đầu tư: không hứa hẹn kết quả, có câu khuyến nghị hỏi chuyên gia, không chẩn đoán hay kê đơn.
+#   na khi video không có nội dung loại này.
+SCR-L05:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không vi phạm Nguyên tắc cộng đồng YouTube
+#   Kiểm tra: thông tin sai lệch về y tế/bầu cử, nội dung nguy hiểm (thử thách nguy hiểm, hướng dẫn gây hại), quấy rối, thù ghét, lừa đảo, spam.
+#   Nội dung có thể hướng tới trẻ em phải phù hợp với trẻ em.
+SCR-P01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không dùng tác phẩm có bản quyền của người khác
+#   Không trích lời bài hát, thơ, đoạn văn dài, nhân vật hay thương hiệu của người khác (ngoài trích dẫn ngắn có nguồn).
+#   Mọi mô tả hình ảnh (visual) không được yêu cầu vẽ lại nhân vật, logo hay tác phẩm có bản quyền.
+SCR-P02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Tiêu đề/nội dung không câu view sai sự thật
+#   Lời hứa ở mở đầu phải được thực hiện trong video. Không phóng đại kiểu "100% hiệu quả", "bí mật không ai biết" khi không đúng.
+SCR-P03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Khớp brief (mục tiêu, khán giả, giọng điệu, CTA)
+#   So từng trường của 00_brief/brief.yaml với kịch bản. TRƯỢT nếu lệch mục tiêu, sai khán giả, sai giọng điệu, hoặc thiếu CTA đã yêu cầu.
+SCR-Q01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Mở đầu giữ chân người xem trong 5 giây đầu
+#   Trong 5 giây đầu phải có câu hỏi, mâu thuẫn, hình ảnh bất ngờ hoặc lời hứa giá trị. Không chào hỏi dài, không giới thiệu kênh trước.
+#   Ghi đoạn mở đầu và cơ chế giữ chân đang dùng.
+SCR-Q02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Mạch logic rõ — mỗi cảnh một ý, chuyển ý có cầu nối
+#   Tóm mỗi cảnh trong một câu. Nếu không tóm được, hoặc hai cảnh trùng ý, hoặc có bước nhảy logic khiến người xem bị lạc thì TRƯỢT.
+SCR-Q03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Đúng trình độ khán giả, thuật ngữ được giải thích
+#   Mỗi thuật ngữ chuyên môn phải được giải thích ngay lần đầu xuất hiện, bằng lời hoặc bằng hình. Không giải thích thừa điều khán giả đã biết.
+SCR-Q04:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nhẹ] Kết thúc có chốt ý và CTA tự nhiên
+#   Đoạn cuối nhắc lại ý chính trong một câu, CTA ngắn, không kéo dài sau khi nội dung đã hết.
+SCR-Q05:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nhẹ] Nhịp độ có điểm nghỉ (đoạn im lặng/điểm rơi) hợp lý
+#   Sau thông tin quan trọng hoặc khó, có khoảng nghỉ hoặc hình minh hoạ để người xem kịp hiểu. Không dồn 3 đoạn dày thông tin liên tiếp.
+SCR-Q06:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Chính tả, dấu tiếng Việt, ngữ pháp đúng
+#   Đọc từng đoạn. TRƯỢT nếu có lỗi chính tả, sai dấu, sai từ, câu què. Ghi mã đoạn, lỗi và bản sửa.
+SCR-V01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Văn nói tự nhiên — viết để nghe, không phải để đọc
+#   Câu ngắn (≤ 25 âm tiết là lý tưởng), không lồng nhiều mệnh đề, không dùng ký hiệu (%, →, /) trong lời đọc.
+#   Đọc thầm thành tiếng: chỗ nào vấp là TRƯỢT.
+SCR-V02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Số, viết tắt, từ nước ngoài có cách đọc rõ cho TTS
+#   VieNeu-TTS đọc tiếng Anh còn ngọng. Mọi số liệu, năm, đơn vị, viết tắt (NASA, AI, km/h), tên riêng nước ngoài
+#   phải được viết thành chữ trong text, hoặc có trong meta.pronunciation. Ghi từng từ chưa xử lý.
+SCR-V03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nhẹ] Thẻ cảm xúc dùng đúng chỗ, không lạm dụng  (được phép na)
+#   Thẻ [cười], [thở dài], [hắng giọng] chỉ dùng khi hợp ngữ cảnh, tối đa khoảng 1 thẻ cho mỗi 30 giây. na nếu không dùng thẻ nào.
+SCR-V04:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Mô tả hình ảnh đủ cụ thể để thiết kế 2D
+#   Mỗi đoạn có visual nêu được: đối tượng chính, hành động/chuyển động, và điều người xem cần nhận ra.
+#   TRƯỢT nếu mô tả chung chung ("hình minh hoạ", "cảnh đẹp").
+SCR-D01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Hình ảnh khả thi bằng hoạt ảnh 2D vector, không cần quay thật
+#   Không yêu cầu cảnh quay người thật, ảnh chụp thật hay mặt người thật nhận diện được. Mọi thứ vẽ được bằng 2D.
+SCR-D02:
+  verdict: ""
+  evidence: ""
+  fix: ""

@@ -1,0 +1,55 @@
+meta:
+  title: Vì sao bầu trời có màu xanh
+  language: vi
+  target_duration_s: 30
+  audience: Học sinh trung học và người lớn tò mò
+  goal: Giải thích hiện tượng tán xạ Rayleigh bằng hình ảnh dễ hiểu
+sources:
+  - id: SRC1
+    title: NASA Space Place - Why is the sky blue?
+    url: https://spaceplace.nasa.gov/blue-sky/
+    accessed: 2026-11-27
+scenes:
+  - id: S01
+    title: Mở đầu
+    purpose: Đặt câu hỏi gây tò mò
+    segments:
+      - id: S01-01
+        kind: voice
+        text: Bạn có bao giờ tự hỏi vì sao bầu trời lại có màu xanh không?
+        est_duration_s: 4
+        visual: Bầu trời xanh, dấu chấm hỏi lớn bật ra
+      - id: S01-02
+        kind: silent
+        est_duration_s: 1
+        visual: Dấu chấm hỏi xoay nhẹ, tiếng "pop"
+  - id: S02
+    title: Giải thích
+    purpose: Trình bày tán xạ Rayleigh
+    segments:
+      - id: S02-01
+        kind: voice
+        text: Ánh sáng Mặt Trời là hỗn hợp của nhiều màu, mỗi màu có bước sóng khác nhau.
+        est_duration_s: 6
+        visual: Tia sáng trắng tách thành dải cầu vồng
+      - id: S02-02
+        kind: voice
+        text: Khi đi qua khí quyển, ánh sáng xanh có bước sóng ngắn bị các phân tử khí tán xạ mạnh hơn nhiều.
+        est_duration_s: 7
+        visual: Tia xanh dội lung tung giữa các phân tử
+        source_ids: [SRC1]
+      - id: S02-03
+        kind: voice
+        text: Ánh sáng xanh lan khắp bầu trời, nên nhìn đâu ta cũng thấy màu xanh.
+        est_duration_s: 6
+        visual: Bầu trời phủ dần màu xanh
+        source_ids: [SRC1]
+  - id: S03
+    title: Kết
+    purpose: Chốt ý và kêu gọi
+    segments:
+      - id: S03-01
+        kind: voice
+        text: Lần tới ngắm trời, hãy nhớ đó là ánh sáng đang nhảy múa quanh bạn.
+        est_duration_s: 5
+        visual: Nhân vật ngước nhìn trời, mỉm cười

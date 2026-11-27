@@ -1,0 +1,17 @@
+title: Vì sao bầu trời có màu xanh
+goal: Giải thích một hiện tượng khoa học trong 30 giây, người xem hiểu và muốn xem tiếp kênh
+audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
+channel: youtube
+format:
+  width: 1920
+  height: 1080
+  fps: 30
+target_duration_s: 30
+tone: Thân thiện, tò mò, rõ ràng
+cta: Đăng ký kênh để xem thêm hiện tượng khoa học
+brand:
+  colors: ["#0B3D91", "#FFD23F", "#FFFFFF"]
+  fonts: ["Be Vietnam Pro"]
+  voice: "VieNeu-TTS: Ngọc Lan"
+constraints:
+  - Không dùng hình ảnh có bản quyền của bên thứ ba

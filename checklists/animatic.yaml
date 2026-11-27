@@ -1,0 +1,49 @@
+stage: animatic
+version: 1
+title: Kiểm duyệt animatic (bản nháp thô)
+artifacts: [03_animatic]
+items:
+  - id: ATC-A01
+    group: Cấu trúc
+    title: Có file animatic
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [03_animatic/animatic.mp4]}
+  - id: ATC-A02
+    group: Kỹ thuật
+    title: Animatic có cả hình và tiếng, thời lượng khớp nhau
+    severity: nghiem_trong
+    method: auto
+    check: av_duration_match
+    params: {path: 03_animatic/animatic.mp4, max_diff_s: 0.5}
+  - id: ATC-C01
+    group: Nhịp
+    title: Nhịp tổng thể không chậm, không dồn
+    severity: chan
+    method: ai
+    guidance: Xem hết animatic. Ghi mốc thời gian chỗ bị lê thê (> 4 giây không có thay đổi thị giác) hoặc chỗ dồn dập khó theo.
+  - id: ATC-C02
+    group: Truyền đạt
+    title: Chỉ nhìn hình (tắt tiếng) vẫn hiểu được mạch chính
+    severity: nghiem_trong
+    method: ai
+    guidance: Nhiều người xem không bật tiếng. Ghi cảnh nào mất nghĩa khi tắt tiếng.
+  - id: ATC-C03
+    group: Truyền đạt
+    title: Chỉ nghe (không nhìn) vẫn không bị hiểu sai
+    severity: nghiem_trong
+    method: ai
+    guidance: Lời không được phụ thuộc vào "cái này, chỗ kia" mà thiếu ngữ cảnh.
+  - id: ATC-C04
+    group: Mở đầu
+    title: 5 giây đầu có thay đổi thị giác mạnh và câu móc
+    severity: nghiem_trong
+    method: ai
+    guidance: Ghi rõ điều xảy ra ở giây 0–5.
+  - id: ATC-C05
+    group: Sửa sớm
+    title: Không còn thay đổi lớn nào cần làm trước khi dựng hoạt ảnh thật
+    severity: chan
+    method: ai
+    guidance: Sau cổng này, đổi cấu trúc rất tốn kém. Nếu còn nghi ngờ về thứ tự cảnh hay lời thoại thì TRƯỢT và ghi rõ.

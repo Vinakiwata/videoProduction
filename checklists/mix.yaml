@@ -1,0 +1,64 @@
+# Tool 9 — Mix giọng + nhạc + SFX, ghép với hình, gắn phụ đề.
+stage: mix
+version: 1
+title: Kiểm duyệt mix âm thanh & ghép video
+artifacts: [09_mix]
+items:
+  - id: MIX-A01
+    group: Cấu trúc
+    title: Có video đã ghép và phụ đề
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [09_mix/video.mp4, 09_mix/subtitles.srt]}
+  - id: MIX-A02
+    group: Kỹ thuật
+    title: Độ to chuẩn YouTube −14 LUFS ±1, đỉnh thực ≤ −1 dBTP
+    severity: chan
+    method: auto
+    check: audio_loudness
+    params: {path: 09_mix/video.mp4, target_lufs: -14, tolerance: 1.0, max_true_peak: -1.0}
+  - id: MIX-A03
+    group: Kỹ thuật
+    title: Hình và tiếng dài bằng nhau (lệch ≤ 1 khung)
+    severity: chan
+    method: auto
+    check: av_duration_match
+    params: {path: 09_mix/video.mp4, max_diff_s: 0.034}
+  - id: MIX-A04
+    group: Kỹ thuật
+    title: Định dạng video giữ nguyên sau khi ghép
+    severity: chan
+    method: auto
+    check: video_format
+    params: {path: 09_mix/video.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+  - id: MIX-C01
+    group: Đồng bộ
+    title: Giọng khớp hình tại mọi điểm neo (lệch ≤ 2 khung)
+    severity: chan
+    method: ai
+    guidance: Kiểm tra từng cue neo trong timeline (đầu câu, từ khoá, SFX). Ghi mốc lệch.
+  - id: MIX-C02
+    group: Âm thanh
+    title: Giọng luôn rõ hơn nhạc nền (nhạc thấp hơn giọng ≥ 12 dB khi có lời)
+    severity: chan
+    method: ai
+    guidance: Nghe toàn bộ video bằng tai nghe và loa điện thoại. Ghi đoạn bị nhạc lấn giọng.
+  - id: MIX-C03
+    group: Âm thanh
+    title: SFX đúng lúc, đúng độ to, không giật tai
+    severity: nghiem_trong
+    method: ai
+    guidance: SFX không được to hơn giọng. Không có tiếng click hay pop do cắt ghép sai.
+  - id: MIX-C04
+    group: Âm thanh
+    title: Đầu/cuối video không có tiếng bị cắt cụt, có fade hợp lý
+    severity: nghiem_trong
+    method: ai
+    guidance: Nghe 2 giây đầu và 2 giây cuối.
+  - id: MIX-C05
+    group: Phụ đề
+    title: Phụ đề khớp tiếng (lệch ≤ 0,2 giây) và đúng chính tả
+    severity: nghiem_trong
+    method: ai
+    guidance: Kiểm tra ngẫu nhiên ít nhất 10 dòng, cùng dòng đầu và dòng cuối.

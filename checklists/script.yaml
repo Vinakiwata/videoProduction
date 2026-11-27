@@ -1,0 +1,248 @@
+# Tool 2 — Kiểm duyệt kịch bản. Cổng quan trọng nhất: lỗi lọt qua đây sẽ nhân lên ở mọi công đoạn sau.
+stage: script
+version: 1
+title: Kiểm duyệt kịch bản
+artifacts: [01_script/script.yaml, 00_brief/brief.yaml]
+items:
+  # ---------- Cấu trúc (máy đo) ----------
+  - id: SCR-A01
+    group: Cấu trúc
+    title: Kịch bản đúng định dạng chuẩn (schema)
+    severity: chan
+    method: auto
+    check: yaml_schema
+    params: {path: 01_script/script.yaml, schema: script}
+  - id: SCR-A02
+    group: Cấu trúc
+    title: Mã cảnh/đoạn không trùng
+    severity: chan
+    method: auto
+    check: script_unique_ids
+    params: {path: 01_script/script.yaml}
+  - id: SCR-A03
+    group: Cấu trúc
+    title: Mọi trích dẫn trỏ tới nguồn có thật trong danh sách
+    severity: chan
+    method: auto
+    check: script_source_refs
+    params: {path: 01_script/script.yaml}
+  - id: SCR-A04
+    group: Cấu trúc
+    title: Không còn chỗ trống / đánh dấu tạm (TODO, ???, [..])
+    severity: chan
+    method: auto
+    check: script_no_placeholders
+    params: {path: 01_script/script.yaml}
+  - id: SCR-A05
+    group: Cấu trúc
+    title: Mỗi đoạn giọng ≤ 300 ký tự
+    severity: nghiem_trong
+    method: auto
+    check: script_segment_length
+    params: {path: 01_script/script.yaml, max_chars: 300}
+  - id: SCR-A06
+    group: Cấu trúc
+    title: Tốc độ đọc tự nhiên (2,5–4,0 âm tiết/giây)
+    severity: nghiem_trong
+    method: auto
+    check: script_reading_speed
+    params: {path: 01_script/script.yaml, min_sps: 2.5, max_sps: 4.0}
+  - id: SCR-A07
+    group: Cấu trúc
+    title: Tổng thời lượng ước tính khớp mục tiêu (±15%)
+    severity: nghiem_trong
+    method: auto
+    check: script_total_duration
+    params: {path: 01_script/script.yaml, tolerance: 0.15}
+
+  # ---------- Sự thật & nguồn ----------
+  - id: SCR-F01
+    group: Sự thật & nguồn
+    title: Mọi khẳng định sự thật đều đúng
+    severity: chan
+    method: ai
+    guidance: |
+      Liệt kê từng khẳng định có thể kiểm chứng (số liệu, ngày tháng, tên, quan hệ nhân quả, "nghiên cứu cho thấy").
+      Đối chiếu với nguồn đáng tin (cơ quan nhà nước, tổ chức khoa học, tạp chí bình duyệt, tài liệu gốc); tra web khi không chắc.
+      ĐẠT: mọi khẳng định đúng. Ghi số khẳng định đã kiểm và nguồn đối chiếu.
+      TRƯỢT: có một khẳng định sai hoặc gây hiểu nhầm. Ghi mã đoạn, câu sai, sự thật đúng kèm nguồn.
+  - id: SCR-F02
+    group: Sự thật & nguồn
+    title: Khẳng định quan trọng có nguồn ghi trong kịch bản
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Mọi số liệu và khẳng định không phải kiến thức phổ thông phải có source_ids, và nguồn phải thật sự nói điều đó.
+      TRƯỢT: có khẳng định quan trọng thiếu nguồn, hoặc nguồn không hỗ trợ khẳng định. Ghi mã đoạn.
+  - id: SCR-F03
+    group: Sự thật & nguồn
+    title: Không đơn giản hoá tới mức sai bản chất
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Đơn giản hoá được phép nhưng không được tạo hiểu lầm (ví dụ: "lưỡi có vùng vị giác riêng" là sai).
+      TRƯỢT: ghi đoạn nào, hiểu lầm gì, cách nói đúng mà vẫn dễ hiểu.
+
+  # ---------- Pháp luật Việt Nam ----------
+  - id: SCR-L01
+    group: Pháp luật
+    title: Không có nội dung bị cấm trên không gian mạng
+    severity: chan
+    method: ai
+    guidance: |
+      Căn cứ: Luật An ninh mạng 116/2025/QH15 (hiệu lực 01/7/2026) và các văn bản hướng dẫn.
+      TRƯỢT nếu có: chống Nhà nước, xuyên tạc lịch sử, chia rẽ dân tộc/tôn giáo; kích động bạo lực, khủng bố;
+      đồi truỵ, tệ nạn; xúc phạm danh dự, nhân phẩm, uy tín cá nhân hoặc tổ chức; vu khống; thông tin sai sự thật gây hoang mang.
+      Ghi đoạn vi phạm và căn cứ.
+  - id: SCR-L02
+    group: Pháp luật
+    title: Không thông tin sai sự thật, giả mạo về cá nhân/tổ chức/sự kiện có thật
+    severity: chan
+    method: ai
+    guidance: |
+      Căn cứ: Nghị định 174/2026/NĐ-CP về xử phạt thông tin sai sự thật trên mạng (hiệu lực 01/7/2026).
+      Nhắc tới người hoặc tổ chức có thật thì chỉ được nêu sự thật có nguồn. Không bịa lời nói, không gán hành vi.
+  - id: SCR-L03
+    group: Pháp luật
+    title: Nếu có quảng cáo/tài trợ — tuân thủ Luật Quảng cáo
+    severity: chan
+    method: ai
+    allow_na: true
+    guidance: |
+      Căn cứ: Luật sửa đổi Luật Quảng cáo 75/2025/QH15 (hiệu lực 01/01/2026) và Nghị định 342/2025/NĐ-CP.
+      Áp dụng khi brief.is_advertising = true, hoặc kịch bản giới thiệu sản phẩm/dịch vụ/thương hiệu.
+      ĐẠT: nội dung trung thực, chính xác, không gây hiểu nhầm; có thông báo rõ đây là quảng cáo; không so sánh hạ thấp đối thủ;
+      không quảng cáo hàng cấm; nhóm hàng đặc biệt (thực phẩm chức năng, thuốc, mỹ phẩm, y tế, tài chính) có cảnh báo hoặc giấy tờ theo luật.
+      na: chỉ khi video không quảng cáo gì. Phải nêu rõ lý do.
+  - id: SCR-L04
+    group: Pháp luật
+    title: Không xâm phạm đời tư, hình ảnh, dữ liệu cá nhân
+    severity: chan
+    method: ai
+    guidance: |
+      Không nêu thông tin cá nhân của người thật (tên + địa chỉ, số điện thoại, bệnh án…) khi chưa có đồng ý.
+      Không dùng tên hay hình ảnh người thật để quảng bá khi chưa có đồng ý.
+  - id: SCR-L05
+    group: Pháp luật
+    title: Nội dung chuyên môn nhạy cảm (y tế, pháp lý, tài chính) có giới hạn trách nhiệm
+    severity: nghiem_trong
+    method: ai
+    allow_na: true
+    guidance: |
+      Nếu đưa lời khuyên sức khoẻ, pháp lý, đầu tư: không hứa hẹn kết quả, có câu khuyến nghị hỏi chuyên gia, không chẩn đoán hay kê đơn.
+      na khi video không có nội dung loại này.
+
+  # ---------- Nền tảng & bản quyền ----------
+  - id: SCR-P01
+    group: Nền tảng
+    title: Không vi phạm Nguyên tắc cộng đồng YouTube
+    severity: chan
+    method: ai
+    guidance: |
+      Kiểm tra: thông tin sai lệch về y tế/bầu cử, nội dung nguy hiểm (thử thách nguy hiểm, hướng dẫn gây hại), quấy rối, thù ghét, lừa đảo, spam.
+      Nội dung có thể hướng tới trẻ em phải phù hợp với trẻ em.
+  - id: SCR-P02
+    group: Nền tảng
+    title: Không dùng tác phẩm có bản quyền của người khác
+    severity: chan
+    method: ai
+    guidance: |
+      Không trích lời bài hát, thơ, đoạn văn dài, nhân vật hay thương hiệu của người khác (ngoài trích dẫn ngắn có nguồn).
+      Mọi mô tả hình ảnh (visual) không được yêu cầu vẽ lại nhân vật, logo hay tác phẩm có bản quyền.
+  - id: SCR-P03
+    group: Nền tảng
+    title: Tiêu đề/nội dung không câu view sai sự thật
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Lời hứa ở mở đầu phải được thực hiện trong video. Không phóng đại kiểu "100% hiệu quả", "bí mật không ai biết" khi không đúng.
+
+  # ---------- Chất lượng nội dung ----------
+  - id: SCR-Q01
+    group: Chất lượng
+    title: Khớp brief (mục tiêu, khán giả, giọng điệu, CTA)
+    severity: chan
+    method: ai
+    guidance: |
+      So từng trường của 00_brief/brief.yaml với kịch bản. TRƯỢT nếu lệch mục tiêu, sai khán giả, sai giọng điệu, hoặc thiếu CTA đã yêu cầu.
+  - id: SCR-Q02
+    group: Chất lượng
+    title: Mở đầu giữ chân người xem trong 5 giây đầu
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Trong 5 giây đầu phải có câu hỏi, mâu thuẫn, hình ảnh bất ngờ hoặc lời hứa giá trị. Không chào hỏi dài, không giới thiệu kênh trước.
+      Ghi đoạn mở đầu và cơ chế giữ chân đang dùng.
+  - id: SCR-Q03
+    group: Chất lượng
+    title: Mạch logic rõ — mỗi cảnh một ý, chuyển ý có cầu nối
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Tóm mỗi cảnh trong một câu. Nếu không tóm được, hoặc hai cảnh trùng ý, hoặc có bước nhảy logic khiến người xem bị lạc thì TRƯỢT.
+  - id: SCR-Q04
+    group: Chất lượng
+    title: Đúng trình độ khán giả, thuật ngữ được giải thích
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Mỗi thuật ngữ chuyên môn phải được giải thích ngay lần đầu xuất hiện, bằng lời hoặc bằng hình. Không giải thích thừa điều khán giả đã biết.
+  - id: SCR-Q05
+    group: Chất lượng
+    title: Kết thúc có chốt ý và CTA tự nhiên
+    severity: nhe
+    method: ai
+    guidance: Đoạn cuối nhắc lại ý chính trong một câu, CTA ngắn, không kéo dài sau khi nội dung đã hết.
+  - id: SCR-Q06
+    group: Chất lượng
+    title: Nhịp độ có điểm nghỉ (đoạn im lặng/điểm rơi) hợp lý
+    severity: nhe
+    method: ai
+    guidance: Sau thông tin quan trọng hoặc khó, có khoảng nghỉ hoặc hình minh hoạ để người xem kịp hiểu. Không dồn 3 đoạn dày thông tin liên tiếp.
+
+  # ---------- Ngôn ngữ & khả năng đọc của TTS ----------
+  - id: SCR-V01
+    group: Ngôn ngữ
+    title: Chính tả, dấu tiếng Việt, ngữ pháp đúng
+    severity: chan
+    method: ai
+    guidance: Đọc từng đoạn. TRƯỢT nếu có lỗi chính tả, sai dấu, sai từ, câu què. Ghi mã đoạn, lỗi và bản sửa.
+  - id: SCR-V02
+    group: Ngôn ngữ
+    title: Văn nói tự nhiên — viết để nghe, không phải để đọc
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Câu ngắn (≤ 25 âm tiết là lý tưởng), không lồng nhiều mệnh đề, không dùng ký hiệu (%, →, /) trong lời đọc.
+      Đọc thầm thành tiếng: chỗ nào vấp là TRƯỢT.
+  - id: SCR-V03
+    group: Ngôn ngữ
+    title: Số, viết tắt, từ nước ngoài có cách đọc rõ cho TTS
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      VieNeu-TTS đọc tiếng Anh còn ngọng. Mọi số liệu, năm, đơn vị, viết tắt (NASA, AI, km/h), tên riêng nước ngoài
+      phải được viết thành chữ trong text, hoặc có trong meta.pronunciation. Ghi từng từ chưa xử lý.
+  - id: SCR-V04
+    group: Ngôn ngữ
+    title: Thẻ cảm xúc dùng đúng chỗ, không lạm dụng
+    severity: nhe
+    method: ai
+    allow_na: true
+    guidance: Thẻ [cười], [thở dài], [hắng giọng] chỉ dùng khi hợp ngữ cảnh, tối đa khoảng 1 thẻ cho mỗi 30 giây. na nếu không dùng thẻ nào.
+
+  # ---------- Khả năng sản xuất ----------
+  - id: SCR-D01
+    group: Khả năng sản xuất
+    title: Mô tả hình ảnh đủ cụ thể để thiết kế 2D
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Mỗi đoạn có visual nêu được: đối tượng chính, hành động/chuyển động, và điều người xem cần nhận ra.
+      TRƯỢT nếu mô tả chung chung ("hình minh hoạ", "cảnh đẹp").
+  - id: SCR-D02
+    group: Khả năng sản xuất
+    title: Hình ảnh khả thi bằng hoạt ảnh 2D vector, không cần quay thật
+    severity: nghiem_trong
+    method: ai
+    guidance: Không yêu cầu cảnh quay người thật, ảnh chụp thật hay mặt người thật nhận diện được. Mọi thứ vẽ được bằng 2D.

@@ -1,0 +1,10 @@
+[project]
+name = "vp"
+version = "0.1.0"
+description = "Dây chuyền sản xuất video bằng code"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6", "jsonschema>=4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]

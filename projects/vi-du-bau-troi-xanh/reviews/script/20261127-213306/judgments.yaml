@@ -1,0 +1,70 @@
+SCR-F01:
+  verdict: pass
+  evidence: 'Có 3 khẳng định: S02-01 ánh sáng Mặt Trời gồm nhiều màu, mỗi màu một bước sóng; S02-02 ánh sáng xanh bước sóng ngắn bị phân tử khí làm bật ra mọi hướng; S03-01 vì vậy cả bầu trời trông xanh. Đối chiếu NASA Space Place (spaceplace.nasa.gov/blue-sky, tra 2026-11-27): khớp cả 3. Tán xạ Rayleigh đúng là phát tán theo mọi hướng.'
+SCR-F02:
+  verdict: pass
+  evidence: S02-02 và S03-01 (hai khẳng định cốt lõi) có source_ids [SRC1], và nguồn hỗ trợ đúng nội dung. S02-01 là kiến thức phổ thông, cũng được SRC1 xác nhận.
+SCR-F03:
+  verdict: pass
+  evidence: Bỏ qua chi tiết ánh sáng tím (tán xạ mạnh hơn nhưng mắt kém nhạy và Mặt Trời phát ít hơn). "Bật tung ra mọi hướng" là cách nói hình ảnh đúng bản chất tán xạ. Không câu nào sai.
+SCR-L01:
+  verdict: pass
+  evidence: 'Đối chiếu nhóm nội dung cấm theo Luật An ninh mạng 116/2025/QH15: chỉ có nội dung vật lý phổ thông, không chính trị, tôn giáo, bạo lực, đồi truỵ, xúc phạm.'
+SCR-L02:
+  verdict: pass
+  evidence: Lời đọc không nhắc cá nhân, tổ chức hay sự kiện có thật nào. NASA chỉ xuất hiện trong danh sách nguồn.
+SCR-L03:
+  verdict: na
+  evidence: brief.is_advertising = false. CTA chỉ là đăng ký kênh của chính mình, không quảng bá sản phẩm hay thương hiệu nào.
+SCR-L04:
+  verdict: pass
+  evidence: Không có tên, hình ảnh hay dữ liệu người thật. Bản này đã bỏ nhân vật, các visual chỉ còn thiên nhiên, tia sáng, phân tử, nút đăng ký.
+SCR-L05:
+  verdict: na
+  evidence: Nội dung khoa học vật lý thuần tuý, không có lời khuyên y tế, pháp lý hay tài chính.
+SCR-P01:
+  verdict: pass
+  evidence: Không có nội dung nguy hiểm, quấy rối, thù ghét hay thông tin sai về y tế. Phù hợp mọi lứa tuổi.
+SCR-P02:
+  verdict: pass
+  evidence: Không trích tác phẩm của người khác. Nút đăng ký mô tả là nút tự thiết kế theo màu brand, không dùng logo YouTube.
+SCR-P03:
+  verdict: pass
+  evidence: Câu hỏi S01-01 được trả lời trọn ở S02-02 và S03-01. Không phóng đại.
+SCR-Q01:
+  verdict: pass
+  evidence: 'Khớp brief: mục tiêu "giải thích lại được bằng một câu" được đáp ứng bởi S02-02 + S03-01; khán giả trung học (không thuật ngữ khó); giọng thân thiện ("nhé!"); CTA đăng ký có ở S03-02; tổng 29 giây so với mục tiêu 30 giây.'
+SCR-Q02:
+  verdict: pass
+  evidence: S01-01 mở bằng câu hỏi gợi tò mò ngay giây 0, dấu chấm hỏi bật ra. Không chào hỏi.
+SCR-Q03:
+  verdict: pass
+  evidence: S01 đặt câu hỏi → S02 ánh sáng nhiều màu, xanh bị bật ra mọi hướng → S03 vì thế trời xanh + CTA. Mỗi cảnh một ý, có cầu nối "Khi đi qua khí quyển".
+SCR-Q04:
+  verdict: pass
+  evidence: '"Bước sóng" được giải thích bằng hình ở S02-01 (sóng đỏ dài và thưa so với sóng xanh ngắn và dày, nhãn chỉ khoảng cách hai đỉnh sóng). Từ chuyên môn "tán xạ" đã thay bằng "bật tung ra mọi hướng". Không còn thuật ngữ chưa giải thích.'
+SCR-Q05:
+  verdict: pass
+  evidence: S03-01 chốt ý chính trong một câu, S03-02 là CTA 5 giây rồi hết, không kéo dài.
+SCR-Q06:
+  verdict: pass
+  evidence: Sau hai đoạn dày thông tin S02-01 (6s) và S02-02 (7s) có đoạn nghỉ S02-03 (1s, whoosh) để hoạt ảnh tán xạ diễn ra. Sau câu hỏi mở đầu cũng có nghỉ S01-02 (1s).
+SCR-V02:
+  verdict: pass
+  evidence: Câu dài nhất S02-02 có 21 âm tiết, có dấu phẩy ngắt nhịp. Không ký hiệu. Đọc thành tiếng trôi chảy.
+SCR-V03:
+  verdict: pass
+  evidence: Không có số, đơn vị, viết tắt hay từ nước ngoài trong lời đọc. Mã màu (#FFD23F) chỉ nằm ở visual, không đọc.
+SCR-V04:
+  verdict: na
+  evidence: Không dùng thẻ cảm xúc nào trong 5 đoạn giọng.
+SCR-D01:
+  verdict: pass
+  evidence: 'Mọi visual nêu đối tượng, chuyển động và điều cần nhận ra. Ví dụ S02-02: tia xanh dội nhiều lần, đặt cạnh tia đỏ đi thẳng "để người xem thấy xanh bị dội nhiều hơn". S03-01: toàn cảnh Trái Đất với khí quyển sáng xanh. S03-02 ghi rõ mã màu.'
+SCR-D02:
+  verdict: pass
+  evidence: Sóng, tia sáng, phân tử, Trái Đất, nút bấm đều là hình 2D vector đơn giản. Không cần quay thật.
+SCR-V01:
+  verdict: fail
+  evidence: 'S03-01 "Vì thế, ánh sáng xanh phủ kín bầu trời, nên nhìn đâu ta cũng thấy màu xanh.": dùng thừa cặp quan hệ từ ("Vì thế" và "nên" cùng chỉ kết quả trong một câu), nghe lủng củng. Các đoạn khác không lỗi chính tả hay dấu.'
+  fix: 'Sửa S03-01 thành: "Thế nên ánh sáng xanh phủ kín bầu trời, và nhìn đâu ta cũng thấy màu xanh."'
