@@ -196,3 +196,24 @@ def test_recording_engine_multiple_takes(project, monkeypatch, good_script):
     man = voice.synth_all(project, eng, takes=2)
     assert man["engine"] == "vieneu-mac"
     assert all(m["max_gap_s"] < 1.0 for m in man["segments"])
+
+
+def test_tempo_slows_voice(project, monkeypatch):
+    gate_open(monkeypatch)
+    m1 = voice.synth_all(project, FakeEngine())
+    m2 = voice.synth_all(project, FakeEngine(), tempo=0.9)
+    d1, d2 = m1["segments"][0]["duration_s"], m2["segments"][0]["duration_s"]
+    assert d2 == pytest.approx(d1 / 0.9, rel=0.03)
+    assert m2["tempo"] == 0.9 and m2["segments"][0]["sps"] < m1["segments"][0]["sps"]
+
+
+def test_quality_relative_speed(project, monkeypatch):
+    gate_open(monkeypatch)
+    voice.synth_all(project, FakeEngine(sec_per_syl=0.2))              # ~5 âm tiết/giây đều nhau
+    q = {"path": "04_voice/voice_manifest.yaml", "max_sps": 6.0, "max_rel_dev": 0.3}
+    assert run_check("voice_segment_quality", project, q).status == "pass"
+    man = yaml.safe_load((project / "04_voice" / "voice_manifest.yaml").read_text(encoding="utf-8"))
+    man["segments"][0]["sps"] = round(man["segments"][0]["sps"] * 0.6, 2)   # một câu chậm bất thường (TTS kéo dài?)
+    write_yaml(project / "04_voice" / "voice_manifest.yaml", man)
+    r = run_check("voice_segment_quality", project, q)
+    assert r.status == "fail" and "trung vị" in r.evidence

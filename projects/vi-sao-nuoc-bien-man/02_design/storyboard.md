@@ -56,7 +56,7 @@
 | e1 | A-COC-SONG | 18,30,20,40 | pop @0 0.4s |  |  |
 | e2 | A-COC-BIEN | 62,30,20,40 | pop @0.15 0.4s |  |  |
 | ⭐ e3 | A-HOI | 44,28,12,36 | pop @0.6 0.35s | bob |  |
-| e4 | chữ "Sông ngọt → Biển mặn?" (title, 96px, #FFD23F) | 15,74,70,14 | fade @0.45 0.3s |  |  |
+| e4 | chữ "Sông ngọt → Biển mặn?" (title, 96px, #FFD23F) | 15,74,70,14 | fade @0.38 0.3s |  |  |
 
 🔊 pop ← e3.enter
 
@@ -89,7 +89,7 @@
 | ⭐ e2 | A-GIOT-MUA | 45,32,10,18 | drop @0.05 0.6s |  |  |
 | e3 | A-PHANTU-KHI | 20,35,22,25 | slide_right @0.35 0.7s |  | scale_out @0.6 0.3s |
 | e4 | A-GIOT-MUA-CHUA | 45,32,10,18 | morph @0.62 0.4s | pulse |  |
-| e5 | chữ "axit nhẹ" (label, 64px, #FFD23F) | 58,40,25,10 | fade @0.64 0.3s |  |  |
+| e5 | chữ "axit nhẹ" (label, 64px, #FFD23F) | 58,40,25,10 | fade @0.56 0.3s |  |  |
 
 *Ghi chú:* Phân tử khí bay vào trong giọt mưa rồi biến mất; giọt mưa trắng biến hình (morph) thành giọt viền vàng đúng lúc nói "hơi chua".
 
@@ -112,7 +112,7 @@
 |---|---|---|---|---|---|
 | e1 | A-DA | -10,30,120,80 |  |  |  |
 | ⭐ e2 | A-HAT-MUOI | 40,38,22,18 | grow @0.15 0.8s | shimmer |  |
-| e3 | chữ "muối" (label, 72px, #FFD23F) | 64,30,16,11 | pop @0.66 0.3s |  |  |
+| e3 | chữ "muối" (label, 72px, #FFD23F) | 64,30,16,11 | pop @0.6 0.3s |  |  |
 
 🔊 lách tách nhẹ ← e2.enter
 
@@ -164,7 +164,7 @@
 | e1 | A-SONG | 0,55,100,28 |  | flow |  |
 | e2 | A-MAY | 32,4,36,18 | slide_down @0 0.5s |  |  |
 | ⭐ e3 | A-GIOT-MUA | 38,22,24,34 | drop @0.1 0.6s | flow |  |
-| e4 | chữ "nước ngọt mới" (label, 64px, #FFFFFF) | 60,82,34,10 | fade @0.35 0.3s |  |  |
+| e4 | chữ "nước ngọt mới" (label, 64px, #FFFFFF) | 60,82,34,10 | fade @0.28 0.3s |  |  |
 
 **S03-02-b** · span [0.52, 1] · vào: `zoom_through` · camera: `zoom_out` · nền #1B1B1F
 *Mục đích:* Mọi con sông cùng đổ muối về một vùng biển
@@ -173,7 +173,7 @@
 |---|---|---|---|---|---|
 | e1 | A-BAN-DO-SONG | 0,0,100,100 | fade @0 0.5s | flow |  |
 | ⭐ e2 | A-BIEN | 62,15,38,70 |  | pulse |  |
-| e3 | chữ "Biển gom muối mọi dòng sông" (label, 60px, #FFD23F) | 6,82,60,10 | fade @0.1 0.3s |  |  |
+| e3 | chữ "Muối dồn về biển" (label, 64px, #FFD23F) | 6,82,60,10 | fade @0.1 0.3s |  |  |
 
 *Ghi chú:* Camera lùi từ một dòng sông ra toàn bản đồ; chuỗi chấm trắng trên mọi sông chạy về biển, biển sáng nhẹ khi nói "tất cả các dòng sông".
 

@@ -53,6 +53,9 @@ def voice_segment_quality(project: Path, params: dict) -> CheckResult:
     mx_edge = float(params.get("max_edge_silence_s", 0.35))
     mx_gap = float(params.get("max_gap_s", 1.0))
     lo, hi = float(params.get("min_sps", 2.0)), float(params.get("max_sps", 5.0))
+    rel = params.get("max_rel_dev")
+    segs_all = man.get("segments") or []
+    med = sorted(e["sps"] for e in segs_all)[len(segs_all) // 2] if segs_all else 0
     bad = []
     for e in man.get("segments") or []:
         i = e["id"]
@@ -64,8 +67,12 @@ def voice_segment_quality(project: Path, params: dict) -> CheckResult:
             bad.append(f"{i}: lặng giữa câu {e['max_gap_s']}s > {mx_gap}s (TTS ngắt lạ/nuốt chữ?)")
         if not lo <= e["sps"] <= hi:
             bad.append(f"{i}: tốc độ {e['sps']} âm tiết/giây ngoài {lo}–{hi} (câu bị cắt hoặc đọc lỗi?)")
+        elif rel is not None and med and abs(e["sps"] - med) / med > float(rel):
+            bad.append(f"{i}: tốc độ {e['sps']} lệch {abs(e['sps'] - med) / med:.0%} so với trung vị {med} của giọng này "
+                       f"(> {float(rel):.0%}; câu bị cắt hoặc đọc lỗi?)")
     if bad:
         return _fmt(bad, "Đoạn giọng có dấu hiệu lỗi:")
     segs = man.get("segments") or []
     return CheckResult("pass", f"{len(segs)} đoạn: đỉnh ≤ {mx_peak} dBFS, lặng hai đầu ≤ {mx_edge}s, "
-                               f"lặng giữa câu ≤ {mx_gap}s, tốc độ trong {lo}–{hi} âm tiết/giây.")
+                               f"lặng giữa câu ≤ {mx_gap}s, tốc độ trong {lo}–{hi} âm tiết/giây"
+                               + (f", lệch ≤ {float(rel):.0%} so với trung vị {med}." if rel is not None else "."))

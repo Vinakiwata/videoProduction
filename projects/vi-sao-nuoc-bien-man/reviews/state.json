@@ -3,41 +3,41 @@
     "brief": {
       "pending": null,
       "latest": {
-        "review": "reviews/brief/20261127-224723",
+        "review": "reviews/brief/20261127-230055",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "00_brief/brief.yaml": "8e5456b287f34960decec0aae46f012822904ce66b91dac4580d2edd317a9122"
+          "00_brief/brief.yaml": "e9f680f5cf7a49eb73ff31884d8c8a9181e10ba81ecc0e10269bd31ae88affff"
         },
-        "finalized_at": "2026-11-27T22:47:23+07:00",
+        "finalized_at": "2026-11-27T23:00:55+07:00",
         "override": null
       }
     },
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261127-224723",
+        "review": "reviews/script/20261127-230055",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "01_script/script.yaml": "acd0288e8539eda30077ceb879ee8e3b7a00337479bcc164cc2b0820995b43f2",
-          "00_brief/brief.yaml": "8e5456b287f34960decec0aae46f012822904ce66b91dac4580d2edd317a9122"
+          "01_script/script.yaml": "a4b83bc98b2b13a6e2eff8db2016bdaf159b10620b7a40c14cc46d3945c6095c",
+          "00_brief/brief.yaml": "e9f680f5cf7a49eb73ff31884d8c8a9181e10ba81ecc0e10269bd31ae88affff"
         },
-        "finalized_at": "2026-11-27T22:47:24+07:00",
+        "finalized_at": "2026-11-27T23:00:56+07:00",
         "override": null
       }
     },
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261127-221831",
+        "review": "reviews/design/20261127-230056",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:4121699a3040c22f37770af01090d8509770aeac159418d3b722bb4210a0f8d2",
-          "01_script/script.yaml": "acd0288e8539eda30077ceb879ee8e3b7a00337479bcc164cc2b0820995b43f2"
+          "02_design": "dir:ad11249944a19057dda965afd58d7e813990f3efca6432444a6b4b9532250a8d",
+          "01_script/script.yaml": "a4b83bc98b2b13a6e2eff8db2016bdaf159b10620b7a40c14cc46d3945c6095c"
         },
-        "finalized_at": "2026-11-27T22:18:32+07:00",
+        "finalized_at": "2026-11-27T23:00:57+07:00",
         "override": null
       }
     },
@@ -55,6 +55,9 @@
         "finalized_at": "2026-11-27T22:26:12+07:00",
         "override": null
       }
+    },
+    "voice": {
+      "pending": "reviews/voice/20261127-225255"
     }
   }
 }

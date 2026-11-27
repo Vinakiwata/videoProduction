@@ -1,6 +1,6 @@
 # Tool 2 — Kiểm duyệt kịch bản. Cổng quan trọng nhất: lỗi lọt qua đây sẽ nhân lên ở mọi công đoạn sau.
 stage: script
-version: 2
+version: 3
 title: Kiểm duyệt kịch bản
 artifacts: [01_script/script.yaml, 00_brief/brief.yaml]
 items:
@@ -42,11 +42,12 @@ items:
     params: {path: 01_script/script.yaml, max_chars: 300}
   - id: SCR-A06
     group: Cấu trúc
-    title: Tốc độ đọc tự nhiên (2,5–4,0 âm tiết/giây)
+    title: Tốc độ đọc trong dải chấp nhận (2,5–5,0 âm tiết/giây)
     severity: nghiem_trong
     method: auto
     check: script_reading_speed
-    params: {path: 01_script/script.yaml, min_sps: 2.5, max_sps: 4.0}
+    # Chủ dự án (Vinakiwata) DUYỆT ngày 27/11/2026: giữ tốc độ gốc của VieNeu Hải Đăng (~4,4 âm tiết/giây, đã đo) -> trần 4,0 nâng lên 5,0.
+    params: {path: 01_script/script.yaml, min_sps: 2.5, max_sps: 5.0}
   - id: SCR-A07
     group: Cấu trúc
     title: Tổng thời lượng ước tính khớp mục tiêu (±15%)

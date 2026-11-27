@@ -1,17 +1,25 @@
-# HỒ SƠ KÊNH MẪU — chỉ để chạy thử. Chủ dự án cần thay bằng bộ nhận diện thật của kênh.
 name: Khoa học 60 giây (kênh mẫu)
 channel: youtube
-format: {width: 1920, height: 1080, fps: 30}
+format:
+  width: 1920
+  height: 1080
+  fps: 30
 default_duration_s: 60
 tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
 cta: Đăng ký kênh để xem thêm hiện tượng khoa học mỗi tuần
 audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
 brand:
-  colors: ["#0B3D91", "#FFD23F", "#FFFFFF", "#1B1B1F"]
-  fonts: ["Be Vietnam Pro"]
-  voice: "VieNeu-TTS v3 Turbo: Hải Đăng"
+  colors:
+  - '#0B3D91'
+  - '#FFD23F'
+  - '#FFFFFF'
+  - '#1B1B1F'
+  fonts:
+  - Be Vietnam Pro
+  voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
   style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ, tối đa 4 màu mỗi khung
 voice_profile:
-  syllables_per_second: 3.2
-  calibrated: false
+  syllables_per_second: 4.43
+  calibrated: true
+  calibrated_from: vi-sao-nuoc-bien-man (vieneu-v3turbo (Mac), Hải Đăng)
 notes: Tốc độ đọc 3,2 âm tiết/giây là ước tính; sẽ đo lại khi chạy VieNeu-TTS thật.

@@ -125,12 +125,15 @@ def trim(a: np.ndarray) -> np.ndarray:
     return a[max(0, s - pad): min(len(a), e + pad)]
 
 
-def loudnorm(a: np.ndarray) -> np.ndarray:
+def loudnorm(a: np.ndarray, tempo: float = 1.0) -> np.ndarray:
+    """Chuẩn -16 LUFS; tempo < 1 làm chậm giọng (giữ nguyên cao độ, ffmpeg atempo)."""
+    af = (f"atempo={tempo:.4f}," if abs(tempo - 1) > 1e-6 else "") + "loudnorm=I=-16:TP=-1.5:LRA=11"
     r = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
-                        "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", str(SR), "-f", "f32le", "-"],
+                        "-af", af, "-ar", str(SR), "-f", "f32le", "-"],
                        input=a.astype(np.float32).tobytes(), capture_output=True, check=True)
     out = np.frombuffer(r.stdout, dtype=np.float32).copy()
-    return out[: len(a)] if len(out) >= len(a) else np.pad(out, (0, len(a) - len(out)))
+    n = int(round(len(a) / tempo))
+    return out[:n] if len(out) >= n else np.pad(out, (0, n - len(out)))
 
 
 def measure(a: np.ndarray, text: str) -> dict:
@@ -175,7 +178,8 @@ def _score(m: dict, target_sps: float) -> float:
 
 # ---------- dựng ----------
 
-def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = None, check_gate: bool = True) -> dict:
+def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = None, check_gate: bool = True,
+              tempo: float = 1.0) -> dict:
     project = Path(project)
     if check_gate:
         g = review.gate(project, "animatic")
@@ -204,7 +208,7 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
             if hasattr(engine, "current_id"):
                 engine.current_id = seg["id"]
             raw, sr = engine.synth(spoken, vname)
-            a = loudnorm(trim(_resample(np.asarray(raw, dtype=np.float32), sr)))
+            a = loudnorm(trim(_resample(np.asarray(raw, dtype=np.float32), sr)), tempo)
             m = measure(a, seg["text"])
             if best is None or _score(m, target_sps) < _score(best[1], target_sps):
                 best = (a, m)
@@ -212,7 +216,7 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
         f = project / DIR / "segments" / f"{seg['id']}.wav"
         _write_wav(f, a)
         entries.append({"id": seg["id"], "file": f"segments/{seg['id']}.wav", "text": seg["text"], "spoken_text": spoken,
-                        **m, "takes": max(1, takes), "sha256": _sha(f)})
+                        **m, "takes": max(1, takes), "tempo": tempo, "sha256": _sha(f)})
 
     # nối toàn bộ theo thứ tự kịch bản, chèn im lặng
     by = {e["id"]: e for e in entries}
@@ -225,7 +229,7 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
     full = np.concatenate(parts) if parts else np.zeros(0, dtype=np.float32)
     _write_wav(project / DIR / "voice_full.wav", full)
     sps = [e["sps"] for e in entries]
-    man = {"engine": engine.name, "voice": vname, "sample_rate": SR, "total_s": round(len(full) / SR, 3),
+    man = {"engine": engine.name, "voice": vname, "tempo": tempo, "sample_rate": SR, "total_s": round(len(full) / SR, 3),
            "measured_sps_median": round(statistics.median(sps), 2) if sps else None,
            "pronunciation_applied": pron, "segments": entries}
     dump_yaml(mpath, man)

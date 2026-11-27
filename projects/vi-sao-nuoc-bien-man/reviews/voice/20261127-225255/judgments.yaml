@@ -1,0 +1,47 @@
+# Phần chấm cho các mục phán đoán (method: ai).
+# verdict: pass | fail | na   — evidence bắt buộc (≥20 ký tự, trích dẫn/vị trí/số liệu)
+# fail bắt buộc có fix. na chỉ dùng khi mục cho phép (allow_na) và phải nêu lý do.
+# Không được chấm các mục auto.
+
+# [Chặn] Đọc đúng 100% chữ trong kịch bản, không đọc sót, thừa hay sai
+#   Nghe từng đoạn (hoặc đối chiếu với bản nhận dạng giọng nói), so với text trong kịch bản.
+#   Ghi mã đoạn, chữ trong kịch bản và chữ đọc thực tế.
+VOI-C01:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Phát âm đúng tên riêng, số, viết tắt, từ nước ngoài
+#   Đối chiếu meta.pronunciation. Ghi từ đọc sai và mốc thời gian.
+VOI-C02:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Không có tạp âm, tiếng lạ, méo, rè, bị cắt đầu/cuối câu
+#   TTS đôi khi sinh tiếng lạ, lặp âm hoặc nuốt chữ cuối. Ghi mốc thời gian từng lỗi.
+VOI-C03:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Giọng đồng nhất giữa các đoạn (âm sắc, tốc độ, độ to)
+#   Chuyển đoạn không được nghe như đổi người đọc. Ghi cặp đoạn bị lệch.
+VOI-C04:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Nghiêm trọng] Ngữ điệu đúng ý câu (câu hỏi lên giọng, nhấn từ khoá)
+#   Ghi đoạn có ngữ điệu đều đều, sai cảm xúc, hoặc nhấn sai từ.
+VOI-C05:
+  verdict: ""
+  evidence: ""
+  fix: ""
+
+# [Chặn] Giọng nhân bản (nếu có) có sự đồng ý của chủ giọng  (được phép na)
+#   Dùng giọng có sẵn của VieNeu thì na. Dùng giọng nhân bản thì phải có bằng chứng đồng ý, lưu trong 04_voice/consent.
+VOI-C07:
+  verdict: ""
+  evidence: ""
+  fix: ""
