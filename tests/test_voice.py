@@ -50,8 +50,8 @@ def test_prepare_text_pronunciation():
 
 
 def test_voice_name_from_brand():
-    assert voice.voice_name("VieNeu-TTS v3 Turbo: Ngọc Lan") == "Ngọc Lan"
-    assert voice.voice_name("Ngọc Lan") == "Ngọc Lan"
+    assert voice.voice_name("VieNeu-TTS v3 Turbo: Hải Đăng") == "Hải Đăng"
+    assert voice.voice_name("Hải Đăng") == "Hải Đăng"
 
 
 def test_synth_all_writes_manifest_and_trims(project, monkeypatch, good_script):
@@ -64,7 +64,7 @@ def test_synth_all_writes_manifest_and_trims(project, monkeypatch, good_script):
     n = syllables(segs[0]["text"])
     assert first["duration_s"] == pytest.approx(n * 0.3 + 0.16, abs=0.06)   # đã cắt 0,5 giây lặng, chừa 0,08 x2
     assert first["lead_s"] <= 0.12 and first["trail_s"] <= 0.12
-    assert eng.calls[0][1] == "Ngọc Lan"
+    assert eng.calls[0][1] == "Hải Đăng"
     full = project / "04_voice" / "voice_full.wav"
     with wave.open(str(full)) as w:
         total = w.getnframes() / w.getframerate()
@@ -181,3 +181,18 @@ def test_to_animatic(project, monkeypatch):
 def test_recording_sheet(project):
     md = voice.recording_sheet(project).read_text(encoding="utf-8")
     assert "| `S01-01` | Bạn có bao giờ tự hỏi" in md and "04_voice/recordings/" in md
+
+
+def test_recording_engine_multiple_takes(project, monkeypatch, good_script):
+    gate_open(monkeypatch)
+    rec = project / "04_voice" / "recordings"
+    rec.mkdir(parents=True)
+    for s in voice_segments(good_script):
+        for k, gap in ((1, 1.6), (2, 0.0)):        # lượt 1 có khoảng lặng lạ, lượt 2 sạch
+            a, sr = FakeEngine(gap_for={s["text"]} if gap else set(), gap_s=gap).synth(s["text"], "x")
+            import vp.voice as V
+            V._write_wav(rec / f"{s['id']}_t{k}.wav", a)
+    eng = voice.RecordingEngine(project, name="vieneu-mac")
+    man = voice.synth_all(project, eng, takes=2)
+    assert man["engine"] == "vieneu-mac"
+    assert all(m["max_gap_s"] < 1.0 for m in man["segments"])

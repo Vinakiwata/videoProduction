@@ -126,7 +126,10 @@ def cmd_animatic(a):
 def cmd_voice(a):
     p = Path(a.project)
     if a.action == "synth":
-        eng = voice.VieneuEngine() if a.engine == "vieneu" else voice.RecordingEngine(p)
+        if a.engine == "vieneu":
+            eng = voice.VieneuEngine()
+        else:
+            eng = voice.RecordingEngine(p, name=a.source_name or "recording")
         only = set(a.only.split(",")) if a.only else None
         man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only)
         for e in man["segments"]:
@@ -181,6 +184,7 @@ def main(argv=None):
     vo = sub.add_parser("voice"); vo.add_argument("action", choices=["synth", "calibrate", "to-animatic", "sheet"])
     vo.add_argument("project"); vo.add_argument("--engine", choices=["vieneu", "recording"], default="vieneu")
     vo.add_argument("--takes", type=int); vo.add_argument("--only"); vo.add_argument("--apply", action="store_true")
+    vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)

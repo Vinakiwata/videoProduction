@@ -48,3 +48,18 @@ def yaml_schema(project: Path, params: dict) -> CheckResult:
     lines = [f"- tại `{'/'.join(map(str, e.path)) or '(gốc)'}`: {e.message}" for e in errors[:15]]
     more = f"\n… và {len(errors) - 15} lỗi khác" if len(errors) > 15 else ""
     return CheckResult("fail", f"{rel} sai schema '{name}' ({len(errors)} lỗi):\n" + "\n".join(lines) + more)
+
+
+@register("brand_voice_valid")
+def brand_voice_valid(project: Path, params: dict) -> CheckResult:
+    """Giọng trong brand.voice phải là giọng có thật của engine (vd. VieNeu-TTS v3 Turbo), hoặc ghi rõ 'clone:'/'recording'."""
+    b = load_yaml(project, params["path"])
+    raw = str(b["brand"]["voice"])
+    name = raw.split(":", 1)[1].strip() if ":" in raw else raw.strip()
+    if raw.lower().startswith(("clone", "recording", "thu âm")):
+        return CheckResult("pass", f"Giọng '{raw}' không dùng giọng dựng sẵn (nhân bản/thu âm) — kiểm đồng ý ở cổng voice.")
+    lst = Path(__file__).resolve().parents[1] / "data" / params.get("list", "vieneu_v3_turbo_voices.txt")
+    known = [ln.strip() for ln in lst.read_text(encoding="utf-8").splitlines() if ln.strip() and not ln.startswith("#")]
+    if name in known:
+        return CheckResult("pass", f"Giọng '{name}' có trong danh sách giọng dựng sẵn ({lst.name}).")
+    return CheckResult("fail", f"Giọng '{name}' KHÔNG có trong {lst.name}. Giọng hợp lệ: {', '.join(known[:30])}…")

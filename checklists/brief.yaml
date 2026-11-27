@@ -1,5 +1,5 @@
 stage: brief
-version: 2
+version: 3
 title: Kiểm duyệt brief
 artifacts: [00_brief/brief.yaml]
 items:
@@ -16,6 +16,13 @@ items:
     severity: chan
     method: auto
     check: no_placeholders
+    params: {path: 00_brief/brief.yaml}
+  - id: BRF-A03
+    group: Bộ nhận diện
+    title: Giọng đọc trong brand.voice là giọng có thật của VieNeu-TTS v3 Turbo
+    severity: chan
+    method: auto
+    check: brand_voice_valid
     params: {path: 00_brief/brief.yaml}
   - id: BRF-C01
     group: Mục tiêu

@@ -10,7 +10,7 @@ Kèm theo là các phép đo máy để bắt lỗi thường gặp của TTS: v
 ## 2. Mục tiêu / Không làm / Thất bại nếu
 **Mục tiêu**
 - Hai nguồn giọng, dùng chung một đường xử lý:
-  - `vieneu`: VieNeu-TTS v3 Turbo, giọng lấy từ `brand.voice` (vd. "VieNeu-TTS v3 Turbo: Ngọc Lan").
+  - `vieneu`: VieNeu-TTS v3 Turbo, giọng lấy từ `brand.voice` (vd. "VieNeu-TTS v3 Turbo: Hải Đăng").
   - `recording`: file người thu trong `04_voice/recordings/<mã đoạn>.<wav|m4a|mp3|…>`. Thu bằng điện thoại cũng được.
 - **Phát âm:** áp `meta.pronunciation` của kịch bản trước khi đưa vào TTS. Mọi thay thế đều được ghi lại.
 - **Xử lý mỗi đoạn:**

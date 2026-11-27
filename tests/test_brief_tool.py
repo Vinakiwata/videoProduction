@@ -10,7 +10,7 @@ CHANNEL = {
     "format": {"width": 1920, "height": 1080, "fps": 30},
     "default_duration_s": 60, "tone": "Thân thiện, rõ ràng", "cta": "Đăng ký kênh nhé",
     "audience": "Người lớn tò mò về khoa học",
-    "brand": {"colors": ["#112233"], "fonts": ["Be Vietnam Pro"], "voice": "VieNeu-TTS: Ngọc Lan"},
+    "brand": {"colors": ["#112233"], "fonts": ["Be Vietnam Pro"], "voice": "VieNeu-TTS: Hải Đăng"},
     "voice_profile": {"syllables_per_second": 3.0},
 }
 
@@ -68,3 +68,15 @@ def test_repo_sample_channel_valid():
     from vp.channel import load_channel
     ch = load_channel("kenh-khoa-hoc-mau")
     assert ch["voice_profile"]["syllables_per_second"] > 0
+
+
+def test_brand_voice_valid(project):
+    from conftest import write_yaml
+    import yaml as _y
+    p = {"path": "00_brief/brief.yaml"}
+    assert run_check("brand_voice_valid", project, p).status == "pass"
+    b = _y.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    b["brand"]["voice"] = "VieNeu-TTS v3 Turbo: Ngọc Lan"     # tên không tồn tại trong v3 Turbo
+    write_yaml(project / "00_brief" / "brief.yaml", b)
+    r = run_check("brand_voice_valid", project, p)
+    assert r.status == "fail" and "Ngọc Lan" in r.evidence

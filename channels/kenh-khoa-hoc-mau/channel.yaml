@@ -9,7 +9,7 @@ audience: Học sinh trung học và người lớn tò mò, xem trên điện t
 brand:
   colors: ["#0B3D91", "#FFD23F", "#FFFFFF", "#1B1B1F"]
   fonts: ["Be Vietnam Pro"]
-  voice: "VieNeu-TTS v3 Turbo: Ngọc Lan"
+  voice: "VieNeu-TTS v3 Turbo: Hải Đăng"
   style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ, tối đa 4 màu mỗi khung
 voice_profile:
   syllables_per_second: 3.2

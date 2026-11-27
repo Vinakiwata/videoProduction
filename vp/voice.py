@@ -71,18 +71,28 @@ def _decode(path: Path) -> np.ndarray:
 
 
 class RecordingEngine:
-    """Giọng người thu: 04_voice/recordings/<mã đoạn>.<bất kỳ định dạng ffmpeg đọc được>."""
+    """Giọng có sẵn dạng file: 04_voice/recordings/<mã đoạn>.<đuôi> (người thu), hoặc nhiều lượt
+    <mã đoạn>_t1.wav, <mã đoạn>_t2.wav … (vd. VieNeu chạy trên máy Mac của người dùng). Mỗi lần gọi trả lượt kế tiếp."""
     name = "recording"
 
-    def __init__(self, project: Path):
+    def __init__(self, project: Path, name: str = "recording"):
         self.dir = Path(project) / DIR / "recordings"
+        self.name = name
         self.current_id = None
+        self._served: dict[str, int] = {}
+
+    def files(self, seg_id: str) -> list[Path]:
+        if not self.dir.is_dir():
+            return []
+        return sorted({*self.dir.glob(f"{seg_id}.*"), *self.dir.glob(f"{seg_id}_t*.*")})
 
     def synth(self, text: str, voice_name_: str):
-        files = sorted(self.dir.glob(f"{self.current_id}.*")) if self.dir.is_dir() else []
+        files = self.files(self.current_id)
         if not files:
-            raise VoiceError(f"Thiếu file thu âm cho {self.current_id} trong {self.dir} (vd. {self.current_id}.m4a).")
-        return _decode(files[0]), SR
+            raise VoiceError(f"Thiếu file giọng cho {self.current_id} trong {self.dir} (vd. {self.current_id}.m4a hoặc {self.current_id}_t1.wav).")
+        k = self._served.get(self.current_id, 0)
+        self._served[self.current_id] = k + 1
+        return _decode(files[k % len(files)]), SR
 
 
 # ---------- xử lý & đo ----------

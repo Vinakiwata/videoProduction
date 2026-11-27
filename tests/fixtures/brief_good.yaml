@@ -12,6 +12,6 @@ cta: Đăng ký kênh để xem thêm hiện tượng khoa học
 brand:
   colors: ["#0B3D91", "#FFD23F", "#FFFFFF"]
   fonts: ["Be Vietnam Pro"]
-  voice: "VieNeu-TTS: Ngọc Lan"
+  voice: "VieNeu-TTS: Hải Đăng"
 constraints:
   - Không dùng hình ảnh có bản quyền của bên thứ ba

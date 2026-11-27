@@ -1,0 +1,31 @@
+# Giọng dựng sẵn VieNeu-TTS v3 Turbo (kèm tên cũ/alias), lấy từ src/vieneu/assets/voices_v3_turbo.json
+# default: Hải Đăng
+Adam bựa
+Trúc Ly
+Thiện Minh
+Anh Khôi
+Mai Anh
+Hải Đăng
+Minh Quân Pro
+Minh Quân
+Thùy Dung
+Thiền Tâm Đức
+Ngọc Huyền
+Quang Sơn
+Ngọc Trân
+Minh Đức
+Phạm Tuyên
+Thái Sơn
+Xuân Vĩnh
+Thanh Bình
+Ngọc Linh
+Đoan Trang
+Thục Đoan
+Minh Triết
+Mỹ Duyên
+Quỳnh Anh
+Đức Trí
+Kim Thanh
+Adam
+Quốc Tuấn
+Mạnh Dũng
