@@ -1,0 +1,22 @@
+BRF-C01:
+  verdict: pass
+  evidence: 'goal nêu kết quả cụ thể: người xem "giải thích lại được vì sao biển mặn còn sông thì không", kèm 3 mắt xích phải truyền đạt (mưa hoà tan khoáng chất trong đá → sông mang muối ra biển → nước bốc hơi, muối ở lại) và CTA. Dùng làm thước đo cho kịch bản và QC tổng được.'
+BRF-C02:
+  verdict: pass
+  evidence: 'audience "Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính": có trình độ, động cơ và thiết bị xem. Đủ để chọn từ vựng phổ thông và chữ lớn.'
+BRF-C03:
+  verdict: pass
+  evidence: 'channel youtube, format 1920x1080 @ 30 fps (16:9), target_duration_s 60. Khớp video YouTube thường, không mâu thuẫn.'
+BRF-C04:
+  verdict: pass
+  evidence: 'Bộ nhận diện lấy từ hồ sơ kênh kenh-khoa-hoc-mau: 4 màu hex hợp lệ; font Be Vietnam Pro (thiết kế cho tiếng Việt, giấy phép SIL OFL); giọng "VieNeu-TTS v3 Turbo: Ngọc Lan" là giọng có sẵn. Có thêm phong cách hình (flat, tối đa 4 màu mỗi khung).'
+BRF-C05:
+  verdict: pass
+  evidence: 'is_advertising: false, được tạo với --no-ads. goal và cta không nhắc sản phẩm hay thương hiệu nào.'
+BRF-C06:
+  verdict: pass
+  evidence: '60 giây cho 3 mắt xích giải thích + móc + CTA, khoảng 180–200 âm tiết ở 3,2 âm tiết/giây. Mỗi ý chính có khoảng 15–20 giây, vừa sức.'
+BRF-C07:
+  verdict: fail
+  evidence: 'assumptions ghi 2 giả định (audience, thời lượng lấy theo kênh), cả hai hợp lý. Nhưng thiếu giả định lớn nhất: chủ đề "Vì sao nước biển lại mặn?" do Claude tự chọn để chạy thử dây chuyền, chủ dự án chưa yêu cầu. Ngoài ra kênh kenh-khoa-hoc-mau là hồ sơ kênh mẫu chưa được chủ dự án xác nhận.'
+  fix: 'Thêm vào assumptions: (1) "Chủ đề do Claude chọn để chạy thử Tool 0–1; chủ dự án chưa yêu cầu video này"; (2) "Dùng hồ sơ kênh mẫu kenh-khoa-hoc-mau, bộ nhận diện chưa được chủ dự án xác nhận".'

@@ -6,6 +6,11 @@
   review override <dự án> <công đoạn> --by TÊN --reason "..."
   gate <dự án> <công đoạn>                     mã thoát 0 nếu cổng đang mở
   status <dự án>                               trạng thái cổng của mọi công đoạn
+  brief new <dự án> --channel KÊNH --title "..." [--goal ..] [--audience ..] [--duration N] [--ads/--no-ads]
+  script import <dự án> <bản-thảo.md> [--force]   nhập bản thảo thành script.yaml
+  script estimate <dự án> [--sps N]            tính lại thời lượng theo âm tiết
+  script view <dự án>                          ghi bản đọc 01_script/script.md
+  script lint <dự án>                          kiểm nhanh các mục tự động (không ghi nhật ký)
 """
 import argparse
 import json
@@ -14,7 +19,9 @@ from pathlib import Path
 
 import yaml
 
-from vp import review, stages
+from vp import brief as brief_tool
+from vp import review, script_tools, stages
+from vp.project import create_project
 from vp.checklist import ChecklistError
 
 
@@ -22,11 +29,7 @@ def cmd_new(a):
     p = Path(a.project)
     if p.exists() and any(p.iterdir()):
         sys.exit(f"Thư mục {p} đã có dữ liệu.")
-    for st in stages.STAGES:
-        (p / st.folder).mkdir(parents=True, exist_ok=True)
-    (p / "project.yaml").write_text(
-        yaml.safe_dump({"slug": p.name, "title": a.title, "language": "vi"}, allow_unicode=True, sort_keys=False),
-        encoding="utf-8")
+    create_project(p, a.title)
     print(f"Đã tạo dự án {p}")
 
 
@@ -49,6 +52,41 @@ def cmd_review(a):
     elif a.action == "override":
         review.override(p, a.stage, by=a.by, reason=a.reason)
         print("Đã ghi nhận CHO QUA.")
+
+
+def cmd_brief(a):
+    path = brief_tool.new_brief(Path(a.project), channel=a.channel, title=a.title, goal=a.goal,
+                                audience=a.audience, duration=a.duration, ads=a.ads, force=a.force)
+    print(f"Đã tạo {path}")
+    b = yaml.safe_load(path.read_text(encoding="utf-8"))
+    for x in b.get("assumptions") or []:
+        print(f"  • giả định: {x}")
+    todo = [k for k, v in b.items() if isinstance(v, str) and v.startswith("TODO")]
+    if todo:
+        print("Còn phải điền: " + ", ".join(todo))
+
+
+def cmd_script(a):
+    p = Path(a.project)
+    if a.action == "import":
+        if not a.src:
+            sys.exit("Thiếu đường dẫn bản thảo: python -m vp script import <dự án> <file>")
+        print(f"Đã nhập bản thảo -> {script_tools.import_draft(p, Path(a.src), force=a.force, sps=a.sps)}")
+    elif a.action == "estimate":
+        n = script_tools.estimate(p, sps=a.sps)
+        print(f"Đã ước lượng lại {n} đoạn giọng ở {script_tools.resolve_sps(p, a.sps)} âm tiết/giây.")
+    elif a.action == "view":
+        print(f"Đã ghi {script_tools.view(p)}")
+    elif a.action == "lint":
+        results = script_tools.lint(p)
+        bad = 0
+        for it, r in results:
+            bad += r.status != "pass"
+            print(f"[{r.status:>5}] {it['id']} {it['title']}")
+            if r.status != "pass":
+                print("        " + r.evidence.replace("\n", "\n        "))
+        print("Kiểm nhanh: " + ("SẠCH" if not bad else f"{bad} mục cần sửa"))
+        sys.exit(1 if bad else 0)
 
 
 def cmd_gate(a):
@@ -76,11 +114,19 @@ def main(argv=None):
     r.set_defaults(fn=cmd_review)
     g = sub.add_parser("gate"); g.add_argument("project"); g.add_argument("stage", choices=list(stages.BY_CODE))
     g.set_defaults(fn=cmd_gate)
+    b = sub.add_parser("brief"); b.add_argument("action", choices=["new"]); b.add_argument("project")
+    b.add_argument("--channel", required=True); b.add_argument("--title", required=True)
+    b.add_argument("--goal"); b.add_argument("--audience"); b.add_argument("--duration", type=float)
+    b.add_argument("--ads", action=argparse.BooleanOptionalAction, default=None); b.add_argument("--force", action="store_true")
+    b.set_defaults(fn=cmd_brief)
+    sc = sub.add_parser("script"); sc.add_argument("action", choices=["import", "estimate", "view", "lint"])
+    sc.add_argument("project"); sc.add_argument("src", nargs="?"); sc.add_argument("--sps", type=float)
+    sc.add_argument("--force", action="store_true"); sc.set_defaults(fn=cmd_script)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
-    except (review.ReviewError, ChecklistError) as e:
+    except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError) as e:
         sys.exit(f"LỖI: {e}")
 
 

@@ -1,5 +1,5 @@
 stage: brief
-version: 1
+version: 2
 title: Kiểm duyệt brief
 artifacts: [00_brief/brief.yaml]
 items:
@@ -10,6 +10,13 @@ items:
     method: auto
     check: yaml_schema
     params: {path: 00_brief/brief.yaml, schema: brief}
+  - id: BRF-A02
+    group: Cấu trúc
+    title: Không còn trường bỏ trống (TODO)
+    severity: chan
+    method: auto
+    check: no_placeholders
+    params: {path: 00_brief/brief.yaml}
   - id: BRF-C01
     group: Mục tiêu
     title: Mục tiêu đo được — sau khi xem, người xem biết/làm được gì
@@ -50,3 +57,11 @@ items:
     severity: nhe
     method: ai
     guidance: "Ước lượng: khoảng 150–200 âm tiết lời đọc mỗi phút. Một ý chính cần khoảng 20–40 giây. Báo nếu mục tiêu quá tham hoặc quá ít."
+  - id: BRF-C07
+    group: Minh bạch
+    title: Mọi giả định tự đưa ra đều được ghi rõ và hợp lý
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Đọc danh sách assumptions. Mỗi giả định phải hợp lý với yêu cầu gốc và hồ sơ kênh.
+      Trường nào lệch khỏi hồ sơ kênh hoặc yêu cầu của chủ dự án mà không có giả định ghi lại thì TRƯỢT. Ghi trường đó.

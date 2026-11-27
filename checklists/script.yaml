@@ -1,6 +1,6 @@
 # Tool 2 — Kiểm duyệt kịch bản. Cổng quan trọng nhất: lỗi lọt qua đây sẽ nhân lên ở mọi công đoạn sau.
 stage: script
-version: 1
+version: 2
 title: Kiểm duyệt kịch bản
 artifacts: [01_script/script.yaml, 00_brief/brief.yaml]
 items:
@@ -31,7 +31,7 @@ items:
     title: Không còn chỗ trống / đánh dấu tạm (TODO, ???, [..])
     severity: chan
     method: auto
-    check: script_no_placeholders
+    check: no_placeholders
     params: {path: 01_script/script.yaml}
   - id: SCR-A05
     group: Cấu trúc
@@ -54,6 +54,13 @@ items:
     method: auto
     check: script_total_duration
     params: {path: 01_script/script.yaml, tolerance: 0.15}
+  - id: SCR-A08
+    group: Cấu trúc
+    title: Bản đọc script.md khớp script.yaml
+    severity: nhe
+    method: auto
+    check: script_view_in_sync
+    params: {path: 01_script/script.yaml, view: 01_script/script.md}
 
   # ---------- Sự thật & nguồn ----------
   - id: SCR-F01

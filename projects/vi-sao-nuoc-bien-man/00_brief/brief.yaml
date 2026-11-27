@@ -1,0 +1,31 @@
+title: Vì sao nước biển lại mặn?
+goal: Sau 60 giây, người xem giải thích lại được vì sao biển mặn còn sông thì không (mưa hoà tan khoáng chất trong đá, sông mang muối ra biển, nước bốc hơi còn muối ở lại) và muốn xem tiếp kênh
+audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
+channel: youtube
+format:
+  width: 1920
+  height: 1080
+  fps: 30
+target_duration_s: 60
+tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
+cta: Đăng ký kênh để xem thêm hiện tượng khoa học mỗi tuần
+brand:
+  colors:
+  - '#0B3D91'
+  - '#FFD23F'
+  - '#FFFFFF'
+  - '#1B1B1F'
+  fonts:
+  - Be Vietnam Pro
+  voice: 'VieNeu-TTS v3 Turbo: Ngọc Lan'
+  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ, tối đa 4 màu mỗi khung
+is_advertising: false
+channel_ref: kenh-khoa-hoc-mau
+assumptions:
+- 'audience lấy theo hồ sơ kênh: "Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính"'
+- 'target_duration_s lấy mặc định của kênh: 60 giây'
+- Chủ đề do Claude chọn để chạy thử Tool 0–1; chủ dự án chưa yêu cầu video này
+- Dùng hồ sơ kênh mẫu kenh-khoa-hoc-mau; bộ nhận diện chưa được chủ dự án xác nhận
+constraints:
+- Chỉ dùng hình, nhạc, font tự tạo hoặc có giấy phép rõ ràng
+- Giọng đọc AI phải được gắn nhãn khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)
