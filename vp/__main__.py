@@ -12,6 +12,8 @@
   script view <dự án>                          ghi bản đọc 01_script/script.md
   script lint <dự án>                          kiểm nhanh các mục tự động (không ghi nhật ký)
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
+  voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
+  voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
 import argparse
@@ -22,7 +24,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
-from vp import animatic, design_tools, review, script_tools, stages
+from vp import animatic, design_tools, review, script_tools, stages, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -121,6 +123,24 @@ def cmd_animatic(a):
     print(f"Đã dựng {out} — {man['total_s']:.1f}s, nguồn lời: {man['voice_source']}")
 
 
+def cmd_voice(a):
+    p = Path(a.project)
+    if a.action == "synth":
+        eng = voice.VieneuEngine() if a.engine == "vieneu" else voice.RecordingEngine(p)
+        only = set(a.only.split(",")) if a.only else None
+        man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only)
+        for e in man["segments"]:
+            print(f"  {e['id']}: {e['duration_s']:.2f}s, {e['sps']} âm tiết/giây, lặng giữa câu {e['max_gap_s']}s")
+        print(f"Tổng {man['total_s']:.1f}s; tốc độ trung vị {man['measured_sps_median']} âm tiết/giây ({man['engine']}, {man['voice']})")
+    elif a.action == "calibrate":
+        r = voice.calibrate(p, apply=a.apply)
+        print(f"Tốc độ đọc đo được: {r['measured_sps']} âm tiết/giây" + (f" → đã ghi vào {r['applied_to']}" if r["applied_to"] else " (thêm --apply để ghi vào hồ sơ kênh)"))
+    elif a.action == "sheet":
+        print(f"Đã ghi phiếu thu âm {voice.recording_sheet(p)}")
+    elif a.action == "to-animatic":
+        print(f"Đã chép {voice.to_animatic(p)} đoạn giọng sang 03_animatic/scratch_voice — dựng lại animatic và duyệt lại nhịp.")
+
+
 def cmd_gate(a):
     g = review.gate(Path(a.project), a.stage)
     print(("MỞ: " if g.ok else "ĐÓNG: ") + g.message)
@@ -158,12 +178,16 @@ def main(argv=None):
     dz.add_argument("project"); dz.add_argument("--force", action="store_true"); dz.set_defaults(fn=cmd_design)
     am = sub.add_parser("animatic"); am.add_argument("action", choices=["build"]); am.add_argument("project")
     am.add_argument("--fps", type=int, default=15); am.set_defaults(fn=cmd_animatic)
+    vo = sub.add_parser("voice"); vo.add_argument("action", choices=["synth", "calibrate", "to-animatic", "sheet"])
+    vo.add_argument("project"); vo.add_argument("--engine", choices=["vieneu", "recording"], default="vieneu")
+    vo.add_argument("--takes", type=int); vo.add_argument("--only"); vo.add_argument("--apply", action="store_true")
+    vo.set_defaults(fn=cmd_voice)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
-            design_tools.DesignToolError, animatic.AnimaticError) as e:
+            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError) as e:
         sys.exit(f"LỖI: {e}")
 
 
