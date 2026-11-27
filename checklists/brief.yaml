@@ -1,0 +1,52 @@
+stage: brief
+version: 1
+title: Kiểm duyệt brief
+artifacts: [00_brief/brief.yaml]
+items:
+  - id: BRF-A01
+    group: Cấu trúc
+    title: Brief đúng định dạng chuẩn
+    severity: chan
+    method: auto
+    check: yaml_schema
+    params: {path: 00_brief/brief.yaml, schema: brief}
+  - id: BRF-C01
+    group: Mục tiêu
+    title: Mục tiêu đo được — sau khi xem, người xem biết/làm được gì
+    severity: chan
+    method: ai
+    guidance: |
+      ĐẠT khi mục tiêu nêu kết quả cụ thể ở người xem ("hiểu vì sao trời xanh và giải thích lại được").
+      TRƯỢT nếu chung chung ("làm video hay về khoa học").
+  - id: BRF-C02
+    group: Khán giả
+    title: Khán giả cụ thể (độ tuổi/trình độ/bối cảnh xem)
+    severity: nghiem_trong
+    method: ai
+    guidance: Phải đủ để quyết định từ vựng và nhịp độ. "Mọi người" là TRƯỢT.
+  - id: BRF-C03
+    group: Định dạng
+    title: Định dạng khớp kênh (YouTube 16:9 → 1920×1080; Shorts → 1080×1920, ≤ 60 giây)
+    severity: chan
+    method: ai
+    guidance: Đối chiếu channel, format và target_duration_s. Mọi mâu thuẫn là TRƯỢT.
+  - id: BRF-C04
+    group: Bộ nhận diện
+    title: Bộ nhận diện đủ để giữ đồng bộ (màu, font có hỗ trợ tiếng Việt, giọng)
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Font phải hiển thị đủ dấu tiếng Việt (ví dụ Be Vietnam Pro, Inter, Nunito). Font có giấy phép dùng thương mại.
+      Giọng là một giọng có trong VieNeu-TTS, hoặc có file mẫu nhân bản kèm sự đồng ý của chủ giọng.
+  - id: BRF-C05
+    group: Pháp lý
+    title: Đã khai báo có quảng cáo/tài trợ hay không
+    severity: nghiem_trong
+    method: ai
+    guidance: Trường is_advertising phải có. Nếu video nhắc tới sản phẩm hay thương hiệu mà không khai báo thì TRƯỢT.
+  - id: BRF-C06
+    group: Khả thi
+    title: Thời lượng phù hợp khối lượng nội dung
+    severity: nhe
+    method: ai
+    guidance: "Ước lượng: khoảng 150–200 âm tiết lời đọc mỗi phút. Một ý chính cần khoảng 20–40 giây. Báo nếu mục tiêu quá tham hoặc quá ít."

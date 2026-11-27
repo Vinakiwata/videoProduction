@@ -1,0 +1,65 @@
+# Tool giọng đọc (VieNeu-TTS). Manifest: mỗi đoạn giọng -> file wav + thời lượng đo thật.
+stage: voice
+version: 1
+title: Kiểm duyệt giọng đọc
+artifacts: [04_voice]
+items:
+  - id: VOI-A01
+    group: Cấu trúc
+    title: Có manifest giọng và file giọng đầy đủ
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [04_voice/voice_manifest.yaml, 04_voice/voice_full.wav]}
+  - id: VOI-A02
+    group: Kỹ thuật
+    title: Âm lượng giọng chuẩn và không vỡ tiếng
+    severity: chan
+    method: auto
+    check: audio_loudness
+    params: {path: 04_voice/voice_full.wav, target_lufs: -16, tolerance: 1.5, max_true_peak: -1.0}
+  - id: VOI-C01
+    group: Độ chính xác
+    title: Đọc đúng 100% chữ trong kịch bản, không đọc sót, thừa hay sai
+    severity: chan
+    method: ai
+    guidance: |
+      Nghe từng đoạn (hoặc đối chiếu với bản nhận dạng giọng nói), so với text trong kịch bản.
+      Ghi mã đoạn, chữ trong kịch bản và chữ đọc thực tế.
+  - id: VOI-C02
+    group: Độ chính xác
+    title: Phát âm đúng tên riêng, số, viết tắt, từ nước ngoài
+    severity: chan
+    method: ai
+    guidance: Đối chiếu meta.pronunciation. Ghi từ đọc sai và mốc thời gian.
+  - id: VOI-C03
+    group: Chất lượng âm
+    title: Không có tạp âm, tiếng lạ, méo, rè, bị cắt đầu/cuối câu
+    severity: chan
+    method: ai
+    guidance: TTS đôi khi sinh tiếng lạ, lặp âm hoặc nuốt chữ cuối. Ghi mốc thời gian từng lỗi.
+  - id: VOI-C04
+    group: Chất lượng âm
+    title: Giọng đồng nhất giữa các đoạn (âm sắc, tốc độ, độ to)
+    severity: nghiem_trong
+    method: ai
+    guidance: Chuyển đoạn không được nghe như đổi người đọc. Ghi cặp đoạn bị lệch.
+  - id: VOI-C05
+    group: Diễn cảm
+    title: Ngữ điệu đúng ý câu (câu hỏi lên giọng, nhấn từ khoá)
+    severity: nghiem_trong
+    method: ai
+    guidance: Ghi đoạn có ngữ điệu đều đều, sai cảm xúc, hoặc nhấn sai từ.
+  - id: VOI-C06
+    group: Thời lượng
+    title: Thời lượng thật mỗi đoạn được đo và ghi vào manifest
+    severity: chan
+    method: ai
+    guidance: Manifest phải có duration_s đo từ file thật cho từng đoạn. Timeline sẽ dựng hoàn toàn theo số này.
+  - id: VOI-C07
+    group: Pháp lý
+    title: Giọng nhân bản (nếu có) có sự đồng ý của chủ giọng
+    severity: chan
+    method: ai
+    allow_na: true
+    guidance: Dùng giọng có sẵn của VieNeu thì na. Dùng giọng nhân bản thì phải có bằng chứng đồng ý, lưu trong 04_voice/consent.

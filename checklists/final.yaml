@@ -1,0 +1,89 @@
+# Tool 10 — QC tổng trên bản master cuối cùng. Nhìn như người xem, đo như kỹ thuật viên.
+stage: final
+version: 1
+title: QC tổng bản master
+artifacts: [10_final/video.mp4, 10_final/subtitles.srt]
+items:
+  - id: FIN-A01
+    group: Kỹ thuật
+    title: Có bản master và phụ đề
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [10_final/video.mp4, 10_final/subtitles.srt]}
+  - id: FIN-A02
+    group: Kỹ thuật
+    title: Định dạng master 1920×1080, 30 fps, H.264, yuv420p
+    severity: chan
+    method: auto
+    check: video_format
+    params: {path: 10_final/video.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+  - id: FIN-A03
+    group: Kỹ thuật
+    title: Độ to −14 LUFS ±1, đỉnh thực ≤ −1 dBTP
+    severity: chan
+    method: auto
+    check: audio_loudness
+    params: {path: 10_final/video.mp4, target_lufs: -14, tolerance: 1.0, max_true_peak: -1.0}
+  - id: FIN-A04
+    group: Kỹ thuật
+    title: Không khung đen ngoài ý muốn
+    severity: chan
+    method: auto
+    check: black_frames
+    params: {path: 10_final/video.mp4, max_black_s: 0.2}
+  - id: FIN-A05
+    group: Kỹ thuật
+    title: Không đứng hình quá 4 giây
+    severity: nghiem_trong
+    method: auto
+    check: freeze_frames
+    params: {path: 10_final/video.mp4, max_freeze_s: 4.0}
+  - id: FIN-A06
+    group: Kỹ thuật
+    title: Hình và tiếng dài bằng nhau
+    severity: chan
+    method: auto
+    check: av_duration_match
+    params: {path: 10_final/video.mp4, max_diff_s: 0.034}
+  - id: FIN-C01
+    group: Toàn vẹn
+    title: Nội dung master đúng bản kịch bản đã duyệt (không thiếu/thừa câu nào)
+    severity: chan
+    method: ai
+    guidance: Đối chiếu phụ đề hoặc bản nhận dạng giọng nói với 01_script/script.yaml. Ghi mọi chênh lệch.
+  - id: FIN-C02
+    group: Người xem
+    title: Xem hết một lượt như người xem — không chỗ nào khó hiểu, gây lạc
+    severity: chan
+    method: ai
+    guidance: Ghi mốc thời gian mỗi chỗ phải tua lại mới hiểu.
+  - id: FIN-C03
+    group: Người xem
+    title: Giữ chân — không đoạn > 8 giây thiếu thay đổi thị giác hoặc thông tin mới
+    severity: nghiem_trong
+    method: ai
+    guidance: Ghi các đoạn "chết".
+  - id: FIN-C04
+    group: Thiết bị
+    title: Xem tốt trên điện thoại (chữ đọc được, tiếng rõ qua loa ngoài)
+    severity: nghiem_trong
+    method: ai
+    guidance: Thu nhỏ khung về chiều rộng 400px để kiểm chữ. Nghe ở mức âm lượng thấp.
+  - id: FIN-C05
+    group: Pháp lý
+    title: Có kế hoạch gắn nhãn nội dung do AI tạo (giọng AI, hình AI)
+    severity: chan
+    method: ai
+    guidance: |
+      Căn cứ: Luật Trí tuệ nhân tạo 134/2025/QH15 (hiệu lực 01/3/2026). Nội dung âm thanh, hình ảnh, video do AI tạo hoặc chỉnh sửa
+      khi đưa ra công chúng phải được đánh dấu hoặc gắn nhãn. Giọng VieNeu-TTS là giọng AI.
+      ĐẠT khi video có dòng ghi nhận trên hình (ví dụ ở màn kết) hoặc 11_package có nhãn trong mô tả và khai báo khi tải lên.
+  - id: FIN-C06
+    group: Tổng thể
+    title: Bảng điểm chất lượng tổng ≥ 85/100 theo cảm nhận chuyên môn
+    severity: nghiem_trong
+    method: ai
+    guidance: |
+      Chấm 5 tiêu chí, mỗi tiêu chí 0–20: Nội dung, Hình ảnh, Âm thanh, Nhịp độ, Hoàn thiện. Ghi điểm từng tiêu chí và lý do.
+      Tổng < 85 là TRƯỢT. Ghi 3 việc nên cải thiện nhất.

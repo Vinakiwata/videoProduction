@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kịch bản video (01_script/script.yaml)",
+  "type": "object",
+  "required": ["meta", "scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["title", "language", "target_duration_s", "audience", "goal"],
+      "properties": {
+        "title": {"type": "string", "minLength": 3},
+        "language": {"type": "string", "enum": ["vi", "en"]},
+        "target_duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "audience": {"type": "string", "minLength": 3},
+        "goal": {"type": "string", "minLength": 3},
+        "notes": {"type": "string"}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^SRC\\d+$"},
+          "title": {"type": "string"},
+          "url": {"type": "string"},
+          "accessed": {"type": ["string", "null"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "pronunciation": {
+      "description": "Từ điển phát âm: từ viết -> cách đọc",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "purpose", "segments"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^S\\d{2,3}$"},
+          "title": {"type": "string"},
+          "purpose": {"type": "string", "minLength": 3},
+          "segments": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "kind", "est_duration_s", "visual"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^S\\d{2,3}-\\d{2}$"},
+                "kind": {"type": "string", "enum": ["voice", "silent"]},
+                "text": {"type": "string", "minLength": 1},
+                "est_duration_s": {"type": "number", "exclusiveMinimum": 0},
+                "visual": {"type": "string", "minLength": 3},
+                "emotion": {"type": "string"},
+                "sfx": {"type": "array", "items": {"type": "string"}},
+                "on_screen_text": {"type": "string"},
+                "source_ids": {"type": "array", "items": {"type": "string"}}
+              },
+              "allOf": [
+                {"if": {"properties": {"kind": {"const": "voice"}}},
+                 "then": {"required": ["text"]}},
+                {"if": {"properties": {"kind": {"const": "silent"}}},
+                 "then": {"not": {"required": ["text"]}}}
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

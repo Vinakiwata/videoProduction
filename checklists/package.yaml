@@ -1,0 +1,58 @@
+# Đóng gói xuất bản YouTube.
+stage: package
+version: 1
+title: Kiểm duyệt đóng gói xuất bản
+artifacts: [11_package]
+items:
+  - id: PKG-A01
+    group: Cấu trúc
+    title: Có metadata và thumbnail
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [11_package/metadata.yaml, 11_package/thumbnail.png]}
+  - id: PKG-C01
+    group: Thumbnail
+    title: Thumbnail 1280×720, < 2 MB, đọc được ở cỡ nhỏ, khớp nội dung
+    severity: nghiem_trong
+    method: ai
+    guidance: Thu nhỏ về 168×94 (cỡ hiển thị gợi ý). Chữ ≤ 4 từ vẫn đọc được. Không câu view sai nội dung.
+  - id: PKG-C02
+    group: Tiêu đề
+    title: Tiêu đề ≤ 70 ký tự, có từ khoá, trung thực
+    severity: nghiem_trong
+    method: ai
+    guidance: Đếm ký tự. Tiêu đề hứa gì thì video phải có điều đó.
+  - id: PKG-C03
+    group: Mô tả
+    title: Mô tả có tóm tắt, chapters đúng mốc, nguồn tham khảo, ghi công tài nguyên
+    severity: nghiem_trong
+    method: ai
+    guidance: Chapters bắt đầu từ 00:00, ≥ 3 mục, mỗi mục ≥ 10 giây, mốc khớp video. Liệt kê nguồn từ script.sources và giấy phép nhạc/SFX/font nếu yêu cầu ghi công.
+  - id: PKG-C04
+    group: Pháp lý
+    title: Gắn nhãn nội dung AI theo Luật Trí tuệ nhân tạo và khai báo trên YouTube
+    severity: chan
+    method: ai
+    guidance: |
+      Mô tả có dòng ghi rõ phần do AI tạo (ví dụ "Giọng đọc được tạo bằng AI (VieNeu-TTS)").
+      metadata.yaml có ai_disclosure: true để bật mục "Altered or synthetic content" khi tải lên (nếu nội dung trông như thật).
+  - id: PKG-C05
+    group: Pháp lý
+    title: Nếu có quảng cáo/tài trợ — đánh dấu "Có quảng cáo trả phí" và ghi rõ trong video/mô tả
+    severity: chan
+    method: ai
+    allow_na: true
+    guidance: Theo Luật Quảng cáo sửa đổi 75/2025/QH15 và chính sách YouTube. na nếu brief.is_advertising = false.
+  - id: PKG-C06
+    group: Phụ đề
+    title: File phụ đề tiếng Việt sẵn để tải lên
+    severity: nhe
+    method: ai
+    guidance: Có 11_package/subtitles.vi.srt, khớp bản master.
+  - id: PKG-C07
+    group: Đối tượng
+    title: Đã quyết định "dành cho trẻ em" hay không đúng quy định
+    severity: nghiem_trong
+    method: ai
+    guidance: metadata.yaml có made_for_kids, có lý do dựa trên khán giả trong brief.

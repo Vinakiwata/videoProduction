@@ -1,0 +1,19 @@
+BRF-C01:
+  verdict: fail
+  evidence: 'goal = "Giải thích một hiện tượng khoa học trong 30 giây, người xem hiểu và muốn xem tiếp kênh". Chưa nói người xem hiểu ĐIỀU GÌ, nên không dùng làm thước đo cho kịch bản được ("một hiện tượng khoa học" là chung chung, chỉ có tiêu đề nêu hiện tượng).'
+  fix: 'Viết lại goal thành kết quả cụ thể, ví dụ: "Sau 30 giây, người xem giải thích lại được bằng một câu: ánh sáng xanh có bước sóng ngắn nên bị không khí tán xạ mạnh hơn, lan khắp bầu trời; và muốn xem tiếp kênh."'
+BRF-C02:
+  verdict: pass
+  evidence: 'audience = "Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính": có trình độ (trung học), động cơ (tò mò) và bối cảnh xem (điện thoại/máy tính), đủ để chọn từ vựng phổ thông và chữ lớn.'
+BRF-C03:
+  verdict: pass
+  evidence: 'channel = youtube, format = 1920x1080 @ 30 fps (16:9), target_duration_s = 30. Không mâu thuẫn; 30 giây là video ngắn trên kênh YouTube thường, hợp lệ.'
+BRF-C04:
+  verdict: pass
+  evidence: 'colors: 3 mã hex hợp lệ (#0B3D91, #FFD23F, #FFFFFF, tương phản xanh đậm/trắng cao). Font Be Vietnam Pro được thiết kế cho tiếng Việt, giấy phép SIL OFL cho dùng thương mại. Giọng "Ngọc Lan" là giọng mặc định có sẵn của VieNeu-TTS v3 Turbo (examples/main_v3turbo.py).'
+BRF-C05:
+  verdict: pass
+  evidence: 'is_advertising: false. Kiểm tra goal, cta, constraints: không nhắc sản phẩm hay thương hiệu nào; CTA chỉ là đăng ký kênh.'
+BRF-C06:
+  verdict: pass
+  evidence: '30 giây cho đúng một ý chính (tán xạ Rayleigh), tương đương khoảng 75–100 âm tiết lời đọc. Vừa sức, không tham.'

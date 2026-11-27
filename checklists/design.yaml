@@ -1,0 +1,61 @@
+# Tool 3 — Thiết kế nội dung & storyboard. Schema storyboard sẽ được định nghĩa khi xây tool 3.
+stage: design
+version: 1
+title: Kiểm duyệt thiết kế nội dung & storyboard
+artifacts: [02_design]
+items:
+  - id: DSN-A01
+    group: Cấu trúc
+    title: Có file storyboard
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [02_design/storyboard.yaml]}
+  - id: DSN-C01
+    group: Độ phủ
+    title: Mọi đoạn trong kịch bản có thiết kế tương ứng, không thừa, không thiếu
+    severity: chan
+    method: ai
+    guidance: Đối chiếu từng mã đoạn trong 01_script/script.yaml với storyboard. Liệt kê đoạn thiếu hoặc đoạn thừa.
+  - id: DSN-C02
+    group: Truyền đạt
+    title: Mỗi khung hình có một điểm nhìn chính (focal point)
+    severity: nghiem_trong
+    method: ai
+    guidance: Người xem phải biết nhìn vào đâu trong 0,5 giây. Khung có hơn 2 thứ cùng tranh sự chú ý là TRƯỢT.
+  - id: DSN-C03
+    group: Truyền đạt
+    title: Hình minh hoạ đúng nghĩa lời đọc, không gây hiểu sai
+    severity: chan
+    method: ai
+    guidance: Hình phải đúng về khoa học/sự thật (ví dụ tỉ lệ, hướng, thứ tự). Hình nói khác lời là TRƯỢT.
+  - id: DSN-C04
+    group: Nhịp
+    title: Điểm rơi (beat) và SFX đặt đúng khoảnh khắc ý nghĩa
+    severity: nghiem_trong
+    method: ai
+    guidance: Mỗi SFX (click, pop, whoosh, rơi) gắn với một hành động trên hình. Không SFX liên tục làm mệt tai.
+  - id: DSN-C05
+    group: Nhận diện
+    title: Dùng đúng màu, font, phong cách trong brief
+    severity: nghiem_trong
+    method: ai
+    guidance: Liệt kê màu hay font ngoài bộ nhận diện. Nếu có ngoại lệ thì phải có lý do.
+  - id: DSN-C06
+    group: Khả năng đọc
+    title: Chữ trên màn hình đọc kịp và đủ lớn
+    severity: nghiem_trong
+    method: ai
+    guidance: Chữ ≥ 48px ở khung 1080p cho nội dung chính, tối đa khoảng 7 từ mỗi dòng, hiển thị đủ lâu (≥ 0,3 giây/từ + 1 giây). Tương phản ≥ 4.5:1.
+  - id: DSN-C07
+    group: Khả thi
+    title: Mọi hoạt ảnh làm được bằng SVG/CSS/Canvas/Lottie
+    severity: nghiem_trong
+    method: ai
+    guidance: Không yêu cầu 3D, video quay thật hay ảnh chụp có bản quyền. Hiệu ứng phức tạp phải được chia thành các bước làm được.
+  - id: DSN-C08
+    group: Bản quyền
+    title: Không phỏng theo nhân vật, logo, tác phẩm có bản quyền
+    severity: chan
+    method: ai
+    guidance: Mọi nhân vật và biểu tượng phải là thiết kế gốc.

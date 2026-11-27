@@ -1,0 +1,51 @@
+# Tool 6 — Web trình chiếu đúng khung 1920×1080, chạy theo timeline, điều khiển được thời gian để render.
+stage: presentation
+version: 1
+title: Kiểm duyệt web trình chiếu
+artifacts: [07_presentation]
+items:
+  - id: PRS-A01
+    group: Cấu trúc
+    title: Có trang trình chiếu
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [07_presentation/index.html]}
+  - id: PRS-C01
+    group: Kích thước
+    title: Khung đúng 1920×1080, không cuộn, không viền, không phụ thuộc cỡ cửa sổ
+    severity: chan
+    method: ai
+    guidance: Mở bằng Playwright ở viewport 1920×1080, chụp ảnh. Kiểm tra không có thanh cuộn hay khoảng trắng.
+  - id: PRS-C02
+    group: Điều khiển thời gian
+    title: Tua tới mốc t bất kỳ cho ra đúng khung hình (tất định)
+    severity: chan
+    method: ai
+    guidance: |
+      Trang phải có hàm seek(t) hoặc tương đương, không dựa vào đồng hồ thật. Chụp cùng một mốc t hai lần phải ra hai ảnh giống hệt.
+      Đây là điều kiện để render từng khung hình không lệch.
+  - id: PRS-C03
+    group: Đồng bộ
+    title: Mọi cue đọc từ timeline đã khoá, không mã cứng thời gian
+    severity: chan
+    method: ai
+    guidance: Tìm trong mã nguồn các con số thời gian viết tay. Mọi mốc phải đến từ 05_timeline/timeline.yaml.
+  - id: PRS-C04
+    group: Tài nguyên
+    title: Chạy hoàn toàn offline — font, ảnh, script nằm trong thư mục, không gọi mạng
+    severity: chan
+    method: ai
+    guidance: Kiểm tra mọi src/href. Font tiếng Việt phải được nhúng.
+  - id: PRS-C05
+    group: Hiển thị
+    title: Font đã tải xong trước khung đầu, tiếng Việt hiển thị đủ dấu
+    severity: chan
+    method: ai
+    guidance: Chụp khung đầu và các khung có chữ. Kiểm tra dấu không bị lỗi ô vuông hay font dự phòng.
+  - id: PRS-C06
+    group: Kỹ thuật
+    title: Không lỗi console khi chạy hết timeline
+    severity: nghiem_trong
+    method: ai
+    guidance: Đọc console messages trong lúc tua toàn bộ. Mọi lỗi hay cảnh báo đều ghi lại.

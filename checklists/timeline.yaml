@@ -1,0 +1,50 @@
+# Tool 5 — Timeline tổng (khoá). Mọi công đoạn sau dựng theo file này.
+stage: timeline
+version: 1
+title: Kiểm duyệt timeline tổng
+artifacts: [05_timeline]
+items:
+  - id: TML-A01
+    group: Cấu trúc
+    title: Có timeline và phụ đề
+    severity: chan
+    method: auto
+    check: file_exists
+    params: {paths: [05_timeline/timeline.yaml, 05_timeline/subtitles.srt]}
+  - id: TML-C01
+    group: Đồng bộ
+    title: Mốc thời gian giọng lấy từ thời lượng đo thật, không phải ước tính
+    severity: chan
+    method: ai
+    guidance: Đối chiếu từng đoạn giọng trong timeline với 04_voice/voice_manifest.yaml. Lệch > 1 khung hình (33 ms ở 30 fps) là TRƯỢT.
+  - id: TML-C02
+    group: Đồng bộ
+    title: Phân tách rõ đoạn có giọng / không giọng, không chồng lấn
+    severity: chan
+    method: ai
+    guidance: Không có hai đoạn giọng chồng nhau. Khoảng im lặng có chủ đích được đánh dấu silent, không phải khe hở do lỗi.
+  - id: TML-C03
+    group: Đồng bộ
+    title: Mọi hoạt ảnh và SFX neo vào mốc của giọng (từ khoá/đầu câu)
+    severity: nghiem_trong
+    method: ai
+    guidance: Mỗi cue hình hay SFX phải có anchor là mã đoạn kèm độ lệch, không dùng thời gian tuyệt đối "trôi nổi".
+  - id: TML-C04
+    group: Phụ đề
+    title: Phụ đề khớp lời đọc, ≤ 2 dòng, ≤ 42 ký tự/dòng, hiển thị ≥ 1 giây
+    severity: nghiem_trong
+    method: ai
+    guidance: Đối chiếu text phụ đề với kịch bản. Ghi dòng vi phạm.
+  - id: TML-C05
+    group: Âm thanh
+    title: Nhạc nền có đánh dấu giảm âm (ducking) khi có giọng, và có nguồn/giấy phép
+    severity: nghiem_trong
+    method: ai
+    allow_na: true
+    guidance: na nếu không dùng nhạc nền. Nếu có nhạc thì phải ghi tên, nguồn, giấy phép.
+  - id: TML-C06
+    group: Tổng
+    title: Tổng thời lượng và thứ tự cảnh khớp kịch bản đã duyệt
+    severity: chan
+    method: ai
+    guidance: Không được thêm, bớt hay đổi thứ tự cảnh so với kịch bản đã qua cổng.

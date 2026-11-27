@@ -1,0 +1,31 @@
+{
+  "stages": {
+    "brief": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/brief/20261127-213146",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "00_brief/brief.yaml": "181f27a16079b8634027aba78f715274fb751ef9ef6847f4e1207ca120430904"
+        },
+        "finalized_at": "2026-11-27T21:31:52+07:00",
+        "override": null
+      }
+    },
+    "script": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/script/20261127-213346",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "01_script/script.yaml": "3c762e4038117dc2d10f8b2bca37682003ff6ac80c7758d75a1f6cb4559147ee",
+          "00_brief/brief.yaml": "181f27a16079b8634027aba78f715274fb751ef9ef6847f4e1207ca120430904"
+        },
+        "finalized_at": "2026-11-27T21:33:46+07:00",
+        "override": null
+      }
+    }
+  }
+}
