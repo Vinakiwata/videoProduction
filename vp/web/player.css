@@ -8,7 +8,8 @@ body.render #stage { transform: none !important; }
 .el > img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .txt { display: flex; align-items: center; justify-content: center; text-align: center; }
 .tx { display: inline; line-height: 1.28; padding: .12em .42em; border-radius: .32em;
-      -webkit-box-decoration-break: clone; box-decoration-break: clone; overflow-wrap: break-word; }
+      -webkit-box-decoration-break: clone; box-decoration-break: clone; overflow-wrap: break-word;
+      white-space: pre-line; }   /* "\n" trong storyboard là xuống dòng thật (DSN-A07 cũng tính theo đó) */
 .st-title .tx { font-weight: 800; }
 .st-label .tx { font-weight: 700; }
 .st-caption .tx { font-weight: 500; }

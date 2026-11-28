@@ -13,7 +13,7 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 | 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ✅ (`vp timeline build`, skill `vp-timeline`) |
 | 6 | Hoạt ảnh 2D | `06_animation` | checklist ✅ · tool ✅ (`vp animation init/preview/lint`, skill `vp-hoat-anh`) |
 | 7 | Web trình chiếu theo khung của brief (1080×1920) | `07_presentation` | checklist ✅ · tool ✅ (`vp presentation build/check/preview/lint`, skill `vp-trinh-chieu`) |
-| 8 | Render khung hình | `08_render` | checklist ✅ · tool ⏳ |
+| 8 | Render khung hình | `08_render` | checklist ✅ · tool ✅ (`vp render build/lint`, skill `vp-render`) |
 | 9 | Mix âm thanh & ghép | `09_mix` | checklist ✅ · tool ⏳ |
 | 10 | QC tổng | `10_final` | checklist ✅ · tool ⏳ |
 | 11 | Đóng gói xuất bản | `11_package` | checklist ✅ · tool ⏳ |
@@ -45,6 +45,8 @@ python -m vp animatic build projects/<dự án>
 python -m vp animation init|sync|preview|lint projects/<dự án>
 # Web trình chiếu tất định (cần Chrome + Node 22): dựng, chụp kiểm xuôi/ngược, tờ khung mốc
 python -m vp presentation build|check|preview|lint projects/<dự án>
+# Render: chụp trang trình chiếu từng khung → video_silent.mp4 (+ preview_voice.mp4 có giọng)
+python -m vp render build|lint projects/<dự án>
 # Bộ nhận diện kênh Khỉ Khám Phá: tách lại file upload và linh vật
 python3 channels/khi-kham-pha/brand/xuat.py
 # Hồ sơ nền tảng (Shorts/TikTok/Reels): khung, lề an toàn, vùng giao diện che — platforms/<id>.yaml

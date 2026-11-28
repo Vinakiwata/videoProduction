@@ -106,18 +106,32 @@
     "presentation": {
       "pending": null,
       "latest": {
-        "review": "reviews/presentation/20261128-213035",
+        "review": "reviews/presentation/20261128-221125",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "07_presentation": "dir:756841e54681ced1c8d5c896336f69b684e6da7c1e500270338e35d11154122e",
+          "07_presentation": "dir:9cb939d8bde8405595a2bb5c1015fab78d6b404e077da07c0d060da4e1d79955",
           "00_brief/brief.yaml": "265ae6ddce2178819b1910403b25d59c6e73babfa666755f06cebe286e3e9441",
           "05_timeline/timeline.yaml": "cf891af263c4dad18b4adfb119f2279c4bda9339120d966248b549d52fe71182",
           "02_design/storyboard.yaml": "a74950e4f23f03bd7619a5bc889ac653e55ace530af4e2922f0dee29706438a5",
           "06_animation/assets.yaml": "7951cffbc74932fbc6915d3dd1a1016624cd22d67a52071b1cf35897cd6cf949",
           "@platforms": "dir:35e5916a25014f0460e15ae564196830cb97c45a6fda87c402ac227ec55553ac"
         },
-        "finalized_at": "2026-11-28T21:30:35+07:00",
+        "finalized_at": "2026-11-28T22:11:25+07:00",
+        "override": null
+      }
+    },
+    "render": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/render/20261128-221805",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "08_render": "dir:feb734fa1f9d169f92809cefed25f46fe164194f053dcc1df30dfdbc4b538f88",
+          "07_presentation/presentation.json": "5d56f32f34fcef3e36ded27c08f711f907cd8a463d444f828fbe811a4eacbedd"
+        },
+        "finalized_at": "2026-11-28T22:18:55+07:00",
         "override": null
       }
     }

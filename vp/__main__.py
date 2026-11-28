@@ -16,6 +16,7 @@
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
   animation init|sync|preview|lint <dự án>     Tool 6: danh mục hình (SVG + linh vật PNG), tờ xem trước, kiểm nhanh
   presentation build|check|preview|lint <dự án>  Tool 7: trang trình chiếu tất định, chụp kiểm bằng Chrome, tờ khung mốc
+  render build|lint <dự án>                   Tool 8: chụp trang trình chiếu từng khung → video_silent.mp4 (+ bản xem nhanh có giọng)
   timeline build <dự án> [--breath 0.6 --breath-scene 0.9]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
@@ -28,7 +29,7 @@ import yaml
 
 from vp import brief as brief_tool
 from vp import platforms
-from vp import animatic, animation_tools, design_tools, presentation_tools, review, script_tools, stages, timeline, voice
+from vp import animatic, animation_tools, design_tools, presentation_tools, render_tools, review, script_tools, stages, timeline, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -157,6 +158,15 @@ def cmd_timeline(a):
           f"{len(t['shots'])} khung hình, {len(t['cues'])} cue, {len(t['sfx'])} SFX; phụ đề 05_timeline/subtitles.srt")
 
 
+def cmd_render(a):
+    p = Path(a.project)
+    if a.action == "build":
+        out = render_tools.build(p)
+        print(f"Đã render {out} — {json.loads((p / render_tools.DIR / 'manifest.json').read_text(encoding='utf-8'))['seconds']} giây")
+    else:
+        _print_lint(render_tools.lint(p))
+
+
 def cmd_presentation(a):
     p = Path(a.project)
     if a.action == "build":
@@ -237,13 +247,16 @@ def main(argv=None):
     an.add_argument("project"); an.add_argument("--force", action="store_true"); an.set_defaults(fn=cmd_animation)
     pr = sub.add_parser("presentation"); pr.add_argument("action", choices=["build", "check", "preview", "lint"])
     pr.add_argument("project"); pr.set_defaults(fn=cmd_presentation)
+    rn = sub.add_parser("render"); rn.add_argument("action", choices=["build", "lint"])
+    rn.add_argument("project"); rn.set_defaults(fn=cmd_render)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
             design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError,
-            animation_tools.AnimationToolError, presentation_tools.PresentationError, platforms.PlatformError) as e:
+            animation_tools.AnimationToolError, presentation_tools.PresentationError, platforms.PlatformError,
+            render_tools.RenderError) as e:
         sys.exit(f"LỖI: {e}")
 
 

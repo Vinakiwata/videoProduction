@@ -1,0 +1,12 @@
+{
+ "build_hash": "de9c47be1d4563bca7492e37b0875436adb6c522a8182c3e2373ec533e5f73f8",
+ "frames": 1602,
+ "fps": 30,
+ "size": [
+  1080,
+  1920
+ ],
+ "crf": 18,
+ "preset": "veryfast",
+ "seconds": 194.0
+}
