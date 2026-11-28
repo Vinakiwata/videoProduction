@@ -1,6 +1,6 @@
 # Tool 3 — Thiết kế nội dung & storyboard. Xem docs/superpowers/specs/2026-11-27-tool-thiet-ke-design.md
 stage: design
-version: 4
+version: 5
 title: Kiểm duyệt thiết kế nội dung & storyboard
 artifacts: [02_design, 01_script/script.yaml]
 items:
@@ -57,11 +57,12 @@ items:
     params: {path: 02_design/storyboard.yaml, script: 01_script/script.yaml, min_px: 48, min_title_px: 72, max_words_per_line: 7, s_per_word: 0.3, base_s: 1.0}
   - id: DSN-A08
     group: Bố cục
-    title: Chữ trong vùng an toàn 5%, hình không tràn quá 10%
+    title: Chữ, linh vật, nút trong vùng an toàn của các nền tảng đã chọn; hình không tràn quá 10%
     severity: nghiem_trong
     method: auto
     check: storyboard_safe_area
-    params: {path: 02_design/storyboard.yaml, text_margin_pct: 5, max_bleed_pct: 10}
+    params: {path: 02_design/storyboard.yaml, brief: 00_brief/brief.yaml, text_margin_pct: 5, max_bleed_pct: 10, strict_kinds: [mascot, ui]}
+    notes: "Chủ dự án duyệt 28/11/2026 (spec khung dọc 9:16): lề px từng cạnh lấy từ platforms/<id>.yaml của brief, lề chặt nhất; brief không chọn nền tảng → 5%."
   - id: DSN-A09
     group: Âm thanh
     title: Tiếng động không dày quá 5 cái mỗi 10 giây

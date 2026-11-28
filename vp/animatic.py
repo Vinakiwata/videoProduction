@@ -12,14 +12,14 @@ from PIL import Image, ImageDraw
 from vp import review
 from vp.checks.files import load_yaml
 from vp.checks.script import segments as script_segments
-from vp.design_preview import H, W, _font, _rgb, _text_in_box, render_frame
+from vp.design_preview import _font, _rgb, _text_in_box, preview_size, render_frame
 from vp.project import dump_yaml
 from vp.sfx_synth import synth
 
 DIR = "03_animatic"
 SR = 48000
 CAPTION_H = 96
-OUT_H = H + CAPTION_H   # khung hình giữ nguyên 960×540, dải phụ đề nằm RIÊNG bên dưới, không che hình
+# khung hình = nửa canvas (preview_size), dải phụ đề CAPTION_H nằm RIÊNG bên dưới, không che hình
 
 
 class AnimaticError(RuntimeError):
@@ -163,6 +163,8 @@ def _frame(shot, assets, canvas, t, dur, seg, timecode):
         if al <= 0:
             continue
         pic.paste(img, (0, 0), mask if al >= 1 else mask.point(lambda v: int(v * al)))
+    W, H = pic.size
+    OUT_H = H + CAPTION_H
     base = Image.new("RGB", (W, OUT_H), (12, 12, 14))
     base.paste(pic, (0, 0))
     d = ImageDraw.Draw(base, "RGBA")
@@ -195,7 +197,8 @@ def input_hash(project: Path, fps: int) -> str:
     if sv.is_dir():
         for f in sorted(sv.glob("*.wav")):
             h.update(f.name.encode()); h.update(hashlib.sha256(f.read_bytes()).hexdigest().encode())
-    h.update(f"fps={fps};w={W};h={OUT_H};layout=caption_below".encode())
+    W, H = preview_size(load_yaml(project, "02_design/storyboard.yaml")["meta"]["canvas"])
+    h.update(f"fps={fps};w={W};h={H + CAPTION_H};layout=caption_below".encode())
     return h.hexdigest()
 
 
@@ -209,6 +212,8 @@ def build(project: Path, fps: int = 15, check_gate: bool = False) -> Path:
     sb = load_yaml(project, "02_design/storyboard.yaml")
     assets = {a["id"]: a for a in sb.get("assets") or []}
     canvas = sb["meta"]["canvas"]
+    W, H = preview_size(canvas)
+    OUT_H = H + CAPTION_H
     shots = {s["id"]: s for s in sb.get("shots") or []}
     segs = {s["id"]: s for s in timing["segments"]}
     out = project / DIR / "animatic.mp4"

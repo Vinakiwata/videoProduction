@@ -294,22 +294,49 @@ def contrast(project: Path, params: dict) -> CheckResult:
 
 @register("storyboard_safe_area")
 def safe_area(project: Path, params: dict) -> CheckResult:
+    """Chữ, linh vật, nút nằm trong vùng an toàn của các nền tảng của brief (lề px từng cạnh, vp.platforms);
+    brief không chọn nền tảng → lề text_margin_pct (5%). Hình khác không tràn khung quá max_bleed_pct."""
+    from vp import platforms as pf
     sb = load_yaml(project, params["path"])
-    m, bleed = float(params.get("text_margin_pct", 5)), float(params.get("max_bleed_pct", 10))
+    cv = (sb.get("meta") or {}).get("canvas") or {"width": 1920, "height": 1080}
+    W, H = cv["width"], cv["height"]
+    brief = {}
+    if params.get("brief") and (project / params["brief"]).is_file():
+        brief = load_yaml(project, params["brief"]) or {}
+    bleed = float(params.get("max_bleed_pct", 10))
+    strict = set(params.get("strict_kinds") or [])
+    kinds = {a["id"]: a.get("kind") for a in sb.get("assets") or []}
+    if brief.get("platforms"):
+        m = pf.safe_margins(brief)
+        label = "vùng an toàn của " + ", ".join(pf.name(i) for i in brief["platforms"])
+    else:
+        pct = float(params.get("text_margin_pct", 5)) / 100
+        m = {"top": H * pct, "bottom": H * pct, "left": W * pct, "right": W * pct, "by": {}}
+        label = f"vùng an toàn {pct * 100:g}%"
+    lim = {"left": m["left"], "top": m["top"], "right": W - m["right"], "bottom": H - m["bottom"]}
     bad = []
     for sh in sb.get("shots") or []:
         for e in sh.get("elements") or []:
             bx = e["box"]
-            x0, y0, x1, y1 = bx["x"], bx["y"], bx["x"] + bx["w"], bx["y"] + bx["h"]
+            x0, y0 = W * bx["x"] / 100, H * bx["y"] / 100
+            x1, y1 = W * (bx["x"] + bx["w"]) / 100, H * (bx["y"] + bx["h"]) / 100
             where = f"{sh['id']}/{e['id']}"
-            if "text" in e:
-                if x0 < m - EPS or y0 < m - EPS or x1 > 100 - m + EPS or y1 > 100 - m + EPS:
-                    bad.append(f"{where}: chữ ra ngoài vùng an toàn {m:g}% (hộp {x0:g},{y0:g} → {x1:g},{y1:g})")
-            elif x0 < -bleed or y0 < -bleed or x1 > 100 + bleed or y1 > 100 + bleed:
-                bad.append(f"{where}: hình tràn khung quá {bleed:g}% (hộp {x0:g},{y0:g} → {x1:g},{y1:g})")
+            kind = "text" if "text" in e else kinds.get(e.get("asset"))
+            if kind == "text" or kind in strict:
+                out = [side for side, hit in (("left", x0 < lim["left"] - 0.5), ("top", y0 < lim["top"] - 0.5),
+                                              ("right", x1 > lim["right"] + 0.5), ("bottom", y1 > lim["bottom"] + 0.5)) if hit]
+                if out:
+                    who = ", ".join(sorted({pf.name(m["by"][s_]) for s_ in out if m["by"].get(s_)}))
+                    what = "chữ" if kind == "text" else kind
+                    bad.append(f"{where}: {what} ra ngoài {label} ở cạnh {'/'.join(out)} (hộp {x0:.0f},{y0:.0f} → {x1:.0f},{y1:.0f} px)"
+                               + (f" — {who} che" if who else ""))
+            elif bx["x"] < -bleed or bx["y"] < -bleed or bx["x"] + bx["w"] > 100 + bleed or bx["y"] + bx["h"] > 100 + bleed:
+                bad.append(f"{where}: hình tràn khung quá {bleed:g}% (hộp {bx['x']:g},{bx['y']:g} → {bx['x'] + bx['w']:g},{bx['y'] + bx['h']:g})")
     if bad:
         return _fmt(bad, "Phần tử ngoài vùng an toàn:")
-    return CheckResult("pass", f"Chữ trong vùng an toàn {m:g}%, hình không tràn quá {bleed:g}%.")
+    sides = f"trên {m['top']:.0f} · dưới {m['bottom']:.0f} · trái {m['left']:.0f} · phải {m['right']:.0f} px"
+    return CheckResult("pass", f"Chữ{', ' + ', '.join(sorted(strict)) if strict else ''} trong {label} ({sides} trên khung {W}×{H}); "
+                               f"hình không tràn quá {bleed:g}%.")
 
 
 @register("storyboard_sfx_density")
