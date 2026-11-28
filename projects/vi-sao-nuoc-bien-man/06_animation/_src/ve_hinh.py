@@ -158,12 +158,12 @@ arcs = "".join(f'<path d="{d}" stroke="{Y}" stroke-width="12" fill="none" stroke
     ("M105 125 A160 160 0 0 1 160 80", "M146 66 L182 72 L158 98Z")))
 A["A-VONG-TUAN-HOAN"] = svg("0 0 400 400", g("ring", arcs), g("icons", *[ring_icon(k, *v) for k, v in pts.items()]))
 
-# Khung A-KHOANG-CHAT trong storyboard: x 30–75 %, y 30–70 % của khung 1920×1080 → hộp 864×432.
-# Miệng núi lửa (400,300 trên 960×540) → (225, 276); khe nứt (670,384) → (764, 432) trong hộp này.
+# Khung A-KHOANG-CHAT trong storyboard dọc: x 10–80 %, y 40–59,7 % của khung 1080×1920 → hộp 756×378 (viewBox 864×432, cùng tỉ lệ 2:1).
+# Trên cảnh A-DAY-BIEN (540×960) ô này là 54–432 × 384–573; miệng núi lửa (200, 572) → (334, 430), khe nứt (372, 572) → (727, 430).
 def _khoang():
     random.seed(11)
     out = []
-    for sx, sy, n, drift in ((225, 276, 9, 25), (764, 430, 10, -25)):
+    for sx, sy, n, drift in ((334, 428, 9, 25), (727, 428, 10, -25)):
         for i in range(n):
             t = (i + 1) / n
             x = sx + random.uniform(-1, 1) * 60 * t + drift * t
@@ -174,9 +174,9 @@ def _khoang():
 
 A["A-KHOANG-CHAT"] = svg("0 0 864 432", g("dots", *_khoang()))
 
-A["A-MUI-TEN"] = svg("0 0 200 100", g("arrow",
-    f'<path d="M20 50 L150 50" stroke="{Y}" stroke-width="22" stroke-linecap="round"/>',
-    f'<path d="M120 15 L180 50 L120 85Z" fill="{Y}" stroke="{Y}" stroke-width="10" stroke-linejoin="round"/>'))
+A["A-MUI-TEN"] = svg("0 0 100 200", g("arrow",   # mũi tên chỉ xuống — chuỗi tóm tắt xếp dọc (khung 9:16)
+    f'<path d="M50 20 L50 150" stroke="{Y}" stroke-width="22" stroke-linecap="round"/>',
+    f'<path d="M15 120 L50 180 L85 120Z" fill="{Y}" stroke="{Y}" stroke-width="10" stroke-linejoin="round"/>'))
 
 A["A-NUT-DANG-KY"] = svg("0 0 520 180",
     f'<rect x="18" y="26" width="490" height="140" rx="70" {SHADOW}/>',

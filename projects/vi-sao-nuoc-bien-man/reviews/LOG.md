@@ -74,3 +74,7 @@
 | 2026-11-28T17:44:49+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-174448/report.md](design/20261128-174448/report.md) |
 | 2026-11-28T17:46:41+07:00 | animatic | ✅ ĐẠT | 100 | — | [animatic/20261128-174640/report.md](animatic/20261128-174640/report.md) |
 | 2026-11-28T17:47:01+07:00 | timeline | ✅ ĐẠT | 100 | — | [timeline/20261128-174701/report.md](timeline/20261128-174701/report.md) |
+| 2026-11-28T17:52:40+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-175238/report.md](design/20261128-175238/report.md) |
+| 2026-11-28T17:52:46+07:00 | animatic | ✅ ĐẠT | 100 | — | [animatic/20261128-175245/report.md](animatic/20261128-175245/report.md) |
+| 2026-11-28T17:52:47+07:00 | timeline | ✅ ĐẠT | 100 | — | [timeline/20261128-175247/report.md](timeline/20261128-175247/report.md) |
+| 2026-11-28T17:53:12+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-175311/report.md](animation/20261128-175311/report.md) |
