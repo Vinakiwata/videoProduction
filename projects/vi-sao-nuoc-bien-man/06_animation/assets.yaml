@@ -369,14 +369,6 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
-- id: A-CHUONG
-  file: assets/A-CHUONG.svg
-  kind: icon
-  description: Chuông thông báo trắng phẳng, có 2 vạch rung nhỏ hai bên
-  layers: []
-  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
-  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
 - id: A-KHI-THAC-MAC
   file: assets/A-KHI-THAC-MAC.png
   kind: mascot
@@ -399,14 +391,6 @@ assets:
   description: Khỉ ôm quả địa cầu — quy mô hàng triệu năm của hành tinh
   layers: []
   source: Bộ nhận diện kênh — linh vật, biểu cảm 'yeu-trai-dat' (chép từ brand.mascot, không sửa)
-  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
-  notes: ''
-- id: A-KHI-VUI-MUNG
-  file: assets/A-KHI-VUI-MUNG.png
-  kind: mascot
-  description: Khỉ giơ hai tay vui mừng — cảnh kết mời đăng ký
-  layers: []
-  source: Bộ nhận diện kênh — linh vật, biểu cảm 'vui-mung' (chép từ brand.mascot, không sửa)
   license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
   notes: ''
 - id: A-KHI-LOGO

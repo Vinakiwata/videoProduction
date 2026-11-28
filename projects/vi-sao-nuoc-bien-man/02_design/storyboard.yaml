@@ -38,11 +38,9 @@ assets:
   - {id: A-KHOANG-CHAT, kind: diagram, description: 'Chuỗi chấm khoáng chất trắng nhỏ bay lên từ miệng núi lửa và khe nứt, toả dần vào làn nước', colors: ['#FFFFFF']}
   - {id: A-MUI-TEN, kind: icon, description: 'Mũi tên dọc dày bo tròn màu vàng, chỉ xuống (chuỗi tóm tắt xếp từ trên xuống)', colors: ['#FFC907']}
   - {id: A-NUT-DANG-KY, kind: ui, description: 'Nút bo tròn lớn màu vàng, chữ "ĐĂNG KÝ" màu tối đậm ở giữa, tự thiết kế — không dùng logo YouTube', colors: ['#FFC907', '#5E270E']}
-  - {id: A-CHUONG, kind: icon, description: 'Chuông thông báo trắng phẳng, có 2 vạch rung nhỏ hai bên', colors: ['#FFFFFF']}
   - {id: A-KHI-THAC-MAC, kind: mascot, expression: tham-hoi, description: 'Khỉ chống cằm thắc mắc, có dấu hỏi xanh — nêu nghịch lý mở đầu', colors: ['#FFC907', '#5E270E', '#0078E0']}
   - {id: A-KHI-NGAC-NHIEN, kind: mascot, expression: ngac-nhien, description: 'Khỉ ôm má ngạc nhiên, dấu chấm than cam — lúc lộ đáp án nước bay đi muối ở lại', colors: ['#FFC907', '#5E270E', '#FD8305']}
   - {id: A-KHI-TRAI-DAT, kind: mascot, expression: yeu-trai-dat, description: 'Khỉ ôm quả địa cầu — quy mô hàng triệu năm của hành tinh', colors: ['#FFC907', '#5E270E', '#669F2D']}
-  - {id: A-KHI-VUI-MUNG, kind: mascot, expression: vui-mung, description: 'Khỉ giơ hai tay vui mừng — cảnh kết mời đăng ký', colors: ['#FFC907', '#5E270E', '#0078E0']}
   - {id: A-KHI-LOGO, kind: mascot, expression: logo, description: 'Logo tròn Khỉ Khám Phá có bảng tên gỗ — cảnh kết', colors: ['#FFC907', '#5E270E', '#0078E0', '#669F2D']}
 shots:
   # ---------------- S01 Móc ----------------
@@ -66,10 +64,10 @@ shots:
     camera: {move: static}
     transition_in: zoom_through
     elements:
-      - {id: e1, asset: A-COC-SONG, box: {x: 8, y: 14, w: 30, h: 20.6}, enter: {anim: pop, at: 0, dur_s: 0.4, ease: back_out}}
-      - {id: e2, asset: A-COC-BIEN, box: {x: 8, y: 40, w: 30, h: 20.6}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}}
-      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 46, y: 29, w: 34, h: 19.1}, enter: {anim: pop, at: 0.6, dur_s: 0.35, ease: back_out}, loop: {anim: bob}}
-      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 61, w: 76, h: 14.5}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
+      - {id: e1, asset: A-COC-SONG, box: {x: 6, y: 30, w: 34, h: 23.4}, enter: {anim: pop, at: 0, dur_s: 0.4, ease: back_out}}
+      - {id: e2, asset: A-COC-BIEN, box: {x: 46, y: 30, w: 34, h: 23.4}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}}
+      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 26, y: 55.5, w: 34, h: 19.1}, enter: {anim: pop, at: 0.6, dur_s: 0.35, ease: back_out}, loop: {anim: bob}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 12, w: 76, h: 14.5}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
     sfx:
       - {name: pop, target: e3, event: enter}
     notes: Zoom xuyên qua mặt biển của khung trước để vào khung hai cốc. Cốc biển hơi nghiêng để thấy hạt muối.
@@ -82,10 +80,10 @@ shots:
     camera: {move: zoom_in, amount: 0.05}
     transition_in: match_cut
     elements:
-      - {id: e1, asset: A-COC-SONG, box: {x: 8, y: 14, w: 30, h: 20.6}}
-      - {id: e2, asset: A-COC-BIEN, box: {x: 8, y: 40, w: 30, h: 20.6}}
-      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 46, y: 29, w: 34, h: 19.1}, loop: {anim: wiggle}}
-      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 61, w: 76, h: 14.5}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
+      - {id: e1, asset: A-COC-SONG, box: {x: 6, y: 30, w: 34, h: 23.4}}
+      - {id: e2, asset: A-COC-BIEN, box: {x: 46, y: 30, w: 34, h: 23.4}}
+      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 26, y: 55.5, w: 34, h: 19.1}, loop: {anim: wiggle}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 12, w: 76, h: 14.5}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
     notes: Nối tiếp liền mạch với S01-01-b (không thấy vết cắt); chỉ dấu hỏi lắc và camera tiến nhẹ.
   # ---------------- S02 Mưa và đá ----------------
   - id: S02-01-a
@@ -299,16 +297,14 @@ shots:
   - id: S05-02-a
     segment: S05-02
     span: [0, 1]
-    purpose: Mời đăng ký kênh
+    purpose: Cảm ơn người xem và mời đăng ký kênh — logo kênh để nhớ tên
     background: '#0078E0'
     focal: e1
     camera: {move: static}
     transition_in: crossfade
     elements:
-      - {id: e4, asset: A-KHI-LOGO, box: {x: 22, y: 12, w: 40, h: 22.5}, enter: {anim: scale_in, at: 0, dur_s: 0.4, ease: back_out}}
-      - {id: e5, asset: A-KHI-VUI-MUNG, box: {x: 8, y: 56, w: 34, h: 19.1}, enter: {anim: pop, at: 0.08, dur_s: 0.4, ease: back_out}, loop: {anim: bob, period_s: 2.5}}
-      - {id: e1, asset: A-NUT-DANG-KY, box: {x: 14, y: 38, w: 46, h: 9}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}, loop: {anim: pulse, period_s: 1.2}}
-      - {id: e2, asset: A-CHUONG, box: {x: 64, y: 38.5, w: 12, h: 8.1}, enter: {anim: pop, at: 0.3, dur_s: 0.3, ease: back_out}, loop: {anim: wiggle}}
-      - {id: e3, text: 'Cùng Khỉ nhé!', style: label, font_px: 64, color: '#FFC907', box: {x: 14, y: 48.5, w: 66, h: 6.5}, enter: {anim: fade, at: 0.3, dur_s: 0.3}}
+      - {id: e4, asset: A-KHI-LOGO, box: {x: 17, y: 13, w: 50, h: 28.1}, enter: {anim: scale_in, at: 0, dur_s: 0.4, ease: back_out}}
+      - {id: e3, text: "Cảm ơn bạn\nđã xem!", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 44, w: 76, h: 14.5}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
+      - {id: e1, asset: A-NUT-DANG-KY, box: {x: 19, y: 62, w: 46, h: 9}, enter: {anim: pop, at: 0.35, dur_s: 0.4, ease: back_out}, loop: {anim: pulse, period_s: 1.2}}
     sfx:
       - {name: click, target: e1, event: enter}

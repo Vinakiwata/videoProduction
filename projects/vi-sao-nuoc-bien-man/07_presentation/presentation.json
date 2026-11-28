@@ -171,10 +171,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 8.0,
-      "y": 14.0,
-      "w": 30.0,
-      "h": 20.6
+      "x": 6.0,
+      "y": 30.0,
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-SONG",
      "file": "assets/A-COC-SONG.svg",
@@ -191,10 +191,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 8.0,
-      "y": 40.0,
-      "w": 30.0,
-      "h": 20.6
+      "x": 46.0,
+      "y": 30.0,
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-BIEN",
      "file": "assets/A-COC-BIEN.svg",
@@ -211,8 +211,8 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 46.0,
-      "y": 29.0,
+      "x": 26.0,
+      "y": 55.5,
       "w": 34.0,
       "h": 19.1
      },
@@ -237,7 +237,7 @@
      "z": 3,
      "box": {
       "x": 7.0,
-      "y": 61.0,
+      "y": 12.0,
       "w": 76.0,
       "h": 14.5
      },
@@ -273,10 +273,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 8.0,
-      "y": 14.0,
-      "w": 30.0,
-      "h": 20.6
+      "x": 6.0,
+      "y": 30.0,
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-SONG",
      "file": "assets/A-COC-SONG.svg",
@@ -287,10 +287,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 8.0,
-      "y": 40.0,
-      "w": 30.0,
-      "h": 20.6
+      "x": 46.0,
+      "y": 30.0,
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-BIEN",
      "file": "assets/A-COC-BIEN.svg",
@@ -301,8 +301,8 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 46.0,
-      "y": 29.0,
+      "x": 26.0,
+      "y": 55.5,
       "w": 34.0,
       "h": 19.1
      },
@@ -321,7 +321,7 @@
      "z": 3,
      "box": {
       "x": 7.0,
-      "y": 61.0,
+      "y": 12.0,
       "w": 76.0,
       "h": 14.5
      },
@@ -1787,10 +1787,10 @@
      "id": "e4",
      "z": 0,
      "box": {
-      "x": 22.0,
-      "y": 12.0,
-      "w": 40.0,
-      "h": 22.5
+      "x": 17.0,
+      "y": 13.0,
+      "w": 50.0,
+      "h": 28.1
      },
      "asset": "A-KHI-LOGO",
      "file": "assets/A-KHI-LOGO.png",
@@ -1804,36 +1804,31 @@
      }
     },
     {
-     "id": "e5",
+     "id": "e3",
      "z": 1,
      "box": {
-      "x": 8.0,
-      "y": 56.0,
-      "w": 34.0,
-      "h": 19.1
+      "x": 7.0,
+      "y": 44.0,
+      "w": 76.0,
+      "h": 14.5
      },
-     "asset": "A-KHI-VUI-MUNG",
-     "file": "assets/A-KHI-VUI-MUNG.png",
-     "kind": "mascot",
-     "layer_motion": false,
+     "text": "Cảm ơn bạn\nđã xem!",
+     "style": "title",
+     "font_px": 96,
+     "color": "#FFC907",
      "enter": {
-      "anim": "pop",
-      "start": 1507,
-      "dur": 12,
-      "ease": "back_out"
-     },
-     "loop": {
-      "anim": "bob",
-      "start": 1507,
-      "period": 75
+      "anim": "fade",
+      "start": 1509,
+      "dur": 9,
+      "ease": "ease_out"
      }
     },
     {
      "id": "e1",
      "z": 2,
      "box": {
-      "x": 14.0,
-      "y": 38.0,
+      "x": 19.0,
+      "y": 62.0,
       "w": 46.0,
       "h": 9.0
      },
@@ -1843,59 +1838,14 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1514,
+      "start": 1535,
       "dur": 12,
       "ease": "back_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 1514,
+      "start": 1535,
       "period": 36
-     }
-    },
-    {
-     "id": "e2",
-     "z": 3,
-     "box": {
-      "x": 64.0,
-      "y": 38.5,
-      "w": 12.0,
-      "h": 8.1
-     },
-     "asset": "A-CHUONG",
-     "file": "assets/A-CHUONG.svg",
-     "kind": "icon",
-     "layer_motion": false,
-     "enter": {
-      "anim": "pop",
-      "start": 1530,
-      "dur": 9,
-      "ease": "back_out"
-     },
-     "loop": {
-      "anim": "wiggle",
-      "start": 1530,
-      "period": 45
-     }
-    },
-    {
-     "id": "e3",
-     "z": 4,
-     "box": {
-      "x": 14.0,
-      "y": 48.5,
-      "w": 66.0,
-      "h": 6.5
-     },
-     "text": "Cùng Khỉ nhé!",
-     "style": "label",
-     "font_px": 64,
-     "color": "#FFC907",
-     "enter": {
-      "anim": "fade",
-      "start": 1530,
-      "dur": 9,
-      "ease": "ease_out"
      }
     }
    ]
@@ -2186,11 +2136,6 @@
    "kind": "ui",
    "motion": []
   },
-  "A-CHUONG": {
-   "file": "assets/A-CHUONG.svg",
-   "kind": "icon",
-   "motion": []
-  },
   "A-KHI-THAC-MAC": {
    "file": "assets/A-KHI-THAC-MAC.png",
    "kind": "mascot",
@@ -2206,18 +2151,13 @@
    "kind": "mascot",
    "motion": []
   },
-  "A-KHI-VUI-MUNG": {
-   "file": "assets/A-KHI-VUI-MUNG.png",
-   "kind": "mascot",
-   "motion": []
-  },
   "A-KHI-LOGO": {
    "file": "assets/A-KHI-LOGO.png",
    "kind": "mascot",
    "motion": []
   }
  },
- "input_hash": "f02a123523bcec7e0662117a92785a5cd6357fe03ba8f38bdd94d7ab9f2af39b",
+ "input_hash": "d828a0df65f031ca227be7d4f56d258c149d356ee4f445f05ecbedafbff00f92",
  "font_files": [
   "BeVietnamPro-Bold.ttf",
   "BeVietnamPro-ExtraBold.ttf",

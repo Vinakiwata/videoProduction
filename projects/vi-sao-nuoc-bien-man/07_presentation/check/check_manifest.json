@@ -1,6 +1,6 @@
 {
- "build_hash": "f1942c751706e52c7d922049115874ce19e1e5cd94ffd495c73154bea3d4fbed",
- "input_hash": "f02a123523bcec7e0662117a92785a5cd6357fe03ba8f38bdd94d7ab9f2af39b",
+ "build_hash": "8e8282ecc92d0adffa0f1f4b83817ce8b3d76dcf8cc47980de7f910f9d329d01",
+ "input_hash": "d828a0df65f031ca227be7d4f56d258c149d356ee4f445f05ecbedafbff00f92",
  "frames": [
   {
    "frame": 0,
@@ -67,9 +67,9 @@
     1080,
     1920
    ],
-   "sha256": "75b89ed49ac6e5a41386445aa33da6c4f026e8455981525434aae1de18db302a",
-   "stddev": 18.3,
-   "max": 180,
+   "sha256": "fe07c036951ab81759a09ac3007eef7a6addd2767c435103b35ca9987bc41b5a",
+   "stddev": 19.14,
+   "max": 177,
    "issues": []
   },
   {
@@ -81,8 +81,8 @@
     1080,
     1920
    ],
-   "sha256": "6d8875b2b507993501630fd75c79f5f4bee1426495758b5a5fed9346e075a353",
-   "stddev": 21.22,
+   "sha256": "ac9057550c8a13dc4ba6a21bd16b78981369df66f533e7faf48fc7785fa26b66",
+   "stddev": 24.08,
    "max": 255,
    "issues": []
   },
@@ -95,8 +95,8 @@
     1080,
     1920
    ],
-   "sha256": "abc63561cc44ebb09d8832e9e4ea0ab85211070c94de35ebea1dbd25690551a9",
-   "stddev": 41.43,
+   "sha256": "3771779c1022273fb1343232d73f1e68d0026a50dbfb7baf59ed22b4f33891f6",
+   "stddev": 44.01,
    "max": 255,
    "issues": []
   },
@@ -109,8 +109,8 @@
     1080,
     1920
    ],
-   "sha256": "bd890993ebb5c26b6b7254f3b07398a4a7cb1e12f370641cbf690f17a6a75da3",
-   "stddev": 52.1,
+   "sha256": "77f9bbfdcdb77557b12f2d3f98a53ff5ac73c691e8bc579c45b389aa531f4cfa",
+   "stddev": 54.04,
    "max": 255,
    "issues": []
   },
@@ -123,8 +123,8 @@
     1080,
     1920
    ],
-   "sha256": "25100510447c0988d493d8274342ff9a92dc580b16d9012c6eca3cd690b4d841",
-   "stddev": 52.1,
+   "sha256": "313a70271858f2eee2528fa8b57b946e1a294f7335329b65f0eab57c80d7f33d",
+   "stddev": 54.04,
    "max": 255,
    "issues": []
   },
@@ -137,8 +137,8 @@
     1080,
     1920
    ],
-   "sha256": "1e7067b2fa1f60889a4367600fdf0bb8ca2a1627ff3c64cfb3123e8205ed730f",
-   "stddev": 52.79,
+   "sha256": "e9863788cf4b4ff4f97091f306eaaea9bd5831f8cfa4af0a01db219b89030d51",
+   "stddev": 54.8,
    "max": 255,
    "issues": []
   },
@@ -151,8 +151,8 @@
     1080,
     1920
    ],
-   "sha256": "ee4ae9f6b25e4e0c59b9e43dbe0e48f29cba60436a1ff739a66d5401b20aec25",
-   "stddev": 53.75,
+   "sha256": "0d4ba584492adb34fa103f4f4318c3e39a985f98fb36542a3f18253abce2ba06",
+   "stddev": 55.82,
    "max": 255,
    "issues": []
   },
@@ -165,8 +165,8 @@
     1080,
     1920
    ],
-   "sha256": "f92c505c0b85a32b24bf4cafcc19a78c58b3512f8b8ee898a3ce67f4b5ab0ace",
-   "stddev": 53.75,
+   "sha256": "83827484a0bf9b2ce0d54bf7d878b2d8b1b901ff901de309a02c977605eff456",
+   "stddev": 55.82,
    "max": 255,
    "issues": []
   },
@@ -179,9 +179,9 @@
     1080,
     1920
    ],
-   "sha256": "f4dc81cf6fc30579e655149ed589bc9742cb40b8f2e5b2e7ab4489fea41ecc18",
-   "stddev": 36.32,
-   "max": 240,
+   "sha256": "a42be0e53ac23aed65ebf762af11ebd9845c9bdc4e931c33a8f3bcd8b2e404e8",
+   "stddev": 35.91,
+   "max": 243,
    "issues": []
   },
   {
@@ -1019,8 +1019,8 @@
     1080,
     1920
    ],
-   "sha256": "1687bb912a5b0f7846231af739bc3ae83676be569efafe5479b3afe21111c4bf",
-   "stddev": 32.23,
+   "sha256": "54f9fda62f89dc3014884504ecfab149d93ac85ce87b81f649f17cd19f87c115",
+   "stddev": 36.52,
    "max": 255,
    "issues": []
   },
@@ -1033,8 +1033,8 @@
     1080,
     1920
    ],
-   "sha256": "286b5e05108ce2f0a2916e2bc1bdf1621efebeb414faa9df3c13454dbd5b8b73",
-   "stddev": 49.14,
+   "sha256": "81c8a06eddbecff55b5064fbd1b6fadbb616123616b354663d0e001808a20077",
+   "stddev": 60.88,
    "max": 255,
    "issues": []
   },
@@ -1047,8 +1047,8 @@
     1080,
     1920
    ],
-   "sha256": "d62fd2ff9682b5c1b581d003c2dcb852b8f09aa40a29359964e36bfcb65482ef",
-   "stddev": 70.4,
+   "sha256": "63b8316d27910858bb0e207d72c6bc74c8cbbf24724438ac4fa6f61a38de83fe",
+   "stddev": 72.92,
    "max": 255,
    "issues": []
   },
@@ -1061,8 +1061,8 @@
     1080,
     1920
    ],
-   "sha256": "462470e32fcf8bab2efa409c6c9f59f6b5e0b6caeb6af91f92522e320ab48305",
-   "stddev": 70.84,
+   "sha256": "2c1c5af5133c87115362f6a4025f11d2995fc5b6eedee998ede2daacd75a3968",
+   "stddev": 71.84,
    "max": 255,
    "issues": []
   }
@@ -1079,5 +1079,5 @@
   "mismatch": []
  },
  "contact_ui_platform": "youtube_shorts",
- "contact_build_hash": "f1942c751706e52c7d922049115874ce19e1e5cd94ffd495c73154bea3d4fbed"
+ "contact_build_hash": "8e8282ecc92d0adffa0f1f4b83817ce8b3d76dcf8cc47980de7f910f9d329d01"
 }
