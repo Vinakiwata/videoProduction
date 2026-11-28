@@ -69,7 +69,7 @@ shots:
       - {id: e1, asset: A-COC-SONG, box: {x: 8, y: 14, w: 30, h: 20.6}, enter: {anim: pop, at: 0, dur_s: 0.4, ease: back_out}}
       - {id: e2, asset: A-COC-BIEN, box: {x: 8, y: 40, w: 30, h: 20.6}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}}
       - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 46, y: 29, w: 34, h: 19.1}, enter: {anim: pop, at: 0.6, dur_s: 0.35, ease: back_out}, loop: {anim: bob}}
-      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 63, w: 76, h: 12}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 61, w: 76, h: 14.5}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
     sfx:
       - {name: pop, target: e3, event: enter}
     notes: Zoom xuyên qua mặt biển của khung trước để vào khung hai cốc. Cốc biển hơi nghiêng để thấy hạt muối.
@@ -85,7 +85,7 @@ shots:
       - {id: e1, asset: A-COC-SONG, box: {x: 8, y: 14, w: 30, h: 20.6}}
       - {id: e2, asset: A-COC-BIEN, box: {x: 8, y: 40, w: 30, h: 20.6}}
       - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 46, y: 29, w: 34, h: 19.1}, loop: {anim: wiggle}}
-      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 63, w: 76, h: 12}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 61, w: 76, h: 14.5}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
     notes: Nối tiếp liền mạch với S01-01-b (không thấy vết cắt); chỉ dấu hỏi lắc và camera tiến nhẹ.
   # ---------------- S02 Mưa và đá ----------------
   - id: S02-01-a
@@ -259,8 +259,8 @@ shots:
     camera: {move: zoom_out, amount: 0.15}
     transition_in: crossfade
     elements:
-      - {id: e1, asset: A-VONG-TUAN-HOAN, box: {x: 7, y: 23.5, w: 70, h: 39.4}, enter: {anim: draw, at: 0, dur_s: 1.0, ease: ease_out}, loop: {anim: rotate, period_s: 3}}
-      - {id: e2, text: "hàng triệu\nnăm", style: title, font_px: 80, color: '#FFC907', box: {x: 6, y: 11.6, w: 56, h: 11}, enter: {anim: typewriter, at: 0.15, dur_s: 1.0}}
+      - {id: e1, asset: A-VONG-TUAN-HOAN, box: {x: 8, y: 24.5, w: 68, h: 38.25}, enter: {anim: draw, at: 0, dur_s: 1.0, ease: ease_out}, loop: {anim: rotate, period_s: 3}}
+      - {id: e2, text: "hàng triệu\nnăm", style: title, font_px: 80, color: '#FFC907', box: {x: 6, y: 11.6, w: 56, h: 12.4}, enter: {anim: typewriter, at: 0.15, dur_s: 1.0}}
       - {id: e3, asset: A-COC-BIEN, box: {x: 60, y: 63, w: 18, h: 12.4}, enter: {anim: scale_in, at: 0.6, dur_s: 0.5, ease: ease_out}, loop: {anim: pulse}}
       - {id: e4, asset: A-KHI-TRAI-DAT, box: {x: 8, y: 61, w: 26, h: 14.6}, enter: {anim: pop, at: 0.35, dur_s: 0.35, ease: back_out}, loop: {anim: bob, period_s: 2.5}}
     notes: Chữ "hàng triệu năm" gõ ra như bộ đếm; cốc nước biển góc dưới phải hiện dần nhiều hạt muối hơn rồi dừng ở mức hiện nay (không tăng tiếp).

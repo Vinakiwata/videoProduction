@@ -70,3 +70,12 @@ def test_scene_full_bleed_ok(project):
     _vertical(project)
     _sb(project, [{"id": "e3", "asset": "A-CANH", "box": {"x": 0, "y": 0, "w": 100, "h": 100}}])
     assert run_check("storyboard_safe_area", project, PARAMS).status == "pass"
+
+
+def test_overflow_matches_player_line_height_and_plate():
+    """Chiều cao chữ đo như bộ dựng Tool 07: dãn dòng 1,28 + đệm tấm nền 0,12 em trên/dưới."""
+    from vp.checks.design import _overflow
+    e = {"text": "Sông ngọt,\nbiển mặn?", "style": "title", "font_px": 96, "box": {"x": 7, "y": 63, "w": 76, "h": 12}}
+    assert _overflow(e, V)                                  # 230 px < 2·96·1,28 + 0,24·96 = 269 px (trình duyệt đo 269)
+    e["box"]["h"] = 14.5                                    # 278 px
+    assert _overflow(e, V) is None

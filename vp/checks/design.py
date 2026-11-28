@@ -163,7 +163,8 @@ def _overflow(e, canvas) -> str | None:
                                   e["font_px"])
     except OSError:
         return None
-    bw = canvas["width"] * e["box"]["w"] / 100
+    # cùng công thức với bộ dựng Tool 07 (vp/web/player.css .tx): dãn dòng 1,28, tấm nền đệm 0,12 em trên/dưới, 0,42 em hai bên
+    bw = canvas["width"] * e["box"]["w"] / 100 - 0.84 * e["font_px"]
     bh = canvas["height"] * e["box"]["h"] / 100
     lines = 0
     for para in e["text"].split("\n"):
@@ -179,7 +180,7 @@ def _overflow(e, canvas) -> str | None:
             else:
                 cur = t
         lines += n
-    need = lines * e["font_px"] * 1.15
+    need = lines * e["font_px"] * 1.28 + 0.24 * e["font_px"]
     if need > bh + 1:
         return f"cần {lines} dòng ≈ {need:.0f}px nhưng hộp cao {bh:.0f}px"
     return None
