@@ -32,6 +32,11 @@ scenes:
   title: Móc
   purpose: Nêu nghịch lý sông ngọt đổ ra biển mặn để gợi tò mò
   segments:
+  - id: S01-00
+    kind: silent
+    est_duration_s: 1.0
+    visual: "Thumbnail mở đầu (chủ dự án chọn 28/11/2026) — bãi biển thật, câu hỏi lớn 'Vì sao nước biển lại mặn?' trên tấm nền, Khỉ thắc mắc đứng trên bờ cát; khung này cũng là ảnh bìa Shorts/TikTok"
+    on_screen_text: Vì sao nước biển lại mặn?
   - id: S01-01
     kind: voice
     text: Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối trong biển từ đâu mà có?
@@ -138,7 +143,7 @@ scenes:
     on_screen_text: Mưa → Sông → Bốc hơi
   - id: S05-02
     kind: voice
-    text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
+    text: Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!
     est_duration_s: 3.9
     visual: "Cảnh kết của kênh Khỉ Khám Phá — logo tròn Khỉ Khám Phá ở trên, chữ lớn 'Cảm ơn bạn đã xem!', nút đăng ký vàng nảy lên (chủ dự án chọn 28/11/2026 — bỏ chuông và Khỉ thứ hai, thêm lời cảm ơn)"
     sfx:

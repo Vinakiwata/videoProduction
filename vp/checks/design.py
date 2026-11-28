@@ -186,6 +186,15 @@ def _overflow(e, canvas) -> str | None:
     return None
 
 
+def thumbnail_ids(sb: dict) -> tuple[set[str], list[str]]:
+    """Khung thumbnail hợp lệ (chỉ khung ĐẦU TIÊN có `thumbnail: true`) và lỗi nếu đánh dấu ở khung khác.
+    Chủ dự án duyệt 28/11/2026: thumbnail là ảnh bìa — miễn thời gian đọc, không tính lần linh vật phản ứng."""
+    shots = sb.get("shots") or []
+    ok = {shots[0]["id"]} if shots and shots[0].get("thumbnail") else set()
+    bad = [f"{sh['id']}: chỉ khung đầu tiên mới được đánh dấu thumbnail" for sh in shots[1:] if sh.get("thumbnail")]
+    return ok, bad
+
+
 @register("storyboard_text")
 def text(project: Path, params: dict) -> CheckResult:
     """Chữ giống hệt nhau, không có exit, nối tiếp qua các khung liền nhau được tính là một lần hiển thị."""
@@ -194,6 +203,7 @@ def text(project: Path, params: dict) -> CheckResult:
     max_w = int(params.get("max_words_per_line", 7))
     spw, base = float(params.get("s_per_word", 0.3)), float(params.get("base_s", 1.0))
     order = sorted(c.sb.get("shots") or [], key=c.shot_start)
+    thumbs, thumb_bad = thumbnail_ids(c.sb)
 
     def text_el(sh, txt):
         return next((e for e in sh.get("elements") or [] if e.get("text") == txt), None)
@@ -230,8 +240,11 @@ def text(project: Path, params: dict) -> CheckResult:
                 cur, j = nxt, j + 1
                 vis += c.shot_dur(order[j]) * (cur.get("exit") or {}).get("at", 1)
             need = spw * words + base
+            if sh["id"] in thumbs:
+                continue  # thumbnail = ảnh bìa: người xem đọc khi lướt, miễn thời gian đọc
             if vis + EPS < need:
                 bad.append(f"{where}: {words} từ hiện {vis:.1f}s, cần ≥ {need:.1f}s")
+    bad += thumb_bad
     if bad:
         return _fmt(bad, "Chữ trên màn hình khó đọc:")
     return CheckResult("pass", f"{n} phần tử chữ: đủ cỡ, ≤ {max_w} từ/dòng, đủ thời gian đọc.")
@@ -394,8 +407,12 @@ def mascot(project: Path, params: dict) -> CheckResult:
     bad = [f"asset {i}: biểu cảm '{a.get('expression')}' không có trong brand.mascot ({sorted(known)})"
            for i, a in masc.items() if a.get("expression") not in known]
     shots = sb.get("shots") or []
+    thumbs, thumb_bad = thumbnail_ids(sb)
+    bad += thumb_bad
     uses, prev = [], set()
     for sh in shots[:-1]:
+        if sh["id"] in thumbs:
+            continue  # thumbnail = ảnh bìa kênh, không phải lần phản ứng
         cur = {e["asset"] for e in sh.get("elements") or [] if e.get("asset") in masc}
         uses += [(sh["id"], a) for a in sorted(cur - prev)]   # cùng linh vật kéo dài qua khung nối tiếp = 1 lần phản ứng
         prev = cur

@@ -2,14 +2,14 @@ engine: vieneu-v3turbo (Mac, theo câu)
 voice: Xuân Vĩnh
 tempo: 1.0
 pitch_semitones: 2.5
-f0_median_hz: 123.1
+f0_median_hz: 124.3
 pitch_spread_semitones: 1.36
 pauses:
   sentence_s: 0.45
   question_s: 0.55
   per_sentence: true
 sample_rate: 48000
-total_s: 49.232
+total_s: 50.028
 measured_sps_median: 4.41
 pronunciation_applied:
   cacbonic: các bô ních
@@ -169,18 +169,18 @@ segments:
   sha256: 575015625820731f3d442fafe5756e36ae4755aa457e54a91e50e6a283c537d8
 - id: S05-02
   file: segments/S05-02.wav
-  text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
-  spoken_text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
-  duration_s: 3.442
-  syllables: 17
+  text: Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!
+  spoken_text: Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!
+  duration_s: 3.238
+  syllables: 16
   sps: 4.94
   peak_dbfs: -1.5
   lead_s: 0.08
   trail_s: 0.06
   max_gap_s: 0.04
   takes: 3
-  tempo: 0.9181
+  tempo: 0.9079
   pitch_semitones: 2.5
-  f0_hz: 123.1
+  f0_hz: 125.5
   sentences: 1
-  sha256: f90bedd63f53323462ad7346eaf8164b3101db9d640a2ec73ed15c97c2826269
+  sha256: 9b4d373f57d27b50cb0cebb964295d602bba3a1e626e7424de282034cf607f1e
