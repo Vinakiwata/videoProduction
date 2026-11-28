@@ -1,6 +1,6 @@
 ---
 name: vp-trinh-chieu
-description: Dùng khi cần dựng, sửa hoặc duyệt web trình chiếu (07_presentation) cho video trong repo này — biến timeline + storyboard + hình đã duyệt thành một trang 1920×1080 tất định, chụp kiểm bằng Chrome chạy ngầm, dựng tờ khung mốc.
+description: Dùng khi cần dựng, sửa hoặc duyệt web trình chiếu (07_presentation) cho video trong repo này — biến timeline + storyboard + hình đã duyệt thành một trang tất định theo khung của brief (1080×1920 cho Shorts/TikTok/Reels), chụp kiểm bằng Chrome chạy ngầm, dựng tờ khung mốc.
 ---
 
 # Web trình chiếu (07_presentation)
@@ -28,3 +28,10 @@ Thiết kế: `docs/superpowers/specs/2026-11-28-tool-trinh-chieu-design.md`.
 - Phần tử phải nằm trong DOM thì mới đo được `getBBox`/`getTotalLength`.
 - Chữ là lớp phủ ngoài camera, có tấm nền `text_plate`. `vp.measure()` đo chữ tràn và vùng an toàn, bỏ qua khung đang chuyển cảnh.
 - Khung đầu một khung hình được phép trống trước lượt vào đầu tiên. Giữa hay cuối khung hình mà trống thì PRS-A04 chặn.
+
+## Khung dọc và lớp phủ nền tảng (từ 28/11/2026)
+- Khung và vùng an toàn lấy từ brief: `presentation.json` có `safe_margins` (px từng cạnh, `by` = nền tảng quyết định cạnh) và `platforms` (tên + `ui_zones`).
+- `vp.measure()` báo "chữ ra ngoài vùng an toàn ở cạnh … (<nền tảng> che)".
+- Chế độ xem: ô **giao diện** chọn Shorts / TikTok / Reels để tô mờ vùng giao diện che; ô **vùng an toàn** vẽ khung lề. Bản dựng (`?render=1`) không có lớp phủ.
+- `preview` tạo thêm `check/contact_ui.png`: tờ khung mốc chồng giao diện của nền tảng che nhiều nhất — xem để chắc không chữ, Khỉ, nút nào bị che.
+- Chủ dự án xem bản có tiếng bằng cách chép thư mục `07_presentation` (trừ `check/`, `fonts/`, `presentation.json`) sang máy họ.

@@ -11,11 +11,11 @@ description: Dùng khi cần vẽ, sửa hoặc duyệt hình hoạt ảnh 2D (0
    - **Màu:**
      - Icon, chữ và nút chỉ dùng 4 màu của kênh, tối đa 4 màu mỗi hình. Muốn có sắc độ thì dùng `fill-opacity`.
      - Cảnh (`kind: scene`) vẽ như phong cảnh thật: sông có núi, cây và dòng sông uốn lượn; biển là bãi biển. Chỉ dùng màu trong `brand.scene_colors`, tối đa 16 màu mỗi cảnh.
-     - Cảnh viết ở `_src/canh.py`, vẽ trên khung 960×540.
+     - Cảnh viết ở `_src/canh.py`, vẽ trên khung bằng nửa canvas: dọc 540×960 (kênh Khỉ Khám Phá từ 28/11/2026), ngang 960×540. Vật chính của cảnh nằm trong vùng an toàn chia 2 (dọc: x 32–454, y 110–730); dải dưới chỉ là đồi, cát, đáy biển.
      - Hình trắng đặt trên trời phải đạt tương phản ≥ 3:1.
    - **Phong cách:** phẳng, nét tròn (`stroke-linecap`/`linejoin="round"`), bóng đổ nhẹ #1B1B1F 25% cho vật đứng riêng. Hình nào lặp lại (giọt, hạt muối, mây) thì dùng chung một hàm để giữ đồng bộ.
    - **Lớp:** mỗi chi tiết có chuyển động nằm trong `<g id="…">`, rồi khai báo trong `layers` của `assets.yaml`.
-   - **Tỉ lệ `viewBox`:** phải gần với tỉ lệ ô `box` của storyboard (rộng 1920 × w%, cao 1080 × h%). Dải ngang phủ hết bề rộng khung thì dùng `preserveAspectRatio="none"`.
+   - **Tỉ lệ `viewBox`:** phải gần với tỉ lệ ô `box` của storyboard (rộng canvas × w%, cao canvas × h%; khung dọc 1080 × w%, 1920 × h%). Dải ngang phủ hết bề rộng khung thì dùng `preserveAspectRatio="none"`.
    - **Hình chồng lên nhau** (ví dụ khoáng chất trên đáy biển): quy đổi toạ độ theo `box` của cả hai rồi dựng ảnh chồng để kiểm.
    - **Chữ trong hình:** chỉ dùng font của brief.
 4. Ghi `motion_defaults` trong `assets.yaml` cho các lượt storyboard không ghi `ease`. Không được để chuyển động tuyến tính cứng, trừ flow, rotate và typewriter.
