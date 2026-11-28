@@ -95,3 +95,5 @@
 | 2026-11-28T21:02:54+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-210253/report.md](animation/20261128-210253/report.md) |
 | 2026-11-28T21:03:03+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-210302/report.md](animation/20261128-210302/report.md) |
 | 2026-11-28T21:21:40+07:00 | presentation | ✅ ĐẠT | 100 | — | [presentation/20261128-212140/report.md](presentation/20261128-212140/report.md) |
+| 2026-11-28T21:30:08+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-213007/report.md](design/20261128-213007/report.md) |
+| 2026-11-28T21:30:35+07:00 | presentation | ✅ ĐẠT | 100 | — | [presentation/20261128-213035/report.md](presentation/20261128-213035/report.md) |

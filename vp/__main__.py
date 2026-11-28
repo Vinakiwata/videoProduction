@@ -27,6 +27,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
+from vp import platforms
 from vp import animatic, animation_tools, design_tools, presentation_tools, review, script_tools, stages, timeline, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
@@ -242,7 +243,7 @@ def main(argv=None):
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
             design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError,
-            animation_tools.AnimationToolError, presentation_tools.PresentationError) as e:
+            animation_tools.AnimationToolError, presentation_tools.PresentationError, platforms.PlatformError) as e:
         sys.exit(f"LỖI: {e}")
 
 

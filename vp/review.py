@@ -64,11 +64,15 @@ def _sha(path: Path) -> str:
     return h.hexdigest()
 
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 def hash_artifacts(project: Path, rels: list[str]) -> dict[str, str | None]:
-    """Băm file; với thư mục thì băm toàn bộ file bên trong (theo đường dẫn tương đối)."""
+    """Băm file; với thư mục thì băm toàn bộ file bên trong (theo đường dẫn tương đối).
+    Đường dẫn bắt đầu bằng '@' tính từ gốc repo (vd. '@platforms': hồ sơ nền tảng dùng chung)."""
     out = {}
     for rel in rels:
-        p = project / rel
+        p = REPO_ROOT / rel[1:] if rel.startswith("@") else project / rel
         if p.is_file():
             out[rel] = _sha(p)
         elif p.is_dir():

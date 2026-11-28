@@ -73,7 +73,9 @@ def brief_platforms(project: Path, params: dict) -> CheckResult:
     pdir = params.get("platforms_dir")
     ids = b.get("platforms") or []
     if not ids:
-        return CheckResult("fail", "Brief chưa chọn nền tảng (platforms). Hợp lệ: " + ", ".join(pf.available(pdir)))
+        f = b.get("format") or {}
+        return CheckResult("pass", f"Brief không chọn nền tảng: dùng khung brief.format {f.get('width')}×{f.get('height')} và lề an toàn 5% "
+                                   f"(muốn kiểm vùng giao diện thì thêm platforms: {', '.join(pf.available(pdir))}).")
     bad = [i for i in ids if i not in pf.available(pdir)]
     if bad:
         return CheckResult("fail", f"Không có hồ sơ cho: {', '.join(bad)}. Hợp lệ: {', '.join(pf.available(pdir))}")

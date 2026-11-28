@@ -308,6 +308,10 @@ def safe_area(project: Path, params: dict) -> CheckResult:
     strict = set(params.get("strict_kinds") or [])
     kinds = {a["id"]: a.get("kind") for a in sb.get("assets") or []}
     if brief.get("platforms"):
+        want = pf.canvas(brief)
+        if (want["width"], want["height"]) != (W, H):
+            return CheckResult("fail", f"Khung storyboard {W}×{H} khác khung của brief {want['width']}×{want['height']} "
+                                       f"({', '.join(pf.name(i) for i in brief['platforms'])}). Sửa meta.canvas rồi xếp lại bố cục.")
         m = pf.safe_margins(brief)
         label = "vùng an toàn của " + ", ".join(pf.name(i) for i in brief["platforms"])
     else:

@@ -2,7 +2,7 @@
 stage: design
 version: 5
 title: Kiểm duyệt thiết kế nội dung & storyboard
-artifacts: [02_design, 01_script/script.yaml, 00_brief/brief.yaml]
+artifacts: [02_design, 01_script/script.yaml, 00_brief/brief.yaml, '@platforms']
 items:
   # ---------- máy đo ----------
   - id: DSN-A01

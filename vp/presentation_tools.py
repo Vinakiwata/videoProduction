@@ -39,6 +39,9 @@ def input_hash(project: Path) -> str:
         _sha_file(h, project / "06_animation" / a["file"])
     for v in load_yaml(project, "05_timeline/timeline.yaml").get("voice") or []:
         _sha_file(h, project / v["file"])
+    bp = project / "00_brief" / "brief.yaml"
+    for pid in ((load_yaml(project, "00_brief/brief.yaml") or {}).get("platforms") or []) if bp.is_file() else []:
+        _sha_file(h, platforms.PLATFORMS_DIR / f"{pid}.yaml")     # lề, vùng giao diện đổi → bản dựng cũ
     return h.hexdigest()
 
 
@@ -87,6 +90,11 @@ def compile_presentation(project: Path) -> dict:
     canvas = {k: int(v) for k, v in sb["meta"]["canvas"].items()} | {"fps": int(tl["fps"])}
     bp = project / "00_brief" / "brief.yaml"
     brief = (load_yaml(project, "00_brief/brief.yaml") or {}) if bp.is_file() else {}
+    if brief.get("platforms"):
+        want = platforms.canvas(brief)
+        if (want["width"], want["height"]) != (canvas["width"], canvas["height"]):
+            raise PresentationError(f"Khung storyboard {canvas['width']}×{canvas['height']} khác khung của brief "
+                                    f"{want['width']}×{want['height']} ({', '.join(brief['platforms'])}). Sửa meta.canvas của storyboard.")
     margins = platforms.safe_margins({**brief, "format": canvas})
     plats = [{"id": p["id"], "name": p["name"], "ui_zones": p["ui_zones"]} for p in platforms.profiles(brief)]
     return {"version": 2, "canvas": canvas,
