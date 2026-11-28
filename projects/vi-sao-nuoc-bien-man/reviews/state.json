@@ -105,16 +105,17 @@
     "presentation": {
       "pending": null,
       "latest": {
-        "review": "reviews/presentation/20261128-165546",
+        "review": "reviews/presentation/20261128-212140",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "07_presentation": "dir:555ebbd446a5e8fc65ac0176465ead0ab6c68a224670c87960a7ee578737e072",
-          "05_timeline/timeline.yaml": "11997789b3395a6ee7e84b64ae8da5c99e3c0886114f8a910af700499e8d8873",
-          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
-          "06_animation/assets.yaml": "f31a4e60ffb4135770e4558635e872bc6c65cba2fd3e3806ad10e128289316d5"
+          "07_presentation": "dir:7a01886adb605f430b76fd102cf12f4d17ee989c06668c304b87f1c59f9a9b09",
+          "00_brief/brief.yaml": "265ae6ddce2178819b1910403b25d59c6e73babfa666755f06cebe286e3e9441",
+          "05_timeline/timeline.yaml": "cf891af263c4dad18b4adfb119f2279c4bda9339120d966248b549d52fe71182",
+          "02_design/storyboard.yaml": "a74950e4f23f03bd7619a5bc889ac653e55ace530af4e2922f0dee29706438a5",
+          "06_animation/assets.yaml": "7951cffbc74932fbc6915d3dd1a1016624cd22d67a52071b1cf35897cd6cf949"
         },
-        "finalized_at": "2026-11-28T16:56:24+07:00",
+        "finalized_at": "2026-11-28T21:21:40+07:00",
         "override": null
       }
     }
