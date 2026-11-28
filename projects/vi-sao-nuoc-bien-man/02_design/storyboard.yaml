@@ -1,12 +1,12 @@
 meta:
   title: Vì sao nước biển lại mặn?
   canvas: {width: 1920, height: 1080, fps: 30}
-palette: ['#0078E0', '#FFC907', '#FFFFFF', '#5E270E', '#FD8305', '#669F2D']
+palette: ['#0078E0', '#FFC907', '#FFFFFF', '#5E270E', '#FD8305', '#669F2D', '#0B3D91']
 fonts: {title: Be Vietnam Pro, body: Be Vietnam Pro}
 scene_palette: ['#4A98D6', '#6F879E', '#8AA6CF', '#5B7DB1', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#6B4A2E', '#3FA7E0', '#1F7FC4', '#145A9E', '#0A2A66', '#F2D49B', '#E3BC78', '#B4B4BC', '#8C8C94', '#5E5E66', '#FF7A2F']
-text_plate: {color: '#5E270E', opacity: 0.9, always: true}
-style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ (kind scene) vẽ như phong cảnh thật bằng màu tự nhiên; icon, chữ, nút dùng bảng màu Khỉ Khám Phá; mọi chữ trên tấm nền nâu gỗ; linh vật Khỉ (PNG gốc) phản ứng ở điểm nhấn và ở cảnh kết
-# Kênh Khỉ Khám Phá (28/11/2026): chữ luôn trên bảng gỗ nâu; Khỉ phản ứng 3 lần + cảnh kết.
+text_plate: {color: '#0B3D91', opacity: 0.9, always: true}
+style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ (kind scene) vẽ như phong cảnh thật bằng màu tự nhiên; icon, chữ, nút dùng bảng màu Khỉ Khám Phá; khung giải thích nền xanh đậm #0B3D91; mọi chữ trên tấm nền xanh đậm; linh vật Khỉ (PNG gốc) phản ứng ở điểm nhấn và ở cảnh kết
+# Kênh Khỉ Khám Phá (28/11/2026): khung giải thích nền xanh đậm, chữ luôn trên tấm nền xanh đậm; Khỉ phản ứng 3 lần + cảnh kết.
 # Quy ước (28/11/2026): cảnh = phong cảnh thật màu tự nhiên (trời xanh, núi, cây xanh lá, sông xanh nhạt, biển xanh, cát vàng);
 # chữ trên cảnh luôn có tấm nền text_plate. Icon/khung giải thích: biển/trời #0B3D91, nền tối #1B1B1F,
 # nước ngọt, mưa, muối = trắng; năng lượng/nhấn mạnh (mặt trời, axit, chữ chính) = vàng #FFD23F.
@@ -49,7 +49,7 @@ shots:
     segment: S01-01
     span: [0, 0.39]
     purpose: Thấy dòng sông nước ngọt đổ ra biển — vế đầu của nghịch lý
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: pan_right, amount: 0.1}
     transition_in: cut
@@ -60,7 +60,7 @@ shots:
     segment: S01-01
     span: [0.39, 1]
     purpose: Đặt hai cốc cạnh nhau — sông ngọt, biển mặn — rồi bật câu hỏi
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e3
     camera: {move: static}
     transition_in: zoom_through
@@ -76,7 +76,7 @@ shots:
     segment: S01-02
     span: [0, 1]
     purpose: Giữ câu hỏi thêm 1 giây cho người xem tự đoán
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e3
     camera: {move: zoom_in, amount: 0.05}
     transition_in: match_cut
@@ -91,7 +91,7 @@ shots:
     segment: S02-01
     span: [0, 1]
     purpose: Giọt mưa hút khí từ không khí và trở nên hơi chua
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e2
     camera: {move: pan_down, amount: 0.1}
     transition_in: crossfade
@@ -107,7 +107,7 @@ shots:
     segment: S02-02
     span: [0, 0.35]
     purpose: Giọt mưa chua rơi xuống và chảy trên mặt đá
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: static}
     transition_in: push_up
@@ -120,7 +120,7 @@ shots:
     segment: S02-02
     span: [0.35, 1]
     purpose: Cận cảnh — nước làm bong hạt li ti khỏi đá, trong đó có muối
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e2
     camera: {move: zoom_in, amount: 0.25}
     transition_in: match_cut
@@ -136,7 +136,7 @@ shots:
     segment: S02-03
     span: [0, 1]
     purpose: Hạt muối theo dòng nước trôi đi — chuẩn bị sang chặng sông
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e2
     camera: {move: pan_right, amount: 0.15}
     transition_in: match_cut
@@ -152,7 +152,7 @@ shots:
     segment: S03-01
     span: [0, 0.35]
     purpose: Nước mưa gom thành suối rồi thành sông
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: zoom_out, amount: 0.2}
     transition_in: crossfade
@@ -163,7 +163,7 @@ shots:
     segment: S03-01
     span: [0.35, 1]
     purpose: Kính lúp cho thấy sông chỉ mang rất ít muối
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e2
     camera: {move: static}
     transition_in: match_cut
@@ -176,7 +176,7 @@ shots:
     segment: S03-02
     span: [0, 0.52]
     purpose: Mưa liên tục bổ sung nước ngọt nên sông vẫn ngọt
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e3
     camera: {move: static}
     transition_in: cut
@@ -189,7 +189,7 @@ shots:
     segment: S03-02
     span: [0.52, 1]
     purpose: Mọi con sông cùng đổ muối về một vùng biển
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e2
     camera: {move: zoom_out, amount: 0.3}
     transition_in: zoom_through
@@ -203,7 +203,7 @@ shots:
     segment: S04-01
     span: [0, 1]
     purpose: Nước bốc hơi bay lên thành mây, muối ở lại trong biển
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e3
     camera: {move: static}
     transition_in: crossfade
@@ -222,7 +222,7 @@ shots:
     segment: S04-02
     span: [0, 1]
     purpose: Nhịp nghỉ — muối lấp lánh ở lại, mây trôi về đất liền
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e5
     camera: {move: static}
     transition_in: match_cut
@@ -240,7 +240,7 @@ shots:
     segment: S04-03
     span: [0, 0.22]
     purpose: Mây mưa xuống đất liền — vòng lặp bắt đầu lại
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: static}
     transition_in: push_left
@@ -253,7 +253,7 @@ shots:
     segment: S04-03
     span: [0.22, 1]
     purpose: Vòng tuần hoàn quay qua hàng triệu năm, muối tích dần tới độ mặn hôm nay
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: zoom_out, amount: 0.15}
     transition_in: crossfade
@@ -267,7 +267,7 @@ shots:
     segment: S04-04
     span: [0, 1]
     purpose: Nguồn phụ — núi lửa và khe nứt nóng dưới đáy biển thả khoáng chất
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e1
     camera: {move: zoom_in, amount: 0.2}
     transition_in: zoom_through
@@ -281,7 +281,7 @@ shots:
     segment: S05-01
     span: [0, 1]
     purpose: Tóm ba mắt xích thành một chuỗi nhìn một lần là nhớ
-    background: '#5E270E'
+    background: '#0B3D91'
     focal: e5
     camera: {move: static}
     transition_in: crossfade

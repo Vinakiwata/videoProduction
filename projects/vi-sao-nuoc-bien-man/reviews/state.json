@@ -3,56 +3,56 @@
     "brief": {
       "pending": null,
       "latest": {
-        "review": "reviews/brief/20261128-151536",
+        "review": "reviews/brief/20261128-153337",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "00_brief/brief.yaml": "1d468d73299cfa57c134bb0de297f018a464d3c7edde448c38bb0a84f4e03bdd"
+          "00_brief/brief.yaml": "88b8a58841c75400b8d85e96ee8e67a3a18229fbda775e5ee1f8f7ed364c1d7f"
         },
-        "finalized_at": "2026-11-28T15:15:52+07:00",
+        "finalized_at": "2026-11-28T15:33:37+07:00",
         "override": null
       }
     },
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261128-151602",
+        "review": "reviews/script/20261128-153338",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
           "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92",
-          "00_brief/brief.yaml": "1d468d73299cfa57c134bb0de297f018a464d3c7edde448c38bb0a84f4e03bdd"
+          "00_brief/brief.yaml": "88b8a58841c75400b8d85e96ee8e67a3a18229fbda775e5ee1f8f7ed364c1d7f"
         },
-        "finalized_at": "2026-11-28T15:16:03+07:00",
+        "finalized_at": "2026-11-28T15:33:38+07:00",
         "override": null
       }
     },
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261128-151825",
+        "review": "reviews/design/20261128-153339",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:35470fb83979f7dce70d6c6298a359f9281a839a2246a56be0037bbffacdf94c",
+          "02_design": "dir:9773d421d95b9e3cebdb5a7d2b91134aa3c485ee39ac5670e5bd1cd2affa580f",
           "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T15:18:44+07:00",
+        "finalized_at": "2026-11-28T15:33:40+07:00",
         "override": null
       }
     },
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-151857",
+        "review": "reviews/animatic/20261128-153414",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "03_animatic": "dir:531b02bc543ff73a8bac9279c51c7a86b7413ec65019fd5b706f761c0fe38587",
-          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "03_animatic": "dir:6c1f6c55444511d210ace0e29f9301cd2843c1df1876071cff895e5f5f9a4d65",
+          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
           "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T15:19:07+07:00",
+        "finalized_at": "2026-11-28T15:34:14+07:00",
         "override": null
       }
     },
@@ -73,31 +73,31 @@
     "timeline": {
       "pending": null,
       "latest": {
-        "review": "reviews/timeline/20261128-152003",
+        "review": "reviews/timeline/20261128-153423",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "05_timeline": "dir:b406f587d1686f62d659c78a8aceaf6408a03a46ac2de50a5dc1b586c476ec07",
+          "05_timeline": "dir:1b9210b0319f4f44ed73547fdc245eac9ee06bcf576dc0ccaa18f8c683465e81",
           "04_voice/voice_manifest.yaml": "82404499a83aa6f21cacf8f49365c22119f87f08a4c57c12b63527249c846b95",
-          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
           "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T15:20:04+07:00",
+        "finalized_at": "2026-11-28T15:34:23+07:00",
         "override": null
       }
     },
     "animation": {
       "pending": null,
       "latest": {
-        "review": "reviews/animation/20261128-152204",
+        "review": "reviews/animation/20261128-153423",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
           "06_animation": "dir:8f73d2717688d3fdd8595ce824f6dcc1ab73f12722f04f8dc4da845f1317f42f",
-          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
           "05_timeline/timeline.yaml": "7ab8ae0a2500598a6c061c28f7a9933e9464b9fc91a40af125d46767e6405ff6"
         },
-        "finalized_at": "2026-11-28T15:22:05+07:00",
+        "finalized_at": "2026-11-28T15:34:24+07:00",
         "override": null
       }
     }

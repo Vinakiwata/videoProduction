@@ -1,0 +1,21 @@
+TML-C03:
+  verdict: pass
+  evidence: 'Timeline dựng lại (sau khi đổi nền khung giải thích sang xanh đậm; các mốc thời gian không đổi so với lần duyệt trước): vẫn 1563 khung = 52,1 giây, 18 khung hình, 6 SFX; cue tăng từ 77 lên 83 vì thêm Khỉ và logo.
+
+    Mốc vào của Khỉ, đối chiếu với lời:
+
+    - S01-01-b khung 106 (3,5 giây): Khỉ thắc mắc vào đúng mốc cũ của dấu hỏi, khi câu hỏi ''vì sao…'' được nêu.
+
+    - S04-01-a khung 904 (30,1 giây): Khỉ ngạc nhiên vào sau khi chữ ''Nước bay đi, muối ở lại'' hiện ở 0,50, trùng ''Nhưng muối'' ở ≈ 0,55.
+
+    - S04-03-b khung 1066 (35,5 giây): Khỉ ôm Trái Đất vào sau chữ ''hàng triệu năm'' (0,15), trong lúc vòng tuần hoàn đang quay.
+
+    - S05-02-a: logo ở khung 1467 và Khỉ vui mừng ở khung 1475, mở đầu câu mời đăng ký.
+
+    Các cue cũ giữ nguyên mốc đã kiểm. Không cue nào vào muộn hơn lời quá 0,5 giây. (Duyệt lại để sửa số khung cho khớp timeline.yaml; lần trước ghi nhầm S04-03-b ≈ 1072.)'
+TML-C05:
+  verdict: na
+  evidence: 'Rãnh music rỗng: công đoạn này chưa dùng nhạc nền. Nhạc (có giấy phép, ducking) sẽ được chọn và kiểm ở Tool mix (09).'
+TML-C07:
+  verdict: pass
+  evidence: 'params: breath 0,6 giây (cùng cảnh), breath_scene 0,9 giây, question_extra 0,1 giây. Ngắt giữa câu trong đoạn 0,45 giây (câu hỏi 0,55). 6 chỗ ngắt đoạn: S02-01, S03-01, S04-03, S05-01 = 0,6 giây; S03-02, S04-04 = 0,9 giây (sang cảnh). Đúng các giá trị chủ dự án đã nghe và xác nhận "ổn" ở giong_ban_3_toan_bai.mp3 (28/11).'

@@ -27,7 +27,8 @@ Kênh muốn duy trì lâu dài thì người xem phải nhận ra kênh ngay. C
   - `mascot/`: các PNG mà video dùng.
 - **Màu:**
   - Bảng màu kênh: #0078E0, #FFC907, #FFFFFF, #5E270E, #FD8305, #669F2D. Năm màu lấy mẫu từ ảnh, cộng thêm trắng.
-  - Chữ trắng trên #0078E0 chỉ đạt 4,41:1, nên **mọi chữ đặt trên tấm nền nâu gỗ** (`text_plate.always`), giống bảng tên trong logo.
+  - Chữ trắng trên #0078E0 chỉ đạt 4,41:1, nên **mọi chữ đặt trên tấm nền** (`text_plate.always`).
+  - **Sửa đổi cùng ngày:** chủ dự án thấy nền nâu gỗ không ổn so với màu trước đó. Sau khi xem so sánh 3 phương án (nâu gỗ, #0B3D91, #0058A8), chủ dự án chọn **xanh đậm #0B3D91** cho khung giải thích. Màu này được thêm vào bộ màu kênh và cũng là màu tấm nền sau chữ, độ đậm 0,9. Ở độ đậm 0,85, chữ vàng trên chỗ trắng nhất của cảnh chỉ đạt 4,38:1; ở 0,9 đạt 5,04:1. Cảnh kết giữ nền xanh trời #0078E0.
   - DSN-A05 đo tương phản qua tấm nền.
 - **Linh vật trong dây chuyền:**
   - `brand.mascot` liệt kê từng biểu cảm kèm lúc nào dùng. Storyboard dùng asset `kind: mascot` + `expression`.

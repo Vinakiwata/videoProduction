@@ -17,10 +17,11 @@ brand:
   - '#5E270E'
   - '#FD8305'
   - '#669F2D'
+  - '#0B3D91'
   fonts:
   - Be Vietnam Pro
   voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
-  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Mọi chữ đặt trên tấm nền nâu gỗ như bảng tên trong logo. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết
+  style: 'Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Khung giải thích nền xanh đậm #0B3D91 (chủ dự án chọn 28/11/2026, giữ cảm giác của kênh trước); mọi chữ đặt trên tấm nền xanh đậm. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết'
   scene_colors:
   - '#4A98D6'
   - '#6F879E'
@@ -82,6 +83,7 @@ assumptions:
 - 'Quyết định của chủ dự án (27/11/2026): giữ tốc độ đọc gốc của VieNeu Hải Đăng (~4,4 âm tiết/giây), nên mục tiêu thời lượng hạ từ 60 xuống 50 giây'
 - 'Quyết định của chủ dự án (28/11/2026): cảnh minh hoạ phải chân thật (sông có núi, cây, dòng sông uốn lượn; biển là bãi biển), dùng màu tự nhiên; icon, chữ, nút theo bảng màu kênh'
 - 'Quyết định của chủ dự án (28/11/2026): đổi toàn bộ kênh sang Khỉ Khám Phá; linh vật Khỉ (PNG gốc) phản ứng ở các điểm nhấn và có mặt ở cảnh kết; không dùng logo góc, không intro'
+- 'Quyết định của chủ dự án (28/11/2026, sau khi xem so sánh): khung giải thích dùng nền xanh đậm #0B3D91 như trước, không dùng nâu gỗ; thêm #0B3D91 vào bộ màu kênh'
 constraints:
 - Chỉ dùng hình, nhạc, font tự tạo hoặc có giấy phép rõ ràng
 - Giọng đọc AI phải được gắn nhãn khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)
