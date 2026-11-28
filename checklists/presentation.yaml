@@ -3,7 +3,7 @@
 stage: presentation
 version: 2
 title: Kiểm duyệt web trình chiếu
-artifacts: [07_presentation, 05_timeline/timeline.yaml, 02_design/storyboard.yaml, 06_animation/assets.yaml]
+artifacts: [07_presentation, 00_brief/brief.yaml, 05_timeline/timeline.yaml, 02_design/storyboard.yaml, 06_animation/assets.yaml]
 items:
   - id: PRS-A01
     group: Cấu trúc

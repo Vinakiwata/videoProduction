@@ -1,0 +1,35 @@
+BRF-C01:
+  verdict: pass
+  evidence: 'goal: "Sau khoảng 50 giây, người xem giải thích lại được vì sao biển mặn còn sông thì không (mưa hoà tan khoáng chất trong đá, sông mang muối ra biển, nước bốc hơi còn muối ở lại)…" — kết quả cụ thể, đo được ở kịch bản và QC tổng.'
+BRF-C02:
+  verdict: pass
+  evidence: 'audience "Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính": có trình độ, động cơ và thiết bị xem. Đủ để chọn từ vựng phổ thông và chữ lớn.'
+BRF-C03:
+  verdict: pass
+  evidence: channel youtube, 1920x1080 @30 fps (16:9), target_duration_s 50 — khớp video YouTube thường.
+BRF-C04:
+  verdict: pass
+  evidence: 'channel youtube_shorts, khung dọc 1080×1920 @30 fps (9:16), platforms youtube_shorts + tiktok + reels (chủ dự án chọn 28/11/2026), target_duration_s 50 — trong giới hạn kênh 60 giây và giới hạn từng nền tảng (Shorts 180, TikTok 600, Reels 180); BRF-A04 đo tự động: cùng khung, lề an toàn trên 220 · dưới 461 · trái 65 · phải 173 px. Khớp hồ sơ kênh Khỉ Khám Phá đã chuyển sang dọc.'
+BRF-C05:
+  verdict: pass
+  evidence: 'is_advertising: false, được tạo với --no-ads. goal và cta không nhắc sản phẩm hay thương hiệu nào.'
+BRF-C06:
+  verdict: pass
+  evidence: 50 giây ở tốc độ giọng Hải Đăng đo thật 4,43 âm tiết/giây ≈ 200 âm tiết cho 3 mắt xích + móc + CTA (kịch bản hiện có 199 âm tiết lời) — vừa khối lượng, không phải cắt ý.
+BRF-C07:
+  verdict: pass
+  evidence: 'assumptions có 10 mục (thêm 28/11: bớt dí dỏm, lời văn nghiêm túc vừa phải, chủ dự án đã duyệt bản nháp; tone đổi thành thân thiện, rõ ràng, nghiêm túc vừa phải, không tiếng lóng) (thêm 28/11: giọng Xuân Vĩnh +2,5 nửa cung, kịch bản dí dỏm do chủ dự án duyệt; tone và cta đổi theo kênh) (thêm: 28/11 chọn nền xanh đậm #0B3D91 thay nâu gỗ), đều khớp hồ sơ kênh:
+
+    - audience và thời lượng lấy theo kênh.
+
+    - Chủ đề chạy thử do Claude chọn.
+
+    - Dùng kênh khi-kham-pha thay cho kênh mẫu.
+
+    - 27/11: giữ tốc độ đọc gốc, nên mục tiêu 50 giây.
+
+    - 28/11: cảnh chân thật, màu tự nhiên.
+
+    - 28/11: đổi hẳn sang Khỉ Khám Phá; Khỉ phản ứng ở điểm nhấn và có mặt ở cảnh kết; không logo góc, không intro.
+
+    cta đổi theo kênh mới: ''cùng Khỉ khám phá''. Lời đọc giữ nguyên ''cùng mình khám phá'', vẫn đúng ý vì người dẫn là Khỉ. constraints thêm việc gắn nhãn AI cho hình linh vật. Không còn lệch nào chưa ghi.'

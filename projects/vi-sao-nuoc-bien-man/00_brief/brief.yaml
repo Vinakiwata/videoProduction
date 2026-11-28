@@ -1,11 +1,15 @@
 title: Vì sao nước biển lại mặn?
 goal: Sau khoảng 50 giây, người xem giải thích lại được vì sao biển mặn còn sông thì không (mưa hoà tan khoáng chất trong đá, sông mang muối ra biển, nước bốc hơi còn muối ở lại) và muốn xem tiếp kênh
 audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
-channel: youtube
+channel: youtube_shorts
 format:
-  width: 1920
-  height: 1080
+  width: 1080
+  height: 1920
   fps: 30
+platforms:
+- youtube_shorts
+- tiktok
+- reels
 target_duration_s: 50
 tone: Thân thiện, rõ ràng, nghiêm túc vừa phải; gọi "bạn"; giải thích chính xác, không dùng tiếng lóng; Khỉ là người dẫn, xuất hiện ở lời mời cuối
 cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học

@@ -1,9 +1,13 @@
 name: Khỉ Khám Phá
-channel: youtube
+channel: youtube_shorts
 format:
-  width: 1920
-  height: 1080
+  width: 1080
+  height: 1920
   fps: 30
+platforms:
+- youtube_shorts
+- tiktok
+- reels
 default_duration_s: 60
 tone: Thân thiện, rõ ràng, nghiêm túc vừa phải; gọi "bạn"; giải thích chính xác, không dùng tiếng lóng; Khỉ là người dẫn, xuất hiện ở lời mời cuối
 cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học

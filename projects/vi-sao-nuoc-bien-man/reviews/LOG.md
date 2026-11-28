@@ -68,3 +68,6 @@
 | 2026-11-28T16:24:16+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-162415/report.md](animation/20261128-162415/report.md) |
 | 2026-11-28T16:44:28+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-164428/report.md](animation/20261128-164428/report.md) |
 | 2026-11-28T16:56:24+07:00 | presentation | ✅ ĐẠT | 100 | — | [presentation/20261128-165546/report.md](presentation/20261128-165546/report.md) |
+| 2026-11-28T17:39:26+07:00 | brief | ✅ ĐẠT | 100 | — | [brief/20261128-173926/report.md](brief/20261128-173926/report.md) |
+| 2026-11-28T17:39:36+07:00 | brief | ✅ ĐẠT | 100 | — | [brief/20261128-173936/report.md](brief/20261128-173936/report.md) |
+| 2026-11-28T17:39:43+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261128-173942/report.md](script/20261128-173942/report.md) |

@@ -3,27 +3,27 @@
     "brief": {
       "pending": null,
       "latest": {
-        "review": "reviews/brief/20261128-161138",
+        "review": "reviews/brief/20261128-173936",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "00_brief/brief.yaml": "5d59457f09d659ed0303ca9e8a1a8ff8d93951b23bd5dc4905db6ea6309afe2b"
+          "00_brief/brief.yaml": "265ae6ddce2178819b1910403b25d59c6e73babfa666755f06cebe286e3e9441"
         },
-        "finalized_at": "2026-11-28T16:11:38+07:00",
+        "finalized_at": "2026-11-28T17:39:36+07:00",
         "override": null
       }
     },
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261128-161832",
+        "review": "reviews/script/20261128-173942",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
           "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671",
-          "00_brief/brief.yaml": "5d59457f09d659ed0303ca9e8a1a8ff8d93951b23bd5dc4905db6ea6309afe2b"
+          "00_brief/brief.yaml": "265ae6ddce2178819b1910403b25d59c6e73babfa666755f06cebe286e3e9441"
         },
-        "finalized_at": "2026-11-28T16:18:33+07:00",
+        "finalized_at": "2026-11-28T17:39:43+07:00",
         "override": null
       }
     },
