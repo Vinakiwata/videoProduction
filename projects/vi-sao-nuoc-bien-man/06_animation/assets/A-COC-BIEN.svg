@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440">
+<g transform="translate(30 0)">
+<ellipse cx="150" cy="370" rx="85" ry="12" fill="#1B1B1F" fill-opacity="0.25"/>
+<g id="water"><path d="M72 130 L228 130 L215 340 Q213 360 193 360 L107 360 Q87 360 85 340Z" fill="#0B3D91"/><path d="M72 130 q39 -14 78 0 t78 0" stroke="#FFFFFF" stroke-width="6" fill="none"/></g>
+<g id="salt"><rect x="108" y="250" width="34" height="34" rx="4.1" fill="#FFFFFF" fill-opacity="1.0"/><path d="M108 250 L119.9 238.1 L153.9 238.1 L142 250Z" fill="#FFFFFF" fill-opacity="0.75"/><path d="M142 250 L153.9 238.1 L153.9 272.1 L142 284Z" fill="#FFFFFF" fill-opacity="0.55"/><rect x="160" y="285" width="30" height="30" rx="3.6" fill="#FFFFFF" fill-opacity="1.0"/><path d="M160 285 L170.5 274.5 L200.5 274.5 L190 285Z" fill="#FFFFFF" fill-opacity="0.75"/><path d="M190 285 L200.5 274.5 L200.5 304.5 L190 315Z" fill="#FFFFFF" fill-opacity="0.55"/><rect x="150" y="205" width="26" height="26" rx="3.1" fill="#FFFFFF" fill-opacity="1.0"/><path d="M150 205 L159.1 195.9 L185.1 195.9 L176 205Z" fill="#FFFFFF" fill-opacity="0.75"/><path d="M176 205 L185.1 195.9 L185.1 221.9 L176 231Z" fill="#FFFFFF" fill-opacity="0.55"/></g>
+<g id="glass"><path d="M60 40 L240 40 L215 340 Q213 360 193 360 L107 360 Q87 360 85 340Z" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/><path d="M95 70 L108 300" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="8" stroke-linecap="round"/></g>
+</g>
+<g id="label"><text x="180" y="425" font-family="Be Vietnam Pro, DejaVu Sans, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#FFFFFF">biển</text></g>
+</svg>

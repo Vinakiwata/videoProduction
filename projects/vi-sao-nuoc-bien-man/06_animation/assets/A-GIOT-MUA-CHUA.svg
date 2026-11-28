@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200">
+<ellipse cx="60" cy="190" rx="26" ry="6" fill="#1B1B1F" fill-opacity="0.25"/>
+<g id="drop"><path d="M60 38.400000000000006 C74.7 72.0 102 103.5 102 135 A42 42 0 1 1 18 135 C18 103.5 45.3 72.0 60 38.400000000000006Z" fill="#FFFFFF"/></g>
+<g id="acid_rim"><path d="M60 38.400000000000006 C74.7 72.0 102 103.5 102 135 A42 42 0 1 1 18 135 C18 103.5 45.3 72.0 60 38.400000000000006Z" fill="none" stroke="#FFD23F" stroke-width="9" stroke-linejoin="round"/></g>
+<g id="bubbles"><circle cx="50" cy="140" r="9" fill="#FFD23F"/><circle cx="72" cy="118" r="6" fill="#FFD23F"/><circle cx="68" cy="156" r="5" fill="#FFD23F"/></g>
+</svg>

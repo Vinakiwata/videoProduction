@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="none">
+<g id="waves"><rect y="40" width="600" height="360" fill="#0B3D91"/><path d="M0 40 q50 -30 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="#0B3D91"/><path d="M0 140 q50 -26 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="#FFFFFF" fill-opacity="0.10"/><path d="M0 250 q50 -22 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="#FFFFFF" fill-opacity="0.10"/></g>
+<g id="crests"><path d="M0 40 q50 -30 100 0 t100 0 t100 0 t100 0 t100 0 t100 0" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M30 140 q40 -20 80 0 M230 140 q40 -20 80 0 M430 140 q40 -20 80 0" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+</svg>

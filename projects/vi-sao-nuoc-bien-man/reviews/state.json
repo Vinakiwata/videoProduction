@@ -85,6 +85,21 @@
         "finalized_at": "2026-11-28T10:43:52+07:00",
         "override": null
       }
+    },
+    "animation": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/animation/20261128-105421",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "06_animation": "dir:70bc9fbe681a79edbbd6180dcc624bca616dfcc14f646c5ddcf535bc22698045",
+          "02_design/storyboard.yaml": "82024fb70d2f43cf1e0ac877508469463bfcd6ee5476faf8280174de4e4d8e2a",
+          "05_timeline/timeline.yaml": "75be9ec1f41add3c81669d94931701fbf7acdb423a21857f954ee4a55b223926"
+        },
+        "finalized_at": "2026-11-28T10:54:45+07:00",
+        "override": null
+      }
     }
   }
 }

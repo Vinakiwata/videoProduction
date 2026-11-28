@@ -1,16 +1,51 @@
 # Tool 4 — Hoạt ảnh 2D (SVG/CSS/Canvas/Lottie). GIF chỉ dùng để xem trước.
 stage: animation
-version: 1
+version: 2
 title: Kiểm duyệt hoạt ảnh 2D
-artifacts: [06_animation]
+artifacts: [06_animation, 02_design/storyboard.yaml, 05_timeline/timeline.yaml]
 items:
   - id: ANI-A01
     group: Cấu trúc
-    title: Có danh mục hoạt ảnh (assets.yaml)
+    title: Đủ hình cho mọi asset của storyboard, mỗi hình có nguồn và giấy phép
     severity: chan
     method: auto
-    check: file_exists
-    params: {paths: [06_animation/assets.yaml]}
+    check: animation_assets_complete
+    params: {path: 06_animation/assets.yaml, storyboard: 02_design/storyboard.yaml}
+  - id: ANI-A02
+    group: Kỹ thuật
+    title: SVG hợp lệ — có viewBox, không ảnh/script/nguồn ngoài, chữ đúng font
+    severity: chan
+    method: auto
+    check: svg_valid
+    params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml}
+  - id: ANI-A03
+    group: Nhận diện
+    title: Chỉ dùng màu nhận diện, ≤ 4 màu mỗi hình
+    severity: nghiem_trong
+    method: auto
+    check: svg_palette
+    params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml, max_colors: 4}
+  - id: ANI-A04
+    group: Kỹ thuật
+    title: Có đủ các lớp tách để làm chuyển động
+    severity: chan
+    method: auto
+    check: svg_layers
+    params: {path: 06_animation/assets.yaml}
+  - id: ANI-A05
+    group: An toàn thị giác
+    title: Không nhấp nháy nhanh — chu kỳ sáng/tối ≥ 0,4 giây (WCAG 2.3.1)
+    severity: chan
+    method: auto
+    check: animation_flash_safety
+    params: {path: 05_timeline/timeline.yaml, min_period_s: 0.4}
+  - id: ANI-A06
+    group: Cấu trúc
+    title: Tờ xem trước khớp các file SVG hiện tại
+    severity: nhe
+    method: auto
+    check: animation_preview_in_sync
+    params: {path: 06_animation/assets.yaml, manifest: 06_animation/preview_manifest.json}
   - id: ANI-C01
     group: Độ phủ
     title: Mọi hoạt ảnh trong storyboard đã có, đúng mã cảnh
@@ -19,10 +54,10 @@ items:
     guidance: Đối chiếu 02_design/storyboard.yaml với 06_animation/assets.yaml. Liệt kê cái thiếu.
   - id: ANI-C02
     group: Chất lượng hình
-    title: Không lỗi hình — không vỡ nét, răng cưa, nhấp nháy, giật, vật thể xuyên nhau
+    title: Không lỗi hình — không vỡ nét, chi tiết thừa, vật thể xuyên nhau, hình méo
     severity: chan
     method: ai
-    guidance: Xem từng hoạt ảnh ở 1920×1080 và chậm 0,25×. Ghi tên asset, khung hoặc mốc thời gian lỗi.
+    guidance: Xem assets_preview.png (và mở từng SVG ở kích thước lớn khi cần). Ghi tên asset và lỗi.
   - id: ANI-C03
     group: Chất lượng chuyển động
     title: Chuyển động tự nhiên (easing, có đà, có quán tính), không tuyến tính cứng
@@ -37,25 +72,13 @@ items:
     guidance: Một chuyển động chính mỗi lúc. Hướng chuyển động dẫn mắt tới điểm nhìn chính.
   - id: ANI-C05
     group: Nhận diện
-    title: Đúng màu, font, phong cách nét trong bộ nhận diện
+    title: Đúng phong cách nét trong bộ nhận diện (màu đã đo tự động)
     severity: nghiem_trong
     method: ai
-    guidance: Kiểm tra mã màu trong file SVG/CSS có thuộc brand.colors không.
+    guidance: Xem assets_preview.png. Nét tròn, phẳng, bóng đổ nhẹ, mức chi tiết đồng đều giữa các hình; hình nào lệch phong cách thì ghi lại.
   - id: ANI-C06
     group: Kỹ thuật
     title: Vector hoặc độ phân giải đủ cho 1080p, nền trong suốt khi cần chồng lớp
     severity: nghiem_trong
     method: ai
     guidance: Ảnh raster phải ≥ kích thước hiển thị × 2. Không dùng GIF làm thành phẩm.
-  - id: ANI-C07
-    group: An toàn thị giác
-    title: Không nhấp nháy nhanh (> 3 lần/giây) gây nguy cơ động kinh
-    severity: chan
-    method: ai
-    guidance: Theo hướng dẫn WCAG 2.3.1. Ghi asset vi phạm.
-  - id: ANI-C08
-    group: Bản quyền
-    title: Mọi hình là gốc hoặc có giấy phép ghi rõ trong assets.yaml
-    severity: chan
-    method: ai
-    guidance: Mỗi asset có trường source và license.

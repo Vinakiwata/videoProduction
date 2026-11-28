@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+<g id="water"><rect width="960" height="540" fill="#0B3D91"/><path d="M0 60 q60 -20 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="6" fill="none"/></g>
+<g id="floor"><path d="M0 425 C160 405 260 445 420 428 C560 412 700 440 960 420 L960 540 L0 540Z" fill="#1B1B1F"/><path d="M0 425 C160 405 260 445 420 428 C560 412 700 440 960 420" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="5" fill="none"/></g>
+<g id="volcano"><path d="M240 440 C300 420 350 340 378 300 L422 300 C450 340 500 420 560 440Z" fill="#1B1B1F"/><path d="M240 440 C300 420 350 340 378 300 L422 300 C450 340 500 420 560 440" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="5" fill="none"/><path d="M378 300 L422 300 L436 322 L364 322Z" fill="#FFD23F"/></g>
+<g id="vent"><path d="M650 436 L660 384 L680 384 L690 436Z" fill="#1B1B1F"/><path d="M660 384 L680 384" stroke="#FFD23F" stroke-width="6" stroke-linecap="round"/></g>
+<g id="glow"><ellipse cx="400" cy="298" rx="44" ry="15" fill="#FFD23F" fill-opacity="0.55"/><path d="M662 372 q-12 -26 0 -52 t0 -52" stroke="#FFD23F" stroke-width="7" fill="none" stroke-linecap="round" stroke-opacity="0.8"/><path d="M678 372 q-12 -26 0 -52 t0 -52" stroke="#FFD23F" stroke-width="7" fill="none" stroke-linecap="round" stroke-opacity="0.8"/></g>
+</svg>

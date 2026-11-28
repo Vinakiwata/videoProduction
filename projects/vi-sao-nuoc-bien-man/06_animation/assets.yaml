@@ -1,0 +1,207 @@
+assets:
+- id: A-SONG
+  file: assets/A-SONG.svg
+  kind: illustration
+  description: Dòng sông uốn lượn nhìn từ trên cao, dải trắng có 2-3 vạch sóng xanh đậm bên trong, chảy từ trái sang phải
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-BIEN
+  file: assets/A-BIEN.svg
+  kind: illustration
+  description: Mặt biển dạng dải sóng tròn nhiều lớp màu xanh đậm, viền ngọn sóng trắng, chiếm phần dưới khung
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-COC-SONG
+  file: assets/A-COC-SONG.svg
+  kind: icon
+  description: Cốc thuỷ tinh viền trắng, nước trong, giữa có biểu tượng giọt nước trắng; nhãn nhỏ "sông" dưới đáy cốc
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-COC-BIEN
+  file: assets/A-COC-BIEN.svg
+  kind: icon
+  description: Cốc thuỷ tinh viền trắng, nước xanh đậm, giữa có 3 hạt muối hình lập phương trắng; nhãn nhỏ "biển" dưới đáy cốc
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-HOI
+  file: assets/A-HOI.svg
+  kind: icon
+  description: Dấu chấm hỏi lớn bo tròn, đặc, màu vàng, bóng đổ nhẹ
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-MAY
+  file: assets/A-MAY.svg
+  kind: illustration
+  description: Đám mây phẳng 3 khối tròn chồng nhau, màu trắng, đáy phẳng
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-GIOT-MUA
+  file: assets/A-GIOT-MUA.svg
+  kind: icon
+  description: Giọt mưa hình giọt nước trắng, có điểm sáng nhỏ; nhiều giọt dùng chung asset này
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-GIOT-MUA-CHUA
+  file: assets/A-GIOT-MUA-CHUA.svg
+  kind: icon
+  description: Giọt mưa trắng có viền vàng dày và 2 bọt nhỏ vàng bên trong — biểu thị nước mưa hơi chua (axit nhẹ)
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-PHANTU-KHI
+  file: assets/A-PHANTU-KHI.svg
+  kind: diagram
+  description: 'Cụm 5-6 phân tử khí: mỗi phân tử là 1 chấm tròn giữa nối 2 chấm nhỏ hai bên (kiểu CO2), màu trắng, bay lơ lửng'
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-DA
+  file: assets/A-DA.svg
+  kind: illustration
+  description: Khối đá tảng bo tròn nằm nghiêng, thân xanh đậm, viền và vết nứt màu trắng, nhìn ngang
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-HAT-MUOI
+  file: assets/A-HAT-MUOI.svg
+  kind: icon
+  description: Cụm hạt muối li ti hình lập phương trắng, vài hạt to hơn có điểm sáng, dùng để bong khỏi đá và trôi theo nước
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-SUOI
+  file: assets/A-SUOI.svg
+  kind: diagram
+  description: Ba dòng suối mảnh màu trắng từ trên trái chảy xuống, nhập thành một dòng sông rộng dần sang phải
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-KINH-LUP
+  file: assets/A-KINH-LUP.svg
+  kind: icon
+  description: Kính lúp tay cầm vàng, mắt kính tròn trong suốt viền vàng dày; bên trong phóng to dòng nước có đúng 3 hạt muối thưa
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-BAN-DO-SONG
+  file: assets/A-BAN-DO-SONG.svg
+  kind: diagram
+  description: 'Bản đồ phẳng nhìn từ trên: đất tối bên trái, 5 con sông trắng từ nhiều phía cùng đổ vào vùng biển xanh đậm bên phải; trên mỗi sông có chuỗi chấm trắng nhỏ chạy về biển'
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-MAT-TROI
+  file: assets/A-MAT-TROI.svg
+  kind: illustration
+  description: Mặt trời tròn vàng với 8 tia ngắn bo tròn
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-HOI-NUOC
+  file: assets/A-HOI-NUOC.svg
+  kind: diagram
+  description: Các chấm hơi nước trắng nhỏ bay lên theo 3 mũi tên chấm chấm hướng lên; không có hạt muối nào trong luồng bay lên
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-MUOI-O-LAI
+  file: assets/A-MUOI-O-LAI.svg
+  kind: icon
+  description: Hàng hạt muối lập phương trắng nằm lại dưới mặt nước biển, lấp lánh nhẹ
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-VONG-TUAN-HOAN
+  file: assets/A-VONG-TUAN-HOAN.svg
+  kind: diagram
+  description: 'Vòng tròn 4 chặng nối bằng mũi tên vàng cong chạy theo chiều kim đồng hồ: mưa (giọt trắng) → đá → sông → biển → mây; mỗi chặng là icon trắng đơn giản'
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-DAY-BIEN
+  file: assets/A-DAY-BIEN.svg
+  kind: diagram
+  description: 'Mặt cắt đáy biển: nước xanh đậm phía trên, đáy tối; giữa là núi lửa nhỏ có miệng phát sáng vàng, bên phải một khe nứt toả các vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)'
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-KHOANG-CHAT
+  file: assets/A-KHOANG-CHAT.svg
+  kind: diagram
+  description: Chuỗi chấm khoáng chất trắng nhỏ bay lên từ miệng núi lửa và khe nứt, toả dần vào làn nước
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-MUI-TEN
+  file: assets/A-MUI-TEN.svg
+  kind: icon
+  description: Mũi tên ngang dày bo tròn màu vàng, chỉ sang phải
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-NUT-DANG-KY
+  file: assets/A-NUT-DANG-KY.svg
+  kind: ui
+  description: Nút bo tròn lớn màu vàng, chữ "ĐĂNG KÝ" màu tối đậm ở giữa, tự thiết kế — không dùng logo YouTube
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-CHUONG
+  file: assets/A-CHUONG.svg
+  kind: icon
+  description: Chuông thông báo trắng phẳng, có 2 vạch rung nhỏ hai bên
+  layers: []
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+motion_defaults:
+  note: Áp dụng khi storyboard không ghi ease. Tool 07 bắt buộc dùng; không có chuyển động tuyến tính trừ typewriter (bản chất là gõ từng ký tự).
+  enter:
+    fade: ease_out
+    draw: ease_in_out
+    pop: back_out
+    drop: ease_in
+    scale_in: ease_out
+    slide: ease_out
+    typewriter: steps
+  exit:
+    fade: ease_in
+    scale_out: back_in
+    slide: ease_in
+  loop:
+    bob: sine_in_out
+    wiggle: sine_in_out
+    pulse: sine_in_out
+    shimmer: sine_in_out
+    flow: linear_seamless
+    rotate: linear_seamless
+  drop_squash: 'Giọt mưa chạm đích: squash 0,85/1,15 trong 4 khung rồi hồi về (follow-through).'
