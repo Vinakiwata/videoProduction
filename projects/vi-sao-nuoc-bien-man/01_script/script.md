@@ -52,7 +52,7 @@
 | Bắt đầu | Mã | Loại | Lời đọc | Hình | SFX | Dài (s) |
 |---|---|---|---|---|---|---|
 | 00:40.2 | S05-01 | 🎙️ giọng | Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại. | Ba biểu tượng nối bằng mũi tên hiện lần lượt theo từng vế câu — giọt mưa trên đá, dòng sông, mặt trời trên biển |  | 4.6 |
-| 00:44.8 | S05-02 | 🎙️ giọng | Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé! | Nút đăng ký tự thiết kế màu vàng FFD23F nảy lên giữa nền xanh đậm 0B3D91, có chuông nhỏ rung | click | 3.9 |
+| 00:44.8 | S05-02 | 🎙️ giọng | Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé! | Cảnh kết của kênh Khỉ Khám Phá — Khỉ giơ tay vui mừng bên logo tròn, nút đăng ký vàng nảy lên, chuông nhỏ rung, chữ 'Cùng Khỉ nhé!' trên bảng gỗ | click | 3.9 |
 
 **Tổng thời lượng: 48.7 giây**
 

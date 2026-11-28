@@ -3,101 +3,101 @@
     "brief": {
       "pending": null,
       "latest": {
-        "review": "reviews/brief/20261128-111448",
+        "review": "reviews/brief/20261128-151536",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "00_brief/brief.yaml": "fdff86d4b94ad0f080e7dfd4abe347b869581b948f35bbe0987a4261051b7bd7"
+          "00_brief/brief.yaml": "1d468d73299cfa57c134bb0de297f018a464d3c7edde448c38bb0a84f4e03bdd"
         },
-        "finalized_at": "2026-11-28T11:15:01+07:00",
+        "finalized_at": "2026-11-28T15:15:52+07:00",
         "override": null
       }
     },
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261128-111502",
+        "review": "reviews/script/20261128-151602",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b",
-          "00_brief/brief.yaml": "fdff86d4b94ad0f080e7dfd4abe347b869581b948f35bbe0987a4261051b7bd7"
+          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92",
+          "00_brief/brief.yaml": "1d468d73299cfa57c134bb0de297f018a464d3c7edde448c38bb0a84f4e03bdd"
         },
-        "finalized_at": "2026-11-28T11:15:15+07:00",
+        "finalized_at": "2026-11-28T15:16:03+07:00",
         "override": null
       }
     },
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261128-111515",
+        "review": "reviews/design/20261128-151825",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:b1dd01af676ee8b138130f9323361ffe6fe5bcebe8e01bc5ba17e6e5b4bd9f97",
-          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+          "02_design": "dir:35470fb83979f7dce70d6c6298a359f9281a839a2246a56be0037bbffacdf94c",
+          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T11:15:55+07:00",
+        "finalized_at": "2026-11-28T15:18:44+07:00",
         "override": null
       }
     },
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-111616",
+        "review": "reviews/animatic/20261128-151857",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "03_animatic": "dir:de4d7129d4bd628899f0b01387e25566c7906e4739c62537be657507e53c64a1",
-          "02_design/storyboard.yaml": "239630144b5d47cae24a3875c41658adb8ad5efb4feec79d81138100d4a65c41",
-          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+          "03_animatic": "dir:531b02bc543ff73a8bac9279c51c7a86b7413ec65019fd5b706f761c0fe38587",
+          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T11:16:39+07:00",
+        "finalized_at": "2026-11-28T15:19:07+07:00",
         "override": null
       }
     },
     "voice": {
       "pending": null,
       "latest": {
-        "review": "reviews/voice/20261128-104327",
+        "review": "reviews/voice/20261128-151907",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
           "04_voice": "dir:6257bb80f1db31a0640c1d6cd37ab403c64fa7a0f63b14044e4991e48e197d63",
-          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T10:43:29+07:00",
+        "finalized_at": "2026-11-28T15:19:38+07:00",
         "override": null
       }
     },
     "timeline": {
       "pending": null,
       "latest": {
-        "review": "reviews/timeline/20261128-111640",
+        "review": "reviews/timeline/20261128-152003",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "05_timeline": "dir:1255811f8daa35953514da7a2befdc259a8089b245b8cd5f0e84161ca204bcc4",
+          "05_timeline": "dir:b406f587d1686f62d659c78a8aceaf6408a03a46ac2de50a5dc1b586c476ec07",
           "04_voice/voice_manifest.yaml": "82404499a83aa6f21cacf8f49365c22119f87f08a4c57c12b63527249c846b95",
-          "02_design/storyboard.yaml": "239630144b5d47cae24a3875c41658adb8ad5efb4feec79d81138100d4a65c41",
-          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
         },
-        "finalized_at": "2026-11-28T11:16:54+07:00",
+        "finalized_at": "2026-11-28T15:20:04+07:00",
         "override": null
       }
     },
     "animation": {
       "pending": null,
       "latest": {
-        "review": "reviews/animation/20261128-114232",
+        "review": "reviews/animation/20261128-152204",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "06_animation": "dir:3914936a54c37aa037d54673d80f40d2aa8faafe74d9612ab6b7f956303eb6dc",
-          "02_design/storyboard.yaml": "239630144b5d47cae24a3875c41658adb8ad5efb4feec79d81138100d4a65c41",
-          "05_timeline/timeline.yaml": "eaae4508575608f8fade0c4f18933592c876aaeebb5782996d110b18eb140a5f"
+          "06_animation": "dir:8f73d2717688d3fdd8595ce824f6dcc1ab73f12722f04f8dc4da845f1317f42f",
+          "02_design/storyboard.yaml": "12397f0b17b24d7ae22e568c6cedf9738fdfced578e1d40612816b167ff08d90",
+          "05_timeline/timeline.yaml": "7ab8ae0a2500598a6c061c28f7a9933e9464b9fc91a40af125d46767e6405ff6"
         },
-        "finalized_at": "2026-11-28T11:43:36+07:00",
+        "finalized_at": "2026-11-28T15:22:05+07:00",
         "override": null
       }
     }

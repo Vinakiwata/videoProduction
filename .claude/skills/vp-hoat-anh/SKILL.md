@@ -6,7 +6,7 @@ description: Dùng khi cần vẽ, sửa hoặc duyệt hình hoạt ảnh 2D (0
 # Hoạt ảnh 2D (06_animation)
 
 1. `python -m vp gate projects/<dự án> timeline` phải báo MỞ.
-2. `python -m vp animation init projects/<dự án>` tạo `06_animation/assets.yaml`, mỗi asset trong storyboard có một mục với `file: assets/<ID>.svg`, nguồn và giấy phép.
+2. `python -m vp animation init projects/<dự án>`. Khi storyboard đổi sau đó, chạy `python -m vp animation sync` để thêm hoặc bớt asset mà vẫn giữ nguyên lớp và ghi chú tạo `06_animation/assets.yaml`, mỗi asset trong storyboard có một mục với `file: assets/<ID>.svg`, nguồn và giấy phép.
 3. Vẽ hình bằng **script sinh SVG** ở `06_animation/_src/ve_hinh.py`. Không vẽ tay từng file, để sửa một chỗ là vẽ lại được cả bộ.
    - **Màu:**
      - Icon, chữ và nút chỉ dùng 4 màu của kênh, tối đa 4 màu mỗi hình. Muốn có sắc độ thì dùng `fill-opacity`.
@@ -23,3 +23,6 @@ description: Dùng khi cần vẽ, sửa hoặc duyệt hình hoạt ảnh 2D (0
 6. `python -m vp animation lint projects/<dự án>` phải báo SẠCH.
 6b. Ghép thử các khung theo đúng toạ độ storyboard: cảnh ở lớp dưới cùng, các phần tử chồng lên, chữ có tấm nền `text_plate`. Kiểm từng khung: vật có nằm đúng chỗ thật không (muối dưới mặt nước, hơi nước bốc từ mặt biển), có lớp nào bị che không.
 7. Duyệt bằng skill `vp-kiem-duyet`, công đoạn `animation`. Sửa SVG thì cổng hết hiệu lực, phải dựng lại preview và duyệt lại.
+8. **Linh vật** (`kind: mascot`): không vẽ. `animation sync` tự chép đúng PNG gốc từ `brand.mascot.dir` của kênh, ANI-A07 kiểm. Muốn đổi hình Khỉ thì sửa ở kho của kênh (`channels/<kênh>/brand/`), rồi sync lại.
+9. Script sinh hình phải đặt `sys.dont_write_bytecode = True`. Thư mục `__pycache__` sinh ra trong `06_animation` sẽ làm cổng duyệt hết hiệu lực.
+

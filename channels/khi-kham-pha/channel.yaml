@@ -1,0 +1,78 @@
+name: Khỉ Khám Phá
+channel: youtube
+format:
+  width: 1920
+  height: 1080
+  fps: 30
+default_duration_s: 60
+tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
+cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học
+audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
+brand:
+  colors:
+  - '#0078E0'
+  - '#FFC907'
+  - '#FFFFFF'
+  - '#5E270E'
+  - '#FD8305'
+  - '#669F2D'
+  fonts:
+  - Be Vietnam Pro
+  voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
+  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Mọi chữ đặt trên tấm nền nâu gỗ như bảng tên trong logo. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết
+  scene_colors:
+  - '#4A98D6'
+  - '#6F879E'
+  - '#8AA6CF'
+  - '#5B7DB1'
+  - '#7CC36A'
+  - '#5AA84C'
+  - '#3E9B4F'
+  - '#2F7A3A'
+  - '#8A5A2B'
+  - '#6B4A2E'
+  - '#3FA7E0'
+  - '#1F7FC4'
+  - '#145A9E'
+  - '#0A2A66'
+  - '#F2D49B'
+  - '#E3BC78'
+  - '#B4B4BC'
+  - '#8C8C94'
+  - '#5E5E66'
+  - '#FF7A2F'
+  slogan: Khám phá thế giới · Học hỏi mỗi ngày · Cùng Khỉ nhé!
+  logo: channels/khi-kham-pha/brand/mascot/logo.png
+  mascot:
+    name: Khỉ
+    dir: channels/khi-kham-pha/brand/mascot
+    expressions:
+    - id: tham-hoi
+      file: tham_hoi.png
+      use: Đặt câu hỏi, nêu nghịch lý, suy nghĩ
+    - id: vui-mung
+      file: vui_mung.png
+      use: Kết video, mời đăng ký, ăn mừng
+    - id: thich-lam
+      file: thich_lam.png
+      use: Tán thành, tóm tắt đúng, 'hay quá'
+    - id: doc-sach
+      file: doc_sach.png
+      use: Giải thích, dẫn kiến thức, nguồn tư liệu
+    - id: ngac-nhien
+      file: ngac_nhien.png
+      use: Lộ đáp án bất ngờ, con số gây sốc
+    - id: ngau
+      file: ngau.png
+      use: Mẹo hay, kết luận tự tin
+    - id: yeu-trai-dat
+      file: yeu_trai_dat.png
+      use: Thiên nhiên, Trái Đất, quy mô hành tinh, thời gian rất dài
+    - id: logo
+      file: logo.png
+      use: Logo tròn của kênh — cảnh kết
+voice_profile:
+  syllables_per_second: 4.43
+  calibrated: true
+  calibrated_from: vi-sao-nuoc-bien-man (vieneu-v3turbo (Mac), Hải Đăng)
+notes: 'Bộ nhận diện do chủ dự án cung cấp ngày 28/11/2026 (ảnh tổng 1536x1024, tên file cho thấy tạo bằng ChatGPT). Linh vật cắt từ ảnh tổng: mỗi biểu cảm gốc chỉ khoảng 150–200 px, đã phóng lên 512 px, nên chỉ đặt Khỉ ở cỡ vừa (≤ 30% chiều cao khung); nên thay bằng ảnh gốc độ phân giải cao khi có. Vì hình tạo bằng AI, phải gắn nhãn nội dung AI khi đăng (Luật AI 134/2025/QH15), cùng với nhãn giọng AI. Màu đo tương phản: chữ trắng trên xanh dương #0078E0 chỉ 4,41:1 nên mọi chữ đặt trên tấm nền nâu gỗ #5E270E (vàng trên nâu 7,68:1, trắng trên nâu 11,85:1).'

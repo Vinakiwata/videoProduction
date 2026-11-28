@@ -6,7 +6,7 @@ import math
 import random
 
 # màu nhận diện
-N, Y, W, D = "#0B3D91", "#FFD23F", "#FFFFFF", "#1B1B1F"
+Y, W, D = "#FFC907", "#FFFFFF", "#5E270E"   # màu kênh dùng trong cảnh: vàng (dung nham sáng), trắng, nâu (bóng đổ)
 # bảng màu cảnh (brand.scene_colors)
 SKY, RAIN_SKY = "#4A98D6", "#6F879E"
 MTN_FAR, MTN = "#8AA6CF", "#5B7DB1"
@@ -158,7 +158,7 @@ S["A-CUA-SONG"] = svg("0 0 960 540",
 _shore = "M0 428 C160 412 340 444 560 424 C720 410 840 436 960 420"
 S["A-BIEN"] = svg("0 0 960 540",
     g("sky", f'<rect width="960" height="272" fill="{SKY}"/>'),
-    g("sea", f'<rect y="270" width="960" height="180" fill="{SEA}"/>', f'<rect y="270" width="960" height="22" fill="{N}"/>',
+    g("sea", f'<rect y="270" width="960" height="180" fill="{SEA}"/>', f'<rect y="270" width="960" height="22" fill="{SEA_DEEP}"/>',
       f'<rect y="292" width="960" height="44" fill="{SEA_MID}"/>'),
     g("waves", *[f'<path d="M{x} {y} q{w / 2} {-w * 0.22} {w} 0 t{w} 0" stroke="{W}" stroke-opacity="{o}" stroke-width="{sw}" fill="none" stroke-linecap="round"/>'
                  for x, y, w, o, sw in ((80, 300, 14, 0.6, 3), (300, 306, 14, 0.6, 3), (560, 298, 14, 0.6, 3), (820, 304, 14, 0.6, 3),
@@ -241,8 +241,8 @@ S["A-DA"] = svg("0 0 760 320",
 
 # ---------- A-DAY-BIEN: mặt cắt đáy biển thật ----------
 S["A-DAY-BIEN"] = svg("0 0 960 540",
-    g("water", f'<rect width="960" height="540" fill="{SEA_DEEP}"/>', f'<rect width="960" height="300" fill="{N}"/>',
-      f'<rect width="960" height="120" fill="{SEA_MID}"/>',
+    g("water", f'<rect width="960" height="540" fill="{SEA_DEEP}"/>', f'<rect width="960" height="300" fill="{SEA_MID}"/>',
+      f'<rect width="960" height="120" fill="{SEA}"/>',
       *[f'<path d="M{x} 0 L{x + 60} 0 L{x + 160} 420 L{x + 120} 420Z" fill="{W}" fill-opacity="0.06"/>' for x in (120, 380, 640)],
       f'<path d="M0 30 q60 -16 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" stroke="{W}" stroke-opacity="0.45" stroke-width="5" fill="none"/>'),
     g("floor", f'<path d="M0 425 C160 405 260 445 420 428 C560 412 700 440 960 420 L960 540 L0 540Z" fill="{SOIL}"/>',

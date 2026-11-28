@@ -14,7 +14,7 @@
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
   voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
-  animation init|preview|lint <dự án>          Tool 6: danh mục hình SVG, tờ xem trước, kiểm nhanh
+  animation init|sync|preview|lint <dự án>     Tool 6: danh mục hình (SVG + linh vật PNG), tờ xem trước, kiểm nhanh
   timeline build <dự án> [--breath 0.6 --breath-scene 0.9]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
@@ -159,6 +159,8 @@ def cmd_animation(a):
     p = Path(a.project)
     if a.action == "init":
         print(f"Đã tạo danh mục hình {animation_tools.init(p, force=a.force)}")
+    elif a.action == "sync":
+        print(f"Đã khớp danh mục hình với storyboard {animation_tools.sync(p)}")
     elif a.action == "preview":
         print(f"Đã dựng tờ xem trước {animation_tools.preview(p)}")
     elif a.action == "lint":
@@ -215,7 +217,7 @@ def main(argv=None):
     tlp.add_argument("--breath-scene", type=float, default=0.90, help="ngắt khi sang cảnh mới (giây)")
     tlp.add_argument("--question-extra", type=float, default=0.10, help="cộng thêm sau câu hỏi/cảm thán (giây)")
     tlp.set_defaults(fn=cmd_timeline)
-    an = sub.add_parser("animation"); an.add_argument("action", choices=["init", "preview", "lint"])
+    an = sub.add_parser("animation"); an.add_argument("action", choices=["init", "sync", "preview", "lint"])
     an.add_argument("project"); an.add_argument("--force", action="store_true"); an.set_defaults(fn=cmd_animation)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)

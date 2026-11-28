@@ -1,6 +1,6 @@
 # Tool 4 — Hoạt ảnh 2D (SVG/CSS/Canvas/Lottie). GIF chỉ dùng để xem trước.
 stage: animation
-version: 3
+version: 4
 title: Kiểm duyệt hoạt ảnh 2D
 artifacts: [06_animation, 02_design/storyboard.yaml, 05_timeline/timeline.yaml]
 items:
@@ -47,6 +47,14 @@ items:
     method: auto
     check: animation_preview_in_sync
     params: {path: 06_animation/assets.yaml, manifest: 06_animation/preview_manifest.json}
+  - id: ANI-A07
+    group: Thương hiệu
+    title: Linh vật PNG nền trong suốt, trùng bản gốc của kênh, không phóng to quá cỡ file
+    severity: nghiem_trong
+    method: auto
+    check: mascot_png
+    params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml, storyboard: 02_design/storyboard.yaml}
+    notes: "Chủ dự án (Vinakiwata) DUYỆT ngày 28/11/2026: kênh Khỉ Khám Phá — Khỉ phản ứng ở điểm nhấn và có mặt ở cảnh kết; dùng PNG gốc của bộ nhận diện."
   - id: ANI-C01
     group: Độ phủ
     title: Mọi hoạt ảnh trong storyboard đã có, đúng mã cảnh

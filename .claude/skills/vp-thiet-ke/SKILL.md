@@ -66,3 +66,9 @@ Sau đó dùng skill `vp-kiem-duyet` cho công đoạn `design`. Người duyệ
   - muối nằm dưới mặt nước;
   - khoáng chất bay ra từ miệng núi lửa.
 
+## Linh vật của kênh (luật từ 28/11/2026)
+- Nếu `brand.mascot` có trong brief, thêm asset `kind: mascot`, `expression: <id>`. Chọn biểu cảm theo cột `use`.
+- Khỉ **phản ứng 2–3 lần** ở điểm nhấn thật: nêu câu hỏi, lộ đáp án, quy mô, mẹo. Cùng một Khỉ kéo dài qua khung nối tiếp chỉ tính 1 lần.
+- **Cảnh kết bắt buộc có Khỉ** (thêm logo nếu có). DSN-A11 kiểm cả hai luật.
+- Đặt Khỉ ở góc hoặc cạnh, không che nội dung chính. Cỡ ≤ 44% chiều cao, vì PNG chỉ 512 px.
+- Mọi chữ có tấm nền khi `text_plate.always: true`.

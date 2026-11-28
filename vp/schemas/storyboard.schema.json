@@ -2,113 +2,462 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Storyboard (02_design/storyboard.yaml)",
   "type": "object",
-  "required": ["meta", "palette", "fonts", "style", "assets", "shots"],
+  "required": [
+    "meta",
+    "palette",
+    "fonts",
+    "style",
+    "assets",
+    "shots"
+  ],
   "additionalProperties": false,
   "$defs": {
-    "hex": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+    "hex": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
     "box": {
-      "type": "object", "required": ["x", "y", "w", "h"], "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "w",
+        "h"
+      ],
+      "additionalProperties": false,
       "properties": {
-        "x": {"type": "number"}, "y": {"type": "number"},
-        "w": {"type": "number", "exclusiveMinimum": 0}, "h": {"type": "number", "exclusiveMinimum": 0}
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
       }
     },
-    "ease": {"enum": ["linear", "ease_in", "ease_out", "ease_in_out", "back_out", "elastic_out", "bounce_out"]},
+    "ease": {
+      "enum": [
+        "linear",
+        "ease_in",
+        "ease_out",
+        "ease_in_out",
+        "back_out",
+        "elastic_out",
+        "bounce_out"
+      ]
+    },
     "motion": {
-      "type": "object", "required": ["anim", "at"], "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "anim",
+        "at"
+      ],
+      "additionalProperties": false,
       "properties": {
-        "anim": {"enum": ["fade", "pop", "scale_in", "scale_out", "slide_left", "slide_right", "slide_up", "slide_down",
-                          "draw", "grow", "wipe", "typewriter", "drop", "morph", "none"]},
-        "at": {"type": "number", "minimum": 0, "maximum": 1},
-        "dur_s": {"type": "number", "exclusiveMinimum": 0, "maximum": 5},
-        "ease": {"$ref": "#/$defs/ease"},
-        "to": {"$ref": "#/$defs/box", "description": "vị trí đích cho chuyển động dời chỗ (morph, slide)"}
+        "anim": {
+          "enum": [
+            "fade",
+            "pop",
+            "scale_in",
+            "scale_out",
+            "slide_left",
+            "slide_right",
+            "slide_up",
+            "slide_down",
+            "draw",
+            "grow",
+            "wipe",
+            "typewriter",
+            "drop",
+            "morph",
+            "none"
+          ]
+        },
+        "at": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "dur_s": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 5
+        },
+        "ease": {
+          "$ref": "#/$defs/ease"
+        },
+        "to": {
+          "$ref": "#/$defs/box",
+          "description": "vị trí đích cho chuyển động dời chỗ (morph, slide)"
+        }
       }
     },
     "element": {
-      "type": "object", "required": ["id", "box"], "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "id",
+        "box"
+      ],
+      "additionalProperties": false,
       "properties": {
-        "id": {"type": "string", "pattern": "^e\\d+$"},
-        "asset": {"type": "string"},
-        "text": {"type": "string", "minLength": 1},
-        "style": {"enum": ["title", "label", "caption", "number"]},
-        "font_px": {"type": "integer", "minimum": 8},
-        "color": {"$ref": "#/$defs/hex"},
-        "box": {"$ref": "#/$defs/box"},
-        "z": {"type": "integer"},
-        "enter": {"$ref": "#/$defs/motion"},
-        "exit": {"$ref": "#/$defs/motion"},
-        "loop": {
-          "type": "object", "required": ["anim"], "additionalProperties": false,
-          "properties": {"anim": {"enum": ["bob", "pulse", "rotate", "shimmer", "flow", "wiggle", "blink_slow"]},
-                         "period_s": {"type": "number", "minimum": 0.4}}
+        "id": {
+          "type": "string",
+          "pattern": "^e\\d+$"
         },
-        "notes": {"type": "string"}
+        "asset": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "style": {
+          "enum": [
+            "title",
+            "label",
+            "caption",
+            "number"
+          ]
+        },
+        "font_px": {
+          "type": "integer",
+          "minimum": 8
+        },
+        "color": {
+          "$ref": "#/$defs/hex"
+        },
+        "box": {
+          "$ref": "#/$defs/box"
+        },
+        "z": {
+          "type": "integer"
+        },
+        "enter": {
+          "$ref": "#/$defs/motion"
+        },
+        "exit": {
+          "$ref": "#/$defs/motion"
+        },
+        "loop": {
+          "type": "object",
+          "required": [
+            "anim"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "anim": {
+              "enum": [
+                "bob",
+                "pulse",
+                "rotate",
+                "shimmer",
+                "flow",
+                "wiggle",
+                "blink_slow"
+              ]
+            },
+            "period_s": {
+              "type": "number",
+              "minimum": 0.4
+            }
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
       },
       "oneOf": [
-        {"required": ["asset"], "not": {"required": ["text"]}},
-        {"required": ["text", "style", "font_px", "color"], "not": {"required": ["asset"]}}
+        {
+          "required": [
+            "asset"
+          ],
+          "not": {
+            "required": [
+              "text"
+            ]
+          }
+        },
+        {
+          "required": [
+            "text",
+            "style",
+            "font_px",
+            "color"
+          ],
+          "not": {
+            "required": [
+              "asset"
+            ]
+          }
+        }
       ]
     }
   },
   "properties": {
     "meta": {
-      "type": "object", "required": ["title", "canvas"],
+      "type": "object",
+      "required": [
+        "title",
+        "canvas"
+      ],
       "properties": {
-        "title": {"type": "string"},
-        "canvas": {"type": "object", "required": ["width", "height", "fps"],
-                   "properties": {"width": {"type": "integer"}, "height": {"type": "integer"}, "fps": {"type": "number"}}}
+        "title": {
+          "type": "string"
+        },
+        "canvas": {
+          "type": "object",
+          "required": [
+            "width",
+            "height",
+            "fps"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "fps": {
+              "type": "number"
+            }
+          }
+        }
       }
     },
-    "palette": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/hex"}},
-    "scene_palette": {"type": "array", "items": {"$ref": "#/$defs/hex"},
-                      "description": "Màu tự nhiên chỉ dành cho asset kind=scene; phải thuộc brand.scene_colors của brief"},
-    "text_plate": {"type": "object", "required": ["color", "opacity"], "additionalProperties": false,
-                   "description": "Tấm nền sau mọi chữ đặt trên cảnh minh hoạ",
-                   "properties": {"color": {"$ref": "#/$defs/hex"}, "opacity": {"type": "number", "minimum": 0, "maximum": 1}}},
-    "fonts": {"type": "object", "required": ["title", "body"],
-              "properties": {"title": {"type": "string"}, "body": {"type": "string"}}},
-    "style": {"type": "string", "minLength": 3},
+    "palette": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/hex"
+      }
+    },
+    "scene_palette": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/hex"
+      },
+      "description": "Màu tự nhiên chỉ dành cho asset kind=scene; phải thuộc brand.scene_colors của brief"
+    },
+    "text_plate": {
+      "type": "object",
+      "required": [
+        "color",
+        "opacity"
+      ],
+      "additionalProperties": false,
+      "description": "Tấm nền sau mọi chữ đặt trên cảnh minh hoạ",
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/hex"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "always": {
+          "type": "boolean",
+          "description": "true: mọi chữ đều có tấm nền (không chỉ chữ trên cảnh)"
+        }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "required": [
+        "title",
+        "body"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      }
+    },
+    "style": {
+      "type": "string",
+      "minLength": 3
+    },
     "assets": {
       "type": "array",
       "items": {
-        "type": "object", "required": ["id", "kind", "description", "colors"], "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "description",
+          "colors"
+        ],
+        "additionalProperties": false,
         "properties": {
-          "id": {"type": "string", "pattern": "^A-[A-Z0-9-]+$"},
-          "kind": {"enum": ["illustration", "icon", "diagram", "background", "ui", "character", "scene"]},
-          "description": {"type": "string", "minLength": 10},
-          "colors": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/hex"}},
-          "notes": {"type": "string"}
+          "id": {
+            "type": "string",
+            "pattern": "^A-[A-Z0-9-]+$"
+          },
+          "kind": {
+            "enum": [
+              "illustration",
+              "icon",
+              "diagram",
+              "background",
+              "ui",
+              "character",
+              "scene",
+              "mascot"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10
+          },
+          "colors": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/hex"
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "expression": {
+            "type": "string",
+            "description": "Chỉ cho kind=mascot: id biểu cảm trong brand.mascot của brief"
+          }
         }
       }
     },
     "shots": {
-      "type": "array", "minItems": 1,
+      "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "segment", "span", "purpose", "background", "focal", "camera", "transition_in", "elements"],
+        "required": [
+          "id",
+          "segment",
+          "span",
+          "purpose",
+          "background",
+          "focal",
+          "camera",
+          "transition_in",
+          "elements"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": {"type": "string", "pattern": "^S\\d{2,3}-\\d{2}-[a-z]$"},
-          "segment": {"type": "string", "pattern": "^S\\d{2,3}-\\d{2}$"},
-          "span": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0, "maximum": 1}},
-          "purpose": {"type": "string", "minLength": 3},
-          "background": {"$ref": "#/$defs/hex"},
-          "focal": {"type": "string"},
-          "camera": {
-            "type": "object", "required": ["move"], "additionalProperties": false,
-            "properties": {"move": {"enum": ["static", "zoom_in", "zoom_out", "pan_left", "pan_right", "pan_up", "pan_down"]},
-                           "amount": {"type": "number", "minimum": 0, "maximum": 0.5}}
+          "id": {
+            "type": "string",
+            "pattern": "^S\\d{2,3}-\\d{2}-[a-z]$"
           },
-          "transition_in": {"enum": ["cut", "crossfade", "wipe_left", "wipe_right", "push_left", "push_up", "match_cut", "zoom_through"]},
-          "elements": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/element"}},
+          "segment": {
+            "type": "string",
+            "pattern": "^S\\d{2,3}-\\d{2}$"
+          },
+          "span": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 3
+          },
+          "background": {
+            "$ref": "#/$defs/hex"
+          },
+          "focal": {
+            "type": "string"
+          },
+          "camera": {
+            "type": "object",
+            "required": [
+              "move"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "move": {
+                "enum": [
+                  "static",
+                  "zoom_in",
+                  "zoom_out",
+                  "pan_left",
+                  "pan_right",
+                  "pan_up",
+                  "pan_down"
+                ]
+              },
+              "amount": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 0.5
+              }
+            }
+          },
+          "transition_in": {
+            "enum": [
+              "cut",
+              "crossfade",
+              "wipe_left",
+              "wipe_right",
+              "push_left",
+              "push_up",
+              "match_cut",
+              "zoom_through"
+            ]
+          },
+          "elements": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/element"
+            }
+          },
           "sfx": {
             "type": "array",
-            "items": {"type": "object", "required": ["name", "target", "event"], "additionalProperties": false,
-                      "properties": {"name": {"type": "string"}, "target": {"type": "string", "description": "mã phần tử gây ra tiếng động"},
-                                     "event": {"enum": ["enter", "exit", "loop"]}}}
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "target",
+                "event"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "target": {
+                  "type": "string",
+                  "description": "mã phần tử gây ra tiếng động"
+                },
+                "event": {
+                  "enum": [
+                    "enter",
+                    "exit",
+                    "loop"
+                  ]
+                }
+              }
+            }
           },
-          "notes": {"type": "string"}
+          "notes": {
+            "type": "string"
+          }
         }
       }
     }

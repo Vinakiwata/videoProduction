@@ -221,3 +221,73 @@ def test_contrast_text_over_scene_uses_plate(dproj, sb):
     del sb["text_plate"]
     r = run_check("storyboard_contrast", put(dproj, sb), params)
     assert r.status == "fail" and "S01-01-a/e3" in r.evidence and "#CDEBFA" in r.evidence
+
+
+# ---- Linh vật (Khỉ Khám Phá, quyết định của chủ dự án 28/11/2026) ----
+MASCOT = {"name": "Khỉ", "dir": "brand/mascot",
+          "expressions": [{"id": "tham-hoi", "file": "tham_hoi.png", "use": "đặt câu hỏi"},
+                          {"id": "vui-mung", "file": "vui_mung.png", "use": "kết video"}]}
+MP = {"path": SB, "brief": "00_brief/brief.yaml", "min_reactions": 2, "max_reactions": 3}
+
+
+def _with_mascot(project, sb, reactions=("S01-01-a", "S02-01-a"), outro=True):
+    brief = yaml.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["mascot"] = MASCOT
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    sb["assets"].append({"id": "A-KHI-HOI", "kind": "mascot", "expression": "tham-hoi",
+                         "description": "Khỉ chống cằm thắc mắc", "colors": ["#FD8305"]})
+    sb["assets"].append({"id": "A-KHI-VUI", "kind": "mascot", "expression": "vui-mung",
+                         "description": "Khỉ giơ tay vui mừng", "colors": ["#FD8305"]})
+    for sid in reactions:
+        shot(sb, sid)["elements"].append({"id": "e8", "asset": "A-KHI-HOI", "box": {"x": 80, "y": 62, "w": 14, "h": 30},
+                                          "enter": {"anim": "pop", "at": 0.2}})
+    if outro:
+        sb["shots"][-1]["elements"].append({"id": "e9", "asset": "A-KHI-VUI", "box": {"x": 8, "y": 30, "w": 22, "h": 50}})
+    return put(project, sb)
+
+
+def test_mascot_ok(dproj, sb):
+    p = _with_mascot(dproj, sb)
+    assert run_check("yaml_schema", p, {"path": SB, "schema": "storyboard"}).status == "pass"
+    r = run_check("storyboard_mascot", p, MP)
+    assert r.status == "pass", r.evidence
+
+
+def test_mascot_needs_outro(dproj, sb):
+    r = run_check("storyboard_mascot", _with_mascot(dproj, sb, outro=False), MP)
+    assert r.status == "fail" and "kết" in r.evidence
+
+
+def test_mascot_reaction_count(dproj, sb):
+    r = run_check("storyboard_mascot", _with_mascot(dproj, sb, reactions=("S01-01-a",)), MP)
+    assert r.status == "fail" and "1 lần" in r.evidence
+
+
+def test_mascot_unknown_expression(dproj, sb):
+    p = _with_mascot(dproj, sb)
+    sb["assets"][-1]["expression"] = "khong-co"
+    r = run_check("storyboard_mascot", put(p, sb), MP)
+    assert r.status == "fail" and "khong-co" in r.evidence
+
+
+def test_mascot_colors_exempt_from_palette(dproj, sb):
+    assert run_check("storyboard_palette", _with_mascot(dproj, sb), P).status == "pass"
+
+
+def test_text_plate_always(dproj, sb):
+    # chữ trắng trên nền vàng (tương phản thấp) nhưng luôn có tấm nền tối -> đạt
+    shot(sb, "S02-01-a")["background"] = "#FFD23F"
+    params = {**P, "min_ratio": 4.5}
+    r = run_check("storyboard_contrast", put(dproj, sb), params)
+    assert r.status == "fail"
+    sb["palette"].append("#1B1B1F")
+    sb["text_plate"] = {"color": "#1B1B1F", "opacity": 0.9, "always": True}
+    r = run_check("storyboard_contrast", put(dproj, sb), params)
+    assert r.status == "pass", r.evidence
+
+
+def test_mascot_continuation_counts_once(dproj, sb):
+    # cùng một Khỉ ở hai khung liền nhau = 1 lần phản ứng; thêm một khung khác = 2 lần
+    ids = [s["id"] for s in sb["shots"]]
+    r = run_check("storyboard_mascot", _with_mascot(dproj, sb, reactions=(ids[0], ids[1])), MP)
+    assert r.status == "fail" and "1 lần" in r.evidence

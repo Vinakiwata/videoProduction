@@ -1,6 +1,6 @@
 # Tool 3 — Thiết kế nội dung & storyboard. Xem docs/superpowers/specs/2026-11-27-tool-thiet-ke-design.md
 stage: design
-version: 3
+version: 4
 title: Kiểm duyệt thiết kế nội dung & storyboard
 artifacts: [02_design, 01_script/script.yaml]
 items:
@@ -143,3 +143,11 @@ items:
     guidance: |
       Xem các khung liền nhau. Một đối tượng xuyên suốt (ví dụ dòng sông) không đổi asset hay nhảy vị trí vô lý.
       Dòng chảy thời gian và nhân quả đi một hướng (ví dụ trái → phải). Cắt (cut) giữa hai khung giống hệt nhau mà không có lý do là TRƯỢT.
+  - id: DSN-A11
+    group: Thương hiệu
+    title: Linh vật phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết; biểu cảm có trong bộ nhận diện
+    severity: nghiem_trong
+    method: auto
+    check: storyboard_mascot
+    params: {path: 02_design/storyboard.yaml, brief: 00_brief/brief.yaml, min_reactions: 2, max_reactions: 3}
+    notes: "Chủ dự án (Vinakiwata) DUYỆT ngày 28/11/2026: kênh Khỉ Khám Phá — Khỉ phản ứng ở điểm nhấn và có mặt ở cảnh kết; dùng PNG gốc của bộ nhận diện."

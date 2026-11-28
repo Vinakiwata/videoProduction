@@ -8,17 +8,19 @@ format:
   fps: 30
 target_duration_s: 50
 tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
-cta: Đăng ký kênh để xem thêm hiện tượng khoa học mỗi tuần
+cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học
 brand:
   colors:
-  - '#0B3D91'
-  - '#FFD23F'
+  - '#0078E0'
+  - '#FFC907'
   - '#FFFFFF'
-  - '#1B1B1F'
+  - '#5E270E'
+  - '#FD8305'
+  - '#669F2D'
   fonts:
   - Be Vietnam Pro
   voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
-  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật (núi, cây, sông, bãi biển…) bằng màu tự nhiên trong scene_colors; icon, chữ, nút chỉ dùng 4 màu nhận diện
+  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Mọi chữ đặt trên tấm nền nâu gỗ như bảng tên trong logo. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết
   scene_colors:
   - '#4A98D6'
   - '#6F879E'
@@ -40,15 +42,47 @@ brand:
   - '#8C8C94'
   - '#5E5E66'
   - '#FF7A2F'
+  slogan: Khám phá thế giới · Học hỏi mỗi ngày · Cùng Khỉ nhé!
+  logo: channels/khi-kham-pha/brand/mascot/logo.png
+  mascot:
+    name: Khỉ
+    dir: channels/khi-kham-pha/brand/mascot
+    expressions:
+    - id: tham-hoi
+      file: tham_hoi.png
+      use: Đặt câu hỏi, nêu nghịch lý, suy nghĩ
+    - id: vui-mung
+      file: vui_mung.png
+      use: Kết video, mời đăng ký, ăn mừng
+    - id: thich-lam
+      file: thich_lam.png
+      use: Tán thành, tóm tắt đúng, 'hay quá'
+    - id: doc-sach
+      file: doc_sach.png
+      use: Giải thích, dẫn kiến thức, nguồn tư liệu
+    - id: ngac-nhien
+      file: ngac_nhien.png
+      use: Lộ đáp án bất ngờ, con số gây sốc
+    - id: ngau
+      file: ngau.png
+      use: Mẹo hay, kết luận tự tin
+    - id: yeu-trai-dat
+      file: yeu_trai_dat.png
+      use: Thiên nhiên, Trái Đất, quy mô hành tinh, thời gian rất dài
+    - id: logo
+      file: logo.png
+      use: Logo tròn của kênh — cảnh kết
 is_advertising: false
-channel_ref: kenh-khoa-hoc-mau
+channel_ref: khi-kham-pha
 assumptions:
 - 'audience lấy theo hồ sơ kênh: "Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính"'
 - 'target_duration_s lấy mặc định của kênh: 60 giây'
 - Chủ đề do Claude chọn để chạy thử Tool 0–1; chủ dự án chưa yêu cầu video này
-- Dùng hồ sơ kênh mẫu kenh-khoa-hoc-mau; bộ nhận diện chưa được chủ dự án xác nhận
+- Dùng hồ sơ kênh khi-kham-pha (Khỉ Khám Phá) — bộ nhận diện do chủ dự án cung cấp và chọn ngày 28/11/2026, thay cho kênh mẫu
 - 'Quyết định của chủ dự án (27/11/2026): giữ tốc độ đọc gốc của VieNeu Hải Đăng (~4,4 âm tiết/giây), nên mục tiêu thời lượng hạ từ 60 xuống 50 giây'
-- 'Quyết định của chủ dự án (28/11/2026): cảnh minh hoạ phải chân thật (sông có núi, cây, dòng sông uốn lượn; biển là bãi biển), dùng màu tự nhiên; icon, chữ, nút giữ 4 màu nhận diện'
+- 'Quyết định của chủ dự án (28/11/2026): cảnh minh hoạ phải chân thật (sông có núi, cây, dòng sông uốn lượn; biển là bãi biển), dùng màu tự nhiên; icon, chữ, nút theo bảng màu kênh'
+- 'Quyết định của chủ dự án (28/11/2026): đổi toàn bộ kênh sang Khỉ Khám Phá; linh vật Khỉ (PNG gốc) phản ứng ở các điểm nhấn và có mặt ở cảnh kết; không dùng logo góc, không intro'
 constraints:
 - Chỉ dùng hình, nhạc, font tự tạo hoặc có giấy phép rõ ràng
 - Giọng đọc AI phải được gắn nhãn khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)
+- 'Hình linh vật và bộ nhận diện tạo bằng AI: gắn nhãn nội dung AI khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)'

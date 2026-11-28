@@ -1,5 +1,6 @@
 """Tool 6 — Hoạt ảnh 2D: danh mục hình SVG, xem trước, kiểm nhanh. Xem spec 2026-11-28-tool-hoat-anh-design.md."""
 import json
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -22,6 +23,40 @@ class AnimationToolError(RuntimeError):
     pass
 
 
+def _entry(a: dict) -> dict:
+    if a["kind"] == "mascot":
+        return {"id": a["id"], "file": f"assets/{a['id']}.png", "kind": "mascot", "description": a["description"], "layers": [],
+                "source": f"Bộ nhận diện kênh — linh vật, biểu cảm '{a.get('expression')}' (chép từ brand.mascot, không sửa)",
+                "license": "Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)", "notes": ""}
+    return {"id": a["id"], "file": f"assets/{a['id']}.svg", "kind": a["kind"], "description": a["description"],
+            "layers": [], "source": "Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction",
+            "license": "Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)", "notes": ""}
+
+
+def _copy_mascots(project: Path, sb: dict) -> list[str]:
+    """Chép PNG linh vật từ kho của kênh (brand.mascot.dir) vào 06_animation/assets — luôn là bản gốc, không sửa."""
+    brief = load_yaml(project, "00_brief/brief.yaml")
+    m = brief["brand"].get("mascot")
+    out = []
+    if not m:
+        return out
+    ex = {e["id"]: e for e in m["expressions"]}
+    for a in sb.get("assets") or []:
+        if a["kind"] != "mascot":
+            continue
+        e = ex.get(a.get("expression"))
+        if not e:
+            raise AnimationToolError(f"{a['id']}: biểu cảm '{a.get('expression')}' không có trong brand.mascot")
+        src = project.parents[1] / m["dir"] / e["file"]
+        if not src.is_file():
+            raise AnimationToolError(f"{a['id']}: không thấy {src}")
+        dst = project / DIR / "assets" / f"{a['id']}.png"
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(src, dst)
+        out.append(a["id"])
+    return out
+
+
 def init(project: Path, force: bool = False) -> Path:
     project = Path(project)
     g = review.gate(project, "timeline")
@@ -31,11 +66,32 @@ def init(project: Path, force: bool = False) -> Path:
     if dst.exists() and not force:
         raise AnimationToolError(f"{dst} đã có. Dùng --force nếu thật sự muốn tạo lại.")
     sb = load_yaml(project, "02_design/storyboard.yaml")
-    man = {"assets": [{"id": a["id"], "file": f"assets/{a['id']}.svg", "kind": a["kind"], "description": a["description"],
-                       "layers": [], "source": "Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction",
-                       "license": "Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)", "notes": ""}
-                      for a in sb.get("assets") or []]}
+    man = {"assets": [_entry(a) for a in sb.get("assets") or []]}
     (project / DIR / "assets").mkdir(parents=True, exist_ok=True)
+    _copy_mascots(project, sb)
+    return dump_yaml(dst, man)
+
+
+def sync(project: Path) -> Path:
+    """Khớp assets.yaml với storyboard sau khi storyboard đổi: thêm asset mới, bỏ asset đã xoá,
+    cập nhật kind/mô tả; GIỮ nguyên layers, notes và các khoá khác (motion_defaults); chép lại PNG linh vật."""
+    project = Path(project)
+    dst = project / DIR / "assets.yaml"
+    sb = load_yaml(project, "02_design/storyboard.yaml")
+    man = load_yaml(project, f"{DIR}/assets.yaml") if dst.exists() else {}
+    old = {a["id"]: a for a in man.get("assets") or []}
+    new = []
+    for a in sb.get("assets") or []:
+        e = _entry(a)
+        if a["id"] in old:
+            keep = dict(old[a["id"]])
+            keep.update(kind=e["kind"], description=e["description"], file=e["file"])
+            if e["kind"] == "mascot":
+                keep.update(source=e["source"], license=e["license"])
+            e = keep
+        new.append(e)
+    man["assets"] = new
+    _copy_mascots(project, sb)
     return dump_yaml(dst, man)
 
 
@@ -71,7 +127,10 @@ def preview(project: Path) -> Path:
         f = project / DIR / a["file"]
         if f.is_file():
             try:
-                im = _render_svg(f, CELL - 20)
+                if f.suffix.lower() == ".png":
+                    im = Image.open(f).convert("RGBA"); im.thumbnail((CELL - 20, CELL - 20))
+                else:
+                    im = _render_svg(f, CELL - 20)
                 cell.paste(im, ((CELL - im.width) // 2, (CELL - im.height) // 2), im)
             except subprocess.CalledProcessError:
                 ImageDraw.Draw(cell).text((10, 10), "LỖI DỰNG SVG", font=_font(18, True), fill=(255, 60, 60))

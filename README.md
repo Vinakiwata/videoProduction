@@ -42,7 +42,9 @@ python -m vp timeline build projects/<dự án>
 # Animatic
 python -m vp animatic build projects/<dự án>
 # Hoạt ảnh 2D (SVG vẽ bằng code: 06_animation/_src/ve_hinh.py)
-python -m vp animation init|preview|lint projects/<dự án>
+python -m vp animation init|sync|preview|lint projects/<dự án>
+# Bộ nhận diện kênh Khỉ Khám Phá: tách lại file upload và linh vật
+python3 channels/khi-kham-pha/brand/xuat.py
 # Cổng duyệt
 python -m vp new projects/<dự án> --title "Tên video"
 python -m vp status projects/<dự án>

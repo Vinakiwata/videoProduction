@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180">
-<rect x="18" y="26" width="490" height="140" rx="70" fill="#1B1B1F" fill-opacity="0.25"/>
-<g id="button"><rect x="10" y="14" width="490" height="140" rx="70" fill="#FFD23F"/></g>
-<g id="label"><text x="255" y="104" font-family="Be Vietnam Pro, DejaVu Sans, sans-serif" font-size="64" font-weight="800" text-anchor="middle" fill="#1B1B1F">ĐĂNG KÝ</text></g>
+<rect x="18" y="26" width="490" height="140" rx="70" fill="#5E270E" fill-opacity="0.25"/>
+<g id="button"><rect x="10" y="14" width="490" height="140" rx="70" fill="#FFC907"/></g>
+<g id="label"><text x="255" y="104" font-family="Be Vietnam Pro, DejaVu Sans, sans-serif" font-size="64" font-weight="800" text-anchor="middle" fill="#5E270E">ĐĂNG KÝ</text></g>
 </svg>

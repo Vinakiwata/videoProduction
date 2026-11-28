@@ -140,6 +140,6 @@ scenes:
     kind: voice
     text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
     est_duration_s: 3.9
-    visual: Nút đăng ký tự thiết kế màu vàng FFD23F nảy lên giữa nền xanh đậm 0B3D91, có chuông nhỏ rung
+    visual: Cảnh kết của kênh Khỉ Khám Phá — Khỉ giơ tay vui mừng bên logo tròn, nút đăng ký vàng nảy lên, chuông nhỏ rung, chữ 'Cùng Khỉ nhé!' trên bảng gỗ
     sfx:
     - click

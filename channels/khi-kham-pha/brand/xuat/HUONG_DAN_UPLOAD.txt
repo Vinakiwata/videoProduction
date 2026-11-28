@@ -1,0 +1,23 @@
+BỘ NHẬN DIỆN "KHỈ KHÁM PHÁ" - FILE ĐỂ UPLOAD
+
+YOUTUBE (Studio > Tuỳ chỉnh > Thương hiệu)
+  - Ảnh hồ sơ:      avatar_youtube_800.png  (800x800, YouTube tự cắt tròn)
+  - Ảnh biểu ngữ:   anh_bia_youtube_2560x1440.jpg  (toàn bộ chữ và logo nằm trong vùng an toàn 1546x423 ở giữa)
+  - Hình mờ video:  watermark_youtube_150.png  (150x150, nền trong suốt)
+
+TIKTOK (Hồ sơ > Sửa hồ sơ > Thay đổi ảnh)
+  - avatar_tiktok_800.png  (nét hơn trên màn hình độ phân giải cao)
+  - avatar_tiktok_200.png  (bản nhỏ, dùng khi app báo file quá nặng)
+
+KHÁC
+  - avatar_kham_pha_800.png    : avatar thứ 3 (Khỉ cầm ống nhòm), dùng cho Facebook/Zalo/Instagram
+  - logo_khi_kham_pha_1024.png : logo tròn, nền trong suốt
+  - sticker_1..7_*_512.png     : 7 biểu cảm, nền trong suốt (biểu tượng cảm xúc cho hội viên, sticker, thumbnail)
+  - the_khau_hieu.png          : thẻ khẩu hiệu
+  - anh_bia_goc_1460x300.png   : ảnh bìa gốc, chưa căn theo vùng an toàn
+
+BẢNG MÀU (lấy từ bộ nhận diện):
+  Vàng #FFC907 | Cam #FD8305 | Xanh dương #0078E0 | Xanh lá #669F2D | Nâu #5E270E
+
+LƯU Ý: các file được cắt từ một ảnh tổng 1536x1024, nên avatar 800x800 là bản phóng to từ khoảng 257px.
+Hiển thị ở cỡ avatar thì ổn, nhưng nếu có ảnh gốc độ phân giải cao của từng phần thì nên thay.

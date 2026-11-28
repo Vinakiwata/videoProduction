@@ -165,3 +165,72 @@ def test_svg_palette_scene_color_cap(aproj):
     _scene(aproj)
     r = run_check("svg_palette", aproj, {**P, "max_colors": 4, "max_scene_colors": 2})
     assert r.status == "fail" and "A-TROI" in r.evidence and "3 màu" in r.evidence
+
+
+# ---- Linh vật PNG ----
+from PIL import Image  # noqa: E402
+
+MASCOT = {"name": "Khỉ", "dir": "brand/mascot", "expressions": [{"id": "tham-hoi", "file": "tham_hoi.png", "use": "đặt câu hỏi"}]}
+
+
+def _png(path, size=512, transparent=True):
+    im = Image.new("RGBA", (size, size), (0, 0, 0, 0) if transparent else (255, 255, 255, 255))
+    for x in range(size // 4, 3 * size // 4):
+        for y in range(size // 4, 3 * size // 4, 7):
+            im.putpixel((x, y), (255, 201, 7, 255))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    im.save(path)
+
+
+@pytest.fixture
+def mproj(aproj):
+    brief = yaml.safe_load((aproj / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["mascot"] = MASCOT
+    write_yaml(aproj / "00_brief" / "brief.yaml", brief)
+    _png(aproj.parents[1] / "brand" / "mascot" / "tham_hoi.png")
+    sb = yaml.safe_load((aproj / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    sb["assets"].append({"id": "A-KHI-HOI", "kind": "mascot", "expression": "tham-hoi", "description": "Khỉ chống cằm thắc mắc", "colors": ["#FD8305"]})
+    sb["shots"][0]["elements"].append({"id": "e8", "asset": "A-KHI-HOI", "box": {"x": 80, "y": 60, "w": 14, "h": 30}})
+    write_yaml(aproj / "02_design" / "storyboard.yaml", sb)
+    at.sync(aproj)
+    return aproj
+
+
+def test_sync_adds_mascot_and_keeps_layers(mproj):
+    man = yaml.safe_load((mproj / "06_animation" / "assets.yaml").read_text(encoding="utf-8"))
+    ids = [a["id"] for a in man["assets"]]
+    assert ids[-1] == "A-KHI-HOI"
+    m = man["assets"][-1]
+    assert m["file"] == "assets/A-KHI-HOI.png" and m["kind"] == "mascot" and "bộ nhận diện" in m["source"].lower()
+    assert (mproj / "06_animation" / "assets" / "A-KHI-HOI.png").is_file()
+    assert next(a for a in man["assets"] if a["id"] == "A-TIA")["layers"] == ["beam", "waves"]
+    assert run_check("animation_assets_complete", mproj, P).status == "pass"
+
+
+def test_svg_checks_skip_mascot(mproj):
+    for c in ("svg_valid", "svg_palette", "svg_layers"):
+        r = run_check(c, mproj, {**P, "max_colors": 4})
+        assert r.status == "pass", (c, r.evidence)
+
+
+def test_mascot_png_ok(mproj):
+    r = run_check("mascot_png", mproj, P)
+    assert r.status == "pass", r.evidence
+
+
+def test_mascot_png_opaque_fails(mproj):
+    _png(mproj / "06_animation" / "assets" / "A-KHI-HOI.png", transparent=False)
+    r = run_check("mascot_png", mproj, P)
+    assert r.status == "fail" and "trong suốt" in r.evidence
+
+
+def test_mascot_png_not_upscaled(mproj):
+    _png(mproj / "06_animation" / "assets" / "A-KHI-HOI.png", size=160)      # ô 30% x 1080 = 324 px > 160 px
+    r = run_check("mascot_png", mproj, P)
+    assert r.status == "fail" and "phóng to" in r.evidence
+
+
+def test_mascot_png_must_match_brand(mproj):
+    _png(mproj.parents[1] / "brand" / "mascot" / "tham_hoi.png", size=600)
+    r = run_check("mascot_png", mproj, P)
+    assert r.status == "fail" and "khác bản gốc" in r.evidence

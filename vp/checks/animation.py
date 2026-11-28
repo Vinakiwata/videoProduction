@@ -78,7 +78,7 @@ def svg_valid(project: Path, params: dict) -> CheckResult:
     bad = []
     for a in man.get("assets") or []:
         f = base / a["file"]
-        if not f.is_file():
+        if not f.is_file() or a.get("kind") == "mascot":
             continue
         try:
             root = ET.fromstring(f.read_text(encoding="utf-8"))
@@ -102,7 +102,8 @@ def svg_valid(project: Path, params: dict) -> CheckResult:
                     bad.append(f"{a['id']}: chữ dùng font '{el.get('font-family')}' ngoài bộ nhận diện {brief['brand']['fonts']}")
     if bad:
         return _fmt(bad, "File SVG không hợp lệ:")
-    return CheckResult("pass", f"{len(man.get('assets') or [])} file SVG hợp lệ, có viewBox, không ảnh/script/nguồn ngoài, chữ đúng font.")
+    n = sum(1 for a in man.get("assets") or [] if a.get("kind") != "mascot")
+    return CheckResult("pass", f"{n} file SVG hợp lệ, có viewBox, không ảnh/script/nguồn ngoài, chữ đúng font.")
 
 
 @register("svg_palette")
@@ -115,6 +116,8 @@ def svg_palette(project: Path, params: dict) -> CheckResult:
     mx_scene = int(params.get("max_scene_colors", 16))
     bad, per = [], {}
     for a in man.get("assets") or []:
+        if a.get("kind") == "mascot":
+            continue
         is_scene = a.get("kind") == "scene"
         ok, mx = (scene_pal, mx_scene) if is_scene else (pal, mx_icon)
         f = base / a["file"]
@@ -159,7 +162,7 @@ def svg_layers(project: Path, params: dict) -> CheckResult:
     bad, n = [], 0
     for a in man.get("assets") or []:
         f = base / a["file"]
-        if not f.is_file() or not a.get("layers"):
+        if not f.is_file() or not a.get("layers") or a.get("kind") == "mascot":
             continue
         try:
             root = ET.fromstring(f.read_text(encoding="utf-8"))
@@ -200,3 +203,53 @@ def preview_in_sync(project: Path, params: dict) -> CheckResult:
     if json.loads(mp.read_text(encoding="utf-8")).get("hash") != assets_hash(project, params):
         return CheckResult("fail", "Tờ xem trước đã cũ so với file SVG. Chạy lại: python -m vp animation preview <dự án>")
     return CheckResult("pass", "Tờ xem trước khớp các file SVG hiện tại.")
+
+
+@register("mascot_png")
+def mascot_png(project: Path, params: dict) -> CheckResult:
+    """Linh vật PNG: nền trong suốt, trùng đúng bản gốc của kênh, không bị phóng to quá cỡ file khi lên hình."""
+    from PIL import Image
+    man, base = _manifest(project, params)
+    brief = load_yaml(project, params.get("brief", "00_brief/brief.yaml"))
+    sb = load_yaml(project, params.get("storyboard", "02_design/storyboard.yaml"))
+    m = brief["brand"].get("mascot") or {}
+    exprs = {e["id"]: e for e in m.get("expressions") or []}
+    kinds = {a["id"]: a for a in sb.get("assets") or []}
+    cw, ch = (sb.get("meta") or {}).get("canvas", {}).get("width", 1920), (sb.get("meta") or {}).get("canvas", {}).get("height", 1080)
+    need = {}
+    for sh in sb.get("shots") or []:
+        for e in sh.get("elements") or []:
+            if kinds.get(e.get("asset"), {}).get("kind") == "mascot":
+                b = e["box"]
+                need[e["asset"]] = max(need.get(e["asset"], 0), b["w"] * cw / 100, b["h"] * ch / 100)
+    bad, n = [], 0
+    for a in man.get("assets") or []:
+        if a.get("kind") != "mascot":
+            continue
+        n += 1
+        f = base / a["file"]
+        if not f.is_file():
+            continue
+        im = Image.open(f)
+        if im.format != "PNG" or im.mode != "RGBA":
+            bad.append(f"{a['id']}: phải là PNG RGBA (đang {im.format} {im.mode})")
+            continue
+        al = im.getchannel("A")
+        corners = [al.getpixel(p) for p in ((0, 0), (im.width - 1, 0), (0, im.height - 1), (im.width - 1, im.height - 1))]
+        if max(corners) > 10 or al.getextrema()[0] > 10:
+            bad.append(f"{a['id']}: nền chưa trong suốt (góc ảnh alpha {corners})")
+        side = max(im.size)
+        if need.get(a["id"], 0) > side * 1.0:
+            bad.append(f"{a['id']}: lên hình {need[a['id']]:.0f} px nhưng file chỉ {side} px → bị phóng to, sẽ mờ")
+        ex = exprs.get(kinds.get(a["id"], {}).get("expression"))
+        if not ex:
+            bad.append(f"{a['id']}: không tìm thấy biểu cảm trong brand.mascot")
+            continue
+        src = project.parents[1] / m["dir"] / ex["file"]
+        if not src.is_file():
+            bad.append(f"{a['id']}: thiếu bản gốc {m['dir']}/{ex['file']}")
+        elif hashlib.sha256(src.read_bytes()).digest() != hashlib.sha256(f.read_bytes()).digest():
+            bad.append(f"{a['id']}: file khác bản gốc của kênh ({m['dir']}/{ex['file']}) — chạy 'python -m vp animation sync'")
+    if bad:
+        return _fmt(bad, "Linh vật PNG chưa đạt:")
+    return CheckResult("pass", f"{n} hình linh vật: PNG nền trong suốt, trùng bản gốc của kênh, không phóng to quá cỡ file.")

@@ -587,6 +587,13 @@ cues:
   dur_frames: 9
   ease: ease_out
 - shot: S04-01-a
+  element: e7
+  event: enter
+  frame: 904
+  anim: pop
+  dur_frames: 10
+  ease: back_out
+- shot: S04-01-a
   element: e5
   event: enter
   frame: 906
@@ -671,6 +678,19 @@ cues:
   anim: typewriter
   dur_frames: 30
   ease: ease_out
+- shot: S04-03-b
+  element: e4
+  event: enter
+  frame: 1066
+  anim: pop
+  dur_frames: 10
+  ease: back_out
+- shot: S04-03-b
+  element: e4
+  event: loop
+  frame: 1066
+  anim: bob
+  period_frames: 75
 - shot: S04-03-b
   element: e3
   event: enter
@@ -773,6 +793,26 @@ cues:
   anim: fade
   dur_frames: 9
   ease: ease_out
+- shot: S05-02-a
+  element: e4
+  event: enter
+  frame: 1467
+  anim: scale_in
+  dur_frames: 12
+  ease: back_out
+- shot: S05-02-a
+  element: e5
+  event: enter
+  frame: 1475
+  anim: pop
+  dur_frames: 12
+  ease: back_out
+- shot: S05-02-a
+  element: e5
+  event: loop
+  frame: 1475
+  anim: bob
+  period_frames: 75
 - shot: S05-02-a
   element: e1
   event: enter

@@ -21,3 +21,14 @@ def test_every_stage_has_blocker():
     for st in STAGES:
         sev = {i["severity"] for i in load_checklist(st.code, CHECKLIST_DIR)["items"]}
         assert "chan" in sev, st.code
+
+
+def test_all_real_checklists_load():
+    """Mọi checklist thật trong repo phải nạp được: đủ khoá, không trùng id, kiểm tra tự động đã đăng ký."""
+    from vp.checklist import load_checklist
+    from vp.stages import STAGES
+    from conftest import ROOT
+    loaded = [st.code for st in STAGES if (ROOT / "checklists" / f"{st.code}.yaml").is_file()]
+    assert len(loaded) >= 7
+    for code in loaded:
+        load_checklist(code)

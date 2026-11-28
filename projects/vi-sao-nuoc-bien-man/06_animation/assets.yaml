@@ -68,14 +68,6 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
-- id: A-HOI
-  file: assets/A-HOI.svg
-  kind: icon
-  description: Dấu chấm hỏi lớn bo tròn, đặc, màu vàng, bóng đổ nhẹ
-  layers: []
-  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
-  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
 - id: A-MAY
   file: assets/A-MAY.svg
   kind: illustration
@@ -258,6 +250,46 @@ assets:
   layers: []
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: ''
+- id: A-KHI-THAC-MAC
+  file: assets/A-KHI-THAC-MAC.png
+  kind: mascot
+  description: Khỉ chống cằm thắc mắc, có dấu hỏi xanh — nêu nghịch lý mở đầu
+  layers: []
+  source: Bộ nhận diện kênh — linh vật, biểu cảm 'tham-hoi' (chép từ brand.mascot, không sửa)
+  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
+  notes: ''
+- id: A-KHI-NGAC-NHIEN
+  file: assets/A-KHI-NGAC-NHIEN.png
+  kind: mascot
+  description: Khỉ ôm má ngạc nhiên, dấu chấm than cam — lúc lộ đáp án nước bay đi muối ở lại
+  layers: []
+  source: Bộ nhận diện kênh — linh vật, biểu cảm 'ngac-nhien' (chép từ brand.mascot, không sửa)
+  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
+  notes: ''
+- id: A-KHI-TRAI-DAT
+  file: assets/A-KHI-TRAI-DAT.png
+  kind: mascot
+  description: Khỉ ôm quả địa cầu — quy mô hàng triệu năm của hành tinh
+  layers: []
+  source: Bộ nhận diện kênh — linh vật, biểu cảm 'yeu-trai-dat' (chép từ brand.mascot, không sửa)
+  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
+  notes: ''
+- id: A-KHI-VUI-MUNG
+  file: assets/A-KHI-VUI-MUNG.png
+  kind: mascot
+  description: Khỉ giơ hai tay vui mừng — cảnh kết mời đăng ký
+  layers: []
+  source: Bộ nhận diện kênh — linh vật, biểu cảm 'vui-mung' (chép từ brand.mascot, không sửa)
+  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
+  notes: ''
+- id: A-KHI-LOGO
+  file: assets/A-KHI-LOGO.png
+  kind: mascot
+  description: Logo tròn Khỉ Khám Phá có bảng tên gỗ — cảnh kết
+  layers: []
+  source: Bộ nhận diện kênh — linh vật, biểu cảm 'logo' (chép từ brand.mascot, không sửa)
+  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
   notes: ''
 motion_defaults:
   note: Áp dụng khi storyboard không ghi ease. Tool 07 bắt buộc dùng; không có chuyển động tuyến tính trừ typewriter (bản chất là gõ từng ký tự).

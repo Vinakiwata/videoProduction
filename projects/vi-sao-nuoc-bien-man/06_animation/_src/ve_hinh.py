@@ -7,7 +7,7 @@ import math
 import random
 from pathlib import Path
 
-N, Y, W, D = "#0B3D91", "#FFD23F", "#FFFFFF", "#1B1B1F"   # xanh đậm, vàng, trắng, tối
+N, Y, W, D = "#0078E0", "#FFC907", "#FFFFFF", "#5E270E"   # bảng màu Khỉ Khám Phá: xanh dương, vàng, trắng, nâu gỗ
 OUT = Path(__file__).resolve().parents[1] / "assets"
 SHADOW = f'fill="{D}" fill-opacity="0.25"'
 
@@ -75,11 +75,7 @@ A["A-COC-BIEN"] = svg("0 0 360 440", '<g transform="translate(30 0)">',
       f'<path d="M95 70 L108 300" stroke="{W}" stroke-opacity="0.6" stroke-width="8" stroke-linecap="round"/>'), '</g>',
     g("label", f'<text x="180" y="425" font-family="Be Vietnam Pro, DejaVu Sans, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="{W}">biển</text>'))
 
-A["A-HOI"] = svg("0 0 200 360",
-    f'<ellipse cx="104" cy="345" rx="40" ry="9" {SHADOW}/>',
-    g("mark", f'<path d="M40 105 C40 45 82 18 108 18 C150 18 172 50 172 88 C172 125 148 142 130 156 C116 168 112 178 112 205 '
-              f'L112 232 L76 232 L76 196 C76 160 92 145 110 130 C126 118 134 106 134 90 C134 70 122 56 104 56 C86 56 76 74 76 105Z" fill="{Y}"/>',
-      f'<circle cx="94" cy="288" r="26" fill="{Y}"/>'))
+# A-HOI đã bỏ (28/11/2026): Khỉ thắc mắc (linh vật) thay dấu hỏi.
 
 A["A-MAY"] = svg("0 0 480 190", g("cloud", cloud(240, 168, 2.0)))
 
@@ -195,6 +191,7 @@ A["A-CHUONG"] = svg("0 0 200 240",
 
 # Cảnh chân thật, màu tự nhiên (kind=scene) — xem canh.py
 import sys as _sys
+_sys.dont_write_bytecode = True   # không sinh __pycache__ trong 06_animation (sẽ làm cổng duyệt hết hiệu lực)
 _sys.path.insert(0, str(Path(__file__).resolve().parent))
 from canh import S as _CANH  # noqa: E402
 A.update(_CANH)

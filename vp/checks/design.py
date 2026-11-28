@@ -134,6 +134,8 @@ def palette(project: Path, params: dict) -> CheckResult:
     bad = [f"palette có {c} không thuộc brand.colors của brief" for c in sorted(pal - brand)]
     bad += [f"scene_palette có {c} không thuộc brand.scene_colors của brief" for c in sorted(spal - scene_brand)]
     for a in sb.get("assets") or []:
+        if a.get("kind") == "mascot":
+            continue                      # linh vật là ảnh của bộ nhận diện, màu đã chốt ở brand.mascot
         ok = pal | spal if a.get("kind") == "scene" else pal
         where = "bảng màu cảnh" if a.get("kind") == "scene" else "màu nhận diện (chỉ asset kind=scene mới được dùng màu cảnh)"
         bad += [f"asset {a['id']}: màu {c} ngoài {where}" for c in a.get("colors") or [] if c.upper() not in ok]
@@ -272,12 +274,14 @@ def contrast(project: Path, params: dict) -> CheckResult:
             n += 1
             if scene:
                 cands = [(c, _blend(tp["color"], c, tp["opacity"]) if tp else c) for c in scene]
+            elif tp and tp.get("always"):
+                cands = [(sh["background"], _blend(tp["color"], sh["background"], tp["opacity"]))]
             else:
                 cands = [(sh["background"], sh["background"])]
             r, (src, bg) = min((contrast_ratio(e["color"], bg), (src, bg)) for src, bg in cands)
             worst = r if worst is None else min(worst, r)
             if r < mn:
-                via = f" qua tấm nền {tp['color']} {tp['opacity']:g} = {bg}" if scene and tp else ""
+                via = f" qua tấm nền {tp['color']} {tp['opacity']:g} = {bg}" if tp and (scene or tp.get("always")) else ""
                 kind = "cảnh" if scene else "nền"
                 bad.append(f"{sh['id']}/{e['id']}: {e['color']} trên {kind} {src}{via} = {r:.2f}:1")
     if bad:
@@ -342,3 +346,33 @@ def preview_in_sync(project: Path, params: dict) -> CheckResult:
     if man.get("hash") != now:
         return CheckResult("fail", "Ảnh phác thảo đã cũ so với storyboard/kịch bản. Chạy lại: python -m vp design preview <dự án>")
     return CheckResult("pass", f"{len(man.get('frames', []))} ảnh phác thảo khớp storyboard hiện tại.")
+
+
+@register("storyboard_mascot")
+def mascot(project: Path, params: dict) -> CheckResult:
+    """Linh vật: phản ứng ở điểm nhấn (min–max lần, không tính cảnh kết), cảnh kết luôn có linh vật,
+    biểu cảm phải có trong brand.mascot của brief."""
+    sb = load_yaml(project, params["path"])
+    brief = load_yaml(project, params.get("brief", "00_brief/brief.yaml"))
+    m = brief["brand"].get("mascot")
+    if not m:
+        return CheckResult("pass", "Kênh không có linh vật — bỏ qua.")
+    known = {e["id"] for e in m["expressions"]}
+    masc = {a["id"]: a for a in sb.get("assets") or [] if a.get("kind") == "mascot"}
+    bad = [f"asset {i}: biểu cảm '{a.get('expression')}' không có trong brand.mascot ({sorted(known)})"
+           for i, a in masc.items() if a.get("expression") not in known]
+    shots = sb.get("shots") or []
+    uses, prev = [], set()
+    for sh in shots[:-1]:
+        cur = {e["asset"] for e in sh.get("elements") or [] if e.get("asset") in masc}
+        uses += [(sh["id"], a) for a in sorted(cur - prev)]   # cùng linh vật kéo dài qua khung nối tiếp = 1 lần phản ứng
+        prev = cur
+    lo, hi = int(params.get("min_reactions", 2)), int(params.get("max_reactions", 3))
+    if not lo <= len(uses) <= hi:
+        bad.append(f"{m['name']} phản ứng {len(uses)} lần ngoài cảnh kết (cần {lo}–{hi} lần, ở các điểm nhấn)")
+    if shots and not any(e.get("asset") in masc for e in shots[-1].get("elements") or []):
+        bad.append(f"cảnh kết {shots[-1]['id']} chưa có {m['name']}")
+    if bad:
+        return _fmt(bad, "Linh vật chưa đúng luật:")
+    where = ", ".join(f"{s}:{masc[a].get('expression')}" for s, a in uses)
+    return CheckResult("pass", f"{m['name']} phản ứng {len(uses)} lần ({where}) và có mặt ở cảnh kết {shots[-1]['id']}.")
