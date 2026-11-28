@@ -40,6 +40,12 @@ def video_format(project: Path, params: dict) -> CheckResult:
     v = _stream(probe(p), "video")
     if v is None:
         return CheckResult("fail", "Không có luồng hình.")
+    if params.get("format_from"):
+        # khung lấy từ brief (hồ sơ nền tảng nếu có), không ghi cứng trong checklist
+        from vp import platforms as pf
+        from vp.checks.files import load_yaml
+        c = pf.canvas(load_yaml(project, params["format_from"]))
+        params = {**params, "width": c["width"], "height": c["height"], "fps": params.get("fps", c["fps"])}
     fps = float(Fraction(v["r_frame_rate"]))
     got = f"{v['width']}x{v['height']} @ {fps:g} fps, {v['codec_name']}, {v.get('pix_fmt')}"
     problems = []
