@@ -199,7 +199,7 @@ def _score(m: dict, target_sps: float) -> float:
 # ---------- dựng ----------
 
 def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = None, check_gate: bool = True,
-              tempo: float = 1.0, pause_sentence: float = 0.35, pause_question: float = 0.45,
+              tempo: float = 1.0, pause_sentence: float = 0.45, pause_question: float = 0.55,
               per_sentence: bool = True) -> dict:
     project = Path(project)
     if check_gate:

@@ -14,7 +14,7 @@
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
   voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
-  timeline build <dự án> [--breath 0.30]        khoá thời gian theo khung + phụ đề
+  timeline build <dự án> [--breath 0.6 --breath-scene 0.9]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
 import argparse
@@ -147,7 +147,7 @@ def cmd_voice(a):
 
 
 def cmd_timeline(a):
-    out = timeline.build(Path(a.project), breath=a.breath, breath_question=a.breath_question)
+    out = timeline.build(Path(a.project), breath=a.breath, breath_scene=a.breath_scene, question_extra=a.question_extra)
     import yaml as _y
     t = _y.safe_load(out.read_text(encoding="utf-8"))
     print(f"Đã khoá timeline {out}: {t['total_frames']} khung = {t['total_s']}s @ {t['fps']:g} fps, "
@@ -195,12 +195,14 @@ def main(argv=None):
     vo.add_argument("project"); vo.add_argument("--engine", choices=["vieneu", "recording"], default="vieneu")
     vo.add_argument("--takes", type=int); vo.add_argument("--only"); vo.add_argument("--apply", action="store_true")
     vo.add_argument("--tempo", type=float, default=1.0, help="<1 làm chậm giọng, giữ cao độ (vd. 0.9)")
-    vo.add_argument("--pause-sentence", type=float, default=0.35, help="khoảng ngắt sau câu kết thúc bằng dấu chấm (giây)")
-    vo.add_argument("--pause-question", type=float, default=0.45, help="khoảng ngắt sau câu hỏi/cảm thán (giây)")
+    vo.add_argument("--pause-sentence", type=float, default=0.45, help="khoảng ngắt sau câu kết thúc bằng dấu chấm (giây)")
+    vo.add_argument("--pause-question", type=float, default=0.55, help="khoảng ngắt sau câu hỏi/cảm thán (giây)")
     vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
     tlp = sub.add_parser("timeline"); tlp.add_argument("action", choices=["build"]); tlp.add_argument("project")
-    tlp.add_argument("--breath", type=float, default=0.35); tlp.add_argument("--breath-question", type=float, default=0.45)
+    tlp.add_argument("--breath", type=float, default=0.60, help="ngắt giữa hai đoạn cùng cảnh (giây)")
+    tlp.add_argument("--breath-scene", type=float, default=0.90, help="ngắt khi sang cảnh mới (giây)")
+    tlp.add_argument("--question-extra", type=float, default=0.10, help="cộng thêm sau câu hỏi/cảm thán (giây)")
     tlp.set_defaults(fn=cmd_timeline)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)

@@ -41,7 +41,7 @@ Mỗi cảnh ghi `purpose` bằng một câu. Không viết được câu đó t
 - Dùng từ nói hằng ngày, xưng hô theo `tone` của kênh. Thuật ngữ nào cũng giải thích ngay lần đầu, bằng lời hoặc bằng hình.
 - Không đọc ký hiệu: viết "phần trăm", không viết "%". Viết số thành chữ nếu TTS dễ đọc sai: "năm hai nghìn không trăm hai mươi lăm".
 - Từ nước ngoài, viết tắt, tên riêng: viết theo cách đọc, hoặc khai trong `meta.pronunciation`. VieNeu đọc tiếng Anh còn ngọng.
-  Cách đọc **viết rời từng âm tiết bằng dấu cách**, không dùng gạch nối. Ví dụ `cacbonic: các bô níc`; viết "các-bon-níc" sẽ bị đọc thành "cacbon-i-c".
+  Cách đọc **viết rời từng âm tiết bằng dấu cách**, không dùng gạch nối. Ví dụ `cacbonic: các bô ních`. Phải đúng chính tả vần tiếng Việt: sau i/ê dùng **ch/nh** (ních, ếch, inh), vì viết "níc" sẽ bị đánh vần thành "n-i-xê"; viết "các-bon-níc" thì bị đọc thành "cacbon-i-c".
 - Thẻ cảm xúc `[cười]`, `[thở dài]`, `[hắng giọng]` chỉ dùng khi thật hợp ngữ cảnh, tối đa khoảng 1 thẻ mỗi 30 giây.
 - Mỗi đoạn giọng ≤ 200 ký tự (cổng chặn ở 300).
 - Sau ý khó, thêm đoạn `silent` 0,5–1,5 giây để hình kịp diễn.

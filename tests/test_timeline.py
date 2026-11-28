@@ -36,11 +36,12 @@ def test_voice_track_and_breaths(tproj):
     # S01-01 kết thúc bằng '?', nhưng đoạn sau là im lặng -> không chèn thở
     assert segs["S01-01"]["breath_s"] == 0
     assert segs["S01-02"]["start_frame"] == round(dur["S01-01"] * fps)
-    # hai đoạn giọng liền nhau -> thở 0,30 giây
-    assert segs["S02-01"]["breath_s"] == pytest.approx(0.35)
+    # hai đoạn giọng cùng cảnh -> ngắt 0,6 giây; sang cảnh mới (S02-03 -> S03-01) -> 0,9 giây
+    assert segs["S02-01"]["breath_s"] == pytest.approx(0.60)
     gap = segs["S02-02"]["start_frame"] - segs["S02-01"]["speech_end_frame"]
-    assert gap == round(0.35 * fps)
-    expected = sum(dur.values()) + 1 + 0.35 * 3      # 1 giây im lặng S01-02, 3 lần thở
+    assert gap == round(0.60 * fps)
+    assert segs["S02-03"]["breath_s"] == pytest.approx(0.90)
+    expected = sum(dur.values()) + 1 + 0.60 * 2 + 0.90      # 1 giây im lặng S01-02
     assert t["total_frames"] == pytest.approx(expected * fps, abs=2)
 
 

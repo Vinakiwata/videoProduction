@@ -102,8 +102,16 @@ def test_check_crash_becomes_error(project):
 
 
 def test_pronunciation_format(project, good_script):
-    good_script["meta"]["pronunciation"] = {"cacbonic": "các bô níc"}
+    good_script["meta"]["pronunciation"] = {"cacbonic": "các bô ních"}
     assert run_check("script_pronunciation_format", _with(project, good_script), {"path": P}).status == "pass"
     good_script["meta"]["pronunciation"] = {"cacbonic": "các-bon-níc", "CO2": "xê ô 2"}
     r = run_check("script_pronunciation_format", _with(project, good_script), {"path": P})
     assert r.status == "fail" and "các-bon-níc" in r.evidence and "xê ô 2" in r.evidence
+
+
+def test_pronunciation_orthography(project, good_script):
+    good_script["meta"]["pronunciation"] = {"cacbonic": "các bô níc"}
+    r = run_check("script_pronunciation_format", _with(project, good_script), {"path": P})
+    assert r.status == "fail" and "ních" in r.evidence
+    good_script["meta"]["pronunciation"] = {"cacbonic": "các bô ních", "benzen": "ben den"}
+    assert run_check("script_pronunciation_format", _with(project, good_script), {"path": P}).status == "pass"

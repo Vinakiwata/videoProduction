@@ -105,7 +105,8 @@ def input_hash(project: Path, params: dict) -> str:
     return h.hexdigest()
 
 
-def build(project: Path, breath: float = 0.35, breath_question: float = 0.45, max_chars: int = 42,
+def build(project: Path, breath: float = 0.60, breath_scene: float = 0.90, question_extra: float = 0.10,
+          max_chars: int = 42,
           max_lines: int = 2, min_sub_s: float = 1.0, check_gate: bool = True) -> Path:
     project = Path(project)
     if check_gate:
@@ -129,7 +130,11 @@ def build(project: Path, breath: float = 0.35, breath_question: float = 0.45, ma
             nxt = order[i + 1] if i + 1 < len(order) else None
             b = 0.0
             if nxt is not None and nxt.get("kind") == "voice":
-                b = breath_question if s["text"].rstrip().endswith(("?", "!")) else breath
+                # ngắt đoạn: cùng cảnh = breath; sang cảnh mới = breath_scene; sau câu hỏi/cảm thán dài thêm
+                same_scene = nxt["id"].split("-")[0] == s["id"].split("-")[0]
+                b = (breath if same_scene else breath_scene)
+                if s["text"].rstrip().endswith(("?", "!")):
+                    b += question_extra
         else:
             n = round(float(s.get("est_duration_s") or 0) * fps)
             b = 0.0
@@ -179,7 +184,7 @@ def build(project: Path, breath: float = 0.35, breath_question: float = 0.45, ma
     out = project / DIR
     out.mkdir(parents=True, exist_ok=True)
     tl = {"fps": fps, "total_frames": total, "total_s": round(total / fps, 3),
-          "params": {"breath_s": breath, "breath_question_s": breath_question},
+          "params": {"breath_s": breath, "breath_scene_s": breath_scene, "question_extra_s": question_extra},
           "segments": segs, "voice": voice_track, "shots": shots, "cues": cues, "sfx": sfx, "music": []}
     dump_yaml(out / "timeline.yaml", tl)
 
@@ -191,7 +196,7 @@ def build(project: Path, breath: float = 0.35, breath_question: float = 0.45, ma
             srt += [str(k), f"{_srt_time(c['start'], fps)} --> {_srt_time(c['end'], fps)}", *c["lines"], ""]
             k += 1
     (out / "subtitles.srt").write_text("\n".join(srt), encoding="utf-8")
-    params = {"breath": breath, "breath_question": breath_question, "max_chars": max_chars, "max_lines": max_lines,
+    params = {"breath": breath, "breath_scene": breath_scene, "question_extra": question_extra, "max_chars": max_chars, "max_lines": max_lines,
               "min_sub_s": min_sub_s}
     (out / "manifest.json").write_text(json.dumps({"hash": input_hash(project, params), "params": params},
                                                   ensure_ascii=False, indent=2), encoding="utf-8")

@@ -60,7 +60,7 @@
 
 | Viết | Đọc là |
 |---|---|
-| cacbonic | các bô níc |
+| cacbonic | các bô ních |
 
 ## Nguồn
 

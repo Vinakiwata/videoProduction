@@ -145,6 +145,13 @@ def pronunciation_format(project: Path, params: dict) -> CheckResult:
     pr = (s.get("meta") or {}).get("pronunciation") or s.get("pronunciation") or {}
     bad = [f"'{k}' → '{v}': chỉ dùng chữ cái và dấu cách (không gạch nối, số, ký hiệu)"
            for k, v in pr.items() if not re.fullmatch(r"[^\W\d_]+( [^\W\d_]+)*", str(v).strip())]
+    # chính tả vần: sau i/ê âm cuối phải là ch/nh (ích, ếch, inh, ênh) — viết 'níc' bị TTS đánh vần thành 'n-i-xê'
+    for k, v in pr.items():
+        for syl in str(v).split():
+            m = re.search(r"([iíìỉĩịêếềểễệ])(c|ng)$", syl.lower())
+            if m:
+                fix = syl[: m.start(2)] + ("ch" if m.group(2) == "c" else "nh")
+                bad.append(f"'{k}' → '{v}': âm tiết '{syl}' sai chính tả tiếng Việt, phải viết '{fix}'")
     if bad:
-        return _fmt(bad, "Cách đọc sai định dạng — viết rời từng âm tiết, vd. 'các bô níc':")
+        return _fmt(bad, "Cách đọc sai định dạng — viết rời từng âm tiết, vd. 'các bô ních':")
     return CheckResult("pass", f"{len(pr)} mục phát âm đúng định dạng (âm tiết viết rời)." if pr else "Không có mục phát âm.")

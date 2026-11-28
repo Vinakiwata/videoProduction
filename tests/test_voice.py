@@ -230,7 +230,7 @@ def test_per_sentence_pauses(project, monkeypatch, good_script):
     good_script["scenes"][0]["segments"][0]["text"] = "Trời xanh lắm. Vì sao vậy? Cùng tìm hiểu nhé."
     write_yaml(project / "01_script" / "script.yaml", good_script)
     eng = FakeEngine()
-    man = voice.synth_all(project, eng, pause_sentence=0.35, pause_question=0.45)
+    man = voice.synth_all(project, eng, pause_sentence=0.35, pause_question=0.45)  # tham số tường minh
     first = man["segments"][0]
     assert first["sentences"] == 3
     assert [c[0] for c in eng.calls[:3]] == ["Trời xanh lắm.", "Vì sao vậy?", "Cùng tìm hiểu nhé."]
