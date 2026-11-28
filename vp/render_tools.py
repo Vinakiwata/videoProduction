@@ -52,7 +52,7 @@ def build(project: Path, check_gate: bool = True) -> Path:
         with open(log, "w", encoding="utf-8") as errf:
             node = subprocess.Popen(["node", str(JS), str(spec)], stdout=subprocess.PIPE, stderr=errf)
             ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "image2pipe", "-framerate", str(cv["fps"]), "-c:v", "png", "-i", "-",
-                                   "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p",
+                                   "-vf", "scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int+full_chroma_inp,format=yuv420p",
                                    "-c:v", "libx264", "-crf", str(CRF), "-preset", PRESET, "-pix_fmt", "yuv420p", *COLOR,
                                    "-r", str(cv["fps"]), "-movflags", "+faststart", str(tmp_mp4)],
                                   stdin=node.stdout, stderr=subprocess.PIPE)

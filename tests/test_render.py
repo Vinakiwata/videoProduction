@@ -65,3 +65,53 @@ def test_cli_render_error_clean(built, monkeypatch):
     with pytest.raises(SystemExit) as e:
         main(["render", "build", str(built)])
     assert str(e.value.code).startswith("LỖI") and "Chrome" in str(e.value.code)
+
+
+# ---------------- checklist render v3 ----------------
+@pytest.fixture
+def rendered(built):
+    rt.build(built, check_gate=False)
+    return built
+
+
+def _rc(name, project, **params):
+    from vp.checks import run_check
+    return run_check(name, project, params)
+
+
+@NEED
+def test_rnd_a05_frame_count_mismatch(rendered):
+    v = rendered / "08_render" / "video_silent.mp4"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(v), "-frames:v", "99", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                    str(v.with_name("x.mp4"))], check=True)
+    v.with_name("x.mp4").replace(v)
+    r = _rc("render_frame_count", rendered)
+    assert r.status == "fail" and "99" in r.evidence and "120" in r.evidence
+
+
+@NEED
+def test_rnd_a06_passes_on_real_render(rendered):
+    pt.check(rendered)
+    assert _rc("render_frame_count", rendered).status == "pass"
+    r = _rc("render_matches_presentation", rendered, min_psnr=40, max_frames=4)
+    assert r.status == "pass" and "dB" in r.evidence, r.evidence
+
+
+@NEED
+def test_rnd_a06_detects_wrong_frame(rendered):
+    pt.check(rendered)
+    v = rendered / "08_render" / "video_silent.mp4"
+    # lệch 60 khung (sang hẳn khung hình kia — dữ liệu mẫu gần như đứng yên trong mỗi khung hình)
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(v), "-vf", "trim=start_frame=60,setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop=60",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(v.with_name("x.mp4"))], check=True)
+    v.with_name("x.mp4").replace(v)
+    r = _rc("render_matches_presentation", rendered, min_psnr=40, max_frames=4)
+    assert r.status == "fail" and "dB" in r.evidence
+
+
+@NEED
+def test_rnd_a07_stale_build(rendered):
+    assert _rc("render_in_sync", rendered).status == "pass"
+    css = rendered / "07_presentation" / "player.css"
+    css.write_text(css.read_text(encoding="utf-8") + "\n", encoding="utf-8")
+    assert _rc("render_in_sync", rendered).status == "fail"

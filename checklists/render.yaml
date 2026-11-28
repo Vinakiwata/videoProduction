@@ -1,8 +1,9 @@
-# Tool 7 — Render từng khung hình có kiểm soát (thay cho quay màn hình). Ra video chưa có tiếng.
+# Tool 08 — Render từng khung hình từ trang trình chiếu đã duyệt (thay cho quay màn hình). Ra video chưa có tiếng.
+# Thiết kế: docs/superpowers/specs/2026-11-28-tool-render-design.md
 stage: render
-version: 2
+version: 3
 title: Kiểm duyệt render khung hình
-artifacts: [08_render]
+artifacts: [08_render, 07_presentation/presentation.json]
 items:
   - id: RND-A01
     group: Cấu trúc
@@ -32,18 +33,32 @@ items:
     method: auto
     check: freeze_frames
     params: {path: 08_render/video_silent.mp4, max_freeze_s: 4.0}
-  - id: RND-C01
+  - id: RND-A05
     group: Đồng bộ
-    title: Số khung hình = thời lượng timeline × fps (không rớt, không thừa khung)
+    title: Số khung hình = tổng khung của timeline (không rớt, không thừa khung)
     severity: chan
-    method: ai
-    guidance: Dùng ffprobe -count_frames so với tổng thời lượng trong 05_timeline/timeline.yaml.
+    method: auto
+    check: render_frame_count
+    params: {path: 08_render/video_silent.mp4}
+  - id: RND-A06
+    group: Chất lượng hình
+    title: Khung mốc trong video giống trang trình chiếu 07 (PSNR ≥ 40 dB)
+    severity: nghiem_trong
+    method: auto
+    check: render_matches_presentation
+    params: {path: 08_render/video_silent.mp4, min_psnr: 40, max_frames: 12}
+  - id: RND-A07
+    group: Cấu trúc
+    title: Video dựng từ đúng bản trình chiếu hiện tại
+    severity: chan
+    method: auto
+    check: render_in_sync
   - id: RND-C02
     group: Chất lượng hình
     title: Lấy mẫu khung tại mỗi đầu cảnh — giống ảnh chụp từ web trình chiếu
     severity: nghiem_trong
     method: ai
-    guidance: Trích khung ở đầu mỗi cảnh, so với ảnh chụp tương ứng từ 07_presentation. Ghi khác biệt (mờ, sai màu, banding).
+    guidance: Trích khung ở đầu mỗi cảnh, so với ảnh chụp tương ứng từ 07_presentation (RND-A06 đã đo PSNR). Xem bằng mắt màu nhận diện, độ nét chữ, banding ở nền chuyển sắc.
   - id: RND-C03
     group: Chất lượng hình
     title: Bitrate đủ cao, không vỡ khối (blocking) ở cảnh chuyển động nhiều
