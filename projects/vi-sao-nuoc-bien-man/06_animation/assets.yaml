@@ -2,7 +2,7 @@ assets:
 - id: A-SONG
   file: assets/A-SONG.svg
   kind: scene
-  description: 'Phong cảnh sông: trời xanh, dãy núi xa có đỉnh tuyết, đồi xanh có rặng cây thông hai bên, dòng sông xanh nhạt uốn lượn từ chân núi ra phía trước rồi rộng dần, gợn sóng trắng; không có mặt trời'
+  description: 'Phong cảnh sông khung dọc: trời xanh phía trên, dãy núi xa có đỉnh tuyết, đồi xanh có rặng cây thông hai bên, dòng sông xanh nhạt uốn lượn từ chân núi xuống phía dưới rồi rộng dần về phía người xem, gợn sóng trắng; không có mặt trời'
   layers:
   - sky
   - mountains
@@ -17,7 +17,7 @@ assets:
   - layer: ripples
     recipe: along
     path: flow
-    spacing: 37.1
+    spacing: 65.0
     period_s: 1.5
     shape: ripple
     fade: 0.8
@@ -26,7 +26,7 @@ assets:
 - id: A-CUA-SONG
   file: assets/A-CUA-SONG.svg
   kind: scene
-  description: 'Phong cảnh cửa sông: núi và đồi cây bên trái, dòng sông uốn lượn chảy sang phải rồi đổ ra biển xanh ở 40% bên phải, bãi cát và bọt sóng trắng ở chỗ sông gặp biển'
+  description: 'Phong cảnh cửa sông khung dọc: núi và đồi cây ở nửa trên, dòng sông uốn lượn chảy từ trên xuống rồi đổ ra biển xanh chiếm 1/3 dưới, bãi cát và bọt sóng trắng ở chỗ sông gặp biển'
   layers:
   - sky
   - mountains
@@ -44,7 +44,7 @@ assets:
   - layer: ripples
     recipe: along
     path: flow
-    spacing: 56.7
+    spacing: 44.5
     period_s: 1.5
     shape: ripple
     fade: 0.8
@@ -68,7 +68,7 @@ assets:
 - id: A-BIEN
   file: assets/A-BIEN.svg
   kind: scene
-  description: 'Phong cảnh bãi biển: trời xanh (nửa trên, chừa chỗ cho mặt trời góc trái), biển xanh nhiều sắc độ từ đường chân trời ở 50% xuống 80% chiều cao, sóng trắng, bãi cát vàng có viền cát ướt và bọt sóng, cây dừa nghiêng ở mép trái, vài hòn đá nhỏ'
+  description: 'Phong cảnh bãi biển khung dọc: trời xanh phía trên (chừa chỗ cho mặt trời góc trái trên), đường chân trời ở 45% chiều cao, biển xanh nhiều sắc độ từ 45% xuống 72%, sóng trắng, bãi cát vàng ở dưới có viền cát ướt và bọt sóng, cây dừa nghiêng ở mép trái, vài hòn đá nhỏ'
   layers:
   - sky
   - sea
@@ -146,7 +146,7 @@ assets:
 - id: A-NEN-MUA
   file: assets/A-NEN-MUA.svg
   kind: scene
-  description: 'Phong cảnh đồi dưới trời mưa: trời xám xanh âm u chiếm 3/4 trên (để trống cho mây và giọt mưa), đồi xa mờ, đồi gần xanh có vài cây, vệt mưa trắng mảnh'
+  description: 'Phong cảnh đồi dưới trời mưa khung dọc: trời xám xanh âm u chiếm 3/4 trên (để trống cho mây, giọt mưa và tảng đá), đồi xa mờ, đồi gần xanh có vài cây ở dưới, vệt mưa trắng mảnh'
   layers:
   - sky
   - hills
@@ -158,9 +158,9 @@ assets:
   motion:
   - layer: rain
     recipe: fall
-    dx: -166
-    dy: 540
-    period_s: 1.04
+    dx: -295
+    dy: 960
+    period_s: 1.85
 - id: A-HAT-MUOI
   file: assets/A-HAT-MUOI.svg
   kind: icon
@@ -178,7 +178,7 @@ assets:
 - id: A-SUOI
   file: assets/A-SUOI.svg
   kind: scene
-  description: 'Phong cảnh sườn núi: núi xám xanh bên trái có tuyết, ba dòng suối xanh nhạt chảy xuống qua rừng thông, nhập thành một dòng sông rộng dần chảy sang phải dưới chân đồi'
+  description: 'Phong cảnh sườn núi khung dọc: núi xám xanh có tuyết ở trên, ba dòng suối xanh nhạt chảy xuống qua rừng thông, nhập thành một dòng sông rộng dần ở phần dưới khung'
   layers:
   - sky
   - mountains
@@ -194,7 +194,7 @@ assets:
   - layer: ripples
     recipe: along
     path: flow
-    spacing: 88.3
+    spacing: 57.5
     period_s: 1.5
     shape: ripple
     fade: 0.8
@@ -211,7 +211,7 @@ assets:
 - id: A-BAN-DO-SONG
   file: assets/A-BAN-DO-SONG.svg
   kind: scene
-  description: 'Bản đồ phong cảnh nhìn từ trên cao: đất liền xanh lá có rừng và dãy núi nâu bên trái, 5 con sông xanh nhạt từ nhiều phía đổ về vùng biển xanh bên phải (bờ cát vàng); trên mỗi sông có chuỗi chấm trắng (muối)'
+  description: 'Bản đồ phong cảnh nhìn từ trên cao, khung dọc: đất liền xanh lá có rừng và dãy núi nâu ở trên, 5 con sông xanh nhạt từ nhiều phía chảy xuống đổ về vùng biển xanh ở 1/3 dưới (bờ cát vàng); trên mỗi sông có chuỗi chấm trắng (muối)'
   layers:
   - land
   - sea
@@ -323,7 +323,7 @@ assets:
 - id: A-DAY-BIEN
   file: assets/A-DAY-BIEN.svg
   kind: scene
-  description: 'Mặt cắt đáy biển thật: nước xanh đậm dần xuống sâu, tia sáng mờ từ mặt nước, đáy cát và đá nâu xám; giữa là núi lửa đá tối có miệng dung nham cam vàng phát sáng, bên phải một ống khe nứt nhiệt toả vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)'
+  description: 'Mặt cắt đáy biển thật, khung dọc: mặt nước ở trên, nước xanh đậm dần xuống sâu, tia sáng mờ từ mặt nước, đáy cát và đá nâu xám; ở 1/3 dưới là núi lửa đá tối có miệng dung nham cam vàng phát sáng, bên phải một ống khe nứt nhiệt toả vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)'
   layers:
   - water
   - floor
@@ -356,7 +356,7 @@ assets:
 - id: A-MUI-TEN
   file: assets/A-MUI-TEN.svg
   kind: icon
-  description: Mũi tên ngang dày bo tròn màu vàng, chỉ sang phải
+  description: Mũi tên dọc dày bo tròn màu vàng, chỉ xuống (chuỗi tóm tắt xếp từ trên xuống)
   layers: []
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
@@ -365,14 +365,6 @@ assets:
   file: assets/A-NUT-DANG-KY.svg
   kind: ui
   description: Nút bo tròn lớn màu vàng, chữ "ĐĂNG KÝ" màu tối đậm ở giữa, tự thiết kế — không dùng logo YouTube
-  layers: []
-  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
-  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
-- id: A-CHUONG
-  file: assets/A-CHUONG.svg
-  kind: icon
-  description: Chuông thông báo trắng phẳng, có 2 vạch rung nhỏ hai bên
   layers: []
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
@@ -399,14 +391,6 @@ assets:
   description: Khỉ ôm quả địa cầu — quy mô hàng triệu năm của hành tinh
   layers: []
   source: Bộ nhận diện kênh — linh vật, biểu cảm 'yeu-trai-dat' (chép từ brand.mascot, không sửa)
-  license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
-  notes: ''
-- id: A-KHI-VUI-MUNG
-  file: assets/A-KHI-VUI-MUNG.png
-  kind: mascot
-  description: Khỉ giơ hai tay vui mừng — cảnh kết mời đăng ký
-  layers: []
-  source: Bộ nhận diện kênh — linh vật, biểu cảm 'vui-mung' (chép từ brand.mascot, không sửa)
   license: Thuộc chủ dự án (bộ nhận diện do chủ dự án cung cấp)
   notes: ''
 - id: A-KHI-LOGO

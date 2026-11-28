@@ -97,3 +97,20 @@ def test_build_video_and_checks(aproj):
     assert r.status == "fail" and "build" in r.evidence
     man = json.loads((aproj / "03_animatic" / "manifest.json").read_text())
     assert man["voice_source"] == "estimate"
+
+
+def test_caption_height_fits_portrait():
+    from vp import animatic as an
+    assert an.caption_h((960, 540)) == 96
+    assert an.caption_h((540, 960)) >= 150     # khung dọc hẹp: câu lời cần 3–4 dòng
+
+
+def test_frame_portrait_caption_and_margins(aproj):
+    import yaml
+    from vp import animatic as an
+    sb = yaml.safe_load((aproj / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    canvas = {"width": 1080, "height": 1920, "fps": 30}
+    sh = sb["shots"][0]
+    img = an._frame(sh, {}, canvas, 0.5, 2.0, {"text": "Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối từ đâu mà có?"},
+                    "00:00", margins={"top": 220, "bottom": 461, "left": 65, "right": 173, "by": {}})
+    assert img.size == (540, 960 + an.caption_h((540, 960)))

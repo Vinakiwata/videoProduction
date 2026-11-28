@@ -1,0 +1,34 @@
+# Hồ sơ nền tảng — Instagram/Facebook Reels. Thiết kế: docs/superpowers/specs/2026-11-28-khung-doc-9-16-design.md
+id: reels
+name: Instagram/Facebook Reels
+canvas:
+  width: 1080
+  height: 1920
+  fps: 30
+max_duration_s: 180
+safe_margins_px:
+  top: 220
+  bottom: 420
+  left: 35
+  right: 84
+ui_zones:
+- x: 0
+  y: 0
+  w: 1080
+  h: 220
+  label: Tài khoản, nút Follow, camera
+- x: 0
+  y: 1500
+  w: 1080
+  h: 420
+  label: Chú thích, nhạc, tên tài khoản
+- x: 996
+  y: 220
+  w: 84
+  h: 1280
+  label: 'Cột nút: thích, bình luận, chia sẻ, âm thanh'
+source:
+  name: Ignite Social Media (vùng 1010×1280, cách trên 220, dưới 420); cột nút phải 84 px theo PostPlanify safe zones 2026
+  url: https://www.ignitesocialmedia.com/content-creation/what-are-the-safe-zones-for-tiktoks-and-instagram-reels/
+checked: '2026-11-28'
+notes: 'Số đo giao diện đăng thường (không phải chuẩn quảng cáo). Giao diện ứng dụng đổi theo thời gian: đo lại và sửa ''checked'' khi cổng brief cảnh báo.'

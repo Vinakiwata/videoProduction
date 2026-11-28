@@ -1,8 +1,8 @@
 {
- "version": 1,
+ "version": 2,
  "canvas": {
-  "width": 1920,
-  "height": 1080,
+  "width": 1080,
+  "height": 1920,
   "fps": 30
  },
  "total_frames": 1602,
@@ -15,7 +15,101 @@
   "opacity": 0.9,
   "always": true
  },
- "safe_area": 0.05,
+ "safe_margins": {
+  "top": 220,
+  "bottom": 461,
+  "left": 65,
+  "right": 173,
+  "by": {
+   "top": "reels",
+   "bottom": "youtube_shorts",
+   "left": "youtube_shorts",
+   "right": "youtube_shorts"
+  }
+ },
+ "platforms": [
+  {
+   "id": "youtube_shorts",
+   "name": "YouTube Shorts",
+   "ui_zones": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 154,
+     "label": "Thanh tìm kiếm và menu"
+    },
+    {
+     "x": 0,
+     "y": 1459,
+     "w": 1080,
+     "h": 461,
+     "label": "Kênh, nút Đăng ký, tiêu đề, thanh tiến trình"
+    },
+    {
+     "x": 907,
+     "y": 154,
+     "w": 173,
+     "h": 1305,
+     "label": "Cột Thích/Không thích/Bình luận/Chia sẻ/Remix"
+    }
+   ]
+  },
+  {
+   "id": "tiktok",
+   "name": "TikTok",
+   "ui_zones": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 108,
+     "label": "Tab Following/For You, tìm kiếm"
+    },
+    {
+     "x": 0,
+     "y": 1600,
+     "w": 1080,
+     "h": 320,
+     "label": "Chú thích, tên tài khoản, nhạc"
+    },
+    {
+     "x": 960,
+     "y": 108,
+     "w": 120,
+     "h": 1492,
+     "label": "Cột nút: ảnh đại diện, tim, bình luận, lưu, chia sẻ"
+    }
+   ]
+  },
+  {
+   "id": "reels",
+   "name": "Instagram/Facebook Reels",
+   "ui_zones": [
+    {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 220,
+     "label": "Tài khoản, nút Follow, camera"
+    },
+    {
+     "x": 0,
+     "y": 1500,
+     "w": 1080,
+     "h": 420,
+     "label": "Chú thích, nhạc, tên tài khoản"
+    },
+    {
+     "x": 996,
+     "y": 220,
+     "w": 84,
+     "h": 1280,
+     "label": "Cột nút: thích, bình luận, chia sẻ, âm thanh"
+    }
+   ]
+  }
+ ],
  "shots": [
   {
    "id": "S01-01-a",
@@ -24,7 +118,7 @@
    "end": 57,
    "background": "#0B3D91",
    "camera": {
-    "move": "pan_right",
+    "move": "pan_down",
     "amount": 0.1
    },
    "transition": {
@@ -77,10 +171,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 18.0,
+      "x": 6.0,
       "y": 30.0,
-      "w": 20.0,
-      "h": 40.0
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-SONG",
      "file": "assets/A-COC-SONG.svg",
@@ -97,10 +191,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 62.0,
+      "x": 46.0,
       "y": 30.0,
-      "w": 20.0,
-      "h": 40.0
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-BIEN",
      "file": "assets/A-COC-BIEN.svg",
@@ -117,10 +211,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 22.0,
-      "w": 20.0,
-      "h": 44.0
+      "x": 26.0,
+      "y": 55.5,
+      "w": 34.0,
+      "h": 19.1
      },
      "asset": "A-KHI-THAC-MAC",
      "file": "assets/A-KHI-THAC-MAC.png",
@@ -142,12 +236,12 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 15.0,
-      "y": 74.0,
-      "w": 70.0,
-      "h": 14.0
+      "x": 7.0,
+      "y": 12.0,
+      "w": 76.0,
+      "h": 14.5
      },
-     "text": "Sông ngọt → Biển mặn?",
+     "text": "Sông ngọt,\nbiển mặn?",
      "style": "title",
      "font_px": 96,
      "color": "#FFC907",
@@ -179,10 +273,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 18.0,
+      "x": 6.0,
       "y": 30.0,
-      "w": 20.0,
-      "h": 40.0
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-SONG",
      "file": "assets/A-COC-SONG.svg",
@@ -193,10 +287,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 62.0,
+      "x": 46.0,
       "y": 30.0,
-      "w": 20.0,
-      "h": 40.0
+      "w": 34.0,
+      "h": 23.4
      },
      "asset": "A-COC-BIEN",
      "file": "assets/A-COC-BIEN.svg",
@@ -207,10 +301,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 22.0,
-      "w": 20.0,
-      "h": 44.0
+      "x": 26.0,
+      "y": 55.5,
+      "w": 34.0,
+      "h": 19.1
      },
      "asset": "A-KHI-THAC-MAC",
      "file": "assets/A-KHI-THAC-MAC.png",
@@ -226,12 +320,12 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 15.0,
-      "y": 74.0,
-      "w": 70.0,
-      "h": 14.0
+      "x": 7.0,
+      "y": 12.0,
+      "w": 76.0,
+      "h": 14.5
      },
-     "text": "Sông ngọt → Biển mặn?",
+     "text": "Sông ngọt,\nbiển mặn?",
      "style": "title",
      "font_px": 96,
      "color": "#FFC907",
@@ -277,10 +371,10 @@
      "id": "e1",
      "z": 1,
      "box": {
-      "x": 30.0,
-      "y": 6.0,
-      "w": 40.0,
-      "h": 22.0
+      "x": 18.0,
+      "y": 12.0,
+      "w": 50.0,
+      "h": 11.1
      },
      "asset": "A-MAY",
      "file": "assets/A-MAY.svg",
@@ -297,10 +391,10 @@
      "id": "e2",
      "z": 2,
      "box": {
-      "x": 45.0,
-      "y": 32.0,
-      "w": 10.0,
-      "h": 18.0
+      "x": 36.0,
+      "y": 26.0,
+      "w": 14.0,
+      "h": 13.1
      },
      "asset": "A-GIOT-MUA",
      "file": "assets/A-GIOT-MUA.svg",
@@ -317,10 +411,10 @@
      "id": "e3",
      "z": 3,
      "box": {
-      "x": 20.0,
-      "y": 35.0,
-      "w": 22.0,
-      "h": 25.0
+      "x": 2.0,
+      "y": 28.0,
+      "w": 28.0,
+      "h": 10.5
      },
      "asset": "A-PHANTU-KHI",
      "file": "assets/A-PHANTU-KHI.svg",
@@ -343,10 +437,10 @@
      "id": "e4",
      "z": 4,
      "box": {
-      "x": 45.0,
-      "y": 32.0,
-      "w": 10.0,
-      "h": 18.0
+      "x": 36.0,
+      "y": 26.0,
+      "w": 14.0,
+      "h": 13.1
      },
      "asset": "A-GIOT-MUA-CHUA",
      "file": "assets/A-GIOT-MUA-CHUA.svg",
@@ -368,10 +462,10 @@
      "id": "e5",
      "z": 5,
      "box": {
-      "x": 58.0,
-      "y": 40.0,
-      "w": 25.0,
-      "h": 10.0
+      "x": 52.0,
+      "y": 30.0,
+      "w": 30.0,
+      "h": 6.5
      },
      "text": "axit nhẹ",
      "style": "label",
@@ -418,10 +512,10 @@
      "id": "e1",
      "z": 1,
      "box": {
-      "x": 20.0,
-      "y": 40.0,
-      "w": 60.0,
-      "h": 50.0
+      "x": 10.0,
+      "y": 48.0,
+      "w": 80.0,
+      "h": 19.0
      },
      "asset": "A-DA",
      "file": "assets/A-DA.svg",
@@ -438,10 +532,10 @@
      "id": "e2",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 8.0,
-      "w": 8.0,
-      "h": 14.0
+      "x": 45.6,
+      "y": 16.0,
+      "w": 10.0,
+      "h": 9.4
      },
      "asset": "A-GIOT-MUA-CHUA",
      "file": "assets/A-GIOT-MUA-CHUA.svg",
@@ -495,9 +589,9 @@
      "z": 1,
      "box": {
       "x": -10.0,
-      "y": 30.0,
+      "y": 42.0,
       "w": 120.0,
-      "h": 80.0
+      "h": 28.4
      },
      "asset": "A-DA",
      "file": "assets/A-DA.svg",
@@ -508,10 +602,10 @@
      "id": "e2",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 46.0,
-      "w": 22.0,
-      "h": 18.0
+      "x": 36.0,
+      "y": 44.0,
+      "w": 30.0,
+      "h": 7.7
      },
      "asset": "A-HAT-MUOI",
      "file": "assets/A-HAT-MUOI.svg",
@@ -533,10 +627,10 @@
      "id": "e3",
      "z": 3,
      "box": {
-      "x": 64.0,
-      "y": 30.0,
-      "w": 16.0,
-      "h": 11.0
+      "x": 56.0,
+      "y": 28.0,
+      "w": 24.0,
+      "h": 7.0
      },
      "text": "muối",
      "style": "label",
@@ -585,9 +679,9 @@
      "z": 1,
      "box": {
       "x": -10.0,
-      "y": 30.0,
+      "y": 42.0,
       "w": 120.0,
-      "h": 80.0
+      "h": 28.4
      },
      "asset": "A-DA",
      "file": "assets/A-DA.svg",
@@ -598,10 +692,10 @@
      "id": "e2",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 46.0,
-      "w": 22.0,
-      "h": 18.0
+      "x": 36.0,
+      "y": 44.0,
+      "w": 30.0,
+      "h": 7.7
      },
      "asset": "A-HAT-MUOI",
      "file": "assets/A-HAT-MUOI.svg",
@@ -695,10 +789,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 33.0,
-      "y": 56.0,
-      "w": 30.0,
-      "h": 52.0
+      "x": 25.0,
+      "y": 34.0,
+      "w": 40.0,
+      "h": 39.0
      },
      "asset": "A-KINH-LUP",
      "file": "assets/A-KINH-LUP.svg",
@@ -715,10 +809,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 66.0,
-      "y": 22.0,
-      "w": 28.0,
-      "h": 10.0
+      "x": 40.0,
+      "y": 14.0,
+      "w": 42.0,
+      "h": 6.5
      },
      "text": "rất ít muối",
      "style": "label",
@@ -770,10 +864,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 32.0,
-      "y": 4.0,
-      "w": 36.0,
-      "h": 18.0
+      "x": 20.0,
+      "y": 12.0,
+      "w": 50.0,
+      "h": 11.1
      },
      "asset": "A-MAY",
      "file": "assets/A-MAY.svg",
@@ -790,10 +884,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 38.0,
-      "y": 22.0,
+      "x": 33.0,
+      "y": 24.0,
       "w": 24.0,
-      "h": 34.0
+      "h": 22.5
      },
      "asset": "A-GIOT-MUA",
      "file": "assets/A-GIOT-MUA.svg",
@@ -815,10 +909,10 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 60.0,
-      "y": 82.0,
-      "w": 34.0,
-      "h": 10.0
+      "x": 30.0,
+      "y": 66.0,
+      "w": 52.0,
+      "h": 6.5
      },
      "text": "nước ngọt mới",
      "style": "label",
@@ -896,10 +990,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 6.0,
-      "y": 82.0,
-      "w": 60.0,
-      "h": 10.0
+      "x": 8.0,
+      "y": 66.0,
+      "w": 62.0,
+      "h": 6.5
      },
      "text": "Muối dồn về biển",
      "style": "label",
@@ -952,9 +1046,9 @@
      "z": 1,
      "box": {
       "x": 8.0,
-      "y": 6.0,
-      "w": 16.0,
-      "h": 28.0
+      "y": 13.0,
+      "w": 22.0,
+      "h": 12.4
      },
      "asset": "A-MAT-TROI",
      "file": "assets/A-MAT-TROI.svg",
@@ -976,10 +1070,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 14.0,
-      "w": 20.0,
-      "h": 38.0
+      "x": 34.0,
+      "y": 22.5,
+      "w": 24.0,
+      "h": 22.5
      },
      "asset": "A-HOI-NUOC",
      "file": "assets/A-HOI-NUOC.svg",
@@ -1001,10 +1095,10 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 38.0,
-      "y": 2.0,
-      "w": 26.0,
-      "h": 14.0
+      "x": 34.0,
+      "y": 13.0,
+      "w": 36.0,
+      "h": 8.0
      },
      "asset": "A-MAY",
      "file": "assets/A-MAY.svg",
@@ -1021,10 +1115,10 @@
      "id": "e5",
      "z": 4,
      "box": {
-      "x": 30.0,
-      "y": 62.0,
-      "w": 40.0,
-      "h": 10.0
+      "x": 6.0,
+      "y": 50.0,
+      "w": 70.0,
+      "h": 6.7
      },
      "asset": "A-MUOI-O-LAI",
      "file": "assets/A-MUOI-O-LAI.svg",
@@ -1046,10 +1140,10 @@
      "id": "e7",
      "z": 5,
      "box": {
-      "x": 78.0,
-      "y": 60.0,
-      "w": 17.0,
-      "h": 36.0
+      "x": 55.0,
+      "y": 58.0,
+      "w": 28.0,
+      "h": 15.7
      },
      "asset": "A-KHI-NGAC-NHIEN",
      "file": "assets/A-KHI-NGAC-NHIEN.png",
@@ -1066,10 +1160,10 @@
      "id": "e6",
      "z": 6,
      "box": {
-      "x": 62.0,
-      "y": 32.0,
-      "w": 33.0,
-      "h": 18.0
+      "x": 6.0,
+      "y": 60.0,
+      "w": 46.0,
+      "h": 12.0
      },
      "text": "Nước bay đi, muối ở lại",
      "style": "label",
@@ -1122,9 +1216,9 @@
      "z": 1,
      "box": {
       "x": 8.0,
-      "y": 6.0,
-      "w": 16.0,
-      "h": 28.0
+      "y": 13.0,
+      "w": 22.0,
+      "h": 12.4
      },
      "asset": "A-MAT-TROI",
      "file": "assets/A-MAT-TROI.svg",
@@ -1140,10 +1234,10 @@
      "id": "e4",
      "z": 2,
      "box": {
-      "x": 38.0,
-      "y": 2.0,
-      "w": 26.0,
-      "h": 14.0
+      "x": 34.0,
+      "y": 13.0,
+      "w": 36.0,
+      "h": 8.0
      },
      "asset": "A-MAY",
      "file": "assets/A-MAY.svg",
@@ -1160,10 +1254,10 @@
      "id": "e5",
      "z": 3,
      "box": {
-      "x": 30.0,
-      "y": 62.0,
-      "w": 40.0,
-      "h": 10.0
+      "x": 6.0,
+      "y": 50.0,
+      "w": 70.0,
+      "h": 6.7
      },
      "asset": "A-MUOI-O-LAI",
      "file": "assets/A-MUOI-O-LAI.svg",
@@ -1179,10 +1273,10 @@
      "id": "e7",
      "z": 4,
      "box": {
-      "x": 78.0,
-      "y": 60.0,
-      "w": 17.0,
-      "h": 36.0
+      "x": 55.0,
+      "y": 58.0,
+      "w": 28.0,
+      "h": 15.7
      },
      "asset": "A-KHI-NGAC-NHIEN",
      "file": "assets/A-KHI-NGAC-NHIEN.png",
@@ -1193,10 +1287,10 @@
      "id": "e6",
      "z": 5,
      "box": {
-      "x": 62.0,
-      "y": 32.0,
-      "w": 33.0,
-      "h": 18.0
+      "x": 6.0,
+      "y": 60.0,
+      "w": 46.0,
+      "h": 12.0
      },
      "text": "Nước bay đi, muối ở lại",
      "style": "label",
@@ -1243,10 +1337,10 @@
      "id": "e1",
      "z": 1,
      "box": {
-      "x": 30.0,
-      "y": 8.0,
-      "w": 40.0,
-      "h": 22.0
+      "x": 20.0,
+      "y": 12.0,
+      "w": 50.0,
+      "h": 11.1
      },
      "asset": "A-MAY",
      "file": "assets/A-MAY.svg",
@@ -1263,10 +1357,10 @@
      "id": "e2",
      "z": 2,
      "box": {
-      "x": 32.0,
-      "y": 32.0,
-      "w": 36.0,
-      "h": 20.0
+      "x": 38.0,
+      "y": 28.0,
+      "w": 14.0,
+      "h": 13.1
      },
      "asset": "A-GIOT-MUA",
      "file": "assets/A-GIOT-MUA.svg",
@@ -1288,10 +1382,10 @@
      "id": "e3",
      "z": 3,
      "box": {
-      "x": 25.0,
-      "y": 62.0,
-      "w": 50.0,
-      "h": 30.0
+      "x": 10.0,
+      "y": 50.0,
+      "w": 80.0,
+      "h": 19.0
      },
      "asset": "A-DA",
      "file": "assets/A-DA.svg",
@@ -1319,10 +1413,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 30.0,
-      "y": 10.0,
-      "w": 40.0,
-      "h": 72.0
+      "x": 8.0,
+      "y": 24.5,
+      "w": 68.0,
+      "h": 38.25
      },
      "asset": "A-VONG-TUAN-HOAN",
      "file": "assets/A-VONG-TUAN-HOAN.svg",
@@ -1344,10 +1438,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 5.0,
-      "y": 36.0,
-      "w": 25.0,
-      "h": 22.0
+      "x": 6.0,
+      "y": 11.6,
+      "w": 56.0,
+      "h": 12.4
      },
      "text": "hàng triệu\nnăm",
      "style": "title",
@@ -1364,10 +1458,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 74.0,
-      "y": 35.0,
-      "w": 14.0,
-      "h": 32.0
+      "x": 60.0,
+      "y": 63.0,
+      "w": 18.0,
+      "h": 12.4
      },
      "asset": "A-COC-BIEN",
      "file": "assets/A-COC-BIEN.svg",
@@ -1389,10 +1483,10 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 7.0,
-      "y": 60.0,
-      "w": 18.0,
-      "h": 36.0
+      "x": 8.0,
+      "y": 61.0,
+      "w": 26.0,
+      "h": 14.6
      },
      "asset": "A-KHI-TRAI-DAT",
      "file": "assets/A-KHI-TRAI-DAT.png",
@@ -1456,10 +1550,10 @@
      "id": "e3",
      "z": 1,
      "box": {
-      "x": 30.0,
-      "y": 30.0,
-      "w": 45.0,
-      "h": 40.0
+      "x": 10.0,
+      "y": 40.0,
+      "w": 70.0,
+      "h": 19.7
      },
      "asset": "A-KHOANG-CHAT",
      "file": "assets/A-KHOANG-CHAT.svg",
@@ -1482,9 +1576,9 @@
      "z": 2,
      "box": {
       "x": 6.0,
-      "y": 8.0,
-      "w": 44.0,
-      "h": 10.0
+      "y": 12.0,
+      "w": 78.0,
+      "h": 6.5
      },
      "text": "Nguồn thêm: đáy biển",
      "style": "label",
@@ -1517,10 +1611,10 @@
      "id": "e1",
      "z": 0,
      "box": {
-      "x": 8.0,
-      "y": 30.0,
-      "w": 16.0,
-      "h": 30.0
+      "x": 16.0,
+      "y": 12.5,
+      "w": 12.0,
+      "h": 11.3
      },
      "asset": "A-GIOT-MUA-CHUA",
      "file": "assets/A-GIOT-MUA-CHUA.svg",
@@ -1537,10 +1631,10 @@
      "id": "e2",
      "z": 1,
      "box": {
-      "x": 27.0,
-      "y": 40.0,
-      "w": 10.0,
-      "h": 10.0
+      "x": 19.0,
+      "y": 25.0,
+      "w": 6.0,
+      "h": 6.8
      },
      "asset": "A-MUI-TEN",
      "file": "assets/A-MUI-TEN.svg",
@@ -1557,10 +1651,10 @@
      "id": "e3",
      "z": 2,
      "box": {
-      "x": 40.0,
-      "y": 32.0,
-      "w": 20.0,
-      "h": 26.0
+      "x": 10.0,
+      "y": 33.0,
+      "w": 24.0,
+      "h": 9.9
      },
      "asset": "A-SONG-ICON",
      "file": "assets/A-SONG-ICON.svg",
@@ -1577,10 +1671,10 @@
      "id": "e4",
      "z": 3,
      "box": {
-      "x": 63.0,
-      "y": 40.0,
-      "w": 10.0,
-      "h": 10.0
+      "x": 19.0,
+      "y": 44.0,
+      "w": 6.0,
+      "h": 6.8
      },
      "asset": "A-MUI-TEN",
      "file": "assets/A-MUI-TEN.svg",
@@ -1597,10 +1691,10 @@
      "id": "e5",
      "z": 4,
      "box": {
-      "x": 76.0,
-      "y": 30.0,
-      "w": 16.0,
-      "h": 30.0
+      "x": 12.0,
+      "y": 52.0,
+      "w": 20.0,
+      "h": 11.25
      },
      "asset": "A-MAT-TROI",
      "file": "assets/A-MAT-TROI.svg",
@@ -1617,10 +1711,10 @@
      "id": "e6",
      "z": 5,
      "box": {
-      "x": 8.0,
-      "y": 64.0,
-      "w": 16.0,
-      "h": 10.0
+      "x": 40.0,
+      "y": 15.0,
+      "w": 40.0,
+      "h": 6.5
      },
      "text": "Mưa",
      "style": "label",
@@ -1637,10 +1731,10 @@
      "id": "e7",
      "z": 6,
      "box": {
-      "x": 42.0,
-      "y": 64.0,
-      "w": 16.0,
-      "h": 10.0
+      "x": 40.0,
+      "y": 35.0,
+      "w": 40.0,
+      "h": 6.5
      },
      "text": "Sông",
      "style": "label",
@@ -1657,10 +1751,10 @@
      "id": "e8",
      "z": 7,
      "box": {
-      "x": 74.0,
-      "y": 64.0,
-      "w": 20.0,
-      "h": 10.0
+      "x": 40.0,
+      "y": 55.0,
+      "w": 40.0,
+      "h": 6.5
      },
      "text": "Bốc hơi",
      "style": "label",
@@ -1693,10 +1787,10 @@
      "id": "e4",
      "z": 0,
      "box": {
-      "x": 40.0,
-      "y": 5.0,
-      "w": 20.0,
-      "h": 36.0
+      "x": 17.0,
+      "y": 13.0,
+      "w": 50.0,
+      "h": 28.1
      },
      "asset": "A-KHI-LOGO",
      "file": "assets/A-KHI-LOGO.png",
@@ -1710,38 +1804,33 @@
      }
     },
     {
-     "id": "e5",
+     "id": "e3",
      "z": 1,
      "box": {
-      "x": 6.0,
-      "y": 34.0,
-      "w": 22.0,
-      "h": 44.0
+      "x": 7.0,
+      "y": 44.0,
+      "w": 76.0,
+      "h": 14.5
      },
-     "asset": "A-KHI-VUI-MUNG",
-     "file": "assets/A-KHI-VUI-MUNG.png",
-     "kind": "mascot",
-     "layer_motion": false,
+     "text": "Cảm ơn bạn\nđã xem!",
+     "style": "title",
+     "font_px": 96,
+     "color": "#FFC907",
      "enter": {
-      "anim": "pop",
-      "start": 1507,
-      "dur": 12,
-      "ease": "back_out"
-     },
-     "loop": {
-      "anim": "bob",
-      "start": 1507,
-      "period": 75
+      "anim": "fade",
+      "start": 1509,
+      "dur": 9,
+      "ease": "ease_out"
      }
     },
     {
      "id": "e1",
      "z": 2,
      "box": {
-      "x": 35.0,
-      "y": 46.0,
-      "w": 30.0,
-      "h": 18.0
+      "x": 19.0,
+      "y": 62.0,
+      "w": 46.0,
+      "h": 9.0
      },
      "asset": "A-NUT-DANG-KY",
      "file": "assets/A-NUT-DANG-KY.svg",
@@ -1749,59 +1838,14 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1514,
+      "start": 1535,
       "dur": 12,
       "ease": "back_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 1514,
+      "start": 1535,
       "period": 36
-     }
-    },
-    {
-     "id": "e2",
-     "z": 3,
-     "box": {
-      "x": 67.0,
-      "y": 46.0,
-      "w": 8.0,
-      "h": 18.0
-     },
-     "asset": "A-CHUONG",
-     "file": "assets/A-CHUONG.svg",
-     "kind": "icon",
-     "layer_motion": false,
-     "enter": {
-      "anim": "pop",
-      "start": 1530,
-      "dur": 9,
-      "ease": "back_out"
-     },
-     "loop": {
-      "anim": "wiggle",
-      "start": 1530,
-      "period": 45
-     }
-    },
-    {
-     "id": "e3",
-     "z": 4,
-     "box": {
-      "x": 30.0,
-      "y": 72.0,
-      "w": 40.0,
-      "h": 11.0
-     },
-     "text": "Cùng Khỉ nhé!",
-     "style": "label",
-     "font_px": 64,
-     "color": "#FFC907",
-     "enter": {
-      "anim": "fade",
-      "start": 1530,
-      "dur": 9,
-      "ease": "ease_out"
      }
     }
    ]
@@ -1816,7 +1860,7 @@
      "layer": "ripples",
      "recipe": "along",
      "path": "flow",
-     "spacing": 37.1,
+     "spacing": 65.0,
      "period_s": 1.5,
      "shape": "ripple",
      "fade": 0.8,
@@ -1833,7 +1877,7 @@
      "layer": "ripples",
      "recipe": "along",
      "path": "flow",
-     "spacing": 56.7,
+     "spacing": 44.5,
      "period_s": 1.5,
      "shape": "ripple",
      "fade": 0.8,
@@ -1909,9 +1953,9 @@
     {
      "layer": "rain",
      "recipe": "fall",
-     "dx": -166,
-     "dy": 540,
-     "period_s": 1.04
+     "dx": -295,
+     "dy": 960,
+     "period_s": 1.85
     }
    ]
   },
@@ -1936,7 +1980,7 @@
      "layer": "ripples",
      "recipe": "along",
      "path": "flow",
-     "spacing": 88.3,
+     "spacing": 57.5,
      "period_s": 1.5,
      "shape": "ripple",
      "fade": 0.8,
@@ -2092,11 +2136,6 @@
    "kind": "ui",
    "motion": []
   },
-  "A-CHUONG": {
-   "file": "assets/A-CHUONG.svg",
-   "kind": "icon",
-   "motion": []
-  },
   "A-KHI-THAC-MAC": {
    "file": "assets/A-KHI-THAC-MAC.png",
    "kind": "mascot",
@@ -2112,18 +2151,13 @@
    "kind": "mascot",
    "motion": []
   },
-  "A-KHI-VUI-MUNG": {
-   "file": "assets/A-KHI-VUI-MUNG.png",
-   "kind": "mascot",
-   "motion": []
-  },
   "A-KHI-LOGO": {
    "file": "assets/A-KHI-LOGO.png",
    "kind": "mascot",
    "motion": []
   }
  },
- "input_hash": "ed8e29038cd62a2ef09104cb9c2c39ae8a57880d94d161d09ccb6fa13d2899e8",
+ "input_hash": "6578b4e1f4c8990b1f4df0e008bbaf5d4d17f3e8dba926466e8ad350d575c47d",
  "font_files": [
   "BeVietnamPro-Bold.ttf",
   "BeVietnamPro-ExtraBold.ttf",

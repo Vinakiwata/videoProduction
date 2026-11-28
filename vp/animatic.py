@@ -9,17 +9,23 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 
-from vp import review
+from vp import platforms, review
 from vp.checks.files import load_yaml
 from vp.checks.script import segments as script_segments
-from vp.design_preview import H, W, _font, _rgb, _text_in_box, render_frame
+from vp.design_preview import _font, _rgb, _text_in_box, preview_size, render_frame
 from vp.project import dump_yaml
 from vp.sfx_synth import synth
 
 DIR = "03_animatic"
 SR = 48000
 CAPTION_H = 96
-OUT_H = H + CAPTION_H   # khung hình giữ nguyên 960×540, dải phụ đề nằm RIÊNG bên dưới, không che hình
+
+
+def caption_h(size: tuple[int, int]) -> int:
+    """Dải phụ đề: khung ngang 96 px; khung dọc hẹp cần 3–4 dòng lời → 160 px."""
+    w, h = size
+    return CAPTION_H if w >= h else 160
+# khung hình = nửa canvas (preview_size), dải phụ đề CAPTION_H nằm RIÊNG bên dưới, không che hình
 
 
 class AnimaticError(RuntimeError):
@@ -141,38 +147,42 @@ def element_alpha(el: dict, t: float, dur: float) -> float:
 _LAYERS: dict = {}
 
 
-def _layers(shot, assets, canvas):
+def _layers(shot, assets, canvas, margins=None):
     """Nền trống + mỗi phần tử một lớp (ảnh, mặt nạ) — tính một lần cho mỗi khung."""
     key = id(shot)
     if key not in _LAYERS:
-        empty = render_frame(dict(shot, elements=[]), assets, canvas)
+        empty = render_frame(dict(shot, elements=[]), assets, canvas, margins)
         layers = []
         for e in shot.get("elements") or []:
-            img = render_frame(dict(shot, elements=[e]), assets, canvas)
+            img = render_frame(dict(shot, elements=[e]), assets, canvas, margins)
             layers.append((img, _mask(img, empty)))
         _LAYERS.clear()
         _LAYERS[key] = (empty, layers)
     return _LAYERS[key]
 
 
-def _frame(shot, assets, canvas, t, dur, seg, timecode):
-    empty, layers = _layers(shot, assets, canvas)
+def _frame(shot, assets, canvas, t, dur, seg, timecode, margins=None):
+    empty, layers = _layers(shot, assets, canvas, margins)
     pic = empty.copy()
     for e, (img, mask) in zip(shot.get("elements") or [], layers):
         al = element_alpha(e, t, dur)
         if al <= 0:
             continue
         pic.paste(img, (0, 0), mask if al >= 1 else mask.point(lambda v: int(v * al)))
+    W, H = pic.size
+    CH = caption_h((W, H))
+    OUT_H = H + CH
     base = Image.new("RGB", (W, OUT_H), (12, 12, 14))
     base.paste(pic, (0, 0))
     d = ImageDraw.Draw(base, "RGBA")
     spoken = seg.get("text") or "(im lặng)"
-    _text_in_box(d, [16, H + 10, W - 16, OUT_H], spoken, _font(26, True), (255, 255, 255), CAPTION_H - 14)
+    _text_in_box(d, [16, H + 10, W - 16, OUT_H], spoken, _font(26 if W >= H else 24, True), (255, 255, 255), CH - 14)
     tag = f"{shot['id']}  {timecode}"
     f = _font(16, True)
     tw = d.textlength(tag, font=f)
-    d.rectangle([W - tw - 16, 0, W, 24], fill=(0, 0, 0, 180))
-    d.text((W - tw - 8, 3), tag, font=f, fill=(255, 210, 63))
+    ty = 0 if W >= H else H - 26          # khung dọc: tiêu đề khung chiếm cả dòng trên → mã thời gian xuống góc dưới
+    d.rectangle([W - tw - 16, ty, W, ty + 24], fill=(0, 0, 0, 180))
+    d.text((W - tw - 8, ty + 3), tag, font=f, fill=(255, 210, 63))
     return base
 
 
@@ -195,7 +205,11 @@ def input_hash(project: Path, fps: int) -> str:
     if sv.is_dir():
         for f in sorted(sv.glob("*.wav")):
             h.update(f.name.encode()); h.update(hashlib.sha256(f.read_bytes()).hexdigest().encode())
-    h.update(f"fps={fps};w={W};h={OUT_H};layout=caption_below".encode())
+    W, H = preview_size(load_yaml(project, "02_design/storyboard.yaml")["meta"]["canvas"])
+    bp = Path(project) / "00_brief" / "brief.yaml"
+    b = (load_yaml(project, "00_brief/brief.yaml") or {}) if bp.is_file() else {}
+    tag = f";margins={sorted(platforms.safe_margins(b).items())}" if b.get("platforms") else ""
+    h.update(f"fps={fps};w={W};h={H + caption_h((W, H))};layout=caption_below{tag}".encode())
     return h.hexdigest()
 
 
@@ -209,6 +223,11 @@ def build(project: Path, fps: int = 15, check_gate: bool = False) -> Path:
     sb = load_yaml(project, "02_design/storyboard.yaml")
     assets = {a["id"]: a for a in sb.get("assets") or []}
     canvas = sb["meta"]["canvas"]
+    W, H = preview_size(canvas)
+    OUT_H = H + caption_h((W, H))
+    bp = project / "00_brief" / "brief.yaml"
+    brief = (load_yaml(project, "00_brief/brief.yaml") or {}) if bp.is_file() else {}
+    margins = platforms.safe_margins(brief) if brief.get("platforms") else None
     shots = {s["id"]: s for s in sb.get("shots") or []}
     segs = {s["id"]: s for s in timing["segments"]}
     out = project / DIR / "animatic.mp4"
@@ -234,7 +253,7 @@ def build(project: Path, fps: int = 15, check_gate: bool = False) -> Path:
             key = (ts["id"], alphas, int(t))
             if key not in cache:
                 cache.clear()
-                img = _frame(sh, assets, canvas, lt, ts["dur_s"], segs[sh["segment"]], f"{int(m):02d}:{int(s):02d}")
+                img = _frame(sh, assets, canvas, lt, ts["dur_s"], segs[sh["segment"]], f"{int(m):02d}:{int(s):02d}", margins)
                 cache[key] = img.tobytes()
             proc.stdin.write(cache[key])
         proc.stdin.close()

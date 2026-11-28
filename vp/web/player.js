@@ -5,6 +5,9 @@
   'use strict';
   const D = window.VP_DATA, SVG = window.VP_SVG || {}, NS = 'http://www.w3.org/2000/svg';
   const W = D.canvas.width, H = D.canvas.height, FPS = D.canvas.fps, TOTAL = D.total_frames;
+  // lề an toàn px từng cạnh (lề chặt nhất của các nền tảng của brief); bản dựng cũ không có → 5%
+  const SAFE = D.safe_margins || { top: .05 * H, bottom: .05 * H, left: .05 * W, right: .05 * W, by: {} };
+  const PLATS = D.platforms || [], PNAME = Object.fromEntries(PLATS.map(p => [p.id, p.name]));
   const RENDER = new URLSearchParams(location.search).has('render');
   const errors = [];
   window.addEventListener('error', e => errors.push(String(e.message || e)));
@@ -31,6 +34,7 @@
   const stage = document.createElement('div');
   stage.id = 'stage';
   stage.style.width = W + 'px'; stage.style.height = H + 'px';
+  for (const s_ of ['top', 'bottom', 'left', 'right']) stage.style.setProperty('--safe-' + s_, SAFE[s_] + 'px');
   document.body.appendChild(stage);
   if (RENDER) document.body.classList.add('render');
 
@@ -260,8 +264,8 @@
     const inTr = i > 0 && tr.frames > 0 && f - s.start < tr.frames;
     const want = inTr ? [shots[i - 1], sh] : [sh];
     // tháo hết rồi gắn lại: buộc Chrome vẽ mới toàn bộ, không dùng lại phần đã vẽ của khung trước (tất định theo lịch sử tua)
-    for (const c of [...stage.children]) stage.removeChild(c);
-    want.forEach(w => stage.appendChild(w.root));
+    for (const c of [...stage.children]) if (c.id !== 'ui-cover') stage.removeChild(c);
+    want.forEach(w => stage.insertBefore(w.root, document.getElementById('ui-cover')));
     for (const w of want) { w.root.style.opacity = 1; w.root.style.transform = ''; }
     if (inTr) {
       const prev = shots[i - 1], p = ease('ease_in_out', (f - s.start) / tr.frames);
@@ -290,7 +294,7 @@
 
   function measure() {
     // chữ tràn hộp / ra ngoài vùng an toàn (đo trên DOM ở khung hiện tại)
-    const out = [], sr = stage.getBoundingClientRect(), k = sr.width / W, m = D.safe_area * W, mh = D.safe_area * H;
+    const out = [], sr = stage.getBoundingClientRect(), k = sr.width / W, M = SAFE;
     if (inTransition || !curShot) return out;          // đang chuyển cảnh: khung cũ bị phóng/đẩy có chủ ý
     { const sh = curShot;
       for (const it of sh.els) {
@@ -298,7 +302,12 @@
         const r = it.span.getBoundingClientRect(), b = it.n.getBoundingClientRect(), tol = 2 * k;
         if (r.width > b.width + tol || r.height > b.height + tol) out.push(`${sh.s.id}/${it.e.id}: chữ tràn hộp (${Math.round(r.width / k)}×${Math.round(r.height / k)} > ${Math.round(b.width / k)}×${Math.round(b.height / k)})`);
         const L = (r.left - sr.left) / k, T = (r.top - sr.top) / k, R = (r.right - sr.left) / k, B = (r.bottom - sr.top) / k;
-        if (L < m - 1 || T < mh - 1 || R > W - m + 1 || B > H - mh + 1) out.push(`${sh.s.id}/${it.e.id}: chữ ra ngoài vùng an toàn 5%`);
+        const hit = [['left', L < M.left - 1], ['top', T < M.top - 1], ['right', R > W - M.right + 1], ['bottom', B > H - M.bottom + 1]]
+          .filter(x => x[1]).map(x => x[0]);
+        if (hit.length) {
+          const who = [...new Set(hit.map(s_ => PNAME[(M.by || {})[s_]]).filter(Boolean))].join(', ');
+          out.push(`${sh.s.id}/${it.e.id}: chữ ra ngoài vùng an toàn ở cạnh ${hit.join('/')}` + (who ? ` (${who} che)` : ''));
+        }
       }
     }
     return out;
@@ -319,7 +328,7 @@
         lab = document.getElementById('lab'), safe = document.getElementById('safe');
   bar.max = TOTAL - 1;
   const fit = () => { const k = Math.min(innerWidth / W, (innerHeight - ui.offsetHeight) / H); stage.style.transform = `scale(${k})`;
-    stage.parentElement && (document.body.style.setProperty('--k', k)); };
+    stage.style.marginLeft = Math.max(0, (innerWidth - W * k) / 2) + 'px'; };   // khung dọc: đặt giữa màn hình
   addEventListener('resize', fit); fit();
   const show = f => { seekSync(f); bar.value = f; lab.textContent = `khung ${f}/${TOTAL - 1} · ${(f / FPS).toFixed(2)}s · ${D.shots[shotIndexAt(f)].id}`; };
   let raf = 0;
@@ -327,6 +336,17 @@
   play.onclick = () => { if (audio.paused) { if (audio.ended || current >= TOTAL - 1) audio.currentTime = 0; audio.play(); play.textContent = '❚❚ Dừng'; loop(); } else audio.pause(); };
   bar.oninput = () => { audio.currentTime = bar.value / FPS; show(+bar.value); };
   safe.onchange = () => stage.classList.toggle('show-safe', safe.checked);
+  // lớp phủ giao diện nền tảng: xem như khi đăng lên Shorts/TikTok/Reels (chỉ ở chế độ xem, không vào bản dựng)
+  const plat = document.getElementById('plat'), cover = document.createElement('div');
+  cover.id = 'ui-cover'; stage.appendChild(cover);
+  if (plat) {
+    if (!PLATS.length) plat.style.display = 'none';
+    for (const p of PLATS) { const o = document.createElement('option'); o.value = p.id; o.textContent = p.name; plat.appendChild(o); }
+    plat.onchange = () => {
+      const p = PLATS.find(x => x.id === plat.value);
+      cover.innerHTML = p ? p.ui_zones.map(z => `<div class="zone" style="left:${z.x}px;top:${z.y}px;width:${z.w}px;height:${z.h}px"><span>${z.label}</span></div>`).join('') : '';
+    };
+  }
   addEventListener('keydown', e => { if (e.key === ' ') { e.preventDefault(); play.onclick(); }
     if (e.key === 'ArrowRight') { audio.currentTime = Math.min(TOTAL - 1, current + 1) / FPS; show(current + 1); }
     if (e.key === 'ArrowLeft') { audio.currentTime = Math.max(0, current - 1) / FPS; show(current - 1); } });

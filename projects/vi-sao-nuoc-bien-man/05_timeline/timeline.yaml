@@ -146,7 +146,7 @@ shots:
   content_end_frame: 57
   transition_in: cut
   camera:
-    move: pan_right
+    move: pan_down
     amount: 0.1
 - id: S01-01-b
   segment: S01-01
@@ -801,51 +801,25 @@ cues:
   dur_frames: 12
   ease: back_out
 - shot: S05-02-a
-  element: e5
-  event: enter
-  frame: 1507
-  anim: pop
-  dur_frames: 12
-  ease: back_out
-- shot: S05-02-a
-  element: e5
-  event: loop
-  frame: 1507
-  anim: bob
-  period_frames: 75
-- shot: S05-02-a
-  element: e1
-  event: enter
-  frame: 1514
-  anim: pop
-  dur_frames: 12
-  ease: back_out
-- shot: S05-02-a
-  element: e1
-  event: loop
-  frame: 1514
-  anim: pulse
-  period_frames: 36
-- shot: S05-02-a
-  element: e2
-  event: enter
-  frame: 1530
-  anim: pop
-  dur_frames: 9
-  ease: back_out
-- shot: S05-02-a
-  element: e2
-  event: loop
-  frame: 1530
-  anim: wiggle
-  period_frames: 45
-- shot: S05-02-a
   element: e3
   event: enter
-  frame: 1530
+  frame: 1509
   anim: fade
   dur_frames: 9
   ease: ease_out
+- shot: S05-02-a
+  element: e1
+  event: enter
+  frame: 1535
+  anim: pop
+  dur_frames: 12
+  ease: back_out
+- shot: S05-02-a
+  element: e1
+  event: loop
+  frame: 1535
+  anim: pulse
+  period_frames: 36
 sfx:
 - name: pop
   shot: S01-01-b
@@ -876,5 +850,5 @@ sfx:
   shot: S05-02-a
   target: e1
   event: enter
-  frame: 1514
+  frame: 1535
 music: []

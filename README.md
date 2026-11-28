@@ -12,7 +12,7 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 | 4 | Giọng đọc (VieNeu-TTS) | `04_voice` | checklist ✅ · tool ✅ (`vp voice …`, skill `vp-giong-doc`; chạy thật cần mạng hoặc file thu âm) |
 | 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ✅ (`vp timeline build`, skill `vp-timeline`) |
 | 6 | Hoạt ảnh 2D | `06_animation` | checklist ✅ · tool ✅ (`vp animation init/preview/lint`, skill `vp-hoat-anh`) |
-| 7 | Web trình chiếu 1920×1080 | `07_presentation` | checklist ✅ · tool ✅ (`vp presentation build/check/preview/lint`, skill `vp-trinh-chieu`) |
+| 7 | Web trình chiếu theo khung của brief (1080×1920) | `07_presentation` | checklist ✅ · tool ✅ (`vp presentation build/check/preview/lint`, skill `vp-trinh-chieu`) |
 | 8 | Render khung hình | `08_render` | checklist ✅ · tool ⏳ |
 | 9 | Mix âm thanh & ghép | `09_mix` | checklist ✅ · tool ⏳ |
 | 10 | QC tổng | `10_final` | checklist ✅ · tool ⏳ |
@@ -47,6 +47,7 @@ python -m vp animation init|sync|preview|lint projects/<dự án>
 python -m vp presentation build|check|preview|lint projects/<dự án>
 # Bộ nhận diện kênh Khỉ Khám Phá: tách lại file upload và linh vật
 python3 channels/khi-kham-pha/brand/xuat.py
+# Hồ sơ nền tảng (Shorts/TikTok/Reels): khung, lề an toàn, vùng giao diện che — platforms/<id>.yaml
 # Cổng duyệt
 python -m vp new projects/<dự án> --title "Tên video"
 python -m vp status projects/<dự án>

@@ -169,3 +169,56 @@ def test_check_in_real_chrome_is_deterministic(pproj):
     assert man["errors"] == [] and man["determinism"]["mismatch"] == []
     assert all(r["size"] == [1920, 1080] for r in man["frames"])
     assert pt.preview(pproj).is_file()
+
+
+# ---------------- khung dọc 9:16 + nền tảng ----------------
+@pytest.fixture
+def vproj(pproj):
+    """Như pproj nhưng khung dọc 1080×1920, brief đăng cả ba nền tảng."""
+    b = yaml.safe_load((pproj / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    b["format"] = {"width": 1080, "height": 1920, "fps": 30}
+    b["platforms"] = ["youtube_shorts", "tiktok", "reels"]
+    write_yaml(pproj / "00_brief" / "brief.yaml", b)
+    sb = yaml.safe_load((pproj / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    sb["meta"]["canvas"] = {"width": 1080, "height": 1920, "fps": 30}
+    write_yaml(pproj / "02_design" / "storyboard.yaml", sb)
+    return pproj
+
+
+def test_compile_vertical_margins(vproj):
+    c = pt.compile_presentation(vproj)
+    m = c["safe_margins"]
+    assert c["canvas"]["width"] == 1080 and c["canvas"]["height"] == 1920
+    assert (m["top"], m["bottom"], m["left"], m["right"]) == (220, 461, 65, 173)
+    assert [p["id"] for p in c["platforms"]] == ["youtube_shorts", "tiktok", "reels"]
+    assert all(len(p["ui_zones"]) == 3 and p["name"] for p in c["platforms"])
+    assert "safe_area" not in c
+
+
+def test_compile_legacy_margins(pproj):
+    c = pt.compile_presentation(pproj)
+    m = c["safe_margins"]
+    assert (m["top"], m["bottom"], m["left"], m["right"]) == (54, 54, 96, 96) and c["platforms"] == []
+
+
+def test_render_check_uses_canvas_size(vproj):
+    pt.build(vproj)
+    r = _fake_manifest(vproj, size=[1920, 1080])("presentation_render")
+    assert r.status == "fail" and "1080×1920" in r.evidence
+    assert _fake_manifest(vproj, size=[1080, 1920])("presentation_render").status == "pass"
+
+
+@pytest.mark.skipif(not (__import__("shutil").which("google-chrome") and __import__("shutil").which("node")),
+                    reason="cần Chrome + Node")
+def test_check_vertical_canvas_real_chrome(vproj):
+    sb = yaml.safe_load((vproj / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    sb["shots"][0]["elements"][1]["box"] = {"x": 10, "y": 6, "w": 80, "h": 6}     # chữ ở y 115–230 px: Reels che (220)
+    write_yaml(vproj / "02_design" / "storyboard.yaml", sb)
+    pt.build(vproj)
+    man = json.loads(pt.check(vproj).read_text(encoding="utf-8"))
+    assert man["errors"] == [] and man["determinism"]["mismatch"] == []
+    assert all(r["size"] == [1080, 1920] for r in man["frames"])
+    issues = [i for r in man["frames"] for i in r["issues"]]
+    assert any("Reels" in i for i in issues), issues
+    out = pt.preview(vproj)
+    assert out.is_file() and (out.parent / "contact_ui.png").is_file()

@@ -1,6 +1,6 @@
 # Tool 10 — QC tổng trên bản master cuối cùng. Nhìn như người xem, đo như kỹ thuật viên.
 stage: final
-version: 1
+version: 2
 title: QC tổng bản master
 artifacts: [10_final/video.mp4, 10_final/subtitles.srt]
 items:
@@ -13,11 +13,11 @@ items:
     params: {paths: [10_final/video.mp4, 10_final/subtitles.srt]}
   - id: FIN-A02
     group: Kỹ thuật
-    title: Định dạng master 1920×1080, 30 fps, H.264, yuv420p
+    title: Định dạng master đúng khung của brief, 30 fps, H.264, yuv420p
     severity: chan
     method: auto
     check: video_format
-    params: {path: 10_final/video.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+    params: {path: 10_final/video.mp4, format_from: 00_brief/brief.yaml, fps: 30, codec: h264, pix_fmt: yuv420p}
   - id: FIN-A03
     group: Kỹ thuật
     title: Độ to −14 LUFS ±1, đỉnh thực ≤ −1 dBTP

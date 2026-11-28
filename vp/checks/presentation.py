@@ -92,17 +92,21 @@ def render_ok(project: Path, params: dict) -> CheckResult:
     man = _manifest(project)
     if man is None:
         return NO_CHECK
+    comp = _comp(project)
+    if comp is None:
+        return NO_BUILD
+    cw, ch = comp["canvas"]["width"], comp["canvas"]["height"]
     bad = [f"lỗi JS: {e}" for e in man["errors"]] + [f"console: {c}" for c in man["console"]]
     for r in man["frames"]:
-        if r["size"] != [1920, 1080]:
-            bad.append(f"khung {r['frame']}: cỡ {r['size'][0]}×{r['size'][1]}, phải 1920×1080")
+        if r["size"] != [cw, ch]:
+            bad.append(f"khung {r['frame']}: cỡ {r['size'][0]}×{r['size'][1]}, phải {cw}×{ch} (khung của brief)")
         if r["max"] == 0:
             bad.append(f"khung {r['frame']} ({r['shot']}): đen toàn bộ")
         elif r["stddev"] < BLANK_STDDEV and r["role"] in ("mid", "end"):   # đầu khung hình được phép trống trước lượt vào đầu tiên
             bad.append(f"khung {r['frame']} ({r['shot']}, {r['role']}): trống, chỉ một màu")
     if bad:
         return _fmt(bad, "Dựng thử chưa sạch:")
-    return CheckResult("pass", f"Dựng thử {len(man['frames'])} khung mốc 1920×1080: không lỗi JS hay console, không khung đen/trống.")
+    return CheckResult("pass", f"Dựng thử {len(man['frames'])} khung mốc {cw}×{ch}: không lỗi JS hay console, không khung đen/trống.")
 
 
 @register("presentation_deterministic")
@@ -123,8 +127,12 @@ def text_fit(project: Path, params: dict) -> CheckResult:
         return NO_CHECK
     bad = [f"khung {r['frame']}: {i}" for r in man["frames"] for i in r["issues"]]
     if bad:
-        return _fmt(sorted(set(bad)), "Chữ tràn box hoặc ra ngoài vùng an toàn 5% (đo trong DOM):")
-    return CheckResult("pass", f"Chữ nằm gọn trong box và trong vùng an toàn 5% ở {len(man['frames'])} khung mốc.")
+        return _fmt(sorted(set(bad)), "Chữ tràn box hoặc ra ngoài vùng an toàn (đo trong DOM):")
+    comp = _comp(project) or {}
+    m = comp.get("safe_margins") or {}
+    where = ", ".join(p["name"] for p in comp.get("platforms") or []) or "khung"
+    return CheckResult("pass", f"Chữ nằm gọn trong box và trong vùng an toàn của {where} (trên {m.get('top')} · dưới {m.get('bottom')} · "
+                               f"trái {m.get('left')} · phải {m.get('right')} px) ở {len(man['frames'])} khung mốc.")
 
 
 @register("presentation_motion")

@@ -196,6 +196,15 @@
         "type": "string"
       },
       "description": "Giả định Claude tự đưa ra khi chủ dự án vắng mặt"
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Nền tảng đăng (platforms/<id>.yaml). Một file video lên mọi nền tảng → lề an toàn chặt nhất từng cạnh."
     }
   }
 }

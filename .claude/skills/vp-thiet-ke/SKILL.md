@@ -37,7 +37,7 @@ Cho mỗi đoạn, tự hỏi: **người xem phải thấy gì, đúng lúc l�
   Dùng `match_cut` khi chuyển giữa hai khung có chung một đối tượng.
 - **Chuyển cảnh:** `cut` trong cùng cảnh, `crossfade` khi đổi ý, `zoom_through` hay `push_*` khi đổi không gian. Không lạm dụng.
 - **Chữ trên màn hình** chỉ là từ khoá hoặc nhãn, không chép cả câu lời đọc.
-  Title ≥ 72 px, nhãn ≥ 48 px, ≤ 7 từ mỗi dòng, nằm trong vùng an toàn 5%, đủ thời gian đọc (0,3 giây/từ + 1 giây).
+  Title ≥ 72 px, nhãn ≥ 48 px, ≤ 7 từ mỗi dòng, nằm trong vùng an toàn của nền tảng (xem mục Khung dọc bên dưới), đủ thời gian đọc (0,3 giây/từ + 1 giây).
 - **Tiếng động:** mỗi `sfx` gắn với một phần tử (`target`) và sự kiện (`enter`/`exit`/`loop`). Tối đa 5 cái mỗi 10 giây.
   Không đặt tiếng động đè lên từ khoá quan trọng.
 - `purpose` ghi bằng một câu điều người xem phải hiểu từ khung đó. `notes` dành cho người vẽ: chi tiết khó, cách chuyển động phức tạp.
@@ -72,3 +72,14 @@ Sau đó dùng skill `vp-kiem-duyet` cho công đoạn `design`. Người duyệ
 - **Cảnh kết bắt buộc có Khỉ** (thêm logo nếu có). DSN-A11 kiểm cả hai luật.
 - Đặt Khỉ ở góc hoặc cạnh, không che nội dung chính. Cỡ ≤ 44% chiều cao, vì PNG chỉ 512 px.
 - Mọi chữ có tấm nền khi `text_plate.always: true`.
+
+## Khung dọc 9:16 và vùng an toàn nền tảng (luật từ 28/11/2026)
+- Kênh Khỉ Khám Phá làm khung **1080×1920** cho YouTube Shorts, TikTok và Reels. Khung lấy từ `brief.format`, nền tảng lấy từ `brief.platforms` (hồ sơ ở `platforms/<id>.yaml`).
+- **Vùng an toàn** là lề chặt nhất từng cạnh của các nền tảng đã chọn. Với cả ba nền tảng: trên 220 · dưới 461 · trái 65 · phải 173 px, tức x 6,1–83,9 % và y 11,5–75,9 %. `python -c "from vp import platforms; ..."` hoặc DSN-A08 cho số chính xác.
+  - **Bắt buộc trong vùng:** chữ, linh vật (`mascot`), nút (`ui`). DSN-A08 ghi rõ nền tảng nào che.
+  - Cảnh nền phủ kín khung; vật chính của cảnh nằm trong vùng; dải dưới cùng chỉ để phần phụ.
+- **Bố cục dọc:** dòng chảy chính đi từ trên xuống; chuỗi ý xếp từ trên xuống, mũi tên chỉ xuống; hai vật so sánh xếp trên–dưới. Nội dung căn quanh x ≈ 45 % vì vùng an toàn lệch trái (cột nút bên phải).
+- **Ô hình theo tỉ lệ `viewBox`:** `h% = w% × 1080 / (tỉ lệ × 1920)`.
+- **Chữ hai dòng** cần cao ≈ 2 × cỡ × 1,28 + 0,24 × cỡ (dãn dòng và tấm nền của Tool 07). DSN-A07 đo đúng công thức này.
+- Chỉ dùng ký tự có trong font nhận diện (Be Vietnam Pro không có "→"); thiếu thì trình duyệt lấy font khác.
+- Ghép thử bằng hình thật trước khi giao duyệt (công cụ ghép đặt khung vùng an toàn lên từng khung).

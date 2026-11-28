@@ -29,3 +29,8 @@ Brief mơ hồ thì không công đoạn nào chấm đúng được.
 ## Lưu ý
 - Có nhắc tới sản phẩm, thương hiệu hay nhà tài trợ thì phải dùng `--ads` (Luật Quảng cáo sửa đổi 75/2025/QH15).
 - Sửa brief sau khi đã qua cổng thì cổng **hết hiệu lực**, và mọi công đoạn sau cũng phải duyệt lại.
+
+## Nền tảng đăng (từ 28/11/2026)
+- Hồ sơ từng nền tảng ở `platforms/<id>.yaml` (`youtube_shorts`, `tiktok`, `reels`): khung, thời lượng tối đa, lề an toàn, vùng giao diện che, nguồn và ngày đối chiếu số đo.
+- Kênh khai `platforms`; brief mới chép theo. Brief có thể bớt nền tảng nhưng mọi nền tảng phải cùng khung với `brief.format`.
+- BRF-A04 chặn khi thiếu hồ sơ, khác khung hoặc quá thời lượng; BRF-A05 cảnh báo khi số đo cũ hơn 180 ngày — khi đó đo lại trên ứng dụng thật (hoặc theo nguồn trong hồ sơ) và sửa `safe_margins_px`, `ui_zones`, `checked`.

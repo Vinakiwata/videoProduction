@@ -10,12 +10,18 @@ from vp.checks.files import load_yaml
 
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-W, H = 960, 540
+W, H = 960, 540   # khung xem trước mặc định (ngang); khung thật dùng preview_size(canvas)
 THUMB_W, THUMB_H, GAP, COLS, CAPTION_H = 480, 270, 16, 4, 96
 
 
 def content_hash(project: Path, sb_rel: str, script_rel: str) -> str:
     data = {"sb": load_yaml(project, sb_rel), "script": load_yaml(project, script_rel)}
+    bp = Path(project) / "00_brief" / "brief.yaml"
+    if bp.is_file():
+        b = load_yaml(project, "00_brief/brief.yaml") or {}
+        if b.get("platforms"):          # khung xem trước vẽ lề an toàn của nền tảng → đổi nền tảng thì vẽ lại
+            from vp import platforms as pf
+            data["margins"] = pf.safe_margins(b)
     return hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False, default=str).encode()).hexdigest()
 
 
@@ -60,21 +66,32 @@ def _text_in_box(draw, xy, text, font, fill, max_h, spacing=1.15):
         y += lh
 
 
-def render_frame(shot: dict, assets: dict, canvas: dict | None = None) -> Image.Image:
+def preview_size(canvas: dict | None) -> tuple[int, int]:
+    """Khung xem trước = nửa canvas (1920×1080 → 960×540; 1080×1920 → 540×960)."""
+    c = canvas or {"width": 1920, "height": 1080}
+    return c["width"] // 2, c["height"] // 2
+
+
+def render_frame(shot: dict, assets: dict, canvas: dict | None = None, margins: dict | None = None) -> Image.Image:
+    """margins: lề an toàn px trên khung thật (vp.platforms.safe_margins); không có → 5%."""
+    canvas = canvas or {"width": 1920, "height": 1080}
+    W, H = preview_size(canvas)
+    k = W / canvas["width"]
     im = Image.new("RGB", (W, H), _rgb(shot["background"]))
     d = ImageDraw.Draw(im, "RGBA")
     ink = _ink_for(shot["background"])
-    m = 0.05
-    d.rectangle([W * m, H * m, W * (1 - m), H * (1 - m)], outline=_rgb(ink) + (60,), width=1)
+    mg = margins or {"top": canvas["height"] * .05, "bottom": canvas["height"] * .05,
+                     "left": canvas["width"] * .05, "right": canvas["width"] * .05}
+    d.rectangle([mg["left"] * k, mg["top"] * k, W - mg["right"] * k, H - mg["bottom"] * k], outline=_rgb(ink) + (60,), width=1)
     els = sorted(enumerate(shot.get("elements") or []), key=lambda p: (p[1].get("z", 0), p[0]))
     for _, e in els:
         b = e["box"]
         box = [W * b["x"] / 100, H * b["y"] / 100, W * (b["x"] + b["w"]) / 100, H * (b["y"] + b["h"]) / 100]
         focal = e["id"] == shot.get("focal")
         if "text" in e:
-            f = _font(e["font_px"] * W / 1920, bold=e["style"] == "title")
+            f = _font(e["font_px"] * k, bold=e["style"] == "title")
             _text_in_box(d, box, e["text"], f, _rgb(e["color"]), box[3] - box[1])
-            over = _overflow(e, canvas or {"width": 1920, "height": 1080})
+            over = _overflow(e, canvas)
             d.rectangle(box, outline=(255, 60, 60, 255) if over else _rgb(ink) + (90,), width=3 if over else 1)
         else:
             a = assets.get(e["asset"], {"colors": ["#888888"], "description": e["asset"]})
@@ -118,8 +135,17 @@ def render_all(project: Path, sb_rel="02_design/storyboard.yaml", script_rel="01
     shots = c.sb.get("shots") or []
     names = []
     thumbs = []
+    cv = c.sb["meta"]["canvas"]
+    margins = None
+    bp = project / "00_brief" / "brief.yaml"
+    if bp.is_file():
+        from vp import platforms as pf
+        b = load_yaml(project, "00_brief/brief.yaml") or {}
+        if b.get("platforms"):
+            margins = pf.safe_margins(b)
+    THUMB_W, THUMB_H, COLS = (480, 270, 4) if cv["width"] >= cv["height"] else (270, 480, 6)
     for sh in shots:
-        im = render_frame(sh, assets, c.sb["meta"]["canvas"])
+        im = render_frame(sh, assets, cv, margins)
         name = f"{sh['id']}.png"
         im.save(out_dir / name, optimize=True)
         names.append(name)

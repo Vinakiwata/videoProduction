@@ -1,6 +1,6 @@
 # Tool 9 — Mix giọng + nhạc + SFX, ghép với hình, gắn phụ đề.
 stage: mix
-version: 1
+version: 2
 title: Kiểm duyệt mix âm thanh & ghép video
 artifacts: [09_mix]
 items:
@@ -31,7 +31,7 @@ items:
     severity: chan
     method: auto
     check: video_format
-    params: {path: 09_mix/video.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+    params: {path: 09_mix/video.mp4, format_from: 00_brief/brief.yaml, fps: 30, codec: h264, pix_fmt: yuv420p}
   - id: MIX-C01
     group: Đồng bộ
     title: Giọng khớp hình tại mọi điểm neo (lệch ≤ 2 khung)

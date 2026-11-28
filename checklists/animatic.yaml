@@ -1,6 +1,6 @@
 # Animatic — video nháp duyệt nhịp. Xem docs/superpowers/specs/2026-11-27-tool-animatic-design.md
 stage: animatic
-version: 2
+version: 3
 title: Kiểm duyệt animatic (bản nháp thô)
 artifacts: [03_animatic, 02_design/storyboard.yaml, 01_script/script.yaml]
 items:
@@ -20,11 +20,11 @@ items:
     params: {path: 03_animatic/animatic.mp4, max_diff_s: 0.2}
   - id: ATC-A03
     group: Kỹ thuật
-    title: Định dạng nháp 960×636 @ 15 fps (hình 960×540 + dải phụ đề riêng)
+    title: Định dạng nháp = nửa khung storyboard + dải phụ đề riêng (ngang 960×636, dọc 540×1120) @ 15 fps
     severity: nhe
     method: auto
     check: video_format
-    params: {path: 03_animatic/animatic.mp4, width: 960, height: 636, fps: 15}
+    params: {path: 03_animatic/animatic.mp4, animatic_from: 02_design/storyboard.yaml, fps: 15}
   - id: ATC-A04
     group: Đồng bộ
     title: Animatic dựng từ đúng kịch bản, storyboard, giọng nháp hiện tại

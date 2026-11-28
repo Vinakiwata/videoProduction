@@ -1,5 +1,5 @@
 stage: brief
-version: 3
+version: 4
 title: Kiểm duyệt brief
 artifacts: [00_brief/brief.yaml]
 items:
@@ -24,6 +24,20 @@ items:
     method: auto
     check: brand_voice_valid
     params: {path: 00_brief/brief.yaml}
+  - id: BRF-A04
+    group: Nền tảng
+    title: Nền tảng có hồ sơ, cùng khung, brief.format trùng khung đó, thời lượng ≤ giới hạn của từng nền tảng
+    severity: chan
+    method: auto
+    check: brief_platforms
+    params: {path: 00_brief/brief.yaml}
+  - id: BRF-A05
+    group: Nền tảng
+    title: Số đo vùng an toàn của các nền tảng đối chiếu trong vòng 180 ngày (cảnh báo)
+    severity: nhe
+    method: auto
+    check: platform_profiles_fresh
+    params: {path: 00_brief/brief.yaml, max_age_days: 180}
   - id: BRF-C01
     group: Mục tiêu
     title: Mục tiêu đo được — sau khi xem, người xem biết/làm được gì

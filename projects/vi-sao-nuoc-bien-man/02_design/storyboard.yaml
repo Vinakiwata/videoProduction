@@ -1,6 +1,6 @@
 meta:
   title: Vì sao nước biển lại mặn?
-  canvas: {width: 1920, height: 1080, fps: 30}
+  canvas: {width: 1080, height: 1920, fps: 30}
 palette: ['#0078E0', '#FFC907', '#FFFFFF', '#5E270E', '#FD8305', '#669F2D', '#0B3D91']
 fonts: {title: Be Vietnam Pro, body: Be Vietnam Pro}
 scene_palette: ['#4A98D6', '#6F879E', '#8AA6CF', '#5B7DB1', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#6B4A2E', '#3FA7E0', '#1F7FC4', '#145A9E', '#0A2A66', '#F2D49B', '#E3BC78', '#B4B4BC', '#8C8C94', '#5E5E66', '#FF7A2F']
@@ -10,12 +10,13 @@ style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh ho�
 # Quy ước (28/11/2026): cảnh = phong cảnh thật màu tự nhiên (trời xanh, núi, cây xanh lá, sông xanh nhạt, biển xanh, cát vàng);
 # chữ trên cảnh luôn có tấm nền text_plate. Icon/khung giải thích: biển/trời #0B3D91, nền tối #1B1B1F,
 # nước ngọt, mưa, muối = trắng; năng lượng/nhấn mạnh (mặt trời, axit, chữ chính) = vàng #FFD23F.
-# Hướng dòng chảy nhân quả: trái -> phải (núi/đá bên trái, biển bên phải).
+# Khung dọc 9:16 (28/11/2026): dòng chảy chính trên -> dưới (núi ở trên, biển ở dưới); chuỗi ý xếp từ trên xuống.
+# Vùng an toàn (lề chặt nhất Shorts/TikTok/Reels): x 6,1–83,9 %, y 11,5–75,9 % — chữ, Khỉ, nút luôn nằm trong; cảnh phủ kín khung.
 assets:
-  - {id: A-SONG, kind: scene, description: 'Phong cảnh sông: trời xanh, dãy núi xa có đỉnh tuyết, đồi xanh có rặng cây thông hai bên, dòng sông xanh nhạt uốn lượn từ chân núi ra phía trước rồi rộng dần, gợn sóng trắng; không có mặt trời', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#5E270E']}
-  - {id: A-CUA-SONG, kind: scene, description: 'Phong cảnh cửa sông: núi và đồi cây bên trái, dòng sông uốn lượn chảy sang phải rồi đổ ra biển xanh ở 40% bên phải, bãi cát và bọt sóng trắng ở chỗ sông gặp biển', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#5E270E', '#1F7FC4', '#145A9E', '#F2D49B', '#E3BC78']}
+  - {id: A-SONG, kind: scene, description: 'Phong cảnh sông khung dọc: trời xanh phía trên, dãy núi xa có đỉnh tuyết, đồi xanh có rặng cây thông hai bên, dòng sông xanh nhạt uốn lượn từ chân núi xuống phía dưới rồi rộng dần về phía người xem, gợn sóng trắng; không có mặt trời', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#5E270E']}
+  - {id: A-CUA-SONG, kind: scene, description: 'Phong cảnh cửa sông khung dọc: núi và đồi cây ở nửa trên, dòng sông uốn lượn chảy từ trên xuống rồi đổ ra biển xanh chiếm 1/3 dưới, bãi cát và bọt sóng trắng ở chỗ sông gặp biển', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#5E270E', '#1F7FC4', '#145A9E', '#F2D49B', '#E3BC78']}
   - {id: A-SONG-ICON, kind: icon, description: 'Biểu tượng sông phẳng: dải trắng uốn lượn có vạch sóng xanh đậm, dùng trong chuỗi tóm tắt', colors: ['#FFFFFF', '#0078E0']}
-  - {id: A-BIEN, kind: scene, description: 'Phong cảnh bãi biển: trời xanh (nửa trên, chừa chỗ cho mặt trời góc trái), biển xanh nhiều sắc độ từ đường chân trời ở 50% xuống 80% chiều cao, sóng trắng, bãi cát vàng có viền cát ướt và bọt sóng, cây dừa nghiêng ở mép trái, vài hòn đá nhỏ', colors: ['#4A98D6', '#0A2A66', '#145A9E', '#1F7FC4', '#FFFFFF', '#F2D49B', '#E3BC78', '#8A5A2B', '#3E9B4F', '#2F7A3A', '#8C8C94', '#5E5E66', '#5E270E']}
+  - {id: A-BIEN, kind: scene, description: 'Phong cảnh bãi biển khung dọc: trời xanh phía trên (chừa chỗ cho mặt trời góc trái trên), đường chân trời ở 45% chiều cao, biển xanh nhiều sắc độ từ 45% xuống 72%, sóng trắng, bãi cát vàng ở dưới có viền cát ướt và bọt sóng, cây dừa nghiêng ở mép trái, vài hòn đá nhỏ', colors: ['#4A98D6', '#0A2A66', '#145A9E', '#1F7FC4', '#FFFFFF', '#F2D49B', '#E3BC78', '#8A5A2B', '#3E9B4F', '#2F7A3A', '#8C8C94', '#5E5E66', '#5E270E']}
   - {id: A-COC-SONG, kind: icon, description: 'Cốc thuỷ tinh viền trắng, nước trong, giữa có biểu tượng giọt nước trắng; nhãn nhỏ "sông" dưới đáy cốc', colors: ['#FFFFFF']}
   - {id: A-COC-BIEN, kind: icon, description: 'Cốc thuỷ tinh viền trắng, nước xanh đậm, giữa có 3 hạt muối hình lập phương trắng; nhãn nhỏ "biển" dưới đáy cốc', colors: ['#FFFFFF', '#0078E0']}
   - {id: A-MAY, kind: illustration, description: 'Đám mây phẳng 3 khối tròn chồng nhau, màu trắng, đáy phẳng', colors: ['#FFFFFF']}
@@ -23,25 +24,23 @@ assets:
   - {id: A-GIOT-MUA-CHUA, kind: icon, description: 'Giọt mưa trắng có viền vàng dày và 2 bọt nhỏ vàng bên trong — biểu thị nước mưa hơi chua (axit nhẹ)', colors: ['#FFFFFF', '#FFC907']}
   - {id: A-PHANTU-KHI, kind: diagram, description: 'Cụm 5-6 phân tử khí: mỗi phân tử là 1 chấm tròn giữa nối 2 chấm nhỏ hai bên (kiểu CO2), màu trắng, bay lơ lửng', colors: ['#FFFFFF']}
   - {id: A-DA, kind: scene, description: 'Tảng đá granit thật nằm trên bãi cỏ: khối xám nhiều mặt sáng tối, mảng rêu xanh, vài vết nứt tối, khóm cỏ dưới chân, bóng đổ', colors: ['#B4B4BC', '#8C8C94', '#5E5E66', '#7CC36A', '#5AA84C', '#3E9B4F', '#5E270E', '#FFFFFF']}
-  - {id: A-NEN-MUA, kind: scene, description: 'Phong cảnh đồi dưới trời mưa: trời xám xanh âm u chiếm 3/4 trên (để trống cho mây và giọt mưa), đồi xa mờ, đồi gần xanh có vài cây, vệt mưa trắng mảnh', colors: ['#6F879E', '#8AA6CF', '#5B7DB1', '#5AA84C', '#3E9B4F', '#2F7A3A', '#6B4A2E', '#FFFFFF']}
+  - {id: A-NEN-MUA, kind: scene, description: 'Phong cảnh đồi dưới trời mưa khung dọc: trời xám xanh âm u chiếm 3/4 trên (để trống cho mây, giọt mưa và tảng đá), đồi xa mờ, đồi gần xanh có vài cây ở dưới, vệt mưa trắng mảnh', colors: ['#6F879E', '#8AA6CF', '#5B7DB1', '#5AA84C', '#3E9B4F', '#2F7A3A', '#6B4A2E', '#FFFFFF']}
   - {id: A-HAT-MUOI, kind: icon, description: 'Cụm hạt muối li ti hình lập phương trắng, vài hạt to hơn có điểm sáng, dùng để bong khỏi đá và trôi theo nước', colors: ['#FFFFFF']}
-  - {id: A-SUOI, kind: scene, description: 'Phong cảnh sườn núi: núi xám xanh bên trái có tuyết, ba dòng suối xanh nhạt chảy xuống qua rừng thông, nhập thành một dòng sông rộng dần chảy sang phải dưới chân đồi', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#8C8C94']}
+  - {id: A-SUOI, kind: scene, description: 'Phong cảnh sườn núi khung dọc: núi xám xanh có tuyết ở trên, ba dòng suối xanh nhạt chảy xuống qua rừng thông, nhập thành một dòng sông rộng dần ở phần dưới khung', colors: ['#4A98D6', '#8AA6CF', '#5B7DB1', '#FFFFFF', '#7CC36A', '#5AA84C', '#3E9B4F', '#2F7A3A', '#8A5A2B', '#3FA7E0', '#8C8C94']}
   - {id: A-KINH-LUP, kind: icon, description: 'Kính lúp tay cầm vàng, mắt kính tròn trong suốt viền vàng dày; bên trong phóng to dòng nước có đúng 3 hạt muối thưa', colors: ['#FFC907', '#FFFFFF']}
-  - {id: A-BAN-DO-SONG, kind: scene, description: 'Bản đồ phong cảnh nhìn từ trên cao: đất liền xanh lá có rừng và dãy núi nâu bên trái, 5 con sông xanh nhạt từ nhiều phía đổ về vùng biển xanh bên phải (bờ cát vàng); trên mỗi sông có chuỗi chấm trắng (muối)', colors: ['#7CC36A', '#5AA84C', '#3E9B4F', '#8A5A2B', '#6B4A2E', '#3FA7E0', '#1F7FC4', '#145A9E', '#F2D49B', '#FFFFFF']}
+  - {id: A-BAN-DO-SONG, kind: scene, description: 'Bản đồ phong cảnh nhìn từ trên cao, khung dọc: đất liền xanh lá có rừng và dãy núi nâu ở trên, 5 con sông xanh nhạt từ nhiều phía chảy xuống đổ về vùng biển xanh ở 1/3 dưới (bờ cát vàng); trên mỗi sông có chuỗi chấm trắng (muối)', colors: ['#7CC36A', '#5AA84C', '#3E9B4F', '#8A5A2B', '#6B4A2E', '#3FA7E0', '#1F7FC4', '#145A9E', '#F2D49B', '#FFFFFF']}
   - {id: A-SANG-BIEN, kind: diagram, description: 'Lớp sáng trắng mờ phủ đúng vùng biển của bản đồ, dùng để nhấp nháy chậm khi nói tất cả các dòng sông', colors: ['#FFFFFF']}
   - {id: A-MAT-TROI, kind: illustration, description: 'Mặt trời tròn vàng với 8 tia ngắn bo tròn', colors: ['#FFC907']}
   - {id: A-HOI-NUOC, kind: diagram, description: 'Các chấm hơi nước trắng nhỏ bay lên theo 3 mũi tên chấm chấm hướng lên; không có hạt muối nào trong luồng bay lên', colors: ['#FFFFFF']}
   - {id: A-MUOI-O-LAI, kind: icon, description: 'Hàng hạt muối lập phương trắng nằm lại dưới mặt nước biển, lấp lánh nhẹ', colors: ['#FFFFFF']}
   - {id: A-VONG-TUAN-HOAN, kind: diagram, description: 'Vòng tròn 4 chặng nối bằng mũi tên vàng cong chạy theo chiều kim đồng hồ: mưa (giọt trắng) → đá → sông → biển → mây; mỗi chặng là icon trắng đơn giản', colors: ['#FFC907', '#FFFFFF']}
-  - {id: A-DAY-BIEN, kind: scene, description: 'Mặt cắt đáy biển thật: nước xanh đậm dần xuống sâu, tia sáng mờ từ mặt nước, đáy cát và đá nâu xám; giữa là núi lửa đá tối có miệng dung nham cam vàng phát sáng, bên phải một ống khe nứt nhiệt toả vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)', colors: ['#1F7FC4', '#145A9E', '#0A2A66', '#E3BC78', '#6B4A2E', '#5E5E66', '#8C8C94', '#FF7A2F', '#FFC907', '#FFFFFF', '#5E270E']}
+  - {id: A-DAY-BIEN, kind: scene, description: 'Mặt cắt đáy biển thật, khung dọc: mặt nước ở trên, nước xanh đậm dần xuống sâu, tia sáng mờ từ mặt nước, đáy cát và đá nâu xám; ở 1/3 dưới là núi lửa đá tối có miệng dung nham cam vàng phát sáng, bên phải một ống khe nứt nhiệt toả vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)', colors: ['#1F7FC4', '#145A9E', '#0A2A66', '#E3BC78', '#6B4A2E', '#5E5E66', '#8C8C94', '#FF7A2F', '#FFC907', '#FFFFFF', '#5E270E']}
   - {id: A-KHOANG-CHAT, kind: diagram, description: 'Chuỗi chấm khoáng chất trắng nhỏ bay lên từ miệng núi lửa và khe nứt, toả dần vào làn nước', colors: ['#FFFFFF']}
-  - {id: A-MUI-TEN, kind: icon, description: 'Mũi tên ngang dày bo tròn màu vàng, chỉ sang phải', colors: ['#FFC907']}
+  - {id: A-MUI-TEN, kind: icon, description: 'Mũi tên dọc dày bo tròn màu vàng, chỉ xuống (chuỗi tóm tắt xếp từ trên xuống)', colors: ['#FFC907']}
   - {id: A-NUT-DANG-KY, kind: ui, description: 'Nút bo tròn lớn màu vàng, chữ "ĐĂNG KÝ" màu tối đậm ở giữa, tự thiết kế — không dùng logo YouTube', colors: ['#FFC907', '#5E270E']}
-  - {id: A-CHUONG, kind: icon, description: 'Chuông thông báo trắng phẳng, có 2 vạch rung nhỏ hai bên', colors: ['#FFFFFF']}
   - {id: A-KHI-THAC-MAC, kind: mascot, expression: tham-hoi, description: 'Khỉ chống cằm thắc mắc, có dấu hỏi xanh — nêu nghịch lý mở đầu', colors: ['#FFC907', '#5E270E', '#0078E0']}
   - {id: A-KHI-NGAC-NHIEN, kind: mascot, expression: ngac-nhien, description: 'Khỉ ôm má ngạc nhiên, dấu chấm than cam — lúc lộ đáp án nước bay đi muối ở lại', colors: ['#FFC907', '#5E270E', '#FD8305']}
   - {id: A-KHI-TRAI-DAT, kind: mascot, expression: yeu-trai-dat, description: 'Khỉ ôm quả địa cầu — quy mô hàng triệu năm của hành tinh', colors: ['#FFC907', '#5E270E', '#669F2D']}
-  - {id: A-KHI-VUI-MUNG, kind: mascot, expression: vui-mung, description: 'Khỉ giơ hai tay vui mừng — cảnh kết mời đăng ký', colors: ['#FFC907', '#5E270E', '#0078E0']}
   - {id: A-KHI-LOGO, kind: mascot, expression: logo, description: 'Logo tròn Khỉ Khám Phá có bảng tên gỗ — cảnh kết', colors: ['#FFC907', '#5E270E', '#0078E0', '#669F2D']}
 shots:
   # ---------------- S01 Móc ----------------
@@ -51,11 +50,11 @@ shots:
     purpose: Thấy dòng sông nước ngọt đổ ra biển — vế đầu của nghịch lý
     background: '#0B3D91'
     focal: e1
-    camera: {move: pan_right, amount: 0.1}
+    camera: {move: pan_down, amount: 0.1}
     transition_in: cut
     elements:
       - {id: e1, asset: A-CUA-SONG, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.6, ease: ease_out}, loop: {anim: flow}}
-    notes: Một cảnh cửa sông duy nhất — lớp river chảy (flow) sang phải, lớp waves dập dềnh (bob 2,5 s); điểm hợp lưu ở khoảng 60% chiều ngang.
+    notes: Một cảnh cửa sông duy nhất — gợn sóng trôi xuôi dòng từ trên xuống (flow), lớp waves dập dềnh (bob 2,5 s); cửa sông ở khoảng 65% chiều cao; camera lia xuống theo dòng chảy.
   - id: S01-01-b
     segment: S01-01
     span: [0.39, 1]
@@ -65,10 +64,10 @@ shots:
     camera: {move: static}
     transition_in: zoom_through
     elements:
-      - {id: e1, asset: A-COC-SONG, box: {x: 18, y: 30, w: 20, h: 40}, enter: {anim: pop, at: 0, dur_s: 0.4, ease: back_out}}
-      - {id: e2, asset: A-COC-BIEN, box: {x: 62, y: 30, w: 20, h: 40}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}}
-      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 40, y: 22, w: 20, h: 44}, enter: {anim: pop, at: 0.6, dur_s: 0.35, ease: back_out}, loop: {anim: bob}}
-      - {id: e4, text: 'Sông ngọt → Biển mặn?', style: title, font_px: 96, color: '#FFC907', box: {x: 15, y: 74, w: 70, h: 14}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
+      - {id: e1, asset: A-COC-SONG, box: {x: 6, y: 30, w: 34, h: 23.4}, enter: {anim: pop, at: 0, dur_s: 0.4, ease: back_out}}
+      - {id: e2, asset: A-COC-BIEN, box: {x: 46, y: 30, w: 34, h: 23.4}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}}
+      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 26, y: 55.5, w: 34, h: 19.1}, enter: {anim: pop, at: 0.6, dur_s: 0.35, ease: back_out}, loop: {anim: bob}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 12, w: 76, h: 14.5}, enter: {anim: fade, at: 0.38, dur_s: 0.3, ease: ease_out}}
     sfx:
       - {name: pop, target: e3, event: enter}
     notes: Zoom xuyên qua mặt biển của khung trước để vào khung hai cốc. Cốc biển hơi nghiêng để thấy hạt muối.
@@ -81,10 +80,10 @@ shots:
     camera: {move: zoom_in, amount: 0.05}
     transition_in: match_cut
     elements:
-      - {id: e1, asset: A-COC-SONG, box: {x: 18, y: 30, w: 20, h: 40}}
-      - {id: e2, asset: A-COC-BIEN, box: {x: 62, y: 30, w: 20, h: 40}}
-      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 40, y: 22, w: 20, h: 44}, loop: {anim: wiggle}}
-      - {id: e4, text: 'Sông ngọt → Biển mặn?', style: title, font_px: 96, color: '#FFC907', box: {x: 15, y: 74, w: 70, h: 14}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
+      - {id: e1, asset: A-COC-SONG, box: {x: 6, y: 30, w: 34, h: 23.4}}
+      - {id: e2, asset: A-COC-BIEN, box: {x: 46, y: 30, w: 34, h: 23.4}}
+      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 26, y: 55.5, w: 34, h: 19.1}, loop: {anim: wiggle}}
+      - {id: e4, text: "Sông ngọt,\nbiển mặn?", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 12, w: 76, h: 14.5}, exit: {anim: fade, at: 1, dur_s: 0.3, ease: ease_in}}
     notes: Nối tiếp liền mạch với S01-01-b (không thấy vết cắt); chỉ dấu hỏi lắc và camera tiến nhẹ.
   # ---------------- S02 Mưa và đá ----------------
   - id: S02-01-a
@@ -97,11 +96,11 @@ shots:
     transition_in: crossfade
     elements:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
-      - {id: e1, asset: A-MAY, box: {x: 30, y: 6, w: 40, h: 22}, enter: {anim: fade, at: 0, dur_s: 0.4, ease: ease_out}}
-      - {id: e2, asset: A-GIOT-MUA, box: {x: 45, y: 32, w: 10, h: 18}, enter: {anim: drop, at: 0.05, dur_s: 0.6, ease: ease_in}}
-      - {id: e3, asset: A-PHANTU-KHI, box: {x: 20, y: 35, w: 22, h: 25}, enter: {anim: slide_right, at: 0.35, dur_s: 0.7, ease: ease_in_out}, exit: {anim: scale_out, at: 0.6, dur_s: 0.3}}
-      - {id: e4, asset: A-GIOT-MUA-CHUA, box: {x: 45, y: 32, w: 10, h: 18}, enter: {anim: morph, at: 0.62, dur_s: 0.4, ease: ease_out}, loop: {anim: pulse}}
-      - {id: e5, text: 'axit nhẹ', style: label, font_px: 64, color: '#FFC907', box: {x: 58, y: 40, w: 25, h: 10}, enter: {anim: fade, at: 0.68, dur_s: 0.3}}
+      - {id: e1, asset: A-MAY, box: {x: 18, y: 12, w: 50, h: 11.1}, enter: {anim: fade, at: 0, dur_s: 0.4, ease: ease_out}}
+      - {id: e2, asset: A-GIOT-MUA, box: {x: 36, y: 26, w: 14, h: 13.1}, enter: {anim: drop, at: 0.05, dur_s: 0.6, ease: ease_in}}
+      - {id: e3, asset: A-PHANTU-KHI, box: {x: 2, y: 28, w: 28, h: 10.5}, enter: {anim: slide_right, at: 0.35, dur_s: 0.7, ease: ease_in_out}, exit: {anim: scale_out, at: 0.6, dur_s: 0.3}}
+      - {id: e4, asset: A-GIOT-MUA-CHUA, box: {x: 36, y: 26, w: 14, h: 13.1}, enter: {anim: morph, at: 0.62, dur_s: 0.4, ease: ease_out}, loop: {anim: pulse}}
+      - {id: e5, text: 'axit nhẹ', style: label, font_px: 64, color: '#FFC907', box: {x: 52, y: 30, w: 30, h: 6.5}, enter: {anim: fade, at: 0.68, dur_s: 0.3}}
     notes: Phân tử khí bay vào trong giọt mưa rồi biến mất; giọt mưa trắng biến hình (morph) thành giọt viền vàng đúng lúc nói "hơi chua".
   - id: S02-02-a
     segment: S02-02
@@ -113,8 +112,8 @@ shots:
     transition_in: push_up
     elements:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
-      - {id: e1, asset: A-DA, box: {x: 20, y: 40, w: 60, h: 50}, enter: {anim: slide_up, at: 0, dur_s: 0.5, ease: ease_out}}
-      - {id: e2, asset: A-GIOT-MUA-CHUA, box: {x: 40, y: 8, w: 8, h: 14}, enter: {anim: drop, at: 0.1, dur_s: 0.6, ease: ease_in}, loop: {anim: flow}}
+      - {id: e1, asset: A-DA, box: {x: 10, y: 48, w: 80, h: 19}, enter: {anim: slide_up, at: 0, dur_s: 0.5, ease: ease_out}}
+      - {id: e2, asset: A-GIOT-MUA-CHUA, box: {x: 45.6, y: 16, w: 10, h: 9.4}, enter: {anim: drop, at: 0.1, dur_s: 0.6, ease: ease_in}, loop: {anim: flow}}
     notes: Nhiều giọt mưa chua (cùng asset) rơi liên tục và chảy thành vệt dọc sườn đá.
   - id: S02-02-b
     segment: S02-02
@@ -126,9 +125,9 @@ shots:
     transition_in: match_cut
     elements:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
-      - {id: e1, asset: A-DA, box: {x: -10, y: 30, w: 120, h: 80}}
-      - {id: e2, asset: A-HAT-MUOI, box: {x: 40, y: 46, w: 22, h: 18}, enter: {anim: grow, at: 0.15, dur_s: 0.8, ease: ease_out}, loop: {anim: shimmer}}
-      - {id: e3, text: muối, style: label, font_px: 72, color: '#FFC907', box: {x: 64, y: 30, w: 16, h: 11}, enter: {anim: pop, at: 0.45, dur_s: 0.3, ease: back_out}}
+      - {id: e1, asset: A-DA, box: {x: -10, y: 42, w: 120, h: 28.4}}
+      - {id: e2, asset: A-HAT-MUOI, box: {x: 36, y: 44, w: 30, h: 7.7}, enter: {anim: grow, at: 0.15, dur_s: 0.8, ease: ease_out}, loop: {anim: shimmer}}
+      - {id: e3, text: muối, style: label, font_px: 72, color: '#FFC907', box: {x: 56, y: 28, w: 24, h: 7}, enter: {anim: pop, at: 0.45, dur_s: 0.3, ease: back_out}}
     sfx:
       - {name: lách tách nhẹ, target: e2, event: enter}
     notes: Zoom vào vết nứt chính trên đỉnh đá (hạt muối nằm ngay miệng vết nứt); hạt li ti bong ra theo dòng nước, vài hạt sáng lên thành hình lập phương muối khi nói "trong đó có muối".
@@ -142,11 +141,11 @@ shots:
     transition_in: match_cut
     elements:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
-      - {id: e1, asset: A-DA, box: {x: -10, y: 30, w: 120, h: 80}}
-      - {id: e2, asset: A-HAT-MUOI, box: {x: 40, y: 46, w: 22, h: 18}, enter: {anim: slide_right, at: 0, dur_s: 1.0, ease: ease_in_out}}
+      - {id: e1, asset: A-DA, box: {x: -10, y: 42, w: 120, h: 28.4}}
+      - {id: e2, asset: A-HAT-MUOI, box: {x: 36, y: 44, w: 30, h: 7.7}, enter: {anim: slide_right, at: 0, dur_s: 1.0, ease: ease_in_out}}
     sfx:
       - {name: nước chảy róc rách, target: e2, event: enter}
-    notes: Camera và hạt muối cùng trôi sang phải, nối hướng chảy sang cảnh sông.
+    notes: Camera và hạt muối cùng trôi sang phải, rời khỏi đá theo dòng nước để nối sang cảnh suối.
   # ---------------- S03 Sông chở muối ----------------
   - id: S03-01-a
     segment: S03-01
@@ -169,9 +168,9 @@ shots:
     transition_in: match_cut
     elements:
       - {id: e1, asset: A-SONG, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: flow}}
-      - {id: e2, asset: A-KINH-LUP, box: {x: 33, y: 56, w: 30, h: 52}, enter: {anim: scale_in, at: 0, dur_s: 0.5, ease: back_out}}
-      - {id: e3, text: 'rất ít muối', style: label, font_px: 64, color: '#FFC907', box: {x: 66, y: 22, w: 28, h: 10}, enter: {anim: fade, at: 0.2, dur_s: 0.3}}
-    notes: Mắt kính đặt đúng trên lòng sông đoạn gần, rộng (tâm ≈ 48%, 72% khung; cán kính tràn nhẹ mép dưới); trong mắt kính chỉ có đúng 3 hạt muối thưa thớt, phần còn lại là nước trong.
+      - {id: e2, asset: A-KINH-LUP, box: {x: 25, y: 34, w: 40, h: 39}, enter: {anim: scale_in, at: 0, dur_s: 0.5, ease: back_out}}
+      - {id: e3, text: 'rất ít muối', style: label, font_px: 64, color: '#FFC907', box: {x: 40, y: 14, w: 42, h: 6.5}, enter: {anim: fade, at: 0.2, dur_s: 0.3}}
+    notes: Mắt kính đặt đúng trên lòng sông đoạn giữa (tâm ≈ 45%, 45% khung dọc; cán kính chĩa xuống); trong mắt kính chỉ có đúng 3 hạt muối thưa thớt, phần còn lại là nước trong.
   - id: S03-02-a
     segment: S03-02
     span: [0, 0.52]
@@ -182,9 +181,9 @@ shots:
     transition_in: cut
     elements:
       - {id: e1, asset: A-SONG, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: flow}}
-      - {id: e2, asset: A-MAY, box: {x: 32, y: 4, w: 36, h: 18}, enter: {anim: slide_down, at: 0, dur_s: 0.5, ease: ease_out}}
-      - {id: e3, asset: A-GIOT-MUA, box: {x: 38, y: 22, w: 24, h: 34}, enter: {anim: drop, at: 0.1, dur_s: 0.6, ease: ease_in}, loop: {anim: flow}}
-      - {id: e4, text: 'nước ngọt mới', style: label, font_px: 64, color: '#FFFFFF', box: {x: 60, y: 82, w: 34, h: 10}, enter: {anim: fade, at: 0.2, dur_s: 0.3}}
+      - {id: e2, asset: A-MAY, box: {x: 20, y: 12, w: 50, h: 11.1}, enter: {anim: slide_down, at: 0, dur_s: 0.5, ease: ease_out}}
+      - {id: e3, asset: A-GIOT-MUA, box: {x: 33, y: 24, w: 24, h: 22.5}, enter: {anim: drop, at: 0.1, dur_s: 0.6, ease: ease_in}, loop: {anim: flow}}
+      - {id: e4, text: 'nước ngọt mới', style: label, font_px: 64, color: '#FFFFFF', box: {x: 30, y: 66, w: 52, h: 6.5}, enter: {anim: fade, at: 0.2, dur_s: 0.3}}
   - id: S03-02-b
     segment: S03-02
     span: [0.52, 1]
@@ -196,7 +195,7 @@ shots:
     elements:
       - {id: e1, asset: A-BAN-DO-SONG, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.5}, loop: {anim: flow}}
       - {id: e2, asset: A-SANG-BIEN, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: pulse, period_s: 1.2}}
-      - {id: e3, text: 'Muối dồn về biển', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 82, w: 60, h: 10}, enter: {anim: fade, at: 0.0, dur_s: 0.3}}
+      - {id: e3, text: 'Muối dồn về biển', style: label, font_px: 64, color: '#FFC907', box: {x: 8, y: 66, w: 62, h: 6.5}, enter: {anim: fade, at: 0.0, dur_s: 0.3}}
     notes: Camera lùi từ một dòng sông ra toàn bản đồ; chuỗi chấm trắng trên mọi sông chạy về biển, biển sáng nhẹ khi nói "tất cả các dòng sông".
   # ---------------- S04 Bốc hơi ----------------
   - id: S04-01-a
@@ -209,15 +208,15 @@ shots:
     transition_in: crossfade
     elements:
       - {id: e2, asset: A-BIEN, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: bob, period_s: 2.5}}
-      - {id: e1, asset: A-MAT-TROI, box: {x: 8, y: 6, w: 16, h: 28}, enter: {anim: scale_in, at: 0, dur_s: 0.5, ease: back_out}, loop: {anim: rotate, period_s: 8}}
-      - {id: e3, asset: A-HOI-NUOC, box: {x: 40, y: 14, w: 20, h: 38}, enter: {anim: slide_up, at: 0.1, dur_s: 1.0, ease: ease_out}, loop: {anim: flow}}
-      - {id: e4, asset: A-MAY, box: {x: 38, y: 2, w: 26, h: 14}, enter: {anim: pop, at: 0.45, dur_s: 0.4, ease: back_out}}
-      - {id: e5, asset: A-MUOI-O-LAI, box: {x: 30, y: 62, w: 40, h: 10}, enter: {anim: fade, at: 0.6, dur_s: 0.4}, loop: {anim: shimmer}}
-      - {id: e7, asset: A-KHI-NGAC-NHIEN, box: {x: 78, y: 60, w: 17, h: 36}, enter: {anim: pop, at: 0.58, dur_s: 0.35, ease: back_out}}
-      - {id: e6, text: 'Nước bay đi, muối ở lại', style: label, font_px: 64, color: '#FFC907', box: {x: 62, y: 32, w: 33, h: 18}, enter: {anim: fade, at: 0.5, dur_s: 0.3}}
+      - {id: e1, asset: A-MAT-TROI, box: {x: 8, y: 13, w: 22, h: 12.4}, enter: {anim: scale_in, at: 0, dur_s: 0.5, ease: back_out}, loop: {anim: rotate, period_s: 8}}
+      - {id: e3, asset: A-HOI-NUOC, box: {x: 34, y: 22.5, w: 24, h: 22.5}, enter: {anim: slide_up, at: 0.1, dur_s: 1.0, ease: ease_out}, loop: {anim: flow}}
+      - {id: e4, asset: A-MAY, box: {x: 34, y: 13, w: 36, h: 8}, enter: {anim: pop, at: 0.45, dur_s: 0.4, ease: back_out}}
+      - {id: e5, asset: A-MUOI-O-LAI, box: {x: 6, y: 50, w: 70, h: 6.7}, enter: {anim: fade, at: 0.6, dur_s: 0.4}, loop: {anim: shimmer}}
+      - {id: e7, asset: A-KHI-NGAC-NHIEN, box: {x: 55, y: 58, w: 28, h: 15.7}, enter: {anim: pop, at: 0.58, dur_s: 0.35, ease: back_out}}
+      - {id: e6, text: 'Nước bay đi, muối ở lại', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 60, w: 46, h: 12}, enter: {anim: fade, at: 0.5, dur_s: 0.3}}
     sfx:
       - {name: pop nhẹ, target: e4, event: enter}
-    notes: Hơi nước bốc lên từ mặt biển (đường chân trời ở 50% chiều cao) chỉ mang chấm trắng (nước); hàng muối nằm dưới mặt nước sáng lên đúng lúc nói "muối thì không bay theo".
+    notes: Hơi nước bốc lên từ mặt biển (đường chân trời ở 45% chiều cao) chỉ mang chấm trắng (nước); hàng muối nằm dưới mặt nước sáng lên đúng lúc nói "muối thì không bay theo".
   - id: S04-02-a
     segment: S04-02
     span: [0, 1]
@@ -228,14 +227,14 @@ shots:
     transition_in: match_cut
     elements:
       - {id: e2, asset: A-BIEN, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: bob, period_s: 2.5}}
-      - {id: e1, asset: A-MAT-TROI, box: {x: 8, y: 6, w: 16, h: 28}, loop: {anim: rotate, period_s: 8}}
-      - {id: e4, asset: A-MAY, box: {x: 38, y: 2, w: 26, h: 14}, exit: {anim: slide_left, at: 0.2, dur_s: 0.8, ease: ease_in}}
-      - {id: e5, asset: A-MUOI-O-LAI, box: {x: 30, y: 62, w: 40, h: 10}, loop: {anim: shimmer}}
-      - {id: e7, asset: A-KHI-NGAC-NHIEN, box: {x: 78, y: 60, w: 17, h: 36}}
-      - {id: e6, text: 'Nước bay đi, muối ở lại', style: label, font_px: 64, color: '#FFC907', box: {x: 62, y: 32, w: 33, h: 18}, exit: {anim: fade, at: 1, dur_s: 0.3}}
+      - {id: e1, asset: A-MAT-TROI, box: {x: 8, y: 13, w: 22, h: 12.4}, loop: {anim: rotate, period_s: 8}}
+      - {id: e4, asset: A-MAY, box: {x: 34, y: 13, w: 36, h: 8}, exit: {anim: slide_left, at: 0.2, dur_s: 0.8, ease: ease_in}}
+      - {id: e5, asset: A-MUOI-O-LAI, box: {x: 6, y: 50, w: 70, h: 6.7}, loop: {anim: shimmer}}
+      - {id: e7, asset: A-KHI-NGAC-NHIEN, box: {x: 55, y: 58, w: 28, h: 15.7}}
+      - {id: e6, text: 'Nước bay đi, muối ở lại', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 60, w: 46, h: 12}, exit: {anim: fade, at: 1, dur_s: 0.3}}
     sfx:
       - {name: whoosh nhẹ, target: e4, event: exit}
-    notes: Mây trôi sang trái (về phía đất liền ở bên trái theo quy ước hướng) để mở vòng tuần hoàn.
+    notes: Mây trôi sang trái (về phía đất liền) để mở vòng tuần hoàn.
   - id: S04-03-a
     segment: S04-03
     span: [0, 0.22]
@@ -246,9 +245,9 @@ shots:
     transition_in: push_left
     elements:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
-      - {id: e1, asset: A-MAY, box: {x: 30, y: 8, w: 40, h: 22}, enter: {anim: slide_left, at: 0, dur_s: 0.5, ease: ease_out}}
-      - {id: e2, asset: A-GIOT-MUA, box: {x: 32, y: 32, w: 36, h: 20}, enter: {anim: drop, at: 0.2, dur_s: 0.5, ease: ease_in}, loop: {anim: flow}}
-      - {id: e3, asset: A-DA, box: {x: 25, y: 62, w: 50, h: 30}}
+      - {id: e1, asset: A-MAY, box: {x: 20, y: 12, w: 50, h: 11.1}, enter: {anim: slide_left, at: 0, dur_s: 0.5, ease: ease_out}}
+      - {id: e2, asset: A-GIOT-MUA, box: {x: 38, y: 28, w: 14, h: 13.1}, enter: {anim: drop, at: 0.2, dur_s: 0.5, ease: ease_in}, loop: {anim: flow}}
+      - {id: e3, asset: A-DA, box: {x: 10, y: 50, w: 80, h: 19}}
   - id: S04-03-b
     segment: S04-03
     span: [0.22, 1]
@@ -258,11 +257,11 @@ shots:
     camera: {move: zoom_out, amount: 0.15}
     transition_in: crossfade
     elements:
-      - {id: e1, asset: A-VONG-TUAN-HOAN, box: {x: 30, y: 10, w: 40, h: 72}, enter: {anim: draw, at: 0, dur_s: 1.0, ease: ease_out}, loop: {anim: rotate, period_s: 3}}
-      - {id: e2, text: "hàng triệu\nnăm", style: title, font_px: 80, color: '#FFC907', box: {x: 5, y: 36, w: 25, h: 22}, enter: {anim: typewriter, at: 0.15, dur_s: 1.0}}
-      - {id: e3, asset: A-COC-BIEN, box: {x: 74, y: 35, w: 14, h: 32}, enter: {anim: scale_in, at: 0.6, dur_s: 0.5, ease: ease_out}, loop: {anim: pulse}}
-      - {id: e4, asset: A-KHI-TRAI-DAT, box: {x: 7, y: 60, w: 18, h: 36}, enter: {anim: pop, at: 0.35, dur_s: 0.35, ease: back_out}, loop: {anim: bob, period_s: 2.5}}
-    notes: Chữ "hàng triệu năm" gõ ra như bộ đếm; cốc nước biển bên phải hiện dần nhiều hạt muối hơn rồi dừng ở mức hiện nay (không tăng tiếp).
+      - {id: e1, asset: A-VONG-TUAN-HOAN, box: {x: 8, y: 24.5, w: 68, h: 38.25}, enter: {anim: draw, at: 0, dur_s: 1.0, ease: ease_out}, loop: {anim: rotate, period_s: 3}}
+      - {id: e2, text: "hàng triệu\nnăm", style: title, font_px: 80, color: '#FFC907', box: {x: 6, y: 11.6, w: 56, h: 12.4}, enter: {anim: typewriter, at: 0.15, dur_s: 1.0}}
+      - {id: e3, asset: A-COC-BIEN, box: {x: 60, y: 63, w: 18, h: 12.4}, enter: {anim: scale_in, at: 0.6, dur_s: 0.5, ease: ease_out}, loop: {anim: pulse}}
+      - {id: e4, asset: A-KHI-TRAI-DAT, box: {x: 8, y: 61, w: 26, h: 14.6}, enter: {anim: pop, at: 0.35, dur_s: 0.35, ease: back_out}, loop: {anim: bob, period_s: 2.5}}
+    notes: Chữ "hàng triệu năm" gõ ra như bộ đếm; cốc nước biển góc dưới phải hiện dần nhiều hạt muối hơn rồi dừng ở mức hiện nay (không tăng tiếp).
   - id: S04-04-a
     segment: S04-04
     span: [0, 1]
@@ -273,8 +272,8 @@ shots:
     transition_in: zoom_through
     elements:
       - {id: e1, asset: A-DAY-BIEN, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.5}, loop: {anim: pulse, period_s: 1.5}}
-      - {id: e3, asset: A-KHOANG-CHAT, box: {x: 30, y: 30, w: 45, h: 40}, enter: {anim: slide_up, at: 0.7, dur_s: 0.8, ease: ease_out}, loop: {anim: flow}}
-      - {id: e2, text: 'Nguồn thêm: đáy biển', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 8, w: 44, h: 10}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
+      - {id: e3, asset: A-KHOANG-CHAT, box: {x: 10, y: 40, w: 70, h: 19.7}, enter: {anim: slide_up, at: 0.7, dur_s: 0.8, ease: ease_out}, loop: {anim: flow}}
+      - {id: e2, text: 'Nguồn thêm: đáy biển', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 12, w: 78, h: 6.5}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
     notes: Miệng núi lửa và khe nứt phát sáng nhịp chậm; chấm khoáng chất (e3) bay lên đúng lúc nói "thả khoáng chất vào nước".
   # ---------------- S05 Chốt & CTA ----------------
   - id: S05-01-a
@@ -286,28 +285,26 @@ shots:
     camera: {move: static}
     transition_in: crossfade
     elements:
-      - {id: e1, asset: A-GIOT-MUA-CHUA, box: {x: 8, y: 30, w: 16, h: 30}, enter: {anim: pop, at: 0.1, dur_s: 0.35, ease: back_out}}
-      - {id: e2, asset: A-MUI-TEN, box: {x: 27, y: 40, w: 10, h: 10}, enter: {anim: draw, at: 0.35, dur_s: 0.3}}
-      - {id: e3, asset: A-SONG-ICON, box: {x: 40, y: 32, w: 20, h: 26}, enter: {anim: pop, at: 0.4, dur_s: 0.35, ease: back_out}}
-      - {id: e4, asset: A-MUI-TEN, box: {x: 63, y: 40, w: 10, h: 10}, enter: {anim: draw, at: 0.6, dur_s: 0.3}}
-      - {id: e5, asset: A-MAT-TROI, box: {x: 76, y: 30, w: 16, h: 30}, enter: {anim: pop, at: 0.65, dur_s: 0.35, ease: back_out}}
-      - {id: e6, text: Mưa, style: label, font_px: 64, color: '#FFFFFF', box: {x: 8, y: 64, w: 16, h: 10}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
-      - {id: e7, text: Sông, style: label, font_px: 64, color: '#FFFFFF', box: {x: 42, y: 64, w: 16, h: 10}, enter: {anim: fade, at: 0.4, dur_s: 0.3}}
-      - {id: e8, text: 'Bốc hơi', style: label, font_px: 64, color: '#FFFFFF', box: {x: 74, y: 64, w: 20, h: 10}, enter: {anim: fade, at: 0.65, dur_s: 0.3}}
-    notes: Ba biểu tượng hiện lần lượt đúng từng vế câu; mũi tên vẽ nối giữa. Mặt trời tượng trưng chặng bốc hơi trên biển.
+      - {id: e1, asset: A-GIOT-MUA-CHUA, box: {x: 16, y: 12.5, w: 12, h: 11.3}, enter: {anim: pop, at: 0.1, dur_s: 0.35, ease: back_out}}
+      - {id: e2, asset: A-MUI-TEN, box: {x: 19, y: 25, w: 6, h: 6.8}, enter: {anim: draw, at: 0.35, dur_s: 0.3}}
+      - {id: e3, asset: A-SONG-ICON, box: {x: 10, y: 33, w: 24, h: 9.9}, enter: {anim: pop, at: 0.4, dur_s: 0.35, ease: back_out}}
+      - {id: e4, asset: A-MUI-TEN, box: {x: 19, y: 44, w: 6, h: 6.8}, enter: {anim: draw, at: 0.6, dur_s: 0.3}}
+      - {id: e5, asset: A-MAT-TROI, box: {x: 12, y: 52, w: 20, h: 11.25}, enter: {anim: pop, at: 0.65, dur_s: 0.35, ease: back_out}}
+      - {id: e6, text: Mưa, style: label, font_px: 64, color: '#FFFFFF', box: {x: 40, y: 15, w: 40, h: 6.5}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
+      - {id: e7, text: Sông, style: label, font_px: 64, color: '#FFFFFF', box: {x: 40, y: 35, w: 40, h: 6.5}, enter: {anim: fade, at: 0.4, dur_s: 0.3}}
+      - {id: e8, text: 'Bốc hơi', style: label, font_px: 64, color: '#FFFFFF', box: {x: 40, y: 55, w: 40, h: 6.5}, enter: {anim: fade, at: 0.65, dur_s: 0.3}}
+    notes: Ba biểu tượng xếp từ trên xuống, hiện lần lượt đúng từng vế câu; mũi tên chỉ xuống vẽ nối giữa, nhãn bên phải mỗi biểu tượng. Mặt trời tượng trưng chặng bốc hơi trên biển.
   - id: S05-02-a
     segment: S05-02
     span: [0, 1]
-    purpose: Mời đăng ký kênh
+    purpose: Cảm ơn người xem và mời đăng ký kênh — logo kênh để nhớ tên
     background: '#0078E0'
     focal: e1
     camera: {move: static}
     transition_in: crossfade
     elements:
-      - {id: e4, asset: A-KHI-LOGO, box: {x: 40, y: 5, w: 20, h: 36}, enter: {anim: scale_in, at: 0, dur_s: 0.4, ease: back_out}}
-      - {id: e5, asset: A-KHI-VUI-MUNG, box: {x: 6, y: 34, w: 22, h: 44}, enter: {anim: pop, at: 0.08, dur_s: 0.4, ease: back_out}, loop: {anim: bob, period_s: 2.5}}
-      - {id: e1, asset: A-NUT-DANG-KY, box: {x: 35, y: 46, w: 30, h: 18}, enter: {anim: pop, at: 0.15, dur_s: 0.4, ease: back_out}, loop: {anim: pulse, period_s: 1.2}}
-      - {id: e2, asset: A-CHUONG, box: {x: 67, y: 46, w: 8, h: 18}, enter: {anim: pop, at: 0.3, dur_s: 0.3, ease: back_out}, loop: {anim: wiggle}}
-      - {id: e3, text: 'Cùng Khỉ nhé!', style: label, font_px: 64, color: '#FFC907', box: {x: 30, y: 72, w: 40, h: 11}, enter: {anim: fade, at: 0.3, dur_s: 0.3}}
+      - {id: e4, asset: A-KHI-LOGO, box: {x: 17, y: 13, w: 50, h: 28.1}, enter: {anim: scale_in, at: 0, dur_s: 0.4, ease: back_out}}
+      - {id: e3, text: "Cảm ơn bạn\nđã xem!", style: title, font_px: 96, color: '#FFC907', box: {x: 7, y: 44, w: 76, h: 14.5}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
+      - {id: e1, asset: A-NUT-DANG-KY, box: {x: 19, y: 62, w: 46, h: 9}, enter: {anim: pop, at: 0.35, dur_s: 0.4, ease: back_out}, loop: {anim: pulse, period_s: 1.2}}
     sfx:
       - {name: click, target: e1, event: enter}

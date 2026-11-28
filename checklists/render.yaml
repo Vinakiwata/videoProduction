@@ -1,6 +1,6 @@
 # Tool 7 — Render từng khung hình có kiểm soát (thay cho quay màn hình). Ra video chưa có tiếng.
 stage: render
-version: 1
+version: 2
 title: Kiểm duyệt render khung hình
 artifacts: [08_render]
 items:
@@ -13,11 +13,11 @@ items:
     params: {paths: [08_render/video_silent.mp4]}
   - id: RND-A02
     group: Kỹ thuật
-    title: Đúng 1920×1080, 30 fps, H.264, yuv420p
+    title: Đúng khung của brief, 30 fps, H.264, yuv420p
     severity: chan
     method: auto
     check: video_format
-    params: {path: 08_render/video_silent.mp4, width: 1920, height: 1080, fps: 30, codec: h264, pix_fmt: yuv420p}
+    params: {path: 08_render/video_silent.mp4, format_from: 00_brief/brief.yaml, fps: 30, codec: h264, pix_fmt: yuv420p}
   - id: RND-A03
     group: Kỹ thuật
     title: Không có khung đen ngoài ý muốn (> 0,2 giây)

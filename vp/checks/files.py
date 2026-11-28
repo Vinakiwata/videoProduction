@@ -63,3 +63,59 @@ def brand_voice_valid(project: Path, params: dict) -> CheckResult:
     if name in known:
         return CheckResult("pass", f"Giọng '{name}' có trong danh sách giọng dựng sẵn ({lst.name}).")
     return CheckResult("fail", f"Giọng '{name}' KHÔNG có trong {lst.name}. Giọng hợp lệ: {', '.join(known[:30])}…")
+
+
+@register("brief_platforms")
+def brief_platforms(project: Path, params: dict) -> CheckResult:
+    """Nền tảng của brief có hồ sơ, cùng khung, brief.format trùng khung đó, thời lượng ≤ giới hạn từng nền tảng."""
+    from vp import platforms as pf
+    b = load_yaml(project, params["path"])
+    pdir = params.get("platforms_dir")
+    ids = b.get("platforms") or []
+    if not ids:
+        f = b.get("format") or {}
+        return CheckResult("pass", f"Brief không chọn nền tảng: dùng khung brief.format {f.get('width')}×{f.get('height')} và lề an toàn 5% "
+                                   f"(muốn kiểm vùng giao diện thì thêm platforms: {', '.join(pf.available(pdir))}).")
+    bad = [i for i in ids if i not in pf.available(pdir)]
+    if bad:
+        return CheckResult("fail", f"Không có hồ sơ cho: {', '.join(bad)}. Hợp lệ: {', '.join(pf.available(pdir))}")
+    try:
+        c = pf.canvas(b, pdir)
+    except pf.PlatformError as e:
+        return CheckResult("fail", str(e))
+    errs = []
+    f = b.get("format") or {}
+    if (f.get("width"), f.get("height"), f.get("fps")) != (c["width"], c["height"], c["fps"]):
+        errs.append(f"brief.format {f.get('width')}×{f.get('height')}@{f.get('fps')} khác khung nền tảng {c['width']}×{c['height']}@{c['fps']}")
+    dur = float(b.get("target_duration_s") or 0)
+    for p in pf.profiles(b, pdir):
+        if dur > p["max_duration_s"]:
+            errs.append(f"{p['name']}: thời lượng {dur:g} giây > giới hạn {p['max_duration_s']:g} giây")
+    if errs:
+        return CheckResult("fail", "Nền tảng chưa khớp:\n" + "\n".join(f"- {e}" for e in errs))
+    m = pf.safe_margins(b, pdir)
+    names = ", ".join(p["name"] for p in pf.profiles(b, pdir))
+    return CheckResult("pass", f"{names}: cùng khung {c['width']}×{c['height']}@{c['fps']}, {dur:g} giây trong giới hạn; "
+                               f"lề an toàn trên {m['top']} · dưới {m['bottom']} · trái {m['left']} · phải {m['right']} px.")
+
+
+@register("platform_profiles_fresh")
+def platform_profiles_fresh(project: Path, params: dict) -> CheckResult:
+    """Số đo vùng an toàn của các nền tảng đã đối chiếu trong vòng max_age_days (giao diện ứng dụng hay đổi)."""
+    from datetime import date
+    from vp import platforms as pf
+    b = load_yaml(project, params["path"])
+    pdir = params.get("platforms_dir")
+    mx = int(params.get("max_age_days", 180))
+    try:
+        profs = pf.profiles(b, pdir)
+    except pf.PlatformError as e:
+        return CheckResult("fail", str(e))
+    old = []
+    for p in profs:
+        age = (date.today() - date.fromisoformat(str(p["checked"]))).days
+        if age > mx:
+            old.append(f"{p['name']}: đối chiếu {p['checked']} ({age} ngày trước) — đo lại theo {p['source']['url']}")
+    if old:
+        return CheckResult("fail", f"Số đo vùng an toàn cũ hơn {mx} ngày:\n" + "\n".join(f"- {o}" for o in old))
+    return CheckResult("pass", "Số đo vùng an toàn còn mới: " + ", ".join(f"{p['name']} {p['checked']}" for p in profs))

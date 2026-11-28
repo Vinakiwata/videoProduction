@@ -1,6 +1,6 @@
 {
- "build_hash": "f830ccede2c8b5dbe36f35827c1a850a6888c493365e0ec1226355ad4810a65f",
- "input_hash": "ed8e29038cd62a2ef09104cb9c2c39ae8a57880d94d161d09ccb6fa13d2899e8",
+ "build_hash": "0e7f7446573ab2d7602a352e6364c69bcd30f3609621140162cd09ac9041e87b",
+ "input_hash": "6578b4e1f4c8990b1f4df0e008bbaf5d4d17f3e8dba926466e8ad350d575c47d",
  "frames": [
   {
    "frame": 0,
@@ -8,8 +8,8 @@
    "shot": "S01-01-a",
    "file": "check/f00000.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
    "sha256": "bde20dc41adadb2ee95b4f670c14a00f29feef112dd23e06ddfcb4b3a20785e1",
    "stddev": 0.0,
@@ -22,11 +22,11 @@
    "shot": "S01-01-a",
    "file": "check/f00028.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "e6de3d0b25a93e86ddeac7108a1be7e3aa183bfbaa170103304759e0df31a8bb",
-   "stddev": 53.39,
+   "sha256": "6321ad4f1e11bf257d3df2ba162e350d8676c4bec62c218f8ff6a172e05aa37d",
+   "stddev": 52.83,
    "max": 255,
    "issues": []
   },
@@ -36,11 +36,11 @@
    "shot": "S01-01-a",
    "file": "check/f00056.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "e47b18ba091c78357627e38b724755c750b23e4fd22b4fe197f1bdcb74d67fb4",
-   "stddev": 51.63,
+   "sha256": "116e79e0ba10d0a0eada799703c3d062de938fa793502dcd2026a52f3dcf868d",
+   "stddev": 53.2,
    "max": 255,
    "issues": []
   },
@@ -50,11 +50,11 @@
    "shot": "S01-01-b",
    "file": "check/f00057.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "faf756362ebf7d9fb880128d7dba23d299418404183fce7b1b9b04962868b554",
-   "stddev": 51.63,
+   "sha256": "89d1aa4100a521b4ebee54b02faa44c8a3fa1462e03818b911e755ec6fe34675",
+   "stddev": 53.2,
    "max": 255,
    "issues": []
   },
@@ -64,12 +64,12 @@
    "shot": "S01-01-b",
    "file": "check/f00062.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "f55a977cc478b266b13381e9d751b301a2dc73eaf58a9af330c4f4a841326de5",
-   "stddev": 17.41,
-   "max": 181,
+   "sha256": "fe07c036951ab81759a09ac3007eef7a6addd2767c435103b35ca9987bc41b5a",
+   "stddev": 19.14,
+   "max": 177,
    "issues": []
   },
   {
@@ -78,11 +78,11 @@
    "shot": "S01-01-b",
    "file": "check/f00067.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "225338fc22025ef9fa31f8c5528fa3453326d33d1ca4b90f5f65b252f535e7dd",
-   "stddev": 23.16,
+   "sha256": "ac9057550c8a13dc4ba6a21bd16b78981369df66f533e7faf48fc7785fa26b66",
+   "stddev": 24.08,
    "max": 255,
    "issues": []
   },
@@ -92,11 +92,11 @@
    "shot": "S01-01-b",
    "file": "check/f00100.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "cc878d55ef3dd353c5e089d1056cb65c7562f2f83a10c9fb4b55f058d09eae43",
-   "stddev": 43.36,
+   "sha256": "3771779c1022273fb1343232d73f1e68d0026a50dbfb7baf59ed22b4f33891f6",
+   "stddev": 44.01,
    "max": 255,
    "issues": []
   },
@@ -106,11 +106,11 @@
    "shot": "S01-01-b",
    "file": "check/f00144.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "7e2938690ecef2740e27b1ad06b89e65e10bde0ddc35a9509a8753674302e307",
-   "stddev": 54.4,
+   "sha256": "77f9bbfdcdb77557b12f2d3f98a53ff5ac73c691e8bc579c45b389aa531f4cfa",
+   "stddev": 54.04,
    "max": 255,
    "issues": []
   },
@@ -120,11 +120,11 @@
    "shot": "S01-02-a",
    "file": "check/f00145.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "0b4d83435428f49ded2c48124ca815096ba94dc53ec27253743b60593fcf7ec4",
-   "stddev": 54.4,
+   "sha256": "313a70271858f2eee2528fa8b57b946e1a294f7335329b65f0eab57c80d7f33d",
+   "stddev": 54.04,
    "max": 255,
    "issues": []
   },
@@ -134,11 +134,11 @@
    "shot": "S01-02-a",
    "file": "check/f00159.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "6b1b00728a74af58a6f3ba79a6bedcdb3177dff5a579a0cbad6a414b516f8e13",
-   "stddev": 55.16,
+   "sha256": "e9863788cf4b4ff4f97091f306eaaea9bd5831f8cfa4af0a01db219b89030d51",
+   "stddev": 54.8,
    "max": 255,
    "issues": []
   },
@@ -148,11 +148,11 @@
    "shot": "S01-02-a",
    "file": "check/f00174.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "d87d6b41d288464138c5e9152637301e8005f3956d26db414b1d8e6e51267323",
-   "stddev": 56.19,
+   "sha256": "0d4ba584492adb34fa103f4f4318c3e39a985f98fb36542a3f18253abce2ba06",
+   "stddev": 55.82,
    "max": 255,
    "issues": []
   },
@@ -162,11 +162,11 @@
    "shot": "S02-01-a",
    "file": "check/f00175.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "4d3e471895f6c920473ade165be4d95cfe65ecb152357e45726f4b794297e980",
-   "stddev": 56.19,
+   "sha256": "83827484a0bf9b2ce0d54bf7d878b2d8b1b901ff901de309a02c977605eff456",
+   "stddev": 55.82,
    "max": 255,
    "issues": []
   },
@@ -176,12 +176,12 @@
    "shot": "S02-01-a",
    "file": "check/f00179.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "69664ceb5e09743c37491e7aa52f73eb344a79d5c3c98c4a2c60481829aa6ad7",
-   "stddev": 36.16,
-   "max": 239,
+   "sha256": "a42be0e53ac23aed65ebf762af11ebd9845c9bdc4e931c33a8f3bcd8b2e404e8",
+   "stddev": 35.91,
+   "max": 243,
    "issues": []
   },
   {
@@ -190,11 +190,11 @@
    "shot": "S02-01-a",
    "file": "check/f00183.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "66034d0ac25f19fb25bfb638aef8f8910d6175becdb5f5da748f8b8c834bce80",
-   "stddev": 33.24,
+   "sha256": "d3dec61e8f07a4b68774a339f7db2686bd97847a6cd7f413567351444978e127",
+   "stddev": 42.18,
    "max": 252,
    "issues": []
   },
@@ -204,11 +204,11 @@
    "shot": "S02-01-a",
    "file": "check/f00272.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "07e673e3b0bdec9c573805348ca88b204dd40f6c137fde62b7353158e2aee13e",
-   "stddev": 38.29,
+   "sha256": "d56f403a181c1731fac7c6147a22aea4c39daade004091b365daad773e6c6c19",
+   "stddev": 45.21,
    "max": 255,
    "issues": []
   },
@@ -218,11 +218,11 @@
    "shot": "S02-01-a",
    "file": "check/f00369.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "8847e2b3e29147866ed314bc28038a7c39515e0abe8eb9e6b304da0771077ff9",
-   "stddev": 41.63,
+   "sha256": "c4e3e7f7f90dcd7b4e569ad27334c3d371a73143f60687a14883151f5a69e82a",
+   "stddev": 46.75,
    "max": 255,
    "issues": []
   },
@@ -232,11 +232,11 @@
    "shot": "S02-02-a",
    "file": "check/f00370.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "691598a2e2b482cbac237716138f12f8045545cecf46046d6751601ec0780efb",
-   "stddev": 41.62,
+   "sha256": "77e3dc21acaa81c573e03fa45acf1ff74e5c48e2304911047c7fac22f637a4c0",
+   "stddev": 46.77,
    "max": 255,
    "issues": []
   },
@@ -246,12 +246,12 @@
    "shot": "S02-02-a",
    "file": "check/f00375.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "fb5c128f982e73a7283ea1ff47018bda0cc36769389ea4f105dcc39afa3b1bd2",
-   "stddev": 35.2,
-   "max": 204,
+   "sha256": "5c31078773b90555078a59960ec8f2f1320db6c6ff0b6ce63217c4f08f484c57",
+   "stddev": 40.67,
+   "max": 217,
    "issues": []
   },
   {
@@ -260,11 +260,11 @@
    "shot": "S02-02-a",
    "file": "check/f00380.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "f941f9cf462cb9cceaed2ac89196c8cce8a0187ca05dcf69f529052b715f31eb",
-   "stddev": 34.55,
+   "sha256": "229ed738b0a52033c93039a7d23ecb3b8a986a6713ea0df263274e067b43eccf",
+   "stddev": 39.87,
    "max": 255,
    "issues": []
   },
@@ -274,11 +274,11 @@
    "shot": "S02-02-a",
    "file": "check/f00392.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "a75a4e946ec895577fa9e0bc9beb0c76108f03131f2f6d20e616e9e7803cbdec",
-   "stddev": 34.79,
+   "sha256": "cd384d8fd211c9c207b7f3ebf4ef199f483b3ab6082e1a1ea6557877bce6efb6",
+   "stddev": 40.23,
    "max": 255,
    "issues": []
   },
@@ -288,11 +288,11 @@
    "shot": "S02-02-a",
    "file": "check/f00414.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "43df22c483093d8e44a52d531c5d6622d02738fad9e252869b1766f57cb27b3d",
-   "stddev": 34.52,
+   "sha256": "b88c1a44be9cbfb13f1109233dbafdb8da98cfcdd116fe9798087dc68172e59e",
+   "stddev": 39.62,
    "max": 220,
    "issues": []
   },
@@ -302,12 +302,12 @@
    "shot": "S02-02-b",
    "file": "check/f00415.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "642b71e117b6ee1dcdaabde1331013b9c8aa63c3570db6848d964f053f2feca6",
-   "stddev": 28.21,
-   "max": 204,
+   "sha256": "9a7fcff025d9f5b8b2f6f12f2e5cf48cd408525524b9f52c3f75cd44e30b0973",
+   "stddev": 39.74,
+   "max": 214,
    "issues": []
   },
   {
@@ -316,11 +316,11 @@
    "shot": "S02-02-b",
    "file": "check/f00456.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "85fcf61065ca5f575dce0c48a3d9a6bc6446c22996fb590f63aed7fe9b4d17f4",
-   "stddev": 26.73,
+   "sha256": "64acb408fe9763f5846ffa9f68bd3253603d637821189641791026b0cf8ab067",
+   "stddev": 40.11,
    "max": 255,
    "issues": []
   },
@@ -330,11 +330,11 @@
    "shot": "S02-02-b",
    "file": "check/f00497.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "187c91800b97e0b19254a32d49eecf5788c10919b7eaecccd07a4d203ef8d212",
-   "stddev": 25.49,
+   "sha256": "c595bc337739ec5de32d6db4d06dbbffedb979eb39cdb374c4c33e1299395ab8",
+   "stddev": 40.08,
    "max": 255,
    "issues": []
   },
@@ -344,12 +344,12 @@
    "shot": "S02-03-a",
    "file": "check/f00498.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "6a607a52cdce912d57a9921f962fc3b40bd839e66c57279b34fda7c642ec4fd7",
-   "stddev": 24.18,
-   "max": 204,
+   "sha256": "c78e1ef215d4398ca5871e66bfca60292a968e09ac0d324e953585f45ed4e9bf",
+   "stddev": 39.44,
+   "max": 214,
    "issues": []
   },
   {
@@ -358,11 +358,11 @@
    "shot": "S02-03-a",
    "file": "check/f00512.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "cc09f503631a49e56b586a3944eaa28f83c31e2b1cf5833c1335d6395bf636b9",
-   "stddev": 25.49,
+   "sha256": "84d919c40aa53b69229cf59abe5a87e00bdf417996ab865e3e738513b61bc62a",
+   "stddev": 39.92,
    "max": 255,
    "issues": []
   },
@@ -372,11 +372,11 @@
    "shot": "S02-03-a",
    "file": "check/f00527.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "d004286bf906cae4f47f5939887c8a0bb26bdc5c995ebc6cc5930682bbce3c51",
-   "stddev": 25.25,
+   "sha256": "80414968b029c8d6eff51552f0979f0e5322d704782f7d7bfb63feba5be666db",
+   "stddev": 39.97,
    "max": 255,
    "issues": []
   },
@@ -386,11 +386,11 @@
    "shot": "S03-01-a",
    "file": "check/f00528.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "94353af5ef653f7479c6636108069ee2b996d4589d2a38105bc9884125a6d5aa",
-   "stddev": 25.29,
+   "sha256": "09dcf4ee47a8b3caec4adc2190def81830f3ee1e971ead53d5b3e9cc85be3c88",
+   "stddev": 39.98,
    "max": 255,
    "issues": []
   },
@@ -400,11 +400,11 @@
    "shot": "S03-01-a",
    "file": "check/f00532.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "7c7dd3ccc6064845d0ab32ee8785d560b1ec3d11c8e0a8d2a531381380c235d0",
-   "stddev": 15.67,
+   "sha256": "1d0ae3f4eacd95104a9ca14469e284bce3e0b31b0838de7d4f1f3bd4a9458869",
+   "stddev": 24.63,
    "max": 210,
    "issues": []
   },
@@ -414,11 +414,11 @@
    "shot": "S03-01-a",
    "file": "check/f00536.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "ed3c0ea784aca9fd5ff77f09d8530bde08e8caa4758bad683015d43dfb30a63f",
-   "stddev": 32.17,
+   "sha256": "5ca23fbfead65248c7f66d825cd9a7e5a8d91ebcdd18f06cb8552f02a24ec85b",
+   "stddev": 33.71,
    "max": 208,
    "issues": []
   },
@@ -428,11 +428,11 @@
    "shot": "S03-01-a",
    "file": "check/f00553.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "f7ed59a483b3e7e929ad182957072b4969089369cf0afc4c053bc5254ac766ac",
-   "stddev": 57.75,
+   "sha256": "1133d12bde2f615c44c2444570c74152b1fc35b8e0702e496ec7e3d64035f1b5",
+   "stddev": 60.2,
    "max": 255,
    "issues": []
   },
@@ -442,11 +442,11 @@
    "shot": "S03-01-a",
    "file": "check/f00579.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "109cd349b16b26833bf2d28dfbdcb20acfa9f9378bd0039dbfe0f21da9749b28",
-   "stddev": 59.48,
+   "sha256": "c05a549383b5fbb5a3460bbdfa532a0abe0ac519b82ee0338ee329d20248ffc7",
+   "stddev": 61.38,
    "max": 255,
    "issues": []
   },
@@ -456,11 +456,11 @@
    "shot": "S03-01-b",
    "file": "check/f00580.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "bb829a75feaca2facb73c987b2733cd4ac278d6ffb0db166382c5a0375205fce",
-   "stddev": 60.88,
+   "sha256": "13fa32727ef0fb9ae3e74fe0bcad505e3b246c97ea005ca818f83ce48241df02",
+   "stddev": 64.14,
    "max": 255,
    "issues": []
   },
@@ -470,11 +470,11 @@
    "shot": "S03-01-b",
    "file": "check/f00636.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "74d22b17542b075d555cb4f7475a9c3baec272ae7ed29b92d18343d3a16993b3",
-   "stddev": 63.06,
+   "sha256": "b934e39daeb9523b2d982de905de24211b8ab87278a5033f6879eadc6a3822ae",
+   "stddev": 67.21,
    "max": 255,
    "issues": []
   },
@@ -484,11 +484,11 @@
    "shot": "S03-01-b",
    "file": "check/f00693.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "12966a25c6ef732c932679c11200f0002740edfcbc5c258464e3b88127f57c68",
-   "stddev": 63.07,
+   "sha256": "36c12cf11db413516270e98d7cec93604653dfab24f35e3de93972ad65557aea",
+   "stddev": 67.21,
    "max": 255,
    "issues": []
   },
@@ -498,11 +498,11 @@
    "shot": "S03-02-a",
    "file": "check/f00694.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "9ffdacc38d0b5022bc202344a1a8c146085c1c6e49d0de160804bc709f0f79e5",
-   "stddev": 60.87,
+   "sha256": "4423ceca9c361cb6713a337b9bd404b245eb5040f403d9dfcc792a99df0af49a",
+   "stddev": 64.12,
    "max": 255,
    "issues": []
   },
@@ -512,11 +512,11 @@
    "shot": "S03-02-a",
    "file": "check/f00730.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "d50ed1e4a2d15a62c05090105a5ab11f496055d4deb0d13c9441a1fee13ce519",
-   "stddev": 60.96,
+   "sha256": "388f7cbd2a0366920feaa119851723b139ca4fdf9ed01e564e05c2ceac3c45dd",
+   "stddev": 65.4,
    "max": 255,
    "issues": []
   },
@@ -526,11 +526,11 @@
    "shot": "S03-02-a",
    "file": "check/f00767.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "d237a5ad4cf911facf92ed71872ff12914e81b6987c92f278c772e08c25b99eb",
-   "stddev": 61.05,
+   "sha256": "e09d2a15d3963102425a3c568d4e7353124afd6bad6da1a0fecd41b670f5ccfc",
+   "stddev": 65.41,
    "max": 255,
    "issues": []
   },
@@ -540,11 +540,11 @@
    "shot": "S03-02-b",
    "file": "check/f00768.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "99bf340064e9bf61193df419b41b19d6596e45a18a0e3e2fdadcdff96ff731f8",
-   "stddev": 61.04,
+   "sha256": "8ffe2966bb0c339d9e87b01865073978cdf3e71c07380cee6cc004b564843ecf",
+   "stddev": 65.41,
    "max": 255,
    "issues": []
   },
@@ -554,12 +554,12 @@
    "shot": "S03-02-b",
    "file": "check/f00773.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "5f60da98105ed72e185676bfd8563f743e89d462787a8ea7e0e3eb2d5263a16e",
-   "stddev": 26.9,
-   "max": 177,
+   "sha256": "8e67bbfc2e0f48921e4ab74519f062127243c188d7a102100f004e93c3d27cae",
+   "stddev": 25.39,
+   "max": 175,
    "issues": []
   },
   {
@@ -568,11 +568,11 @@
    "shot": "S03-02-b",
    "file": "check/f00778.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "d6c33a0104a59dfed7cc88b2e900398804683942f8f548adbfd95c98a0385e8c",
-   "stddev": 53.14,
+   "sha256": "f7e1378eb60a069c2f07a82f91e38a393f1a20c73f7ff3bbb27e0924b71c890c",
+   "stddev": 51.79,
    "max": 255,
    "issues": []
   },
@@ -582,11 +582,11 @@
    "shot": "S03-02-b",
    "file": "check/f00815.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "40591853176af83d1f4591338007b31521790867d9d3aa1888da98aa7d1dc652",
-   "stddev": 53.49,
+   "sha256": "58dd8e5df8c227e33d4c48ebaede4f6e976ac23b7f8326c027c86d00c578930b",
+   "stddev": 52.26,
    "max": 255,
    "issues": []
   },
@@ -596,11 +596,11 @@
    "shot": "S03-02-b",
    "file": "check/f00862.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "b5138cff8f5c8a9a258019b0e86a05dc53e0163faf324d7fbafcd50296793f94",
-   "stddev": 47.67,
+   "sha256": "ced82633cee207459f8952f5568d9ef1d00fb8ff80ce0bd73aaf17cdeb45cafa",
+   "stddev": 46.67,
    "max": 255,
    "issues": []
   },
@@ -610,11 +610,11 @@
    "shot": "S04-01-a",
    "file": "check/f00863.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "43ff8449edd8a7b926e65e25decdf828dfd4c18919350131fe5cf6b282169337",
-   "stddev": 47.33,
+   "sha256": "985b130c8b155d43e095596aa227539310010d2fa558408e43a07b6aa9a67ae0",
+   "stddev": 46.33,
    "max": 255,
    "issues": []
   },
@@ -624,11 +624,11 @@
    "shot": "S04-01-a",
    "file": "check/f00867.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "6f841476e78ab26eb632d214ab79ba9401164e8fbb24b6a8a8dcb7b31d40de08",
-   "stddev": 46.89,
+   "sha256": "7d444b96d3c645e5d17b657d21277734f7e2dfaad6f6289380250a047f65f65a",
+   "stddev": 35.82,
    "max": 255,
    "issues": []
   },
@@ -638,11 +638,11 @@
    "shot": "S04-01-a",
    "file": "check/f00871.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "f164793cd0594b7c663e3e7661c119abc24c9b3aef7d43a27bb4d05d0d7bd120",
-   "stddev": 80.58,
+   "sha256": "be99757d89e70d9a4aba9c2b2ecb15be08f881a7bf18dd7330235433686cceab",
+   "stddev": 84.77,
    "max": 255,
    "issues": []
   },
@@ -652,11 +652,11 @@
    "shot": "S04-01-a",
    "file": "check/f00930.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "b76dfc218d0c179dae85998527ece93523140477e8c2d07a2b9d883aa0bee4bb",
-   "stddev": 82.33,
+   "sha256": "5761b45c8d677e2edf61b53f4c82a7ac6cdac4b7011fbee9f363a4bbe3e8c98a",
+   "stddev": 86.33,
    "max": 255,
    "issues": []
   },
@@ -666,11 +666,11 @@
    "shot": "S04-01-a",
    "file": "check/f00998.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "660ec1e18a869a7aebbe11d7df32ff6e9e816cec9983261bdf9f03dfb7d8f9e0",
-   "stddev": 85.18,
+   "sha256": "cd4e25f9087edb7971a6262f6e0f9f7baa5bfbd196b8264d457ea7c5da6a9852",
+   "stddev": 87.78,
    "max": 255,
    "issues": []
   },
@@ -680,11 +680,11 @@
    "shot": "S04-02-a",
    "file": "check/f00999.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "3260844b231c185137fb856c869fe7e4d6ece18c891d3665a92b19a8214fa180",
-   "stddev": 84.92,
+   "sha256": "b1977d0c30acc5272b826ff9f8d89b045f5fb62c2643ab1a8a32d35818e0bf12",
+   "stddev": 87.59,
    "max": 255,
    "issues": []
   },
@@ -694,11 +694,11 @@
    "shot": "S04-02-a",
    "file": "check/f01013.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "af301d7bb53e7c6bbc1b1b315f21842e6927f8563d689ce933aa6fbc64db42e5",
-   "stddev": 84.93,
+   "sha256": "7fcb4e1c3354c5233b0e34776fe75cf901270676a01a294ffe7389b32d645dcd",
+   "stddev": 87.6,
    "max": 255,
    "issues": []
   },
@@ -708,11 +708,11 @@
    "shot": "S04-02-a",
    "file": "check/f01028.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "8e3cb4cea8d1650b5451020509f9a4399927770a752a468f94ba76a560232de6",
-   "stddev": 83.53,
+   "sha256": "0c7d09a9b058dbd272866c3ea60061248191c0476cebd1651163738ac123d186",
+   "stddev": 86.5,
    "max": 255,
    "issues": []
   },
@@ -722,11 +722,11 @@
    "shot": "S04-03-a",
    "file": "check/f01029.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "fc738924bed4fe5710b8235965f1685454a7f59dcc32e56a057bd4924022ef8c",
-   "stddev": 83.43,
+   "sha256": "3341b69d4bf4f2ac793682e2bd0b2d6a0ea25af399dde40250a0a52c350f6312",
+   "stddev": 86.43,
    "max": 255,
    "issues": []
   },
@@ -736,11 +736,11 @@
    "shot": "S04-03-a",
    "file": "check/f01034.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "b64eee208cd64ea72e80b0993bf0deaea1f91bc3e2ff050bfab8eb28e0910df6",
-   "stddev": 61.08,
+   "sha256": "af870acd9af252de0cdffafa9bc9e7d0e1d5379bcad3f619da6b05b087d81a9d",
+   "stddev": 63.17,
    "max": 255,
    "issues": []
   },
@@ -750,11 +750,11 @@
    "shot": "S04-03-a",
    "file": "check/f01039.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "14b244a04a53b9ac32a944dd59bbb378547969abc0cc507bc3eab1dc69858ec1",
-   "stddev": 37.71,
+   "sha256": "4694e27c6fabfd378ee552c0afd6b9e2f12940db2630becea454758e7068240f",
+   "stddev": 43.48,
    "max": 255,
    "issues": []
   },
@@ -764,11 +764,11 @@
    "shot": "S04-03-a",
    "file": "check/f01045.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "82a9978c99279a9576c2534586fbd5b7204a1bfc402b316d5ea334fd0761ab41",
-   "stddev": 38.08,
+   "sha256": "500215665704ad8de26a9af6fd7e4c09df32078c47015f704f7704b8a870e6e5",
+   "stddev": 44.38,
    "max": 255,
    "issues": []
   },
@@ -778,11 +778,11 @@
    "shot": "S04-03-a",
    "file": "check/f01061.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "8c92782c17cf69d7f339e16e43f8aeb757d48e3a4f678d010ddfd78c7a7fa2b7",
-   "stddev": 38.18,
+   "sha256": "e8e127da9042bdb7953e487b686fc17ab67b5281130f5d686e3cc1ae40ea7b05",
+   "stddev": 44.35,
    "max": 255,
    "issues": []
   },
@@ -792,11 +792,11 @@
    "shot": "S04-03-b",
    "file": "check/f01062.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "ec60ebbd5819a8feb525b9c2d2f5eca460deb82831c5e8c7219e16a0b3af33e7",
-   "stddev": 38.18,
+   "sha256": "c767c224955c6d0b63aecd200eec2bfa1408eb741b62e251434ce7cdf00a656b",
+   "stddev": 44.31,
    "max": 255,
    "issues": []
   },
@@ -806,12 +806,12 @@
    "shot": "S04-03-b",
    "file": "check/f01066.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "3fe9255e6469c31eab26632603a883721081c78f6c6b5879a5d3d4ce164996aa",
-   "stddev": 19.74,
-   "max": 221,
+   "sha256": "ec629225715b67cd3a8571595e616c258db2206a88caf7cecd35ee2a5a0488ea",
+   "stddev": 22.38,
+   "max": 200,
    "issues": []
   },
   {
@@ -820,11 +820,11 @@
    "shot": "S04-03-b",
    "file": "check/f01070.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "253f7facab6794cde741ac889aabcea3e5712f92e3229dee1b95a23e4cd2d80a",
-   "stddev": 35.63,
+   "sha256": "22ab0bf66af1152bddaecef1cb3c4b44d3872170041ace12daf1be08eaf2cc0a",
+   "stddev": 34.09,
    "max": 233,
    "issues": []
   },
@@ -834,11 +834,11 @@
    "shot": "S04-03-b",
    "file": "check/f01128.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "c1d0ec33a0581f040ed15b315e2a2238c84645d96ecbebd9b4cbc9491c3e91cb",
-   "stddev": 55.45,
+   "sha256": "fa95842d4bb314ede23c4e4f25b599b99ba13efd610b6b399b86b7fb6726edfd",
+   "stddev": 51.69,
    "max": 255,
    "issues": []
   },
@@ -848,11 +848,11 @@
    "shot": "S04-03-b",
    "file": "check/f01194.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "1023f0b24d5021db60404660203cf0313a4e3d76bf4c35164be491845ad010af",
-   "stddev": 54.49,
+   "sha256": "71a783a3c52b3f1afd0ebc50e64781f6590eca3933f4c09b9ab601b430ebe00d",
+   "stddev": 50.01,
    "max": 255,
    "issues": []
   },
@@ -862,11 +862,11 @@
    "shot": "S04-04-a",
    "file": "check/f01195.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "ffd28510eb7e4e674e7057145efdbdb96d614f7daf236c68331b59a4ccb2fb7f",
-   "stddev": 54.45,
+   "sha256": "7defbd0610f990ca0f2a81e1486e8a590677f1f2fe330066c484a61a1fcd8b29",
+   "stddev": 49.96,
    "max": 255,
    "issues": []
   },
@@ -876,12 +876,12 @@
    "shot": "S04-04-a",
    "file": "check/f01200.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "79b0627e221527d25eadc9544d647511d76d64358dee6e8b27f189b7e442ceec",
-   "stddev": 24.46,
-   "max": 155,
+   "sha256": "250a3c3367891dfaa22570e9f9e9cccebebea703b5bec82886daa96353ee4ab9",
+   "stddev": 22.0,
+   "max": 154,
    "issues": []
   },
   {
@@ -890,11 +890,11 @@
    "shot": "S04-04-a",
    "file": "check/f01205.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "f00c06b8944b53dfd95c34ca963a3cd95700084560a7ecc44ae5ad27b28f35b8",
-   "stddev": 48.9,
+   "sha256": "4b67805799beb2a5fe62e5685a3d37ad0a5c29f39fbde3c6ae92bf2059738b14",
+   "stddev": 48.18,
    "max": 246,
    "issues": []
   },
@@ -904,11 +904,11 @@
    "shot": "S04-04-a",
    "file": "check/f01270.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "bd2cacc8a1ac05c359c9f2ccb232da8c9af67bfe206c1cb58d2421dbdf0356c1",
-   "stddev": 50.48,
+   "sha256": "4b7c77b930f02721ad8dc9dec60dde5290402f8335f3e8e2f82efa9a36acdce7",
+   "stddev": 49.75,
    "max": 255,
    "issues": []
   },
@@ -918,11 +918,11 @@
    "shot": "S04-04-a",
    "file": "check/f01346.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "8ab5501613724c25e162bc22ceaefdecacf42b6fb1d5e6ae9c4867a3238ea724",
-   "stddev": 48.74,
+   "sha256": "d246a547bea523b9815abafb67936f6090e857c7cac662ddaa150baf2e8a5a25",
+   "stddev": 48.58,
    "max": 255,
    "issues": []
   },
@@ -932,11 +932,11 @@
    "shot": "S05-01-a",
    "file": "check/f01347.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "77f03973b16f796a952baf5dc069c9c7154d93659b8324822eccb04d6dedd746",
-   "stddev": 48.66,
+   "sha256": "870546df1cc8220ab92748d7b53d5f205504c040f5530a466916c1ee4c879cb3",
+   "stddev": 48.51,
    "max": 255,
    "issues": []
   },
@@ -946,11 +946,11 @@
    "shot": "S05-01-a",
    "file": "check/f01351.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "64b8b652c1d88a901b5724078850828fa5105bf228045a2d9966a4b08dfffaab",
-   "stddev": 29.11,
+   "sha256": "b4299fbf28ce64ffc4bee1c79405ade0b723544530b8bdfe17f6a1051ab3923f",
+   "stddev": 29.03,
    "max": 255,
    "issues": []
   },
@@ -960,8 +960,8 @@
    "shot": "S05-01-a",
    "file": "check/f01355.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
    "sha256": "bde20dc41adadb2ee95b4f670c14a00f29feef112dd23e06ddfcb4b3a20785e1",
    "stddev": 0.0,
@@ -974,11 +974,11 @@
    "shot": "S05-01-a",
    "file": "check/f01422.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "e72c6f962b41a5cb455938c765eba7b8138208ee7276d729392a9a95724375f9",
-   "stddev": 40.45,
+   "sha256": "78bcc13a062a1e7659d083e43e80c212587c5944c3f19be73173950ff46b9282",
+   "stddev": 29.18,
    "max": 255,
    "issues": []
   },
@@ -988,11 +988,11 @@
    "shot": "S05-01-a",
    "file": "check/f01498.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "30df221e81c78f488f6bd94b169c3f52587c29ebc1ef16e26105211d66e0315f",
-   "stddev": 50.5,
+   "sha256": "3aa1f147d35536062a4e9683209dac0b316eea04c1003813b7a75bf8150d85c0",
+   "stddev": 37.17,
    "max": 255,
    "issues": []
   },
@@ -1002,11 +1002,11 @@
    "shot": "S05-02-a",
    "file": "check/f01499.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "a17da431186594e4720856d45947dd87f394228ec5f2df3a3910889e3338f162",
-   "stddev": 50.5,
+   "sha256": "c368b3d169e5ba02537e7ed4c3c48c660b9b64ebfb332bbee01bcdd11e08c774",
+   "stddev": 37.17,
    "max": 255,
    "issues": []
   },
@@ -1016,11 +1016,11 @@
    "shot": "S05-02-a",
    "file": "check/f01503.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "bc9e7e26f11142940fd52a3c5e975a21e6aa2d9ae129cece892e2a34410f9ed9",
-   "stddev": 34.99,
+   "sha256": "54f9fda62f89dc3014884504ecfab149d93ac85ce87b81f649f17cd19f87c115",
+   "stddev": 36.52,
    "max": 255,
    "issues": []
   },
@@ -1030,11 +1030,11 @@
    "shot": "S05-02-a",
    "file": "check/f01507.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "5d0d98611a66240052adb9f0fb3befb06842dedc5ef9bacff10910c0d4210a81",
-   "stddev": 43.96,
+   "sha256": "81c8a06eddbecff55b5064fbd1b6fadbb616123616b354663d0e001808a20077",
+   "stddev": 60.88,
    "max": 255,
    "issues": []
   },
@@ -1044,11 +1044,11 @@
    "shot": "S05-02-a",
    "file": "check/f01550.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "80265e13815a1e0f3a58a574aafd078ec41a6e06e4d59f96b2f4a37c8e393bb2",
-   "stddev": 73.3,
+   "sha256": "63b8316d27910858bb0e207d72c6bc74c8cbbf24724438ac4fa6f61a38de83fe",
+   "stddev": 72.92,
    "max": 255,
    "issues": []
   },
@@ -1058,11 +1058,11 @@
    "shot": "S05-02-a",
    "file": "check/f01601.jpg",
    "size": [
-    1920,
-    1080
+    1080,
+    1920
    ],
-   "sha256": "795b2517d9dfcf7d903db1a4f1a738a97e0a31debe74683c089157d9b16ca842",
-   "stddev": 73.79,
+   "sha256": "2c1c5af5133c87115362f6a4025f11d2995fc5b6eedee998ede2daacd75a3968",
+   "stddev": 71.84,
    "max": 255,
    "issues": []
   }
@@ -1078,5 +1078,6 @@
   "order": "xuôi rồi ngược",
   "mismatch": []
  },
- "contact_build_hash": "f830ccede2c8b5dbe36f35827c1a850a6888c493365e0ec1226355ad4810a65f"
+ "contact_ui_platform": "youtube_shorts",
+ "contact_build_hash": "0e7f7446573ab2d7602a352e6364c69bcd30f3609621140162cd09ac9041e87b"
 }

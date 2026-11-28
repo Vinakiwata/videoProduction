@@ -1,0 +1,41 @@
+DSN-C02:
+  verdict: pass
+  evidence: 'Khung dọc 1080×1920 (chủ dự án chọn 28/11/2026). Đã ghép thử bằng hình thật (SVG qua rsvg-convert, PNG Khỉ gốc, chữ Be Vietnam Pro + tấm nền) 7 khung nền xanh: S01-01-b, S02-01-a, S04-01-a, S04-03-b, S05-01-a, S05-02-a, kèm khung vùng an toàn đỏ (220/461/65/173 px). Các khung có cảnh phủ kín sẽ ghép lại bằng cảnh dọc ở cổng 06. Mỗi khung có một điểm nhìn chính, nằm trong vùng an toàn: S01-01-b/S01-02-a hai cốc xếp trên–dưới bên trái, Khỉ thắc mắc bên phải giữa hai cốc, tiêu đề hai dòng phía dưới; S02-01-a mây trên, giọt mưa giữa, phân tử khí bay từ trái vào giọt, nhãn ''axit nhẹ'' bên phải; S04-01-a hơi nước bốc lên từ mặt biển (chân trời 45%) là điểm chính, Khỉ ngạc nhiên nhỏ góc phải dưới (28% bề ngang), chữ bên trái dưới; S04-03-b vòng tuần hoàn chiếm giữa, chữ ''hàng triệu năm'' trên, Khỉ ôm Trái Đất và cốc biển ở hai góc dưới; S05-01-a chuỗi Mưa → Sông → Bốc hơi xếp từ trên xuống, nhãn bên phải; S05-02-a logo trên, nút ĐĂNG KÝ và chuông, ''Cùng Khỉ nhé!'' dưới nút, Khỉ
+    vui mừng dưới cùng. Không chữ, Khỉ hay nút nào nằm dưới vùng giao diện của Shorts/TikTok/Reels (DSN-A08 đo: đạt). Phần dưới 461 px để trống ở khung nền xanh là chủ ý (vùng chú thích, tên kênh của nền tảng). Sau khi vẽ cảnh dọc đã ghép lại cả 18 khung bằng cảnh thật: hạ hộp hạt muối S02-02-b/S02-03-a xuống y 44 % để hạt nằm đúng miệng vết nứt trên đỉnh đá (trước đó lơ lửng phía trên). Đo chữ trong trình duyệt (Tool 07) cho thấy chữ hai dòng cần thêm chỗ: tiêu đề ''Sông ngọt, biển mặn?'' nới hộp lên 14,5 % (y 61), ''hàng triệu năm'' 12,4 %, vòng tuần hoàn thu còn 68 % và dời xuống y 24,5 %; ghép lại hai khung: vẫn trong vùng an toàn, không chồng lên cốc hay Khỉ.'
+DSN-C03:
+  verdict: pass
+  evidence: 'Hình khớp nghĩa và đúng lúc ở mọi khung. S04-04-a đã thêm e3 A-KHOANG-CHAT với enter slide_up at 0.7, khớp chữ "thả khoáng chất vào nước" (âm tiết 15–20 trên 20 ≈ 0.7). Mô tả A-DAY-BIEN đã bỏ phần khoáng chất để không vẽ trùng. Đã kiểm lại các khung khoa học: hơi nước không mang muối (S04-01-a), cốc biển dừng ở mức hiện nay (S04-03-b, đúng NOAA). Đã kiểm lại mốc chữ sau khi giọng nhanh hơn: các nhãn đưa lên sớm 0,06–0,08 (vd. "axit nhẹ" 0.56, "muối" 0.6) — vẫn ngay trước/đúng lúc từ khoá được nói, không đến sau lời. Kịch bản đã viết lại theo văn phong nghiêm túc (28/11) nhưng giữ nguyên ý từng đoạn, nên hình vẫn khớp: S01 "Muối trong biển từ đâu mà có?" khớp Khỉ thắc mắc giữa hai cốc; S02-01 "mưa hoà tan khí cacbonic nên hơi có tính axit" khớp phân tử khí bay vào giọt mưa và nhãn "axit nhẹ"; S03-01 "lượng muối rất nhỏ" khớp kính lúp chỉ 3 hạt muối; S04-01 "muối không bốc hơi theo, mà ở lại trong biển" khớp hàng muối ở lại dưới nước. Nhãn "axit nhẹ" (S02-01-a) lùi từ 0,56 về
+    0,68: trước đó vào sớm 2,1 giây vì lời mới đẩy cụm "hơi có tính axit" xuống cuối đoạn; giờ ở khung 295, sớm 1,4 giây (đo theo timeline). Thử 0,78 và 0,70 thì DSN-A07 báo nhãn hiện chưa đủ 1,6 giây. Lời mới ngắn hơn ở vài đoạn nên DSN-A07 báo 3 nhãn hiện chưa đủ lâu; đã cho xuất hiện sớm hơn: "muối" từ 0,6 về 0,45, "nước ngọt mới" từ 0,28 về 0,2, "Muối dồn về biển" từ 0,1 về 0. Lần trước đã kiểm thêm cảnh mới: cửa sông S01-01-a cho thấy đúng sông đổ ra biển; A-NEN-MUA là trời mưa cho chặng mưa – đá; bản đồ S03-02-b có lớp A-SANG-BIEN khớp đúng vùng biển; bãi biển S04-01-a có muối nằm DƯỚI mặt nước (hộp y 62–72, biển 50–80%), không nằm trên cát.'
+DSN-C04:
+  verdict: pass
+  evidence: '6 tiếng động, mỗi cái gắn với một hành động có nghĩa: pop ← dấu hỏi bật (S01-01-b); lách tách ← hạt bong khỏi đá (S02-02-b); róc rách ← muối trôi (S02-03); pop nhẹ ← mây hình thành (S04-01-a, rơi đúng chữ "thành mây", củng cố từ đó chứ không che, vì là tiếng nhẹ dưới giọng); whoosh ← mây trôi đi trong đoạn im lặng S04-02; click ← nút đăng ký. Dày nhất 1–2 cái mỗi 10 giây.'
+DSN-C05:
+  verdict: pass
+  evidence: 'Theo brand.style kênh Khỉ Khám Phá:
+
+    - 10 cảnh kind scene dùng màu tự nhiên trong scene_palette.
+
+    - Icon, chữ, nút dùng bảng 6 màu kênh (xanh dương #0078E0, vàng #FFC907, trắng, nâu gỗ #5E270E, cam, xanh lá). Màu cũ #0B3D91, #FFD23F, #1B1B1F đã thay hết (DSN-A06 đạt).
+
+    - Khung giải thích nền xanh đậm #0B3D91: chủ dự án chọn sau khi xem so sánh 3 phương án (nâu gỗ, #0B3D91, #0058A8) ngày 28/11/2026. Cảnh kết giữ nền xanh trời #0078E0 giống ảnh bìa.
+
+    - text_plate xanh đậm, độ đậm 0,9, always: true. Lúc đầu đặt 0,85 thì DSN-A05 bắt lỗi: chữ vàng trên chỗ trắng nhất của cảnh chỉ đạt 4,38:1. Nâng lên 0,9 thì đạt 5,04:1.
+
+    - 5 asset kind mascot lấy đúng biểu cảm trong brand.mascot.
+
+    Phong cách Khỉ (vẽ chi tiết) khác cảnh phẳng, nhưng đây là chủ ý thương hiệu (chủ dự án chọn dùng PNG gốc). Khỉ luôn có viền trắng như sticker nên tách rõ khỏi cảnh, không lẫn.'
+DSN-C06:
+  verdict: pass
+  evidence: 'Mọi chữ trên màn hình là từ khoá hoặc nhãn, không chép câu lời. S01-01-b và S01-02-a đổi thành "Sông ngọt,\nbiển mặn?" (hai dòng cho khung dọc; bỏ ký tự → vì font nhận diện Be Vietnam Pro không có, trình duyệt sẽ lấy font khác — đã đo: mọi ký tự chữ trên màn hình đều có trong font). Các chữ khác: "axit nhẹ", "muối", "rất ít muối", "nước ngọt mới", "Muối dồn về biển", "Nước bay đi, muối ở lại", "hàng triệu năm", "Nguồn thêm: đáy biển", "Mưa/Sông/Bốc hơi", "Cùng Khỉ nhé!".'
+DSN-C07:
+  verdict: pass
+  evidence: Cảnh và icon là SVG có thật (26 file, 06_animation). Linh vật là 5 PNG nền trong suốt, chép đúng bản gốc từ channels/khi-kham-pha/brand/mascot. Hiệu ứng nằm trong tập anim của schema (Khỉ dùng pop, bob, wiggle). Tấm nền chữ là hình chữ nhật bo góc. Không cần 3D hay quay thật.
+DSN-C08:
+  verdict: pass
+  evidence: A-NUT-DANG-KY tự thiết kế, không dùng logo YouTube. Linh vật Khỉ và logo thuộc bộ nhận diện chủ dự án cung cấp cho kênh của mình, không phỏng theo nhân vật có bản quyền đã biết. Hình tạo bằng AI đã ghi phải gắn nhãn trong constraints của brief. Cảnh là phong cảnh chung chung vẽ từ hình học, không có người thật.
+DSN-C09:
+  verdict: pass
+  evidence: Sau khi rút thời lượng theo giọng thật (tổng ~48,7 giây), khung dài nhất là S04-04-a (~4,6 giây) và S04-01-a (~4,4 giây), đều có phần tử mới hoặc camera chạy bên trong; không khung nào > 5 giây. Đoạn dài vẫn được tách khung.
+DSN-C10:
+  verdict: pass
+  evidence: 'Cùng đối tượng dùng cùng asset và cùng hộp qua khung nối: A-SONG ở S03-01-b và S03-02-a; A-DA + A-NEN-MUA ở S02-02-a/b, S02-03-a, S04-03-a; A-BIEN ở S04-01-a → S04-02-a (match_cut, cùng hộp); A-MAY, A-COC-BIEN lặp lại; Khỉ thắc mắc S01-01-b → S01-02-a và Khỉ ngạc nhiên S04-01-a → S04-02-a cùng hộp nên không nhảy chỗ. Hướng theo khung dọc: dòng chảy chính đi từ trên xuống — cửa sông S01-01-a sông từ núi phía trên đổ ra biển phía dưới, camera lia xuống (pan_down) theo dòng; suối S03-01-a chảy từ núi xuống nhập sông ở dưới; bản đồ S03-02-b sông đổ về biển ở 1/3 dưới; giọt mưa luôn rơi từ mây xuống; chuỗi tóm tắt S05-01-a xếp từ trên xuống với mũi tên chỉ xuống. Chuyển động ngang chỉ còn ở chi tiết nhỏ có lý do: phân tử khí bay phải vào giọt, muối trôi phải rời khỏi đá (S02-03), mây trôi trái về đất liền (S04-02/S04-03-a). Bố cục trời trên, đất/biển dưới nhất quán ở mọi cảnh.'
