@@ -1,7 +1,7 @@
-# Tool 07 — Web trình chiếu: trang tất định 1920×1080 dựng từ timeline + storyboard + hình (thiết kế: docs/superpowers/specs/2026-11-28-tool-trinh-chieu-design.md).
+# Tool 07 — Web trình chiếu: trang tất định theo khung của brief (1080×1920 cho Shorts/TikTok/Reels) dựng từ timeline + storyboard + hình (thiết kế: docs/superpowers/specs/2026-11-28-tool-trinh-chieu-design.md).
 # Trang này là bộ dựng duy nhất: Tool 08 chụp đúng trang này thành khung hình.
 stage: presentation
-version: 1
+version: 2
 title: Kiểm duyệt web trình chiếu
 artifacts: [07_presentation, 05_timeline/timeline.yaml, 02_design/storyboard.yaml, 06_animation/assets.yaml]
 items:
@@ -25,7 +25,7 @@ items:
     check: presentation_fonts
   - id: PRS-A04
     group: Kỹ thuật
-    title: Dựng thử không lỗi JS/console, đúng 1920×1080, không khung đen hay trống
+    title: Dựng thử không lỗi JS/console, đúng khung của brief, không khung đen hay trống
     severity: chan
     method: auto
     check: presentation_render
@@ -37,7 +37,7 @@ items:
     check: presentation_deterministic
   - id: PRS-A06
     group: Hiển thị
-    title: Chữ không tràn box và nằm trong vùng an toàn 5% (đo trong DOM)
+    title: Chữ không tràn box và nằm trong vùng an toàn của các nền tảng đã chọn (đo trong DOM)
     severity: nghiem_trong
     method: auto
     check: presentation_text_fit
@@ -58,7 +58,7 @@ items:
     title: Bố cục từng khung hình khớp storyboard (vị trí, thứ tự lớp, nền)
     severity: chan
     method: ai
-    guidance: Đối chiếu check/contact.png với 02_design/frames/*.png từng mã khung hình. Ghi khung lệch bố cục hay thiếu phần tử.
+    guidance: Đối chiếu check/contact.png với 02_design/frames/*.png từng mã khung hình. Xem thêm check/contact_ui.png (chồng giao diện nền tảng che nhiều nhất) — Khỉ, chữ, nút không nằm dưới vùng che. Ghi khung lệch bố cục hay thiếu phần tử.
   - id: PRS-C02
     group: Chuyển cảnh
     title: Chuyển cảnh mượt, đúng loại đã khai
@@ -70,7 +70,7 @@ items:
     title: Chuyển động tự nhiên, khớp lời đọc
     severity: chan
     method: ai
-    guidance: Chủ dự án chấm mục này. Người duyệt mở 07_presentation/index.html (chế độ xem, có tiếng) hoặc video xem trước, xem hết một lượt. Ghi mốc giây chỗ hình đi trước/sau lời hoặc chuyển động máy móc.
+    guidance: Chủ dự án chấm mục này. Người duyệt mở 07_presentation/index.html (chế độ xem, có tiếng), bật lớp phủ từng nền tảng ở ô 'giao diện', xem hết một lượt. Ghi mốc giây chỗ hình đi trước/sau lời hoặc chuyển động máy móc.
   - id: PRS-C04
     group: Hiển thị
     title: Chữ đúng font nhận diện, đọc rõ, không lỗi dấu tiếng Việt

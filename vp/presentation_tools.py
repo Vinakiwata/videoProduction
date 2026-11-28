@@ -1,4 +1,4 @@
-"""Tool 7 — Web trình chiếu 1920×1080: biên dịch timeline + storyboard + hình thành một trang tất định.
+"""Tool 7 — Web trình chiếu theo khung của brief (1080×1920 cho Shorts/TikTok/Reels): biên dịch timeline + storyboard + hình thành một trang tất định.
 Xem docs/superpowers/specs/2026-11-28-tool-trinh-chieu-design.md."""
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from vp import review
+from vp import platforms, review
 from vp.checks.files import load_yaml
 
 DIR = "07_presentation"
@@ -84,9 +84,14 @@ def compile_presentation(project: Path) -> dict:
                       "transition": {"type": tr, "frames": TRANSITION_FRAMES.get(tr, 0) if shots else 0}, "elements": els})
     assets = {i: {"file": a["file"], "kind": a.get("kind"), "motion": a.get("motion") or []} for i, a in amap.items()}
     fonts = sb.get("fonts") or {}
-    return {"version": 1, "canvas": {k: int(v) for k, v in sb["meta"]["canvas"].items()} | {"fps": int(tl["fps"])},
+    canvas = {k: int(v) for k, v in sb["meta"]["canvas"].items()} | {"fps": int(tl["fps"])}
+    bp = project / "00_brief" / "brief.yaml"
+    brief = (load_yaml(project, "00_brief/brief.yaml") or {}) if bp.is_file() else {}
+    margins = platforms.safe_margins({**brief, "format": canvas})
+    plats = [{"id": p["id"], "name": p["name"], "ui_zones": p["ui_zones"]} for p in platforms.profiles(brief)]
+    return {"version": 2, "canvas": canvas,
             "total_frames": int(tl["total_frames"]), "fonts": fonts, "text_plate": sb.get("text_plate"),
-            "safe_area": 0.05, "shots": shots, "assets": assets, "input_hash": input_hash(project)}
+            "safe_margins": margins, "platforms": plats, "shots": shots, "assets": assets, "input_hash": input_hash(project)}
 
 
 def font_files(project: Path) -> tuple[list[Path], Path | None]:
@@ -211,9 +216,9 @@ def key_frames(comp: dict) -> list[dict]:
     return [{"frame": f, "role": r} for f, r in sorted(out.items())]
 
 
-def _run_capture(index: Path, frames: list[int], out_dir: Path, measure: bool) -> dict:
+def _run_capture(index: Path, frames: list[int], out_dir: Path, measure: bool, canvas: dict) -> dict:
     spec = {"url": index.resolve().as_uri() + "?render=1", "out_dir": str(out_dir), "frames": frames,
-            "width": 1920, "height": 1080, "measure": measure, "chrome": shutil.which("google-chrome") or "google-chrome"}
+            "width": canvas["width"], "height": canvas["height"], "measure": measure, "chrome": shutil.which("google-chrome") or "google-chrome"}
     sp = out_dir.parent / (out_dir.name + ".spec.json")
     sp.write_text(json.dumps(spec), encoding="utf-8")
     r = subprocess.run(["node", str(CAPTURE), str(sp)], capture_output=True, text=True, timeout=1800)
@@ -246,8 +251,9 @@ def check(project: Path) -> Path:
     cdir.mkdir()
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        fwd = _run_capture(d / "index.html", frames, tmp / "xuoi", measure=True)
-        rev = _run_capture(d / "index.html", frames[::-1], tmp / "nguoc", measure=False)
+        cv = comp["canvas"]
+        fwd = _run_capture(d / "index.html", frames, tmp / "xuoi", measure=True, canvas=cv)
+        rev = _run_capture(d / "index.html", frames[::-1], tmp / "nguoc", measure=False, canvas=cv)
         rev_hash = {}
         for r in rev["frames"]:
             rev_hash[r["frame"]] = _pixels(Path(r["file"]))[1]
@@ -255,7 +261,7 @@ def check(project: Path) -> Path:
         for k, r in zip(keys, fwd["frames"]):
             im, hx, sd, mx = _pixels(Path(r["file"]))
             name = f"f{r['frame']:05d}.jpg"
-            im.resize((960, 540)).save(cdir / name, quality=85)
+            im.resize((cv["width"] // 2, cv["height"] // 2)).save(cdir / name, quality=85)
             if rev_hash.get(r["frame"]) != hx:
                 mism.append(r["frame"])
             rows.append({"frame": r["frame"], "role": k["role"], "shot": r["shot"], "file": f"{CHECK_DIR}/{name}",
@@ -268,8 +274,13 @@ def check(project: Path) -> Path:
     return cdir / "check_manifest.json"
 
 
+def _covered(p: dict) -> float:
+    return sum(z["w"] * z["h"] for z in p["ui_zones"])
+
+
 def preview(project: Path) -> Path:
-    """Tờ ảnh các khung mốc (contact.png) cho người duyệt, kèm số khung và mã khung hình."""
+    """Tờ ảnh các khung mốc (contact.png) cho người duyệt, kèm số khung và mã khung hình.
+    Có nền tảng → thêm contact_ui.png chồng vùng giao diện của nền tảng che nhiều nhất."""
     from PIL import Image, ImageDraw, ImageFont
     project = Path(project)
     d = project / DIR
@@ -277,25 +288,39 @@ def preview(project: Path) -> Path:
     if not mp.is_file():
         raise PresentationError("Chưa có tờ kiểm. Chạy: python -m vp presentation check <dự án>")
     man = json.loads(mp.read_text(encoding="utf-8"))
+    comp = json.loads((d / "presentation.json").read_text(encoding="utf-8"))
+    cv, fps = comp["canvas"], comp["canvas"]["fps"]
     rows = man["frames"]
-    cols, W, H, cap = 5, 384, 216, 26
-    sheet = Image.new("RGB", (cols * W, ((len(rows) + cols - 1) // cols) * (H + cap)), "#1d1f24")
-    dr = ImageDraw.Draw(sheet)
+    landscape = cv["width"] >= cv["height"]
+    cols, W = (5, 384) if landscape else (8, 240)
+    H, cap = round(W * cv["height"] / cv["width"]), 26
     try:
-        font = ImageFont.truetype("DejaVuSans.ttf", 15)
+        font = ImageFont.truetype("DejaVuSans.ttf", 15 if landscape else 12)
     except OSError:
         font = ImageFont.load_default()
-    fps = 30
-    try:
-        fps = json.loads((d / "presentation.json").read_text(encoding="utf-8"))["canvas"]["fps"]
-    except (KeyError, OSError):
-        pass
-    for i, r in enumerate(rows):
-        x, y = (i % cols) * W, (i // cols) * (H + cap)
-        sheet.paste(Image.open(d / r["file"]).resize((W, H)), (x, y))
-        dr.text((x + 6, y + H + 4), f"{r['frame']} · {r['frame'] / fps:.2f}s · {r['shot']} · {r['role']}", fill="#e8e8ea", font=font)
+    worst = max(comp.get("platforms") or [], key=_covered, default=None)
+
+    def sheet_with(zones: list | None) -> Image.Image:
+        sheet = Image.new("RGB", (cols * W, ((len(rows) + cols - 1) // cols) * (H + cap)), "#1d1f24")
+        dr = ImageDraw.Draw(sheet, "RGBA")
+        k = W / cv["width"]
+        for i, r in enumerate(rows):
+            x, y = (i % cols) * W, (i // cols) * (H + cap)
+            sheet.paste(Image.open(d / r["file"]).resize((W, H)), (x, y))
+            for z in zones or []:
+                dr.rectangle([x + z["x"] * k, y + z["y"] * k, x + (z["x"] + z["w"]) * k, y + (z["y"] + z["h"]) * k],
+                             fill=(0, 0, 0, 115), outline=(255, 60, 60, 200))
+            dr.text((x + 4, y + H + 4), f"{r['frame']} · {r['frame'] / fps:.2f}s · {r['shot']} · {r['role']}", fill="#e8e8ea", font=font)
+        return sheet
+
     out = d / CHECK_DIR / "contact.png"
-    sheet.save(out)
+    sheet_with(None).save(out)
+    ui = d / CHECK_DIR / "contact_ui.png"
+    if worst:
+        sheet_with(worst["ui_zones"]).save(ui)
+        man["contact_ui_platform"] = worst["id"]
+    elif ui.exists():
+        ui.unlink()
     man["contact_build_hash"] = man["build_hash"]
     mp.write_text(json.dumps(man, ensure_ascii=False, indent=1), encoding="utf-8")
     return out

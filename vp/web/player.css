@@ -13,9 +13,14 @@ body.render #stage { transform: none !important; }
 .st-label .tx { font-weight: 700; }
 .st-caption .tx { font-weight: 500; }
 .st-number .tx { font-weight: 800; font-variant-numeric: tabular-nums; }
-#stage.show-safe::after { content: ''; position: absolute; inset: 5%; border: 3px dashed rgba(255, 60, 60, .9); pointer-events: none; z-index: 99; }
+#stage.show-safe::after { content: ''; position: absolute; inset: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left); border: 3px dashed rgba(255, 60, 60, .9); pointer-events: none; z-index: 99; }
 #ui { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 12px; align-items: center; padding: 8px 14px;
       background: #1d1f24; color: #e8e8ea; font: 14px system-ui, sans-serif; }
 #ui button { background: #FFC907; border: 0; border-radius: 6px; padding: 6px 14px; font-weight: 700; cursor: pointer; }
 #ui input[type=range] { flex: 1; }
 body.render #ui { display: none; }
+#ui-cover { position: absolute; inset: 0; pointer-events: none; z-index: 98; }
+#ui-cover .zone { position: absolute; background: rgba(0, 0, 0, .45); outline: 2px dashed rgba(255, 60, 60, .8); outline-offset: -2px;
+                  display: flex; align-items: center; justify-content: center; }
+#ui-cover .zone span { color: #fff; font: 600 28px system-ui, sans-serif; text-align: center; padding: 8px; text-shadow: 0 1px 3px #000; }
+body.render #ui-cover { display: none; }
