@@ -89,15 +89,31 @@
     "animation": {
       "pending": null,
       "latest": {
-        "review": "reviews/animation/20261128-162415",
+        "review": "reviews/animation/20261128-164428",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "06_animation": "dir:8f73d2717688d3fdd8595ce824f6dcc1ab73f12722f04f8dc4da845f1317f42f",
+          "06_animation": "dir:3467dff4560fe54ae4275fe1be56fcc0acdd6eed4b3ad888570033d5f07cfb3a",
           "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
           "05_timeline/timeline.yaml": "11997789b3395a6ee7e84b64ae8da5c99e3c0886114f8a910af700499e8d8873"
         },
-        "finalized_at": "2026-11-28T16:24:16+07:00",
+        "finalized_at": "2026-11-28T16:44:28+07:00",
+        "override": null
+      }
+    },
+    "presentation": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/presentation/20261128-165546",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "07_presentation": "dir:555ebbd446a5e8fc65ac0176465ead0ab6c68a224670c87960a7ee578737e072",
+          "05_timeline/timeline.yaml": "11997789b3395a6ee7e84b64ae8da5c99e3c0886114f8a910af700499e8d8873",
+          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "06_animation/assets.yaml": "f31a4e60ffb4135770e4558635e872bc6c65cba2fd3e3806ad10e128289316d5"
+        },
+        "finalized_at": "2026-11-28T16:56:24+07:00",
         "override": null
       }
     }

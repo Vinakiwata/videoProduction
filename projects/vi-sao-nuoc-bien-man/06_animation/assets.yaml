@@ -13,6 +13,16 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: Cảnh cả khung. flow chạy lớp river + ripples; mây trong lớp sky trôi rất chậm (tuỳ chọn).
+  motion:
+  - layer: ripples
+    recipe: along
+    path: flow
+    spacing: 37.1
+    period_s: 1.5
+    shape: ripple
+    fade: 0.8
+    opacity: 0.85
+    width: 3
 - id: A-CUA-SONG
   file: assets/A-CUA-SONG.svg
   kind: scene
@@ -24,11 +34,27 @@ assets:
   - hills
   - beach
   - river
+  - ripples
   - waves
   - trees
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: Cảnh cả khung. flow cho river; waves dập dềnh bob 2,5 s.
+  motion:
+  - layer: ripples
+    recipe: along
+    path: flow
+    spacing: 56.7
+    period_s: 1.5
+    shape: ripple
+    fade: 0.8
+    opacity: 0.85
+    width: 3
+  - layer: waves
+    recipe: bob
+    amp: 5
+    ax: 6
+    period_s: 2.5
 - id: A-SONG-ICON
   file: assets/A-SONG-ICON.svg
   kind: icon
@@ -52,6 +78,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: Cảnh cả khung, chân trời ở 50% chiều cao, biển 50–80%. bob cho waves.
+  motion:
+  - layer: waves
+    recipe: bob
+    amp: 5
+    ax: 6
+    period_s: 2.5
 - id: A-COC-SONG
   file: assets/A-COC-SONG.svg
   kind: icon
@@ -123,6 +155,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: Nền mưa; lớp rain trượt chéo liên tục (flow).
+  motion:
+  - layer: rain
+    recipe: fall
+    dx: -166
+    dy: 540
+    period_s: 1.04
 - id: A-HAT-MUOI
   file: assets/A-HAT-MUOI.svg
   kind: icon
@@ -131,6 +169,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: sparkles
+    recipe: twinkle
+    lo: 0.35
+    hi: 1
+    period_s: 1.2
 - id: A-SUOI
   file: assets/A-SUOI.svg
   kind: scene
@@ -141,10 +185,21 @@ assets:
   - hills
   - streams
   - river
+  - ripples
   - trees
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: draw vẽ dần lớp streams từ trên núi xuống; flow cho river.
+  motion:
+  - layer: ripples
+    recipe: along
+    path: flow
+    spacing: 88.3
+    period_s: 1.5
+    shape: ripple
+    fade: 0.8
+    opacity: 0.85
+    width: 3
 - id: A-KINH-LUP
   file: assets/A-KINH-LUP.svg
   kind: icon
@@ -165,6 +220,17 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: dots
+    recipe: along
+    paths_from: rivers
+    count: 4
+    period_s: 1.0
+    stagger: 0.52
+    shape: dot
+    r: 7
+    fade: 0.4
+    opacity: 1
 - id: A-SANG-BIEN
   file: assets/A-SANG-BIEN.svg
   kind: diagram
@@ -174,6 +240,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: Khớp đúng vùng biển của A-BAN-DO-SONG; pulse chu kỳ 1,2 s.
+  motion:
+  - layer: glow
+    recipe: pulse_opacity
+    lo: 0.3
+    hi: 1
+    period_s: 1.2
 - id: A-MAT-TROI
   file: assets/A-MAT-TROI.svg
   kind: illustration
@@ -182,6 +254,13 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: rays
+    recipe: rotate
+    center:
+    - 150
+    - 150
+    period_s: 8
 - id: A-HOI-NUOC
   file: assets/A-HOI-NUOC.svg
   kind: diagram
@@ -190,6 +269,28 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: arrows
+    recipe: dashflow
+    speed: 40
+  - layer: vapor
+    recipe: along
+    paths:
+    - M95 430 V90
+    - M125 430 V90
+    - M180 430 V90
+    - M205 430 V90
+    - M110 430 V90
+    - M175 430 V90
+    - M245 430 V90
+    - M55 430 V90
+    count: 1
+    period_s: 2.0
+    stagger: 0.37
+    shape: dot
+    r: 9
+    fade: 0.18
+    opacity: 0.85
 - id: A-MUOI-O-LAI
   file: assets/A-MUOI-O-LAI.svg
   kind: icon
@@ -198,6 +299,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: sparkles
+    recipe: twinkle
+    lo: 0.35
+    hi: 1
+    period_s: 1.2
 - id: A-VONG-TUAN-HOAN
   file: assets/A-VONG-TUAN-HOAN.svg
   kind: diagram
@@ -206,6 +313,13 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: ring
+    recipe: rotate
+    center:
+    - 200
+    - 200
+    period_s: 3
 - id: A-DAY-BIEN
   file: assets/A-DAY-BIEN.svg
   kind: scene
@@ -219,6 +333,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: glow
+    recipe: pulse_opacity
+    lo: 0.45
+    hi: 1
+    period_s: 1.5
 - id: A-KHOANG-CHAT
   file: assets/A-KHOANG-CHAT.svg
   kind: diagram
@@ -227,6 +347,12 @@ assets:
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+  motion:
+  - layer: dots
+    recipe: bob
+    amp: 7
+    ax: 4
+    period_s: 1.6
 - id: A-MUI-TEN
   file: assets/A-MUI-TEN.svg
   kind: icon

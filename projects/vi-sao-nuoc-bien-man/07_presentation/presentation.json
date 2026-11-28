@@ -1,0 +1,2133 @@
+{
+ "version": 1,
+ "canvas": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "total_frames": 1602,
+ "fonts": {
+  "title": "Be Vietnam Pro",
+  "body": "Be Vietnam Pro"
+ },
+ "text_plate": {
+  "color": "#0B3D91",
+  "opacity": 0.9,
+  "always": true
+ },
+ "safe_area": 0.05,
+ "shots": [
+  {
+   "id": "S01-01-a",
+   "segment": "S01-01",
+   "start": 0,
+   "end": 57,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.1
+   },
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-CUA-SONG",
+     "file": "assets/A-CUA-SONG.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "enter": {
+      "anim": "fade",
+      "start": 0,
+      "dur": 18,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 0,
+      "period": 45
+     }
+    }
+   ]
+  },
+  {
+   "id": "S01-01-b",
+   "segment": "S01-01",
+   "start": 57,
+   "end": 145,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "zoom_through",
+    "frames": 10
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 18.0,
+      "y": 30.0,
+      "w": 20.0,
+      "h": 40.0
+     },
+     "asset": "A-COC-SONG",
+     "file": "assets/A-COC-SONG.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 57,
+      "dur": 12,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 62.0,
+      "y": 30.0,
+      "w": 20.0,
+      "h": 40.0
+     },
+     "asset": "A-COC-BIEN",
+     "file": "assets/A-COC-BIEN.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 70,
+      "dur": 12,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 22.0,
+      "w": 20.0,
+      "h": 44.0
+     },
+     "asset": "A-KHI-THAC-MAC",
+     "file": "assets/A-KHI-THAC-MAC.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 110,
+      "dur": 10,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "bob",
+      "start": 110,
+      "period": 45
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 15.0,
+      "y": 74.0,
+      "w": 70.0,
+      "h": 14.0
+     },
+     "text": "Sông ngọt → Biển mặn?",
+     "style": "title",
+     "font_px": 96,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 90,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S01-02-a",
+   "segment": "S01-02",
+   "start": 145,
+   "end": 175,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_in",
+    "amount": 0.05
+   },
+   "transition": {
+    "type": "match_cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 18.0,
+      "y": 30.0,
+      "w": 20.0,
+      "h": 40.0
+     },
+     "asset": "A-COC-SONG",
+     "file": "assets/A-COC-SONG.svg",
+     "kind": "icon",
+     "layer_motion": false
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 62.0,
+      "y": 30.0,
+      "w": 20.0,
+      "h": 40.0
+     },
+     "asset": "A-COC-BIEN",
+     "file": "assets/A-COC-BIEN.svg",
+     "kind": "icon",
+     "layer_motion": false
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 22.0,
+      "w": 20.0,
+      "h": 44.0
+     },
+     "asset": "A-KHI-THAC-MAC",
+     "file": "assets/A-KHI-THAC-MAC.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "loop": {
+      "anim": "wiggle",
+      "start": 145,
+      "period": 45
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 15.0,
+      "y": 74.0,
+      "w": 70.0,
+      "h": 14.0
+     },
+     "text": "Sông ngọt → Biển mặn?",
+     "style": "title",
+     "font_px": 96,
+     "color": "#FFC907",
+     "exit": {
+      "anim": "fade",
+      "start": 175,
+      "dur": 9,
+      "ease": "ease_in"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S02-01-a",
+   "segment": "S02-01",
+   "start": 175,
+   "end": 370,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "pan_down",
+    "amount": 0.1
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e0",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-NEN-MUA",
+     "file": "assets/A-NEN-MUA.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": 30.0,
+      "y": 6.0,
+      "w": 40.0,
+      "h": 22.0
+     },
+     "asset": "A-MAY",
+     "file": "assets/A-MAY.svg",
+     "kind": "illustration",
+     "layer_motion": false,
+     "enter": {
+      "anim": "fade",
+      "start": 175,
+      "dur": 12,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 45.0,
+      "y": 32.0,
+      "w": 10.0,
+      "h": 18.0
+     },
+     "asset": "A-GIOT-MUA",
+     "file": "assets/A-GIOT-MUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "drop",
+      "start": 184,
+      "dur": 18,
+      "ease": "ease_in"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 3,
+     "box": {
+      "x": 20.0,
+      "y": 35.0,
+      "w": 22.0,
+      "h": 25.0
+     },
+     "asset": "A-PHANTU-KHI",
+     "file": "assets/A-PHANTU-KHI.svg",
+     "kind": "diagram",
+     "layer_motion": false,
+     "enter": {
+      "anim": "slide_right",
+      "start": 237,
+      "dur": 21,
+      "ease": "ease_in_out"
+     },
+     "exit": {
+      "anim": "scale_out",
+      "start": 281,
+      "dur": 9,
+      "ease": "back_in"
+     }
+    },
+    {
+     "id": "e4",
+     "z": 4,
+     "box": {
+      "x": 45.0,
+      "y": 32.0,
+      "w": 10.0,
+      "h": 18.0
+     },
+     "asset": "A-GIOT-MUA-CHUA",
+     "file": "assets/A-GIOT-MUA-CHUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "morph",
+      "start": 285,
+      "dur": 12,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "pulse",
+      "start": 285,
+      "period": 45
+     }
+    },
+    {
+     "id": "e5",
+     "z": 5,
+     "box": {
+      "x": 58.0,
+      "y": 40.0,
+      "w": 25.0,
+      "h": 10.0
+     },
+     "text": "axit nhẹ",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 295,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S02-02-a",
+   "segment": "S02-02",
+   "start": 370,
+   "end": 415,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "push_up",
+    "frames": 10
+   },
+   "elements": [
+    {
+     "id": "e0",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-NEN-MUA",
+     "file": "assets/A-NEN-MUA.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": 20.0,
+      "y": 40.0,
+      "w": 60.0,
+      "h": 50.0
+     },
+     "asset": "A-DA",
+     "file": "assets/A-DA.svg",
+     "kind": "scene",
+     "layer_motion": false,
+     "enter": {
+      "anim": "slide_up",
+      "start": 370,
+      "dur": 15,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 8.0,
+      "w": 8.0,
+      "h": 14.0
+     },
+     "asset": "A-GIOT-MUA-CHUA",
+     "file": "assets/A-GIOT-MUA-CHUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "drop",
+      "start": 374,
+      "dur": 18,
+      "ease": "ease_in"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 374,
+      "period": 45
+     }
+    }
+   ]
+  },
+  {
+   "id": "S02-02-b",
+   "segment": "S02-02",
+   "start": 415,
+   "end": 498,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_in",
+    "amount": 0.25
+   },
+   "transition": {
+    "type": "match_cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e0",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-NEN-MUA",
+     "file": "assets/A-NEN-MUA.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": -10.0,
+      "y": 30.0,
+      "w": 120.0,
+      "h": 80.0
+     },
+     "asset": "A-DA",
+     "file": "assets/A-DA.svg",
+     "kind": "scene",
+     "layer_motion": false
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 46.0,
+      "w": 22.0,
+      "h": 18.0
+     },
+     "asset": "A-HAT-MUOI",
+     "file": "assets/A-HAT-MUOI.svg",
+     "kind": "icon",
+     "layer_motion": true,
+     "enter": {
+      "anim": "grow",
+      "start": 427,
+      "dur": 24,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "shimmer",
+      "start": 427,
+      "period": 45
+     }
+    },
+    {
+     "id": "e3",
+     "z": 3,
+     "box": {
+      "x": 64.0,
+      "y": 30.0,
+      "w": 16.0,
+      "h": 11.0
+     },
+     "text": "muối",
+     "style": "label",
+     "font_px": 72,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "pop",
+      "start": 452,
+      "dur": 9,
+      "ease": "back_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S02-03-a",
+   "segment": "S02-03",
+   "start": 498,
+   "end": 528,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "pan_right",
+    "amount": 0.15
+   },
+   "transition": {
+    "type": "match_cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e0",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-NEN-MUA",
+     "file": "assets/A-NEN-MUA.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": -10.0,
+      "y": 30.0,
+      "w": 120.0,
+      "h": 80.0
+     },
+     "asset": "A-DA",
+     "file": "assets/A-DA.svg",
+     "kind": "scene",
+     "layer_motion": false
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 46.0,
+      "w": 22.0,
+      "h": 18.0
+     },
+     "asset": "A-HAT-MUOI",
+     "file": "assets/A-HAT-MUOI.svg",
+     "kind": "icon",
+     "layer_motion": true,
+     "enter": {
+      "anim": "slide_right",
+      "start": 498,
+      "dur": 30,
+      "ease": "ease_in_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S03-01-a",
+   "segment": "S03-01",
+   "start": 528,
+   "end": 580,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_out",
+    "amount": 0.2
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-SUOI",
+     "file": "assets/A-SUOI.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "enter": {
+      "anim": "draw",
+      "start": 528,
+      "dur": 42,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 528,
+      "period": 45
+     }
+    }
+   ]
+  },
+  {
+   "id": "S03-01-b",
+   "segment": "S03-01",
+   "start": 580,
+   "end": 694,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "match_cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-SONG",
+     "file": "assets/A-SONG.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "loop": {
+      "anim": "flow",
+      "start": 580,
+      "period": 45
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 33.0,
+      "y": 56.0,
+      "w": 30.0,
+      "h": 52.0
+     },
+     "asset": "A-KINH-LUP",
+     "file": "assets/A-KINH-LUP.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "scale_in",
+      "start": 580,
+      "dur": 15,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 66.0,
+      "y": 22.0,
+      "w": 28.0,
+      "h": 10.0
+     },
+     "text": "rất ít muối",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 599,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S03-02-a",
+   "segment": "S03-02",
+   "start": 694,
+   "end": 768,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-SONG",
+     "file": "assets/A-SONG.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "loop": {
+      "anim": "flow",
+      "start": 694,
+      "period": 45
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 32.0,
+      "y": 4.0,
+      "w": 36.0,
+      "h": 18.0
+     },
+     "asset": "A-MAY",
+     "file": "assets/A-MAY.svg",
+     "kind": "illustration",
+     "layer_motion": false,
+     "enter": {
+      "anim": "slide_down",
+      "start": 694,
+      "dur": 15,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 38.0,
+      "y": 22.0,
+      "w": 24.0,
+      "h": 34.0
+     },
+     "asset": "A-GIOT-MUA",
+     "file": "assets/A-GIOT-MUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "drop",
+      "start": 701,
+      "dur": 18,
+      "ease": "ease_in"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 701,
+      "period": 45
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 60.0,
+      "y": 82.0,
+      "w": 34.0,
+      "h": 10.0
+     },
+     "text": "nước ngọt mới",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFFFFF",
+     "enter": {
+      "anim": "fade",
+      "start": 709,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S03-02-b",
+   "segment": "S03-02",
+   "start": 768,
+   "end": 863,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_out",
+    "amount": 0.3
+   },
+   "transition": {
+    "type": "zoom_through",
+    "frames": 10
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-BAN-DO-SONG",
+     "file": "assets/A-BAN-DO-SONG.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "enter": {
+      "anim": "fade",
+      "start": 768,
+      "dur": 15,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 768,
+      "period": 45
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-SANG-BIEN",
+     "file": "assets/A-SANG-BIEN.svg",
+     "kind": "diagram",
+     "layer_motion": true,
+     "loop": {
+      "anim": "pulse",
+      "start": 768,
+      "period": 36
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 6.0,
+      "y": 82.0,
+      "w": 60.0,
+      "h": 10.0
+     },
+     "text": "Muối dồn về biển",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 768,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S04-01-a",
+   "segment": "S04-01",
+   "start": 863,
+   "end": 999,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e2",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-BIEN",
+     "file": "assets/A-BIEN.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "loop": {
+      "anim": "bob",
+      "start": 863,
+      "period": 75
+     }
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": 8.0,
+      "y": 6.0,
+      "w": 16.0,
+      "h": 28.0
+     },
+     "asset": "A-MAT-TROI",
+     "file": "assets/A-MAT-TROI.svg",
+     "kind": "illustration",
+     "layer_motion": true,
+     "enter": {
+      "anim": "scale_in",
+      "start": 863,
+      "dur": 15,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "rotate",
+      "start": 863,
+      "period": 240
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 14.0,
+      "w": 20.0,
+      "h": 38.0
+     },
+     "asset": "A-HOI-NUOC",
+     "file": "assets/A-HOI-NUOC.svg",
+     "kind": "diagram",
+     "layer_motion": true,
+     "enter": {
+      "anim": "slide_up",
+      "start": 877,
+      "dur": 30,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 877,
+      "period": 45
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 38.0,
+      "y": 2.0,
+      "w": 26.0,
+      "h": 14.0
+     },
+     "asset": "A-MAY",
+     "file": "assets/A-MAY.svg",
+     "kind": "illustration",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 924,
+      "dur": 12,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e5",
+     "z": 4,
+     "box": {
+      "x": 30.0,
+      "y": 62.0,
+      "w": 40.0,
+      "h": 10.0
+     },
+     "asset": "A-MUOI-O-LAI",
+     "file": "assets/A-MUOI-O-LAI.svg",
+     "kind": "icon",
+     "layer_motion": true,
+     "enter": {
+      "anim": "fade",
+      "start": 945,
+      "dur": 12,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "shimmer",
+      "start": 945,
+      "period": 45
+     }
+    },
+    {
+     "id": "e7",
+     "z": 5,
+     "box": {
+      "x": 78.0,
+      "y": 60.0,
+      "w": 17.0,
+      "h": 36.0
+     },
+     "asset": "A-KHI-NGAC-NHIEN",
+     "file": "assets/A-KHI-NGAC-NHIEN.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 942,
+      "dur": 10,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e6",
+     "z": 6,
+     "box": {
+      "x": 62.0,
+      "y": 32.0,
+      "w": 33.0,
+      "h": 18.0
+     },
+     "text": "Nước bay đi, muối ở lại",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 931,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S04-02-a",
+   "segment": "S04-02",
+   "start": 999,
+   "end": 1029,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "match_cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e2",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-BIEN",
+     "file": "assets/A-BIEN.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "loop": {
+      "anim": "bob",
+      "start": 999,
+      "period": 75
+     }
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": 8.0,
+      "y": 6.0,
+      "w": 16.0,
+      "h": 28.0
+     },
+     "asset": "A-MAT-TROI",
+     "file": "assets/A-MAT-TROI.svg",
+     "kind": "illustration",
+     "layer_motion": true,
+     "loop": {
+      "anim": "rotate",
+      "start": 999,
+      "period": 240
+     }
+    },
+    {
+     "id": "e4",
+     "z": 2,
+     "box": {
+      "x": 38.0,
+      "y": 2.0,
+      "w": 26.0,
+      "h": 14.0
+     },
+     "asset": "A-MAY",
+     "file": "assets/A-MAY.svg",
+     "kind": "illustration",
+     "layer_motion": false,
+     "exit": {
+      "anim": "slide_left",
+      "start": 1005,
+      "dur": 24,
+      "ease": "ease_in"
+     }
+    },
+    {
+     "id": "e5",
+     "z": 3,
+     "box": {
+      "x": 30.0,
+      "y": 62.0,
+      "w": 40.0,
+      "h": 10.0
+     },
+     "asset": "A-MUOI-O-LAI",
+     "file": "assets/A-MUOI-O-LAI.svg",
+     "kind": "icon",
+     "layer_motion": true,
+     "loop": {
+      "anim": "shimmer",
+      "start": 999,
+      "period": 45
+     }
+    },
+    {
+     "id": "e7",
+     "z": 4,
+     "box": {
+      "x": 78.0,
+      "y": 60.0,
+      "w": 17.0,
+      "h": 36.0
+     },
+     "asset": "A-KHI-NGAC-NHIEN",
+     "file": "assets/A-KHI-NGAC-NHIEN.png",
+     "kind": "mascot",
+     "layer_motion": false
+    },
+    {
+     "id": "e6",
+     "z": 5,
+     "box": {
+      "x": 62.0,
+      "y": 32.0,
+      "w": 33.0,
+      "h": 18.0
+     },
+     "text": "Nước bay đi, muối ở lại",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "exit": {
+      "anim": "fade",
+      "start": 1029,
+      "dur": 9,
+      "ease": "ease_in"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S04-03-a",
+   "segment": "S04-03",
+   "start": 1029,
+   "end": 1062,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "push_left",
+    "frames": 10
+   },
+   "elements": [
+    {
+     "id": "e0",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-NEN-MUA",
+     "file": "assets/A-NEN-MUA.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e1",
+     "z": 1,
+     "box": {
+      "x": 30.0,
+      "y": 8.0,
+      "w": 40.0,
+      "h": 22.0
+     },
+     "asset": "A-MAY",
+     "file": "assets/A-MAY.svg",
+     "kind": "illustration",
+     "layer_motion": false,
+     "enter": {
+      "anim": "slide_left",
+      "start": 1029,
+      "dur": 15,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 32.0,
+      "y": 32.0,
+      "w": 36.0,
+      "h": 20.0
+     },
+     "asset": "A-GIOT-MUA",
+     "file": "assets/A-GIOT-MUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "drop",
+      "start": 1036,
+      "dur": 15,
+      "ease": "ease_in"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 1036,
+      "period": 45
+     }
+    },
+    {
+     "id": "e3",
+     "z": 3,
+     "box": {
+      "x": 25.0,
+      "y": 62.0,
+      "w": 50.0,
+      "h": 30.0
+     },
+     "asset": "A-DA",
+     "file": "assets/A-DA.svg",
+     "kind": "scene",
+     "layer_motion": false
+    }
+   ]
+  },
+  {
+   "id": "S04-03-b",
+   "segment": "S04-03",
+   "start": 1062,
+   "end": 1195,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_out",
+    "amount": 0.15
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 30.0,
+      "y": 10.0,
+      "w": 40.0,
+      "h": 72.0
+     },
+     "asset": "A-VONG-TUAN-HOAN",
+     "file": "assets/A-VONG-TUAN-HOAN.svg",
+     "kind": "diagram",
+     "layer_motion": true,
+     "enter": {
+      "anim": "draw",
+      "start": 1062,
+      "dur": 30,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "rotate",
+      "start": 1062,
+      "period": 90
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 5.0,
+      "y": 36.0,
+      "w": 25.0,
+      "h": 22.0
+     },
+     "text": "hàng triệu\nnăm",
+     "style": "title",
+     "font_px": 80,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "typewriter",
+      "start": 1079,
+      "dur": 30,
+      "ease": "steps"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 74.0,
+      "y": 35.0,
+      "w": 14.0,
+      "h": 32.0
+     },
+     "asset": "A-COC-BIEN",
+     "file": "assets/A-COC-BIEN.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "scale_in",
+      "start": 1131,
+      "dur": 15,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "pulse",
+      "start": 1131,
+      "period": 45
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 7.0,
+      "y": 60.0,
+      "w": 18.0,
+      "h": 36.0
+     },
+     "asset": "A-KHI-TRAI-DAT",
+     "file": "assets/A-KHI-TRAI-DAT.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1102,
+      "dur": 10,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "bob",
+      "start": 1102,
+      "period": 75
+     }
+    }
+   ]
+  },
+  {
+   "id": "S04-04-a",
+   "segment": "S04-04",
+   "start": 1195,
+   "end": 1347,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "zoom_in",
+    "amount": 0.2
+   },
+   "transition": {
+    "type": "zoom_through",
+    "frames": 10
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-DAY-BIEN",
+     "file": "assets/A-DAY-BIEN.svg",
+     "kind": "scene",
+     "layer_motion": true,
+     "enter": {
+      "anim": "fade",
+      "start": 1195,
+      "dur": 15,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "pulse",
+      "start": 1195,
+      "period": 45
+     }
+    },
+    {
+     "id": "e3",
+     "z": 1,
+     "box": {
+      "x": 30.0,
+      "y": 30.0,
+      "w": 45.0,
+      "h": 40.0
+     },
+     "asset": "A-KHOANG-CHAT",
+     "file": "assets/A-KHOANG-CHAT.svg",
+     "kind": "diagram",
+     "layer_motion": true,
+     "enter": {
+      "anim": "slide_up",
+      "start": 1283,
+      "dur": 24,
+      "ease": "ease_out"
+     },
+     "loop": {
+      "anim": "flow",
+      "start": 1283,
+      "period": 45
+     }
+    },
+    {
+     "id": "e2",
+     "z": 2,
+     "box": {
+      "x": 6.0,
+      "y": 8.0,
+      "w": 44.0,
+      "h": 10.0
+     },
+     "text": "Nguồn thêm: đáy biển",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 1207,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S05-01-a",
+   "segment": "S05-01",
+   "start": 1347,
+   "end": 1499,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 8.0,
+      "y": 30.0,
+      "w": 16.0,
+      "h": 30.0
+     },
+     "asset": "A-GIOT-MUA-CHUA",
+     "file": "assets/A-GIOT-MUA-CHUA.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1360,
+      "dur": 10,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 27.0,
+      "y": 40.0,
+      "w": 10.0,
+      "h": 10.0
+     },
+     "asset": "A-MUI-TEN",
+     "file": "assets/A-MUI-TEN.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "draw",
+      "start": 1394,
+      "dur": 9,
+      "ease": "ease_in_out"
+     }
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 40.0,
+      "y": 32.0,
+      "w": 20.0,
+      "h": 26.0
+     },
+     "asset": "A-SONG-ICON",
+     "file": "assets/A-SONG-ICON.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1401,
+      "dur": 10,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e4",
+     "z": 3,
+     "box": {
+      "x": 63.0,
+      "y": 40.0,
+      "w": 10.0,
+      "h": 10.0
+     },
+     "asset": "A-MUI-TEN",
+     "file": "assets/A-MUI-TEN.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "draw",
+      "start": 1427,
+      "dur": 9,
+      "ease": "ease_in_out"
+     }
+    },
+    {
+     "id": "e5",
+     "z": 4,
+     "box": {
+      "x": 76.0,
+      "y": 30.0,
+      "w": 16.0,
+      "h": 30.0
+     },
+     "asset": "A-MAT-TROI",
+     "file": "assets/A-MAT-TROI.svg",
+     "kind": "illustration",
+     "layer_motion": true,
+     "enter": {
+      "anim": "pop",
+      "start": 1434,
+      "dur": 10,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e6",
+     "z": 5,
+     "box": {
+      "x": 8.0,
+      "y": 64.0,
+      "w": 16.0,
+      "h": 10.0
+     },
+     "text": "Mưa",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFFFFF",
+     "enter": {
+      "anim": "fade",
+      "start": 1360,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e7",
+     "z": 6,
+     "box": {
+      "x": 42.0,
+      "y": 64.0,
+      "w": 16.0,
+      "h": 10.0
+     },
+     "text": "Sông",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFFFFF",
+     "enter": {
+      "anim": "fade",
+      "start": 1401,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    },
+    {
+     "id": "e8",
+     "z": 7,
+     "box": {
+      "x": 74.0,
+      "y": 64.0,
+      "w": 20.0,
+      "h": 10.0
+     },
+     "text": "Bốc hơi",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFFFFF",
+     "enter": {
+      "anim": "fade",
+      "start": 1434,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  },
+  {
+   "id": "S05-02-a",
+   "segment": "S05-02",
+   "start": 1499,
+   "end": 1602,
+   "background": "#0078E0",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "crossfade",
+    "frames": 8
+   },
+   "elements": [
+    {
+     "id": "e4",
+     "z": 0,
+     "box": {
+      "x": 40.0,
+      "y": 5.0,
+      "w": 20.0,
+      "h": 36.0
+     },
+     "asset": "A-KHI-LOGO",
+     "file": "assets/A-KHI-LOGO.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "enter": {
+      "anim": "scale_in",
+      "start": 1499,
+      "dur": 12,
+      "ease": "back_out"
+     }
+    },
+    {
+     "id": "e5",
+     "z": 1,
+     "box": {
+      "x": 6.0,
+      "y": 34.0,
+      "w": 22.0,
+      "h": 44.0
+     },
+     "asset": "A-KHI-VUI-MUNG",
+     "file": "assets/A-KHI-VUI-MUNG.png",
+     "kind": "mascot",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1507,
+      "dur": 12,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "bob",
+      "start": 1507,
+      "period": 75
+     }
+    },
+    {
+     "id": "e1",
+     "z": 2,
+     "box": {
+      "x": 35.0,
+      "y": 46.0,
+      "w": 30.0,
+      "h": 18.0
+     },
+     "asset": "A-NUT-DANG-KY",
+     "file": "assets/A-NUT-DANG-KY.svg",
+     "kind": "ui",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1514,
+      "dur": 12,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "pulse",
+      "start": 1514,
+      "period": 36
+     }
+    },
+    {
+     "id": "e2",
+     "z": 3,
+     "box": {
+      "x": 67.0,
+      "y": 46.0,
+      "w": 8.0,
+      "h": 18.0
+     },
+     "asset": "A-CHUONG",
+     "file": "assets/A-CHUONG.svg",
+     "kind": "icon",
+     "layer_motion": false,
+     "enter": {
+      "anim": "pop",
+      "start": 1530,
+      "dur": 9,
+      "ease": "back_out"
+     },
+     "loop": {
+      "anim": "wiggle",
+      "start": 1530,
+      "period": 45
+     }
+    },
+    {
+     "id": "e3",
+     "z": 4,
+     "box": {
+      "x": 30.0,
+      "y": 72.0,
+      "w": 40.0,
+      "h": 11.0
+     },
+     "text": "Cùng Khỉ nhé!",
+     "style": "label",
+     "font_px": 64,
+     "color": "#FFC907",
+     "enter": {
+      "anim": "fade",
+      "start": 1530,
+      "dur": 9,
+      "ease": "ease_out"
+     }
+    }
+   ]
+  }
+ ],
+ "assets": {
+  "A-SONG": {
+   "file": "assets/A-SONG.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "ripples",
+     "recipe": "along",
+     "path": "flow",
+     "spacing": 37.1,
+     "period_s": 1.5,
+     "shape": "ripple",
+     "fade": 0.8,
+     "opacity": 0.85,
+     "width": 3
+    }
+   ]
+  },
+  "A-CUA-SONG": {
+   "file": "assets/A-CUA-SONG.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "ripples",
+     "recipe": "along",
+     "path": "flow",
+     "spacing": 56.7,
+     "period_s": 1.5,
+     "shape": "ripple",
+     "fade": 0.8,
+     "opacity": 0.85,
+     "width": 3
+    },
+    {
+     "layer": "waves",
+     "recipe": "bob",
+     "amp": 5,
+     "ax": 6,
+     "period_s": 2.5
+    }
+   ]
+  },
+  "A-SONG-ICON": {
+   "file": "assets/A-SONG-ICON.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-BIEN": {
+   "file": "assets/A-BIEN.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "waves",
+     "recipe": "bob",
+     "amp": 5,
+     "ax": 6,
+     "period_s": 2.5
+    }
+   ]
+  },
+  "A-COC-SONG": {
+   "file": "assets/A-COC-SONG.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-COC-BIEN": {
+   "file": "assets/A-COC-BIEN.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-MAY": {
+   "file": "assets/A-MAY.svg",
+   "kind": "illustration",
+   "motion": []
+  },
+  "A-GIOT-MUA": {
+   "file": "assets/A-GIOT-MUA.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-GIOT-MUA-CHUA": {
+   "file": "assets/A-GIOT-MUA-CHUA.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-PHANTU-KHI": {
+   "file": "assets/A-PHANTU-KHI.svg",
+   "kind": "diagram",
+   "motion": []
+  },
+  "A-DA": {
+   "file": "assets/A-DA.svg",
+   "kind": "scene",
+   "motion": []
+  },
+  "A-NEN-MUA": {
+   "file": "assets/A-NEN-MUA.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "rain",
+     "recipe": "fall",
+     "dx": -166,
+     "dy": 540,
+     "period_s": 1.04
+    }
+   ]
+  },
+  "A-HAT-MUOI": {
+   "file": "assets/A-HAT-MUOI.svg",
+   "kind": "icon",
+   "motion": [
+    {
+     "layer": "sparkles",
+     "recipe": "twinkle",
+     "lo": 0.35,
+     "hi": 1,
+     "period_s": 1.2
+    }
+   ]
+  },
+  "A-SUOI": {
+   "file": "assets/A-SUOI.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "ripples",
+     "recipe": "along",
+     "path": "flow",
+     "spacing": 88.3,
+     "period_s": 1.5,
+     "shape": "ripple",
+     "fade": 0.8,
+     "opacity": 0.85,
+     "width": 3
+    }
+   ]
+  },
+  "A-KINH-LUP": {
+   "file": "assets/A-KINH-LUP.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-BAN-DO-SONG": {
+   "file": "assets/A-BAN-DO-SONG.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "dots",
+     "recipe": "along",
+     "paths_from": "rivers",
+     "count": 4,
+     "period_s": 1.0,
+     "stagger": 0.52,
+     "shape": "dot",
+     "r": 7,
+     "fade": 0.4,
+     "opacity": 1
+    }
+   ]
+  },
+  "A-SANG-BIEN": {
+   "file": "assets/A-SANG-BIEN.svg",
+   "kind": "diagram",
+   "motion": [
+    {
+     "layer": "glow",
+     "recipe": "pulse_opacity",
+     "lo": 0.3,
+     "hi": 1,
+     "period_s": 1.2
+    }
+   ]
+  },
+  "A-MAT-TROI": {
+   "file": "assets/A-MAT-TROI.svg",
+   "kind": "illustration",
+   "motion": [
+    {
+     "layer": "rays",
+     "recipe": "rotate",
+     "center": [
+      150,
+      150
+     ],
+     "period_s": 8
+    }
+   ]
+  },
+  "A-HOI-NUOC": {
+   "file": "assets/A-HOI-NUOC.svg",
+   "kind": "diagram",
+   "motion": [
+    {
+     "layer": "arrows",
+     "recipe": "dashflow",
+     "speed": 40
+    },
+    {
+     "layer": "vapor",
+     "recipe": "along",
+     "paths": [
+      "M95 430 V90",
+      "M125 430 V90",
+      "M180 430 V90",
+      "M205 430 V90",
+      "M110 430 V90",
+      "M175 430 V90",
+      "M245 430 V90",
+      "M55 430 V90"
+     ],
+     "count": 1,
+     "period_s": 2.0,
+     "stagger": 0.37,
+     "shape": "dot",
+     "r": 9,
+     "fade": 0.18,
+     "opacity": 0.85
+    }
+   ]
+  },
+  "A-MUOI-O-LAI": {
+   "file": "assets/A-MUOI-O-LAI.svg",
+   "kind": "icon",
+   "motion": [
+    {
+     "layer": "sparkles",
+     "recipe": "twinkle",
+     "lo": 0.35,
+     "hi": 1,
+     "period_s": 1.2
+    }
+   ]
+  },
+  "A-VONG-TUAN-HOAN": {
+   "file": "assets/A-VONG-TUAN-HOAN.svg",
+   "kind": "diagram",
+   "motion": [
+    {
+     "layer": "ring",
+     "recipe": "rotate",
+     "center": [
+      200,
+      200
+     ],
+     "period_s": 3
+    }
+   ]
+  },
+  "A-DAY-BIEN": {
+   "file": "assets/A-DAY-BIEN.svg",
+   "kind": "scene",
+   "motion": [
+    {
+     "layer": "glow",
+     "recipe": "pulse_opacity",
+     "lo": 0.45,
+     "hi": 1,
+     "period_s": 1.5
+    }
+   ]
+  },
+  "A-KHOANG-CHAT": {
+   "file": "assets/A-KHOANG-CHAT.svg",
+   "kind": "diagram",
+   "motion": [
+    {
+     "layer": "dots",
+     "recipe": "bob",
+     "amp": 7,
+     "ax": 4,
+     "period_s": 1.6
+    }
+   ]
+  },
+  "A-MUI-TEN": {
+   "file": "assets/A-MUI-TEN.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-NUT-DANG-KY": {
+   "file": "assets/A-NUT-DANG-KY.svg",
+   "kind": "ui",
+   "motion": []
+  },
+  "A-CHUONG": {
+   "file": "assets/A-CHUONG.svg",
+   "kind": "icon",
+   "motion": []
+  },
+  "A-KHI-THAC-MAC": {
+   "file": "assets/A-KHI-THAC-MAC.png",
+   "kind": "mascot",
+   "motion": []
+  },
+  "A-KHI-NGAC-NHIEN": {
+   "file": "assets/A-KHI-NGAC-NHIEN.png",
+   "kind": "mascot",
+   "motion": []
+  },
+  "A-KHI-TRAI-DAT": {
+   "file": "assets/A-KHI-TRAI-DAT.png",
+   "kind": "mascot",
+   "motion": []
+  },
+  "A-KHI-VUI-MUNG": {
+   "file": "assets/A-KHI-VUI-MUNG.png",
+   "kind": "mascot",
+   "motion": []
+  },
+  "A-KHI-LOGO": {
+   "file": "assets/A-KHI-LOGO.png",
+   "kind": "mascot",
+   "motion": []
+  }
+ },
+ "input_hash": "ed8e29038cd62a2ef09104cb9c2c39ae8a57880d94d161d09ccb6fa13d2899e8",
+ "font_files": [
+  "BeVietnamPro-Bold.ttf",
+  "BeVietnamPro-ExtraBold.ttf",
+  "BeVietnamPro-Medium.ttf",
+  "BeVietnamPro-Regular.ttf"
+ ]
+}

@@ -1,0 +1,1082 @@
+{
+ "build_hash": "f830ccede2c8b5dbe36f35827c1a850a6888c493365e0ec1226355ad4810a65f",
+ "input_hash": "ed8e29038cd62a2ef09104cb9c2c39ae8a57880d94d161d09ccb6fa13d2899e8",
+ "frames": [
+  {
+   "frame": 0,
+   "role": "start",
+   "shot": "S01-01-a",
+   "file": "check/f00000.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "bde20dc41adadb2ee95b4f670c14a00f29feef112dd23e06ddfcb4b3a20785e1",
+   "stddev": 0.0,
+   "max": 145,
+   "issues": []
+  },
+  {
+   "frame": 28,
+   "role": "mid",
+   "shot": "S01-01-a",
+   "file": "check/f00028.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "e6de3d0b25a93e86ddeac7108a1be7e3aa183bfbaa170103304759e0df31a8bb",
+   "stddev": 53.39,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 56,
+   "role": "end",
+   "shot": "S01-01-a",
+   "file": "check/f00056.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "e47b18ba091c78357627e38b724755c750b23e4fd22b4fe197f1bdcb74d67fb4",
+   "stddev": 51.63,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 57,
+   "role": "start",
+   "shot": "S01-01-b",
+   "file": "check/f00057.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "faf756362ebf7d9fb880128d7dba23d299418404183fce7b1b9b04962868b554",
+   "stddev": 51.63,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 62,
+   "role": "transition",
+   "shot": "S01-01-b",
+   "file": "check/f00062.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "f55a977cc478b266b13381e9d751b301a2dc73eaf58a9af330c4f4a841326de5",
+   "stddev": 17.41,
+   "max": 181,
+   "issues": []
+  },
+  {
+   "frame": 67,
+   "role": "settled",
+   "shot": "S01-01-b",
+   "file": "check/f00067.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "225338fc22025ef9fa31f8c5528fa3453326d33d1ca4b90f5f65b252f535e7dd",
+   "stddev": 23.16,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 100,
+   "role": "mid",
+   "shot": "S01-01-b",
+   "file": "check/f00100.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "cc878d55ef3dd353c5e089d1056cb65c7562f2f83a10c9fb4b55f058d09eae43",
+   "stddev": 43.36,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 144,
+   "role": "end",
+   "shot": "S01-01-b",
+   "file": "check/f00144.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "7e2938690ecef2740e27b1ad06b89e65e10bde0ddc35a9509a8753674302e307",
+   "stddev": 54.4,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 145,
+   "role": "start",
+   "shot": "S01-02-a",
+   "file": "check/f00145.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "0b4d83435428f49ded2c48124ca815096ba94dc53ec27253743b60593fcf7ec4",
+   "stddev": 54.4,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 159,
+   "role": "mid",
+   "shot": "S01-02-a",
+   "file": "check/f00159.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "6b1b00728a74af58a6f3ba79a6bedcdb3177dff5a579a0cbad6a414b516f8e13",
+   "stddev": 55.16,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 174,
+   "role": "end",
+   "shot": "S01-02-a",
+   "file": "check/f00174.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "d87d6b41d288464138c5e9152637301e8005f3956d26db414b1d8e6e51267323",
+   "stddev": 56.19,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 175,
+   "role": "start",
+   "shot": "S02-01-a",
+   "file": "check/f00175.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "4d3e471895f6c920473ade165be4d95cfe65ecb152357e45726f4b794297e980",
+   "stddev": 56.19,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 179,
+   "role": "transition",
+   "shot": "S02-01-a",
+   "file": "check/f00179.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "69664ceb5e09743c37491e7aa52f73eb344a79d5c3c98c4a2c60481829aa6ad7",
+   "stddev": 36.16,
+   "max": 239,
+   "issues": []
+  },
+  {
+   "frame": 183,
+   "role": "settled",
+   "shot": "S02-01-a",
+   "file": "check/f00183.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "66034d0ac25f19fb25bfb638aef8f8910d6175becdb5f5da748f8b8c834bce80",
+   "stddev": 33.24,
+   "max": 252,
+   "issues": []
+  },
+  {
+   "frame": 272,
+   "role": "mid",
+   "shot": "S02-01-a",
+   "file": "check/f00272.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "07e673e3b0bdec9c573805348ca88b204dd40f6c137fde62b7353158e2aee13e",
+   "stddev": 38.29,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 369,
+   "role": "end",
+   "shot": "S02-01-a",
+   "file": "check/f00369.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "8847e2b3e29147866ed314bc28038a7c39515e0abe8eb9e6b304da0771077ff9",
+   "stddev": 41.63,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 370,
+   "role": "start",
+   "shot": "S02-02-a",
+   "file": "check/f00370.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "691598a2e2b482cbac237716138f12f8045545cecf46046d6751601ec0780efb",
+   "stddev": 41.62,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 375,
+   "role": "transition",
+   "shot": "S02-02-a",
+   "file": "check/f00375.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "fb5c128f982e73a7283ea1ff47018bda0cc36769389ea4f105dcc39afa3b1bd2",
+   "stddev": 35.2,
+   "max": 204,
+   "issues": []
+  },
+  {
+   "frame": 380,
+   "role": "settled",
+   "shot": "S02-02-a",
+   "file": "check/f00380.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "f941f9cf462cb9cceaed2ac89196c8cce8a0187ca05dcf69f529052b715f31eb",
+   "stddev": 34.55,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 392,
+   "role": "mid",
+   "shot": "S02-02-a",
+   "file": "check/f00392.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "a75a4e946ec895577fa9e0bc9beb0c76108f03131f2f6d20e616e9e7803cbdec",
+   "stddev": 34.79,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 414,
+   "role": "end",
+   "shot": "S02-02-a",
+   "file": "check/f00414.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "43df22c483093d8e44a52d531c5d6622d02738fad9e252869b1766f57cb27b3d",
+   "stddev": 34.52,
+   "max": 220,
+   "issues": []
+  },
+  {
+   "frame": 415,
+   "role": "start",
+   "shot": "S02-02-b",
+   "file": "check/f00415.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "642b71e117b6ee1dcdaabde1331013b9c8aa63c3570db6848d964f053f2feca6",
+   "stddev": 28.21,
+   "max": 204,
+   "issues": []
+  },
+  {
+   "frame": 456,
+   "role": "mid",
+   "shot": "S02-02-b",
+   "file": "check/f00456.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "85fcf61065ca5f575dce0c48a3d9a6bc6446c22996fb590f63aed7fe9b4d17f4",
+   "stddev": 26.73,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 497,
+   "role": "end",
+   "shot": "S02-02-b",
+   "file": "check/f00497.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "187c91800b97e0b19254a32d49eecf5788c10919b7eaecccd07a4d203ef8d212",
+   "stddev": 25.49,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 498,
+   "role": "start",
+   "shot": "S02-03-a",
+   "file": "check/f00498.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "6a607a52cdce912d57a9921f962fc3b40bd839e66c57279b34fda7c642ec4fd7",
+   "stddev": 24.18,
+   "max": 204,
+   "issues": []
+  },
+  {
+   "frame": 512,
+   "role": "mid",
+   "shot": "S02-03-a",
+   "file": "check/f00512.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "cc09f503631a49e56b586a3944eaa28f83c31e2b1cf5833c1335d6395bf636b9",
+   "stddev": 25.49,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 527,
+   "role": "end",
+   "shot": "S02-03-a",
+   "file": "check/f00527.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "d004286bf906cae4f47f5939887c8a0bb26bdc5c995ebc6cc5930682bbce3c51",
+   "stddev": 25.25,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 528,
+   "role": "start",
+   "shot": "S03-01-a",
+   "file": "check/f00528.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "94353af5ef653f7479c6636108069ee2b996d4589d2a38105bc9884125a6d5aa",
+   "stddev": 25.29,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 532,
+   "role": "transition",
+   "shot": "S03-01-a",
+   "file": "check/f00532.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "7c7dd3ccc6064845d0ab32ee8785d560b1ec3d11c8e0a8d2a531381380c235d0",
+   "stddev": 15.67,
+   "max": 210,
+   "issues": []
+  },
+  {
+   "frame": 536,
+   "role": "settled",
+   "shot": "S03-01-a",
+   "file": "check/f00536.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "ed3c0ea784aca9fd5ff77f09d8530bde08e8caa4758bad683015d43dfb30a63f",
+   "stddev": 32.17,
+   "max": 208,
+   "issues": []
+  },
+  {
+   "frame": 553,
+   "role": "mid",
+   "shot": "S03-01-a",
+   "file": "check/f00553.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "f7ed59a483b3e7e929ad182957072b4969089369cf0afc4c053bc5254ac766ac",
+   "stddev": 57.75,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 579,
+   "role": "end",
+   "shot": "S03-01-a",
+   "file": "check/f00579.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "109cd349b16b26833bf2d28dfbdcb20acfa9f9378bd0039dbfe0f21da9749b28",
+   "stddev": 59.48,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 580,
+   "role": "start",
+   "shot": "S03-01-b",
+   "file": "check/f00580.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "bb829a75feaca2facb73c987b2733cd4ac278d6ffb0db166382c5a0375205fce",
+   "stddev": 60.88,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 636,
+   "role": "mid",
+   "shot": "S03-01-b",
+   "file": "check/f00636.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "74d22b17542b075d555cb4f7475a9c3baec272ae7ed29b92d18343d3a16993b3",
+   "stddev": 63.06,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 693,
+   "role": "end",
+   "shot": "S03-01-b",
+   "file": "check/f00693.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "12966a25c6ef732c932679c11200f0002740edfcbc5c258464e3b88127f57c68",
+   "stddev": 63.07,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 694,
+   "role": "start",
+   "shot": "S03-02-a",
+   "file": "check/f00694.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "9ffdacc38d0b5022bc202344a1a8c146085c1c6e49d0de160804bc709f0f79e5",
+   "stddev": 60.87,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 730,
+   "role": "mid",
+   "shot": "S03-02-a",
+   "file": "check/f00730.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "d50ed1e4a2d15a62c05090105a5ab11f496055d4deb0d13c9441a1fee13ce519",
+   "stddev": 60.96,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 767,
+   "role": "end",
+   "shot": "S03-02-a",
+   "file": "check/f00767.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "d237a5ad4cf911facf92ed71872ff12914e81b6987c92f278c772e08c25b99eb",
+   "stddev": 61.05,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 768,
+   "role": "start",
+   "shot": "S03-02-b",
+   "file": "check/f00768.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "99bf340064e9bf61193df419b41b19d6596e45a18a0e3e2fdadcdff96ff731f8",
+   "stddev": 61.04,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 773,
+   "role": "transition",
+   "shot": "S03-02-b",
+   "file": "check/f00773.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "5f60da98105ed72e185676bfd8563f743e89d462787a8ea7e0e3eb2d5263a16e",
+   "stddev": 26.9,
+   "max": 177,
+   "issues": []
+  },
+  {
+   "frame": 778,
+   "role": "settled",
+   "shot": "S03-02-b",
+   "file": "check/f00778.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "d6c33a0104a59dfed7cc88b2e900398804683942f8f548adbfd95c98a0385e8c",
+   "stddev": 53.14,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 815,
+   "role": "mid",
+   "shot": "S03-02-b",
+   "file": "check/f00815.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "40591853176af83d1f4591338007b31521790867d9d3aa1888da98aa7d1dc652",
+   "stddev": 53.49,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 862,
+   "role": "end",
+   "shot": "S03-02-b",
+   "file": "check/f00862.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "b5138cff8f5c8a9a258019b0e86a05dc53e0163faf324d7fbafcd50296793f94",
+   "stddev": 47.67,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 863,
+   "role": "start",
+   "shot": "S04-01-a",
+   "file": "check/f00863.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "43ff8449edd8a7b926e65e25decdf828dfd4c18919350131fe5cf6b282169337",
+   "stddev": 47.33,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 867,
+   "role": "transition",
+   "shot": "S04-01-a",
+   "file": "check/f00867.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "6f841476e78ab26eb632d214ab79ba9401164e8fbb24b6a8a8dcb7b31d40de08",
+   "stddev": 46.89,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 871,
+   "role": "settled",
+   "shot": "S04-01-a",
+   "file": "check/f00871.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "f164793cd0594b7c663e3e7661c119abc24c9b3aef7d43a27bb4d05d0d7bd120",
+   "stddev": 80.58,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 930,
+   "role": "mid",
+   "shot": "S04-01-a",
+   "file": "check/f00930.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "b76dfc218d0c179dae85998527ece93523140477e8c2d07a2b9d883aa0bee4bb",
+   "stddev": 82.33,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 998,
+   "role": "end",
+   "shot": "S04-01-a",
+   "file": "check/f00998.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "660ec1e18a869a7aebbe11d7df32ff6e9e816cec9983261bdf9f03dfb7d8f9e0",
+   "stddev": 85.18,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 999,
+   "role": "start",
+   "shot": "S04-02-a",
+   "file": "check/f00999.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "3260844b231c185137fb856c869fe7e4d6ece18c891d3665a92b19a8214fa180",
+   "stddev": 84.92,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1013,
+   "role": "mid",
+   "shot": "S04-02-a",
+   "file": "check/f01013.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "af301d7bb53e7c6bbc1b1b315f21842e6927f8563d689ce933aa6fbc64db42e5",
+   "stddev": 84.93,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1028,
+   "role": "end",
+   "shot": "S04-02-a",
+   "file": "check/f01028.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "8e3cb4cea8d1650b5451020509f9a4399927770a752a468f94ba76a560232de6",
+   "stddev": 83.53,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1029,
+   "role": "start",
+   "shot": "S04-03-a",
+   "file": "check/f01029.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "fc738924bed4fe5710b8235965f1685454a7f59dcc32e56a057bd4924022ef8c",
+   "stddev": 83.43,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1034,
+   "role": "transition",
+   "shot": "S04-03-a",
+   "file": "check/f01034.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "b64eee208cd64ea72e80b0993bf0deaea1f91bc3e2ff050bfab8eb28e0910df6",
+   "stddev": 61.08,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1039,
+   "role": "settled",
+   "shot": "S04-03-a",
+   "file": "check/f01039.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "14b244a04a53b9ac32a944dd59bbb378547969abc0cc507bc3eab1dc69858ec1",
+   "stddev": 37.71,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1045,
+   "role": "mid",
+   "shot": "S04-03-a",
+   "file": "check/f01045.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "82a9978c99279a9576c2534586fbd5b7204a1bfc402b316d5ea334fd0761ab41",
+   "stddev": 38.08,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1061,
+   "role": "end",
+   "shot": "S04-03-a",
+   "file": "check/f01061.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "8c92782c17cf69d7f339e16e43f8aeb757d48e3a4f678d010ddfd78c7a7fa2b7",
+   "stddev": 38.18,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1062,
+   "role": "start",
+   "shot": "S04-03-b",
+   "file": "check/f01062.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "ec60ebbd5819a8feb525b9c2d2f5eca460deb82831c5e8c7219e16a0b3af33e7",
+   "stddev": 38.18,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1066,
+   "role": "transition",
+   "shot": "S04-03-b",
+   "file": "check/f01066.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "3fe9255e6469c31eab26632603a883721081c78f6c6b5879a5d3d4ce164996aa",
+   "stddev": 19.74,
+   "max": 221,
+   "issues": []
+  },
+  {
+   "frame": 1070,
+   "role": "settled",
+   "shot": "S04-03-b",
+   "file": "check/f01070.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "253f7facab6794cde741ac889aabcea3e5712f92e3229dee1b95a23e4cd2d80a",
+   "stddev": 35.63,
+   "max": 233,
+   "issues": []
+  },
+  {
+   "frame": 1128,
+   "role": "mid",
+   "shot": "S04-03-b",
+   "file": "check/f01128.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "c1d0ec33a0581f040ed15b315e2a2238c84645d96ecbebd9b4cbc9491c3e91cb",
+   "stddev": 55.45,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1194,
+   "role": "end",
+   "shot": "S04-03-b",
+   "file": "check/f01194.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "1023f0b24d5021db60404660203cf0313a4e3d76bf4c35164be491845ad010af",
+   "stddev": 54.49,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1195,
+   "role": "start",
+   "shot": "S04-04-a",
+   "file": "check/f01195.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "ffd28510eb7e4e674e7057145efdbdb96d614f7daf236c68331b59a4ccb2fb7f",
+   "stddev": 54.45,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1200,
+   "role": "transition",
+   "shot": "S04-04-a",
+   "file": "check/f01200.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "79b0627e221527d25eadc9544d647511d76d64358dee6e8b27f189b7e442ceec",
+   "stddev": 24.46,
+   "max": 155,
+   "issues": []
+  },
+  {
+   "frame": 1205,
+   "role": "settled",
+   "shot": "S04-04-a",
+   "file": "check/f01205.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "f00c06b8944b53dfd95c34ca963a3cd95700084560a7ecc44ae5ad27b28f35b8",
+   "stddev": 48.9,
+   "max": 246,
+   "issues": []
+  },
+  {
+   "frame": 1270,
+   "role": "mid",
+   "shot": "S04-04-a",
+   "file": "check/f01270.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "bd2cacc8a1ac05c359c9f2ccb232da8c9af67bfe206c1cb58d2421dbdf0356c1",
+   "stddev": 50.48,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1346,
+   "role": "end",
+   "shot": "S04-04-a",
+   "file": "check/f01346.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "8ab5501613724c25e162bc22ceaefdecacf42b6fb1d5e6ae9c4867a3238ea724",
+   "stddev": 48.74,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1347,
+   "role": "start",
+   "shot": "S05-01-a",
+   "file": "check/f01347.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "77f03973b16f796a952baf5dc069c9c7154d93659b8324822eccb04d6dedd746",
+   "stddev": 48.66,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1351,
+   "role": "transition",
+   "shot": "S05-01-a",
+   "file": "check/f01351.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "64b8b652c1d88a901b5724078850828fa5105bf228045a2d9966a4b08dfffaab",
+   "stddev": 29.11,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1355,
+   "role": "settled",
+   "shot": "S05-01-a",
+   "file": "check/f01355.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "bde20dc41adadb2ee95b4f670c14a00f29feef112dd23e06ddfcb4b3a20785e1",
+   "stddev": 0.0,
+   "max": 145,
+   "issues": []
+  },
+  {
+   "frame": 1422,
+   "role": "mid",
+   "shot": "S05-01-a",
+   "file": "check/f01422.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "e72c6f962b41a5cb455938c765eba7b8138208ee7276d729392a9a95724375f9",
+   "stddev": 40.45,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1498,
+   "role": "end",
+   "shot": "S05-01-a",
+   "file": "check/f01498.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "30df221e81c78f488f6bd94b169c3f52587c29ebc1ef16e26105211d66e0315f",
+   "stddev": 50.5,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1499,
+   "role": "start",
+   "shot": "S05-02-a",
+   "file": "check/f01499.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "a17da431186594e4720856d45947dd87f394228ec5f2df3a3910889e3338f162",
+   "stddev": 50.5,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1503,
+   "role": "transition",
+   "shot": "S05-02-a",
+   "file": "check/f01503.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "bc9e7e26f11142940fd52a3c5e975a21e6aa2d9ae129cece892e2a34410f9ed9",
+   "stddev": 34.99,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1507,
+   "role": "settled",
+   "shot": "S05-02-a",
+   "file": "check/f01507.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "5d0d98611a66240052adb9f0fb3befb06842dedc5ef9bacff10910c0d4210a81",
+   "stddev": 43.96,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1550,
+   "role": "mid",
+   "shot": "S05-02-a",
+   "file": "check/f01550.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "80265e13815a1e0f3a58a574aafd078ec41a6e06e4d59f96b2f4a37c8e393bb2",
+   "stddev": 73.3,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 1601,
+   "role": "end",
+   "shot": "S05-02-a",
+   "file": "check/f01601.jpg",
+   "size": [
+    1920,
+    1080
+   ],
+   "sha256": "795b2517d9dfcf7d903db1a4f1a738a97e0a31debe74683c089157d9b16ca842",
+   "stddev": 73.79,
+   "max": 255,
+   "issues": []
+  }
+ ],
+ "errors": [],
+ "console": [],
+ "fonts": [
+  "Be Vietnam Pro 700",
+  "Be Vietnam Pro 800"
+ ],
+ "determinism": {
+  "checked": 76,
+  "order": "xuôi rồi ngược",
+  "mismatch": []
+ },
+ "contact_build_hash": "f830ccede2c8b5dbe36f35827c1a850a6888c493365e0ec1226355ad4810a65f"
+}
