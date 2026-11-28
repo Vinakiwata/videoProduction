@@ -110,9 +110,13 @@ def svg_palette(project: Path, params: dict) -> CheckResult:
     man, base = _manifest(project, params)
     brief = load_yaml(project, params.get("brief", "00_brief/brief.yaml"))
     pal = {c.upper() for c in brief["brand"]["colors"]}
-    mx = int(params.get("max_colors", 4))
+    scene_pal = pal | {c.upper() for c in brief["brand"].get("scene_colors") or []}
+    mx_icon = int(params.get("max_colors", 4))
+    mx_scene = int(params.get("max_scene_colors", 16))
     bad, per = [], {}
     for a in man.get("assets") or []:
+        is_scene = a.get("kind") == "scene"
+        ok, mx = (scene_pal, mx_scene) if is_scene else (pal, mx_icon)
         f = base / a["file"]
         if not f.is_file():
             continue
@@ -132,14 +136,21 @@ def svg_palette(project: Path, params: dict) -> CheckResult:
                     continue
                 hx = v2.upper() if len(v2) == 7 else "#" + "".join(ch * 2 for ch in v2[1:]).upper()
                 used.add(hx)
-                if hx not in pal:
-                    bad.append(f"{a['id']}: màu {v2} ngoài bảng màu {sorted(pal)}")
+                if hx not in ok:
+                    where = "bảng màu cảnh (brand.colors + brand.scene_colors)" if is_scene else f"bảng màu nhận diện {sorted(pal)}"
+                    bad.append(f"{a['id']}: màu {v2} ngoài {where}")
         per[a["id"]] = len(used)
         if len(used) > mx:
-            bad.append(f"{a['id']}: dùng {len(used)} màu > {mx}")
+            bad.append(f"{a['id']}: dùng {len(used)} màu > {mx}" + (" (cảnh)" if is_scene else ""))
     if bad:
         return _fmt(bad, "Màu SVG không đạt:")
-    return CheckResult("pass", f"Mọi hình chỉ dùng màu nhận diện; nhiều nhất {max(per.values() or [0])} màu/hình (≤ {mx}).")
+    scenes = [k for k, a in ((a["id"], a) for a in man.get("assets") or []) if a.get("kind") == "scene"]
+    icons = [v for k, v in per.items() if k not in scenes]
+    sc = [v for k, v in per.items() if k in scenes]
+    msg = f"Icon/chữ/nút chỉ dùng màu nhận diện, nhiều nhất {max(icons or [0])} màu/hình (≤ {mx_icon})"
+    if sc:
+        msg += f"; {len(sc)} cảnh dùng màu tự nhiên đã duyệt, nhiều nhất {max(sc)} màu/cảnh (≤ {mx_scene})"
+    return CheckResult("pass", msg + ".")
 
 
 @register("svg_layers")

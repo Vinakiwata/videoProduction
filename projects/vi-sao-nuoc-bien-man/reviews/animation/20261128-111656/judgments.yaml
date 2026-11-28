@@ -1,0 +1,24 @@
+ANI-C01:
+  verdict: pass
+  evidence: 'Đối chiếu storyboard (27 asset, gồm 4 asset mới A-CUA-SONG, A-SONG-ICON, A-NEN-MUA, A-SANG-BIEN) với 06_animation/assets.yaml: đủ 27/27 id, mỗi id có file assets/<ID>.svg, đúng kind (10 scene). Mọi phần tử của 18 khung trỏ tới asset đều có hình; mọi loop (flow, pulse, bob, shimmer, rotate, wiggle) có lớp <g id> tương ứng, vd. A-CUA-SONG có river (flow) và waves (bob), A-SUOI có streams (draw), A-SANG-BIEN có glow (pulse). Không thiếu hình nào.'
+  fix: ''
+ANI-C02:
+  verdict: pass
+  evidence: 'Đã xem assets_preview.png (27 hình, hai nền), từng cảnh ở 960×540, và 18 khung ghép đúng toạ độ storyboard. Lỗi tìm thấy ở lượt vẽ cảnh và đã sửa: mép sông A-SONG tự cắt nhau ở khúc cua gắt (nay dựng sông bằng hợp các đoạn nối tiếp, không thể tự cắt); cửa sông A-CUA-SONG bị cắt vuông khi chạm biển (nay loe ra thành luồng nước); một cây thông mọc giữa lòng sông A-CUA-SONG (đã dời); gợn sóng dày rối mắt (giãn ra); quầng sáng miệng núi lửa ra màu ô-liu (đổi sang cam dung nham); mặt trời bị cảnh che ở S04-01/02 (đổi thứ tự lớp); hạt muối lơ lửng trên đá ở S02-02-b (hạ xuống vết nứt). Bản hiện tại không vỡ nét, không chi tiết thừa, không vật thể xuyên nhau, không méo; A-KHOANG-CHAT vẫn khớp miệng núi lửa và khe nứt.'
+  fix: ''
+ANI-C03:
+  verdict: pass
+  evidence: 'Storyboard có 18 lượt vào/ra không ghi ease (vd. S02-01-a e3 scale_out, S04-04-a e1 fade, S05-01-a e2 draw). Đã bổ sung motion_defaults trong 06_animation/assets.yaml: fade vào ease_out/ra ease_in, draw ease_in_out, pop back_out (có đà), scale_out back_in (anticipation), drop ease_in + squash 0,85/1,15 trong 4 khung khi chạm (follow-through); loop bob/wiggle/pulse/shimmer dùng sine_in_out; chỉ flow/rotate là tuyến tính liền mạch và typewriter theo bước — đều là bản chất của chuyển động đó. Không còn lượt nào chạy tuyến tính cứng. Việc dựng thật sẽ được Tool 07 kiểm lại ở cổng presentation.'
+  fix: ''
+ANI-C04:
+  verdict: pass
+  evidence: 'Mỗi cảnh xếp nhịp bằng ''at'' để chỉ một chuyển động chính tại một thời điểm, vd. S02-01-a: mây fade 0 → giọt drop 0,05 → phân tử slide_right 0,35 → morph 0,62; S01-01-a: cốc sông 0 → cốc biển 0,15 → dấu hỏi 0,6. Hướng nhân quả trái→phải (sông/suối chảy sang phải, phân tử bay phải vào giọt, mũi tên chỉ phải); ngoại lệ mây trôi trái ở S04-02-a có ghi chú lý do (về đất liền). Vòng tuần hoàn quay theo chiều kim đồng hồ đúng thứ tự mưa→đá→sông→biển→mây. Chấm khoáng chất bay từ đúng nguồn, không gây hiểu sai. Cảnh nền chân thật không làm rối: chi tiết nhỏ, sắc độ dịu, chừa trống vùng chuyển động chính (trời trống cho mây, mưa và hơi nước; mặt biển trống cho hàng muối). Chữ trên cảnh có tấm nền tối nên luôn đọc rõ.'
+  fix: ''
+ANI-C05:
+  verdict: pass
+  evidence: 'Theo brand.style mới: 10 cảnh (canh.py) vẽ phẳng, có chiều sâu bằng lớp xa → gần, cây thông dùng chung hàm pine() hai sắc, sông dùng chung river_path(), bóng đổ #1B1B1F 22%, màu chỉ lấy trong scene_colors (ANI-A03 đo: đạt, ≤ 16 màu/cảnh). 17 icon/ui (ve_hinh.py) giữ phẳng, nét tròn, bóng đổ nhẹ, chỉ 4 màu nhận diện, mỗi hình ≤ 4 màu. Mức chi tiết đồng đều trong từng nhóm; icon nổi rõ trên cảnh (mây, giọt, hơi nước trắng trên trời #4A98D6 hoặc #6F879E, tương phản ≥ 3,1:1).'
+  fix: ''
+ANI-C06:
+  verdict: pass
+  evidence: 'Cả 27 file là SVG vector thuần (ANI-A02: không ảnh raster, không GIF), co giãn tuỳ ý cho 1080p. Cảnh (kind scene) có nền riêng vì là lớp dưới cùng phủ cả khung (box 0,0,100,100) hoặc là vật đứng riêng có nền trong suốt (A-DA). 17 icon và lớp phủ (A-SANG-BIEN, A-KHOANG-CHAT, A-HOI-NUOC, A-MUOI-O-LAI…) đều nền trong suốt để chồng lên cảnh, đã kiểm bằng 18 khung ghép.'
+  fix: ''

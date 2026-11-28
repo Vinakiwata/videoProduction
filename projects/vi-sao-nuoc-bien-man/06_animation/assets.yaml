@@ -1,20 +1,57 @@
 assets:
 - id: A-SONG
   file: assets/A-SONG.svg
-  kind: illustration
-  description: Dòng sông uốn lượn nhìn từ trên cao, dải trắng có 2-3 vạch sóng xanh đậm bên trong, chảy từ trái sang phải
-  layers: []
+  kind: scene
+  description: 'Phong cảnh sông: trời xanh, dãy núi xa có đỉnh tuyết, đồi xanh có rặng cây thông hai bên, dòng sông xanh nhạt uốn lượn từ chân núi ra phía trước rồi rộng dần, gợn sóng trắng; không có mặt trời'
+  layers:
+  - sky
+  - mountains
+  - hills
+  - river
+  - ripples
+  - trees
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
+  notes: Cảnh cả khung. flow chạy lớp river + ripples; mây trong lớp sky trôi rất chậm (tuỳ chọn).
+- id: A-CUA-SONG
+  file: assets/A-CUA-SONG.svg
+  kind: scene
+  description: 'Phong cảnh cửa sông: núi và đồi cây bên trái, dòng sông uốn lượn chảy sang phải rồi đổ ra biển xanh ở 40% bên phải, bãi cát và bọt sóng trắng ở chỗ sông gặp biển'
+  layers:
+  - sky
+  - mountains
+  - sea
+  - hills
+  - beach
+  - river
+  - waves
+  - trees
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: Cảnh cả khung. flow cho river; waves dập dềnh bob 2,5 s.
+- id: A-SONG-ICON
+  file: assets/A-SONG-ICON.svg
+  kind: icon
+  description: 'Biểu tượng sông phẳng: dải trắng uốn lượn có vạch sóng xanh đậm, dùng trong chuỗi tóm tắt'
+  layers:
+  - water
+  - ripples
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: Bản phẳng cho chuỗi tóm tắt S05-01.
 - id: A-BIEN
   file: assets/A-BIEN.svg
-  kind: illustration
-  description: Mặt biển dạng dải sóng tròn nhiều lớp màu xanh đậm, viền ngọn sóng trắng, chiếm phần dưới khung
-  layers: []
+  kind: scene
+  description: 'Phong cảnh bãi biển: trời xanh (nửa trên, chừa chỗ cho mặt trời góc trái), biển xanh nhiều sắc độ từ đường chân trời ở 50% xuống 80% chiều cao, sóng trắng, bãi cát vàng có viền cát ướt và bọt sóng, cây dừa nghiêng ở mép trái, vài hòn đá nhỏ'
+  layers:
+  - sky
+  - sea
+  - waves
+  - sand
+  - palm
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
+  notes: Cảnh cả khung, chân trời ở 50% chiều cao, biển 50–80%. bob cho waves.
 - id: A-COC-SONG
   file: assets/A-COC-SONG.svg
   kind: icon
@@ -73,12 +110,27 @@ assets:
   notes: ''
 - id: A-DA
   file: assets/A-DA.svg
-  kind: illustration
-  description: Khối đá tảng bo tròn nằm nghiêng, thân xanh đậm, viền và vết nứt màu trắng, nhìn ngang
-  layers: []
+  kind: scene
+  description: 'Tảng đá granit thật nằm trên bãi cỏ: khối xám nhiều mặt sáng tối, mảng rêu xanh, vài vết nứt tối, khóm cỏ dưới chân, bóng đổ'
+  layers:
+  - rock
+  - cracks
+  - grass
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
+  notes: Vết nứt chính ở (386,70) trên đỉnh đá — khớp vị trí A-HAT-MUOI ở S02-02-b.
+- id: A-NEN-MUA
+  file: assets/A-NEN-MUA.svg
+  kind: scene
+  description: 'Phong cảnh đồi dưới trời mưa: trời xám xanh âm u chiếm 3/4 trên (để trống cho mây và giọt mưa), đồi xa mờ, đồi gần xanh có vài cây, vệt mưa trắng mảnh'
+  layers:
+  - sky
+  - hills
+  - trees
+  - rain
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: Nền mưa; lớp rain trượt chéo liên tục (flow).
 - id: A-HAT-MUOI
   file: assets/A-HAT-MUOI.svg
   kind: icon
@@ -89,12 +141,18 @@ assets:
   notes: ''
 - id: A-SUOI
   file: assets/A-SUOI.svg
-  kind: diagram
-  description: Ba dòng suối mảnh màu trắng từ trên trái chảy xuống, nhập thành một dòng sông rộng dần sang phải
-  layers: []
+  kind: scene
+  description: 'Phong cảnh sườn núi: núi xám xanh bên trái có tuyết, ba dòng suối xanh nhạt chảy xuống qua rừng thông, nhập thành một dòng sông rộng dần chảy sang phải dưới chân đồi'
+  layers:
+  - sky
+  - mountains
+  - hills
+  - streams
+  - river
+  - trees
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
-  notes: ''
+  notes: draw vẽ dần lớp streams từ trên núi xuống; flow cho river.
 - id: A-KINH-LUP
   file: assets/A-KINH-LUP.svg
   kind: icon
@@ -105,12 +163,25 @@ assets:
   notes: ''
 - id: A-BAN-DO-SONG
   file: assets/A-BAN-DO-SONG.svg
-  kind: diagram
-  description: 'Bản đồ phẳng nhìn từ trên: đất tối bên trái, 5 con sông trắng từ nhiều phía cùng đổ vào vùng biển xanh đậm bên phải; trên mỗi sông có chuỗi chấm trắng nhỏ chạy về biển'
-  layers: []
+  kind: scene
+  description: 'Bản đồ phong cảnh nhìn từ trên cao: đất liền xanh lá có rừng và dãy núi nâu bên trái, 5 con sông xanh nhạt từ nhiều phía đổ về vùng biển xanh bên phải (bờ cát vàng); trên mỗi sông có chuỗi chấm trắng (muối)'
+  layers:
+  - land
+  - sea
+  - rivers
+  - dots
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''
+- id: A-SANG-BIEN
+  file: assets/A-SANG-BIEN.svg
+  kind: diagram
+  description: Lớp sáng trắng mờ phủ đúng vùng biển của bản đồ, dùng để nhấp nháy chậm khi nói tất cả các dòng sông
+  layers:
+  - glow
+  source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
+  license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
+  notes: Khớp đúng vùng biển của A-BAN-DO-SONG; pulse chu kỳ 1,2 s.
 - id: A-MAT-TROI
   file: assets/A-MAT-TROI.svg
   kind: illustration
@@ -145,9 +216,14 @@ assets:
   notes: ''
 - id: A-DAY-BIEN
   file: assets/A-DAY-BIEN.svg
-  kind: diagram
-  description: 'Mặt cắt đáy biển: nước xanh đậm phía trên, đáy tối; giữa là núi lửa nhỏ có miệng phát sáng vàng, bên phải một khe nứt toả các vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)'
-  layers: []
+  kind: scene
+  description: 'Mặt cắt đáy biển thật: nước xanh đậm dần xuống sâu, tia sáng mờ từ mặt nước, đáy cát và đá nâu xám; giữa là núi lửa đá tối có miệng dung nham cam vàng phát sáng, bên phải một ống khe nứt nhiệt toả vệt nhiệt vàng (chưa có khoáng chất — xem A-KHOANG-CHAT)'
+  layers:
+  - water
+  - floor
+  - volcano
+  - vent
+  - glow
   source: Thiết kế gốc — SVG viết bằng code trong dây chuyền videoProduction
   license: Thuộc chủ dự án (không dùng tài nguyên bên thứ ba)
   notes: ''

@@ -1,6 +1,6 @@
 # Tool 3 — Thiết kế nội dung & storyboard. Xem docs/superpowers/specs/2026-11-27-tool-thiet-ke-design.md
 stage: design
-version: 2
+version: 3
 title: Kiểm duyệt thiết kế nội dung & storyboard
 artifacts: [02_design, 01_script/script.yaml]
 items:
@@ -35,18 +35,19 @@ items:
     params: {path: 02_design/storyboard.yaml}
   - id: DSN-A05
     group: Khả năng đọc
-    title: Tương phản chữ/nền ≥ 4,5:1
+    title: Tương phản chữ/nền ≥ 4,5:1 (chữ trên cảnh tính với màu sáng nhất của cảnh, qua tấm nền text_plate)
     severity: chan
     method: auto
     check: storyboard_contrast
     params: {path: 02_design/storyboard.yaml, min_ratio: 4.5}
   - id: DSN-A06
     group: Nhận diện
-    title: Mọi màu thuộc bảng màu nhận diện của brief
+    title: Mọi màu thuộc bảng màu của brief (màu cảnh chỉ cho asset kind=scene)
     severity: nghiem_trong
     method: auto
     check: storyboard_palette
     params: {path: 02_design/storyboard.yaml, brief: 00_brief/brief.yaml}
+    notes: "Chủ dự án (Vinakiwata) DUYỆT ngày 28/11/2026: cảnh minh hoạ (asset kind=scene) dùng màu tự nhiên theo brand.scene_colors; icon, chữ, nút vẫn chỉ dùng 4 màu nhận diện."
   - id: DSN-A07
     group: Khả năng đọc
     title: Chữ đủ lớn, ≤ 7 từ/dòng, hiển thị đủ lâu để đọc

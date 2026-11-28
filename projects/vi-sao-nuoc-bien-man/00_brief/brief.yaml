@@ -18,7 +18,28 @@ brand:
   fonts:
   - Be Vietnam Pro
   voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
-  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ, tối đa 4 màu mỗi khung
+  style: Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật (núi, cây, sông, bãi biển…) bằng màu tự nhiên trong scene_colors; icon, chữ, nút chỉ dùng 4 màu nhận diện
+  scene_colors:
+  - '#4A98D6'
+  - '#6F879E'
+  - '#8AA6CF'
+  - '#5B7DB1'
+  - '#7CC36A'
+  - '#5AA84C'
+  - '#3E9B4F'
+  - '#2F7A3A'
+  - '#8A5A2B'
+  - '#6B4A2E'
+  - '#3FA7E0'
+  - '#1F7FC4'
+  - '#145A9E'
+  - '#0A2A66'
+  - '#F2D49B'
+  - '#E3BC78'
+  - '#B4B4BC'
+  - '#8C8C94'
+  - '#5E5E66'
+  - '#FF7A2F'
 is_advertising: false
 channel_ref: kenh-khoa-hoc-mau
 assumptions:
@@ -27,6 +48,7 @@ assumptions:
 - Chủ đề do Claude chọn để chạy thử Tool 0–1; chủ dự án chưa yêu cầu video này
 - Dùng hồ sơ kênh mẫu kenh-khoa-hoc-mau; bộ nhận diện chưa được chủ dự án xác nhận
 - 'Quyết định của chủ dự án (27/11/2026): giữ tốc độ đọc gốc của VieNeu Hải Đăng (~4,4 âm tiết/giây), nên mục tiêu thời lượng hạ từ 60 xuống 50 giây'
+- 'Quyết định của chủ dự án (28/11/2026): cảnh minh hoạ phải chân thật (sông có núi, cây, dòng sông uốn lượn; biển là bãi biển), dùng màu tự nhiên; icon, chữ, nút giữ 4 màu nhận diện'
 constraints:
 - Chỉ dùng hình, nhạc, font tự tạo hoặc có giấy phép rõ ràng
 - Giọng đọc AI phải được gắn nhãn khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)

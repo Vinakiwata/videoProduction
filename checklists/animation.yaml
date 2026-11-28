@@ -1,6 +1,6 @@
 # Tool 4 — Hoạt ảnh 2D (SVG/CSS/Canvas/Lottie). GIF chỉ dùng để xem trước.
 stage: animation
-version: 2
+version: 3
 title: Kiểm duyệt hoạt ảnh 2D
 artifacts: [06_animation, 02_design/storyboard.yaml, 05_timeline/timeline.yaml]
 items:
@@ -20,11 +20,12 @@ items:
     params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml}
   - id: ANI-A03
     group: Nhận diện
-    title: Chỉ dùng màu nhận diện, ≤ 4 màu mỗi hình
+    title: Icon/chữ/nút chỉ dùng màu nhận diện (≤ 4 màu); cảnh chỉ dùng bảng màu cảnh đã duyệt (≤ 16 màu)
     severity: nghiem_trong
     method: auto
     check: svg_palette
-    params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml, max_colors: 4}
+    params: {path: 06_animation/assets.yaml, brief: 00_brief/brief.yaml, max_colors: 4, max_scene_colors: 16}
+    notes: "Chủ dự án (Vinakiwata) DUYỆT ngày 28/11/2026: cảnh minh hoạ (asset kind=scene) dùng màu tự nhiên theo brand.scene_colors; icon, chữ, nút vẫn chỉ dùng 4 màu nhận diện."
   - id: ANI-A04
     group: Kỹ thuật
     title: Có đủ các lớp tách để làm chuyển động

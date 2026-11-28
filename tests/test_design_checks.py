@@ -167,3 +167,57 @@ def test_text_overflow_box(dproj, sb):
     e["box"] = {"x": 40, "y": 70, "w": 12, "h": 14}             # 230px rộng cho tiêu đề 96px
     r = run_check("storyboard_text", put(dproj, sb), params)
     assert r.status == "fail" and "tràn hộp" in r.evidence
+
+
+# ---- Cảnh minh hoạ màu tự nhiên (quyết định của chủ dự án 28/11/2026) ----
+SCENE = ["#CDEBFA", "#7CC36A", "#3FA7E0"]
+
+
+def _with_scene(project, sb):
+    brief = yaml.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["scene_colors"] = SCENE
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    sb["scene_palette"] = list(SCENE)
+    sb["assets"][0].update(kind="scene", colors=["#CDEBFA", "#7CC36A", "#0B3D91"])
+    sb["text_plate"] = {"color": "#1B1B1F", "opacity": 0.7}
+    sb["palette"].append("#1B1B1F")
+    brief["brand"]["colors"].append("#1B1B1F")
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    return put(project, sb)
+
+
+def test_scene_assets_may_use_scene_palette(dproj, sb):
+    assert run_check("yaml_schema", _with_scene(dproj, sb), {"path": SB, "schema": "storyboard"}).status == "pass"
+    assert run_check("storyboard_palette", dproj, P).status == "pass"
+
+
+def test_icons_may_not_use_scene_palette(dproj, sb):
+    _with_scene(dproj, sb)
+    sb["assets"][1]["colors"] = ["#7CC36A"]                         # icon A-HOI dùng xanh lá
+    r = run_check("storyboard_palette", put(dproj, sb), P)
+    assert r.status == "fail" and "A-HOI" in r.evidence and "#7CC36A" in r.evidence
+
+
+def test_scene_palette_must_match_brief(dproj, sb):
+    _with_scene(dproj, sb)
+    sb["scene_palette"].append("#123456")
+    r = run_check("storyboard_palette", put(dproj, sb), P)
+    assert r.status == "fail" and "#123456" in r.evidence
+
+
+def test_text_and_background_stay_in_brand_palette(dproj, sb):
+    _with_scene(dproj, sb)
+    shot(sb, "S02-01-a")["elements"][1]["color"] = "#7CC36A"
+    r = run_check("storyboard_palette", put(dproj, sb), P)
+    assert r.status == "fail" and "S02-01-a/e2" in r.evidence
+
+
+def test_contrast_text_over_scene_uses_plate(dproj, sb):
+    _with_scene(dproj, sb)
+    # chữ vàng e3 nằm trên cảnh A-TROI (có màu trời sáng #CDEBFA) -> phải tính trên tấm nền
+    params = {**P, "min_ratio": 4.5}
+    r = run_check("storyboard_contrast", put(dproj, sb), params)
+    assert r.status == "pass", r.evidence
+    del sb["text_plate"]
+    r = run_check("storyboard_contrast", put(dproj, sb), params)
+    assert r.status == "fail" and "S01-01-a/e3" in r.evidence and "#CDEBFA" in r.evidence

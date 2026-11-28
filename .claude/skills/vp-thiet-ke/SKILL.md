@@ -53,3 +53,16 @@ python -m vp design lint    projects/<dự án>   # phải báo SẠCH
 ## 5. Giao duyệt
 Tự đi qua các mục `ai` trong `checklists/design.yaml`, sửa trước những gì chắc chắn sẽ trượt.
 Sau đó dùng skill `vp-kiem-duyet` cho công đoạn `design`. Người duyệt phải **xem ảnh phác thảo**, không chỉ đọc YAML.
+
+## Cảnh chân thật (luật từ 28/11/2026)
+- **Cảnh minh hoạ** (sông, biển, núi, đá, đáy biển, bản đồ…) dùng `kind: scene`:
+  - Mô tả như phong cảnh thật: sông có núi, cây và dòng sông uốn lượn; biển là bãi biển.
+  - Chỉ dùng màu trong `scene_palette`.
+  - Đặt phủ cả khung `box {x: 0, y: 0, w: 100, h: 100}` và luôn là **phần tử đầu tiên** của khung, tức lớp dưới cùng.
+- **Icon, chữ, nút** chỉ dùng `palette` (4 màu nhận diện).
+- Mọi chữ nằm trên cảnh có `text_plate` (đặt một lần ở đầu file). DSN-A05 đo tương phản với màu sáng nhất của cảnh.
+- **Vị trí phần tử theo vị trí thật trong cảnh**, ví dụ:
+  - hơi nước bốc lên từ mặt biển;
+  - muối nằm dưới mặt nước;
+  - khoáng chất bay ra từ miệng núi lửa.
+

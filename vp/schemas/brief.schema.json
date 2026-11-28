@@ -105,6 +105,14 @@
         },
         "logo": {
           "type": "string"
+        },
+        "scene_colors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "description": "Bảng màu tự nhiên cho cảnh minh hoạ (asset kind=scene); icon/chữ/nút vẫn dùng colors"
         }
       }
     },

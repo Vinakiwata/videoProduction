@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Vẽ 23 hình SVG cho 'Vì sao nước biển lại mặn?' — phong cách phẳng, nét tròn, bóng đổ nhẹ.
-Chỉ dùng 4 màu nhận diện; sắc độ tạo bằng độ trong suốt. Mỗi chi tiết cần chuyển động nằm trong <g id="...">.
+"""Vẽ toàn bộ hình SVG cho 'Vì sao nước biển lại mặn?' — phong cách phẳng, nét tròn, bóng đổ nhẹ.
+Icon/chữ/nút: chỉ 4 màu nhận diện, sắc độ bằng độ trong suốt. Cảnh (kind=scene): màu tự nhiên, ở canh.py. Mỗi chi tiết cần chuyển động nằm trong <g id="...">.
 Chạy: python3 projects/vi-sao-nuoc-bien-man/06_animation/_src/ve_hinh.py
 """
 import math
@@ -50,20 +50,11 @@ def cloud(cx, cy, s, op=1.0):
 A = {}
 
 # ---------- nước, sông, biển ----------
-A["A-SONG"] = svg("0 0 800 200", g("water",
-    f'<path d="M0 70 C150 30 260 120 400 85 S650 40 800 75 L800 140 C650 105 560 170 400 150 S150 110 0 135Z" fill="{W}"/>',
-    f'<path d="M0 135 C150 110 260 170 400 150 S650 105 800 140 L800 150 C650 118 560 182 400 162 S150 122 0 146Z" {SHADOW}/>'),
-    g("ripples", *[f'<path d="M{x} {y} q30 -10 60 0" stroke="{N}" stroke-width="7" stroke-linecap="round" fill="none"/>'
-                   for x, y in ((90, 104), (300, 118), (520, 98), (690, 108))]), extra=' preserveAspectRatio="none"')
-
-A["A-BIEN"] = svg("0 0 600 400", g("waves",
-    f'<rect y="40" width="600" height="360" fill="{N}"/>',
-    f'<path d="M0 40 q50 -30 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="{N}"/>',
-    f'<path d="M0 140 q50 -26 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="{W}" fill-opacity="0.10"/>',
-    f'<path d="M0 250 q50 -22 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V400 H0Z" fill="{W}" fill-opacity="0.10"/>'),
-    g("crests", f'<path d="M0 40 q50 -30 100 0 t100 0 t100 0 t100 0 t100 0 t100 0" stroke="{W}" stroke-width="10" fill="none" stroke-linecap="round"/>',
-      f'<path d="M30 140 q40 -20 80 0 M230 140 q40 -20 80 0 M430 140 q40 -20 80 0" stroke="{W}" stroke-opacity="0.7" stroke-width="7" fill="none" stroke-linecap="round"/>'),
-    extra=' preserveAspectRatio="none"')
+A["A-SONG-ICON"] = svg("0 0 300 220",
+    f'<ellipse cx="150" cy="204" rx="120" ry="9" {SHADOW}/>',
+    g("water", f'<path d="M20 60 C90 30 120 110 170 100 S250 60 285 90 L285 140 C240 112 210 160 160 156 S80 92 20 118Z" fill="{W}"/>'),
+    g("ripples", *[f'<path d="M{x} {y} q14 -6 28 0" stroke="{N}" stroke-width="6" stroke-linecap="round" fill="none"/>'
+                   for x, y in ((50, 92), (140, 126), (225, 108))]))
 
 glass_shape = "M60 40 L240 40 L215 340 Q213 360 193 360 L107 360 Q87 360 85 340Z"
 A["A-COC-SONG"] = svg("0 0 360 440", '<g transform="translate(30 0)">',
@@ -115,27 +106,12 @@ A["A-PHANTU-KHI"] = svg("0 0 450 300", g("molecules",
     *[molecule(x, y, s, a) for x, y, s, a in ((70, 80, 1.0, 0.3), (220, 60, 0.85, 1.9), (170, 170, 1.1, 0.9),
                                               (60, 230, 0.8, 2.6), (330, 200, 1.0, 0.1), (390, 80, 0.9, 1.2))]))
 
-rock_body = "M40 250 C20 200 50 120 110 95 C170 70 250 60 320 90 C390 118 420 180 400 235 C380 280 300 300 210 298 C130 296 60 290 40 250Z"
-A["A-DA"] = svg("0 0 760 320", '<g transform="translate(160 0)">',
-    f'<ellipse cx="220" cy="300" rx="190" ry="16" {SHADOW}/>',
-    g("rock", f'<path d="{rock_body}" fill="{N}"/>',
-      f'<path d="M110 95 C170 70 250 60 320 90 C300 100 240 110 180 130 C140 142 120 120 110 95Z" fill="{W}" fill-opacity="0.12"/>',
-      f'<path d="{rock_body}" fill="none" stroke="{W}" stroke-width="8" stroke-linejoin="round"/>'),
-    g("cracks", f'<path d="M150 150 l30 40 l-12 36 M260 120 l-20 50 l26 30 l-8 40 M330 200 l30 20" stroke="{W}" stroke-width="7" '
-                f'fill="none" stroke-linecap="round" stroke-linejoin="round"/>'), '</g>')
-
 random.seed(7)
 grains = "".join(cube(20 + random.randint(0, 380), 40 + random.randint(0, 120), random.choice((14, 18, 24)),
                       op=random.choice((0.75, 0.9, 1.0))) for _ in range(18))
 A["A-HAT-MUOI"] = svg("0 0 440 200", g("grains", grains),
     g("sparkles", *[f'<path d="M{x} {y - 10} L{x + 3} {y - 3} L{x + 10} {y} L{x + 3} {y + 3} L{x} {y + 10} L{x - 3} {y + 3} '
                     f'L{x - 10} {y} L{x - 3} {y - 3}Z" fill="{Y}"/>' for x, y in ((60, 30), (330, 40), (200, 185))]))
-
-A["A-SUOI"] = svg("0 0 800 400",
-    g("streams", *[f'<path d="{d}" stroke="{W}" stroke-width="{w}" fill="none" stroke-linecap="round"/>' for d, w in (
-        ("M30 40 C120 90 160 150 300 210", 10), ("M80 330 C170 300 220 260 300 230", 10), ("M20 180 C120 190 200 215 300 220", 12))]),
-    g("river", f'<path d="M290 200 C420 220 520 190 800 215 L800 290 C540 260 430 300 290 245Z" fill="{W}"/>',
-      f'<path d="M420 238 q30 -10 60 0 M600 240 q30 -10 60 0" stroke="{N}" stroke-width="6" fill="none" stroke-linecap="round"/>'))
 
 A["A-KINH-LUP"] = svg("0 0 300 520",
     g("handle", f'<path d="M150 300 L150 500" stroke="{D}" stroke-opacity="0.25" stroke-width="44" stroke-linecap="round" transform="translate(8 8)"/>',
@@ -144,18 +120,6 @@ A["A-KINH-LUP"] = svg("0 0 300 520",
       f'<path d="M30 175 q60 -24 120 0 t120 0" stroke="{W}" stroke-opacity="0.6" stroke-width="8" fill="none"/>',
       f'<circle cx="150" cy="150" r="128" fill="none" stroke="{Y}" stroke-width="22"/>'),
     g("salt", cube(85, 120, 26), cube(180, 190, 22), cube(140, 85, 18)))
-
-rivers = "".join(f'<path d="{d}" stroke="{W}" stroke-width="9" fill="none" stroke-linecap="round"/>' for d in (
-    "M40 60 C200 120 380 140 600 230", "M60 420 C220 380 400 320 600 280", "M20 240 C200 250 400 255 600 255",
-    "M200 20 C260 120 420 190 600 240", "M240 520 C330 420 460 330 600 270"))
-dots = "".join(f'<circle cx="{x}" cy="{y}" r="7" fill="{W}"/>' for x, y in (
-    (150, 104), (330, 150), (480, 196), (150, 397), (330, 345), (470, 300), (140, 244), (330, 251), (480, 253),
-    (245, 92), (380, 170), (310, 450), (420, 360)))
-A["A-BAN-DO-SONG"] = svg("0 0 960 540",
-    g("land", f'<rect width="960" height="540" fill="{D}"/>'),
-    g("sea", f'<path d="M590 0 C640 120 600 260 650 360 C690 440 640 500 660 540 L960 540 L960 0Z" fill="{N}"/>',
-      f'<path d="M590 0 C640 120 600 260 650 360 C690 440 640 500 660 540" stroke="{W}" stroke-width="6" fill="none"/>'),
-    g("rivers", rivers), g("dots", dots))
 
 rays = "".join(f'<line x1="{150 + math.cos(a) * 92:.1f}" y1="{150 + math.sin(a) * 92:.1f}" x2="{150 + math.cos(a) * 130:.1f}" '
                f'y2="{150 + math.sin(a) * 130:.1f}" stroke="{Y}" stroke-width="18" stroke-linecap="round"/>'
@@ -198,21 +162,6 @@ arcs = "".join(f'<path d="{d}" stroke="{Y}" stroke-width="12" fill="none" stroke
     ("M105 125 A160 160 0 0 1 160 80", "M146 66 L182 72 L158 98Z")))
 A["A-VONG-TUAN-HOAN"] = svg("0 0 400 400", g("ring", arcs), g("icons", *[ring_icon(k, *v) for k, v in pts.items()]))
 
-A["A-DAY-BIEN"] = svg("0 0 960 540",
-    g("water", f'<rect width="960" height="540" fill="{N}"/>',
-      f'<path d="M0 60 q60 -20 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0" stroke="{W}" stroke-opacity="0.5" stroke-width="6" fill="none"/>'),
-    g("floor", f'<path d="M0 425 C160 405 260 445 420 428 C560 412 700 440 960 420 L960 540 L0 540Z" fill="{D}"/>',
-      f'<path d="M0 425 C160 405 260 445 420 428 C560 412 700 440 960 420" stroke="{W}" stroke-opacity="0.35" stroke-width="5" fill="none"/>'),
-    g("volcano", f'<path d="M240 440 C300 420 350 340 378 300 L422 300 C450 340 500 420 560 440Z" fill="{D}"/>',
-      f'<path d="M240 440 C300 420 350 340 378 300 L422 300 C450 340 500 420 560 440" stroke="{W}" stroke-opacity="0.35" stroke-width="5" fill="none"/>',
-      f'<path d="M378 300 L422 300 L436 322 L364 322Z" fill="{Y}"/>'),
-    g("vent", f'<path d="M650 436 L660 384 L680 384 L690 436Z" fill="{D}"/>',
-      f'<path d="M660 384 L680 384" stroke="{Y}" stroke-width="6" stroke-linecap="round"/>'),
-    g("glow", f'<ellipse cx="400" cy="298" rx="44" ry="15" fill="{Y}" fill-opacity="0.55"/>',
-      *[f'<path d="M{x} 372 q-12 -26 0 -52 t0 -52" stroke="{Y}" stroke-width="7" fill="none" stroke-linecap="round" stroke-opacity="0.8"/>'
-        for x in (662, 678)]))
-
-
 # Khung A-KHOANG-CHAT trong storyboard: x 30–75 %, y 30–70 % của khung 1920×1080 → hộp 864×432.
 # Miệng núi lửa (400,300 trên 960×540) → (225, 276); khe nứt (670,384) → (764, 432) trong hộp này.
 def _khoang():
@@ -243,6 +192,12 @@ A["A-CHUONG"] = svg("0 0 200 240",
     g("bell", f'<path d="M100 30 C55 30 45 75 45 115 C45 150 30 165 22 178 L178 178 C170 165 155 150 155 115 C155 75 145 30 100 30Z" fill="{W}"/>',
       f'<circle cx="100" cy="22" r="12" fill="{W}"/>', f'<path d="M78 192 a22 22 0 0 0 44 0Z" fill="{W}"/>'),
     g("ringlines", f'<path d="M20 70 q-14 40 0 80 M180 70 q14 40 0 80" stroke="{W}" stroke-width="9" fill="none" stroke-linecap="round"/>'))
+
+# Cảnh chân thật, màu tự nhiên (kind=scene) — xem canh.py
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from canh import S as _CANH  # noqa: E402
+A.update(_CANH)
 
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)

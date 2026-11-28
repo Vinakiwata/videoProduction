@@ -23,3 +23,9 @@
 | 2026-11-28T10:43:29+07:00 | voice | ✅ ĐẠT | 100 | — | [voice/20261128-104327/report.md](voice/20261128-104327/report.md) |
 | 2026-11-28T10:43:52+07:00 | timeline | ✅ ĐẠT | 100 | — | [timeline/20261128-104337/report.md](timeline/20261128-104337/report.md) |
 | 2026-11-28T10:54:45+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-105421/report.md](animation/20261128-105421/report.md) |
+| 2026-11-28T11:15:01+07:00 | brief | ✅ ĐẠT | 100 | — | [brief/20261128-111448/report.md](brief/20261128-111448/report.md) |
+| 2026-11-28T11:15:15+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261128-111502/report.md](script/20261128-111502/report.md) |
+| 2026-11-28T11:15:55+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-111515/report.md](design/20261128-111515/report.md) |
+| 2026-11-28T11:16:39+07:00 | animatic | ✅ ĐẠT | 100 | — | [animatic/20261128-111616/report.md](animatic/20261128-111616/report.md) |
+| 2026-11-28T11:16:54+07:00 | timeline | ✅ ĐẠT | 100 | — | [timeline/20261128-111640/report.md](timeline/20261128-111640/report.md) |
+| 2026-11-28T11:17:17+07:00 | animation | ✅ ĐẠT | 100 | — | [animation/20261128-111656/report.md](animation/20261128-111656/report.md) |

@@ -132,3 +132,36 @@ def test_preview_and_sync(aproj):
     f = aproj / "06_animation" / "assets" / "A-HOI.svg"
     f.write_text(f.read_text().replace("r=\"12\"", "r=\"14\""), encoding="utf-8")
     assert run_check("animation_preview_in_sync", aproj, q).status == "fail"
+
+
+SCENE_SVG = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225"><rect width="400" height="225" fill="#CDEBFA"/>'
+             '<g id="clouds"><path d="M0 200H400V225H0Z" fill="#7CC36A"/><circle cx="50" cy="50" r="9" fill="#0B3D91"/></g></svg>')
+
+
+def _scene(aproj):
+    brief = yaml.safe_load((aproj / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["scene_colors"] = ["#CDEBFA", "#7CC36A"]
+    write_yaml(aproj / "00_brief" / "brief.yaml", brief)
+    man = yaml.safe_load((aproj / "06_animation" / "assets.yaml").read_text(encoding="utf-8"))
+    man["assets"][0]["kind"] = "scene"
+    write_yaml(aproj / "06_animation" / "assets.yaml", man)
+    (aproj / "06_animation" / "assets" / "A-TROI.svg").write_text(SCENE_SVG, encoding="utf-8")
+
+
+def test_svg_palette_scene_uses_natural_colors(aproj):
+    _scene(aproj)
+    r = run_check("svg_palette", aproj, {**P, "max_colors": 4, "max_scene_colors": 16})
+    assert r.status == "pass", r.evidence
+
+
+def test_svg_palette_icon_still_brand_only(aproj):
+    _scene(aproj)
+    (aproj / "06_animation" / "assets" / "A-HOI.svg").write_text(GOOD["A-HOI"].replace("#ffd23f", "#7CC36A"), encoding="utf-8")
+    r = run_check("svg_palette", aproj, {**P, "max_colors": 4, "max_scene_colors": 16})
+    assert r.status == "fail" and "A-HOI" in r.evidence
+
+
+def test_svg_palette_scene_color_cap(aproj):
+    _scene(aproj)
+    r = run_check("svg_palette", aproj, {**P, "max_colors": 4, "max_scene_colors": 2})
+    assert r.status == "fail" and "A-TROI" in r.evidence and "3 màu" in r.evidence

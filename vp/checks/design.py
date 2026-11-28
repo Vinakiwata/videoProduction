@@ -124,13 +124,22 @@ def refs(project: Path, params: dict) -> CheckResult:
 
 @register("storyboard_palette")
 def palette(project: Path, params: dict) -> CheckResult:
+    """Chữ, nền, icon, nút: chỉ màu nhận diện. Asset kind=scene: thêm bảng màu tự nhiên (brand.scene_colors)."""
     sb = load_yaml(project, params["path"])
     brief = load_yaml(project, params.get("brief", "00_brief/brief.yaml"))
     brand = {c.upper() for c in brief["brand"]["colors"]}
+    scene_brand = {c.upper() for c in brief["brand"].get("scene_colors") or []}
     pal = {c.upper() for c in sb.get("palette") or []}
+    spal = {c.upper() for c in sb.get("scene_palette") or []}
     bad = [f"palette có {c} không thuộc brand.colors của brief" for c in sorted(pal - brand)]
+    bad += [f"scene_palette có {c} không thuộc brand.scene_colors của brief" for c in sorted(spal - scene_brand)]
     for a in sb.get("assets") or []:
-        bad += [f"asset {a['id']}: màu {c}" for c in a.get("colors") or [] if c.upper() not in pal]
+        ok = pal | spal if a.get("kind") == "scene" else pal
+        where = "bảng màu cảnh" if a.get("kind") == "scene" else "màu nhận diện (chỉ asset kind=scene mới được dùng màu cảnh)"
+        bad += [f"asset {a['id']}: màu {c} ngoài {where}" for c in a.get("colors") or [] if c.upper() not in ok]
+    tp = sb.get("text_plate")
+    if tp and tp["color"].upper() not in pal:
+        bad.append(f"text_plate: màu {tp['color']}")
     for sh in sb.get("shots") or []:
         if sh["background"].upper() not in pal:
             bad.append(f"{sh['id']}: nền {sh['background']}")
@@ -138,8 +147,9 @@ def palette(project: Path, params: dict) -> CheckResult:
             if e.get("color") and e["color"].upper() not in pal:
                 bad.append(f"{sh['id']}/{e['id']}: màu chữ {e['color']}")
     if bad:
-        return _fmt(bad, f"Màu ngoài bảng màu nhận diện {sorted(pal)}:")
-    return CheckResult("pass", f"Mọi màu thuộc bảng màu nhận diện ({len(pal)} màu).")
+        return _fmt(bad, f"Màu ngoài bảng màu nhận diện {sorted(pal)} / bảng màu cảnh {sorted(spal)}:")
+    extra = f", cảnh dùng thêm {len(spal)} màu tự nhiên" if spal else ""
+    return CheckResult("pass", f"Mọi màu thuộc bảng màu nhận diện ({len(pal)} màu{extra}).")
 
 
 def _overflow(e, canvas) -> str | None:
@@ -237,25 +247,45 @@ def contrast_ratio(a: str, b: str) -> float:
     return (la + 0.05) / (lb + 0.05)
 
 
+def _blend(top: str, under: str, opacity: float) -> str:
+    t = [int(top[i:i + 2], 16) for i in (1, 3, 5)]
+    u = [int(under[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(opacity * a + (1 - opacity) * b):02X}" for a, b in zip(t, u))
+
+
 @register("storyboard_contrast")
 def contrast(project: Path, params: dict) -> CheckResult:
+    """Chữ trên nền khung; nếu khung có cảnh minh hoạ (kind=scene) thì tính với MỌI màu của cảnh
+    (trường hợp xấu nhất), qua tấm nền text_plate nếu có."""
     sb = load_yaml(project, params["path"])
     mn = float(params.get("min_ratio", 4.5))
+    kinds = {a["id"]: a for a in sb.get("assets") or []}
+    tp = sb.get("text_plate")
     bad, worst, n = [], None, 0
     for sh in sb.get("shots") or []:
+        scene = sorted({c.upper() for e in sh.get("elements") or [] if e.get("asset")
+                        for c in (kinds.get(e["asset"], {}).get("colors") or [])
+                        if kinds.get(e["asset"], {}).get("kind") == "scene"})
         for e in sh.get("elements") or []:
             if "text" not in e:
                 continue
             n += 1
-            r = contrast_ratio(e["color"], sh["background"])
+            if scene:
+                cands = [(c, _blend(tp["color"], c, tp["opacity"]) if tp else c) for c in scene]
+            else:
+                cands = [(sh["background"], sh["background"])]
+            r, (src, bg) = min((contrast_ratio(e["color"], bg), (src, bg)) for src, bg in cands)
             worst = r if worst is None else min(worst, r)
             if r < mn:
-                bad.append(f"{sh['id']}/{e['id']}: {e['color']} trên nền {sh['background']} = {r:.2f}:1")
+                via = f" qua tấm nền {tp['color']} {tp['opacity']:g} = {bg}" if scene and tp else ""
+                kind = "cảnh" if scene else "nền"
+                bad.append(f"{sh['id']}/{e['id']}: {e['color']} trên {kind} {src}{via} = {r:.2f}:1")
     if bad:
         return _fmt(bad, f"Tương phản chữ/nền dưới {mn}:1:")
     if not n:
         return CheckResult("pass", "Không có phần tử chữ.")
-    return CheckResult("pass", f"{n} phần tử chữ, tương phản thấp nhất {worst:.2f}:1 (≥ {mn}:1).")
+    plate = " (chữ trên cảnh tính qua tấm nền, với màu sáng nhất của cảnh)" if tp else ""
+    return CheckResult("pass", f"{n} phần tử chữ, tương phản thấp nhất {worst:.2f}:1 (≥ {mn}:1){plate}.")
 
 
 @register("storyboard_safe_area")

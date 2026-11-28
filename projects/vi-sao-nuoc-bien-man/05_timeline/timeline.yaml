@@ -297,8 +297,8 @@ cues:
   element: e1
   event: enter
   frame: 0
-  anim: draw
-  dur_frames: 30
+  anim: fade
+  dur_frames: 18
   ease: ease_out
 - shot: S01-01-a
   element: e1
@@ -306,19 +306,6 @@ cues:
   frame: 0
   anim: flow
   period_frames: 45
-- shot: S01-01-a
-  element: e2
-  event: enter
-  frame: 6
-  anim: fade
-  dur_frames: 15
-  ease: ease_out
-- shot: S01-01-a
-  element: e2
-  event: loop
-  frame: 6
-  anim: bob
-  period_frames: 75
 - shot: S01-01-b
   element: e1
   event: enter
