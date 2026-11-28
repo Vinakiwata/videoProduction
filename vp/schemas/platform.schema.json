@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hồ sơ nền tảng đăng video",
+  "type": "object",
+  "required": ["id", "name", "canvas", "max_duration_s", "safe_margins_px", "ui_zones", "source", "checked"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "canvas": {"type": "object", "required": ["width", "height", "fps"],
+               "properties": {"width": {"type": "integer"}, "height": {"type": "integer"}, "fps": {"type": "number"}}},
+    "max_duration_s": {"type": "number", "exclusiveMinimum": 0},
+    "safe_margins_px": {"type": "object", "required": ["top", "bottom", "left", "right"], "additionalProperties": false,
+                        "properties": {"top": {"type": "integer", "minimum": 0}, "bottom": {"type": "integer", "minimum": 0},
+                                       "left": {"type": "integer", "minimum": 0}, "right": {"type": "integer", "minimum": 0}}},
+    "ui_zones": {"type": "array", "items": {"type": "object", "required": ["x", "y", "w", "h", "label"],
+                 "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "w": {"type": "number"}, "h": {"type": "number"},
+                                "label": {"type": "string"}}}},
+    "source": {"type": "object", "required": ["name", "url"], "properties": {"name": {"type": "string"}, "url": {"type": "string"}}},
+    "checked": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "notes": {"type": "string"}
+  }
+}

@@ -38,6 +38,7 @@ def new_brief(project: Path, *, channel: str, title: str, goal: str | None = Non
         "audience": audience,
         "channel": ch["channel"],
         "format": dict(ch["format"]),
+        **({"platforms": list(ch["platforms"])} if ch.get("platforms") else {}),
         "target_duration_s": duration,
         "tone": ch["tone"],
         "cta": ch["cta"],

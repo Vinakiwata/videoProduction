@@ -1,0 +1,34 @@
+# Hồ sơ nền tảng — TikTok. Thiết kế: docs/superpowers/specs/2026-11-28-khung-doc-9-16-design.md
+id: tiktok
+name: TikTok
+canvas:
+  width: 1080
+  height: 1920
+  fps: 30
+max_duration_s: 600
+safe_margins_px:
+  top: 108
+  bottom: 320
+  left: 60
+  right: 120
+ui_zones:
+- x: 0
+  y: 0
+  w: 1080
+  h: 108
+  label: Tab Following/For You, tìm kiếm
+- x: 0
+  y: 1600
+  w: 1080
+  h: 320
+  label: Chú thích, tên tài khoản, nhạc
+- x: 960
+  y: 108
+  w: 120
+  h: 1492
+  label: 'Cột nút: ảnh đại diện, tim, bình luận, lưu, chia sẻ'
+source:
+  name: Ignite Social Media — What are the safe zones for TikToks and Instagram Reels
+  url: https://www.ignitesocialmedia.com/content-creation/what-are-the-safe-zones-for-tiktoks-and-instagram-reels/
+checked: '2026-11-28'
+notes: 'Số đo giao diện đăng thường (không phải chuẩn quảng cáo). Giao diện ứng dụng đổi theo thời gian: đo lại và sửa ''checked'' khi cổng brief cảnh báo.'
