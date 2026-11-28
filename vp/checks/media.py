@@ -46,6 +46,13 @@ def video_format(project: Path, params: dict) -> CheckResult:
         from vp.checks.files import load_yaml
         c = pf.canvas(load_yaml(project, params["format_from"]))
         params = {**params, "width": c["width"], "height": c["height"], "fps": params.get("fps", c["fps"])}
+    if params.get("animatic_from"):
+        # animatic: nửa canvas của storyboard + dải phụ đề riêng (vp.animatic.caption_h)
+        from vp.animatic import caption_h
+        from vp.checks.files import load_yaml
+        from vp.design_preview import preview_size
+        w, h = preview_size(load_yaml(project, params["animatic_from"])["meta"]["canvas"])
+        params = {**params, "width": w, "height": h + caption_h((w, h))}
     fps = float(Fraction(v["r_frame_rate"]))
     got = f"{v['width']}x{v['height']} @ {fps:g} fps, {v['codec_name']}, {v.get('pix_fmt')}"
     problems = []

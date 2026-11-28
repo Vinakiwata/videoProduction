@@ -146,7 +146,7 @@ shots:
   content_end_frame: 57
   transition_in: cut
   camera:
-    move: pan_right
+    move: pan_down
     amount: 0.1
 - id: S01-01-b
   segment: S01-01

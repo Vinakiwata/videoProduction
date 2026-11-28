@@ -30,29 +30,30 @@
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261128-162406",
+        "review": "reviews/design/20261128-174448",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:9497291f3ecd3bd3a3dce4648415da1208cbc898c2bacd1f6c23f8b771a17d02",
-          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
+          "02_design": "dir:bd93805e6c894ae38774cb141880ceef7a38601d67e5a88d406673948d456b64",
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671",
+          "00_brief/brief.yaml": "265ae6ddce2178819b1910403b25d59c6e73babfa666755f06cebe286e3e9441"
         },
-        "finalized_at": "2026-11-28T16:24:07+07:00",
+        "finalized_at": "2026-11-28T17:44:49+07:00",
         "override": null
       }
     },
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-162342",
+        "review": "reviews/animatic/20261128-174640",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "03_animatic": "dir:2da03b6ab5b2526efe94ee0e78eea6929d14f955920a1ad267251b68a20a4f3f",
-          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "03_animatic": "dir:bb5df76196a90d4b71bd437a69dd61e2383ada819e3cda72008afbcd7b159f54",
+          "02_design/storyboard.yaml": "c6424e2910b3235bd8f83de02736b391022592c38ed038157ded7d6452a5603f",
           "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T16:23:42+07:00",
+        "finalized_at": "2026-11-28T17:46:41+07:00",
         "override": null
       }
     },
@@ -73,16 +74,16 @@
     "timeline": {
       "pending": null,
       "latest": {
-        "review": "reviews/timeline/20261128-162405",
+        "review": "reviews/timeline/20261128-174701",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "05_timeline": "dir:8f5a6a96238ffdda286aef10b90d356c71eb4e4347f627b6d93ae595415b8223",
+          "05_timeline": "dir:72420d4480c0e9194007dfbb8f38fa1ab5a8ad9f53e910fb7316f49d0fc3b954",
           "04_voice/voice_manifest.yaml": "d39cfc5c3750a77ce66309e0cdc8f271c408d147b5e0b1f103de247cea0496a8",
-          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "02_design/storyboard.yaml": "c6424e2910b3235bd8f83de02736b391022592c38ed038157ded7d6452a5603f",
           "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T16:24:05+07:00",
+        "finalized_at": "2026-11-28T17:47:01+07:00",
         "override": null
       }
     },
