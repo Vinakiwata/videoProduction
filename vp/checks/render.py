@@ -40,6 +40,14 @@ def psnr_luma(a: np.ndarray, b: np.ndarray) -> float:
     return float("inf") if mse == 0 else 10 * np.log10(255 ** 2 / mse)
 
 
+def sample_frames(rows: list[dict], k: int) -> list[int]:
+    """Khung mốc giữa khung hình + giữa lượt chuyển cảnh (chuyển động mạnh nhất → nhạy với lệch khung), rải đều tối đa k khung."""
+    rows = [r for r in rows if r["role"] in ("mid", "transition")]
+    if len(rows) > k:
+        rows = [rows[round(i * (len(rows) - 1) / (k - 1))] for i in range(k)] if k > 1 else rows[:1]
+    return [r["frame"] for r in rows]
+
+
 @register("render_frame_count")
 def frame_count(project: Path, params: dict) -> CheckResult:
     v = project / params.get("path", VIDEO)
@@ -63,11 +71,7 @@ def matches_presentation(project: Path, params: dict) -> CheckResult:
         return CheckResult("fail", "Chưa có tờ kiểm 07. Chạy: python -m vp presentation check <dự án>")
     comp = json.loads((project / pt.DIR / "presentation.json").read_text(encoding="utf-8"))
     w, h = comp["canvas"]["width"], comp["canvas"]["height"]
-    rows = [r for r in json.loads(mp.read_text(encoding="utf-8"))["frames"] if r["role"] == "mid"]
-    k = int(params.get("max_frames", 12))
-    if len(rows) > k:                                    # lấy rải đều trên cả video
-        rows = [rows[round(i * (len(rows) - 1) / (k - 1))] for i in range(k)] if k > 1 else rows[:1]
-    frames = [r["frame"] for r in rows]
+    frames = sample_frames(json.loads(mp.read_text(encoding="utf-8"))["frames"], int(params.get("max_frames", 12)))
     lo = float(params.get("min_psnr", 40))
     from PIL import Image
     with tempfile.TemporaryDirectory() as tmp:

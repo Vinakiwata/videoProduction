@@ -7,8 +7,10 @@ import { openPage } from './cdp.mjs';
 const spec = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 const write = buf => new Promise(r => process.stdout.write(buf) ? r() : process.stdout.once('drain', r));
 let page, code = 0;
+// đầu đọc (ffmpeg) chết sớm → EPIPE: đóng Chrome rồi thoát, không để mồ côi
+process.stdout.on('error', e => { console.error('đầu ra bị đóng: ' + e.code); if (page) page.close(); process.exit(4); });
 try {
-  page = await openPage(spec);
+  page = await openPage({ ...spec, timeoutMs: spec.step_timeout_ms || 60000 });
   for (let f = 0; f < spec.total; f++) {
     const n = await page.evaluate(`vp.seek(${f}).then(() => vp.errors.length)`);
     if (n || page.consoleMsgs.some(m => m.startsWith('exception'))) {

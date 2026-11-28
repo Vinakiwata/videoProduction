@@ -131,3 +131,79 @@ def test_psnr_luma_ignores_chroma_only_difference():
         b[:, x] = np.clip([c[2], g, c[0]], 0, 255).astype(np.uint8)
     assert psnr_luma(a, b) > psnr(a, b) + 10
     assert psnr_luma(a, a) == float("inf")
+
+
+# ---------------- sửa sau review toàn nhánh ----------------
+def _chromes():
+    r = subprocess.run(["pgrep", "-f", "vp-chrome-"], capture_output=True, text=True)
+    return set(r.stdout.split())
+
+
+def _fake_page(tmp_path, body):
+    p = tmp_path / "page.html"
+    p.write_text(f"<!doctype html><html><body><script>{body}</script></body></html>", encoding="utf-8")
+    return p.resolve().as_uri()
+
+
+JSDIR = rt.JS.parent
+
+
+@NEED
+def test_cdp_failure_after_launch_closes_chrome(tmp_path):
+    """vp.ready bị reject (lỗi sau khi đã mở Chrome) → không để Chrome mồ côi."""
+    before = _chromes()
+    url = _fake_page(tmp_path, "window.vp = {ready: Promise.reject(new Error('ready hỏng')), errors: []};")
+    spec = tmp_path / "s.json"
+    spec.write_text(json.dumps({"url": url, "out_dir": str(tmp_path / "o"), "frames": [0], "width": 320, "height": 240}))
+    r = subprocess.run(["node", str(JSDIR / "capture.mjs"), str(spec)], capture_output=True, text=True, timeout=60)
+    assert r.returncode != 0 and "ready hỏng" in r.stderr
+    import time; time.sleep(1)
+    assert _chromes() <= before
+
+
+@NEED
+def test_render_mjs_epipe_closes_chrome(built, tmp_path):
+    """Đầu đọc (ffmpeg) chết sớm → Node thoát, không treo, không để Chrome mồ côi."""
+    before = _chromes()
+    spec = tmp_path / "s.json"
+    spec.write_text(json.dumps({"url": (built / "07_presentation/index.html").resolve().as_uri() + "?render=1",
+                                "width": 1920, "height": 1080, "total": 120}))
+    p = subprocess.Popen(["node", str(rt.JS), str(spec)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p.stdout.read(200_000); p.stdout.close()
+    assert p.wait(timeout=60) != 0
+    import time; time.sleep(1)
+    assert _chromes() <= before
+
+
+@NEED
+def test_render_reports_ffmpeg_error_not_node_epipe(built, monkeypatch):
+    monkeypatch.setattr(rt, "CRF", "abc")                       # ffmpeg từ chối tham số
+    with pytest.raises(rt.RenderError) as e:
+        rt.build(built, check_gate=False)
+    assert "ffmpeg" in str(e.value) and "EPIPE" not in str(e.value)
+    assert not list((built / "08_render").glob("*.tmp.mp4"))
+
+
+@NEED
+def test_render_times_out_when_seek_hangs(built, tmp_path):
+    """vp.seek không bao giờ xong → hết giờ, báo lỗi rõ, dọn tiến trình và file tạm."""
+    before = _chromes()
+    d = built / "07_presentation" / "data.js"
+    d.write_text(d.read_text(encoding="utf-8") + "\nwindow.addEventListener('load', () => { vp.seek = () => new Promise(() => {}); });\n",
+                 encoding="utf-8")
+    with pytest.raises(rt.RenderError) as e:
+        rt.build(built, check_gate=False, step_timeout_s=3)
+    assert "quá thời gian" in str(e.value)
+    assert not list((built / "08_render").glob("*.tmp.mp4"))
+    import time; time.sleep(1)
+    assert _chromes() <= before
+
+
+def test_rnd_a06_samples_mid_and_transition_frames():
+    """Khung mẫu gồm cả giữa khung hình lẫn giữa lượt chuyển cảnh (chuyển động mạnh nhất), rải đều tối đa k khung."""
+    from vp.checks.render import sample_frames
+    rows = [{"frame": f, "role": r} for f, r in ((0, "start"), (29, "mid"), (59, "end"), (64, "transition"), (89, "mid"), (119, "end"))]
+    assert sample_frames(rows, 12) == [29, 64, 89]
+    many = [{"frame": i, "role": "mid" if i % 2 else "transition"} for i in range(40)]
+    got = sample_frames(many, 12)
+    assert len(got) == 12 and got[0] == 0 and got[-1] == 39
