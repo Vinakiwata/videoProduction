@@ -44,20 +44,47 @@
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-103627",
+        "review": "reviews/animatic/20261128-104326",
         "decision": "DAT",
-        "score": 97,
+        "score": 100,
         "artifacts": {
-          "03_animatic": "dir:6752e0d310b74550e74057c200097d5c7e8e685bb545d2b303a3490248c60fef",
+          "03_animatic": "dir:e4ef8ccbfd2978007251eae3232ac32661e973c5450bad3bf9a6ec8cf36a828c",
           "02_design/storyboard.yaml": "82024fb70d2f43cf1e0ac877508469463bfcd6ee5476faf8280174de4e4d8e2a",
           "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
         },
-        "finalized_at": "2026-11-28T10:36:27+07:00",
+        "finalized_at": "2026-11-28T10:43:27+07:00",
         "override": null
       }
     },
     "voice": {
-      "pending": "reviews/voice/20261127-225255"
+      "pending": null,
+      "latest": {
+        "review": "reviews/voice/20261128-104327",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "04_voice": "dir:6257bb80f1db31a0640c1d6cd37ab403c64fa7a0f63b14044e4991e48e197d63",
+          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+        },
+        "finalized_at": "2026-11-28T10:43:29+07:00",
+        "override": null
+      }
+    },
+    "timeline": {
+      "pending": null,
+      "latest": {
+        "review": "reviews/timeline/20261128-104337",
+        "decision": "DAT",
+        "score": 100,
+        "artifacts": {
+          "05_timeline": "dir:c1af891ff23dadea031648ef40f405b25d43913eb74821dffb927773159e6ca7",
+          "04_voice/voice_manifest.yaml": "82404499a83aa6f21cacf8f49365c22119f87f08a4c57c12b63527249c846b95",
+          "02_design/storyboard.yaml": "82024fb70d2f43cf1e0ac877508469463bfcd6ee5476faf8280174de4e4d8e2a",
+          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
+        },
+        "finalized_at": "2026-11-28T10:43:52+07:00",
+        "override": null
+      }
     }
   }
 }

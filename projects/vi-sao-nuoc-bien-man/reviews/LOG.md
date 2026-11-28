@@ -19,3 +19,6 @@
 | 2026-11-28T10:33:15+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261128-103315/report.md](script/20261128-103315/report.md) |
 | 2026-11-28T10:33:16+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-103316/report.md](design/20261128-103316/report.md) |
 | 2026-11-28T10:36:27+07:00 | animatic | ✅ ĐẠT | 97 | ATC-C06 | [animatic/20261128-103627/report.md](animatic/20261128-103627/report.md) |
+| 2026-11-28T10:43:27+07:00 | animatic | ✅ ĐẠT | 100 | — | [animatic/20261128-104326/report.md](animatic/20261128-104326/report.md) |
+| 2026-11-28T10:43:29+07:00 | voice | ✅ ĐẠT | 100 | — | [voice/20261128-104327/report.md](voice/20261128-104327/report.md) |
+| 2026-11-28T10:43:52+07:00 | timeline | ✅ ĐẠT | 100 | — | [timeline/20261128-104337/report.md](timeline/20261128-104337/report.md) |

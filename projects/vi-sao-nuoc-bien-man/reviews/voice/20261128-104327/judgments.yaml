@@ -1,0 +1,23 @@
+VOI-C01:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Chủ dự án nghe giong_ban_3_toan_bai.mp3 (28/11/2026) và trả lời "ổn" cho mục đọc đúng chữ (không sót, không thừa, không sai). Văn bản đã đọc khớp kịch bản sau khi áp phát âm (VOI-A03 đạt).'
+VOI-C02:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Chủ dự án xác nhận "các bô ních" đọc đúng ở bản 3 (nghe riêng cau_cacbonic.mp3). Lịch sử: "các-bon-níc" bị đọc "cacbon-i-c"; "các bô níc" bị đánh vần "các bô i xê"; đã sửa thành "các bô ních" và thêm kiểm tra SCR-A09. Lời đọc không còn tên riêng hay từ nước ngoài nào khác.'
+VOI-C03:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Chủ dự án trả lời "ổn" cho mục tạp âm, rè, méo, cụt đầu hoặc cuối. Máy đo hỗ trợ: đỉnh ≤ −1 dBFS, lặng hai đầu ≤ 0,35 giây, không có khoảng lặng bất thường giữa câu (VOI-A04 đạt).'
+VOI-C04:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Chủ dự án trả lời "ổn" cho mục đồng nhất giọng giữa các câu. Máy đo: mọi đoạn chuẩn −16 LUFS; tốc độ các đoạn lệch ≤ 30% so với trung vị 4,48 âm tiết/giây.'
+VOI-C05:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Chủ dự án trả lời "ổn" cho ngữ điệu và nhịp ở bản 3, sau khi đã yêu cầu đọc từng câu, ngắt câu dài hơn (0,45/0,55 giây) và ngắt đoạn dài hơn (0,6 giây cùng cảnh, 0,9 giây sang cảnh). Tốc độ gốc của VieNeu được giữ theo quyết định của chủ dự án ngày 27/11.'
+VOI-C07:
+  verdict: na
+  evidence: 'Dùng giọng dựng sẵn "Hải Đăng" của VieNeu-TTS v3 Turbo, không nhân bản giọng người thật nên không cần bằng chứng đồng ý. (Lưu ý pháp lý riêng: kiểm tra giấy phép model v3 Turbo trên HuggingFace trước khi bật kiếm tiền.)'

@@ -1,0 +1,11 @@
+{
+  "hash": "ba616458e6ec0c11f66718491e9876bc4e36695af91f07300a94644975bd8757",
+  "params": {
+    "breath": 0.6,
+    "breath_scene": 0.9,
+    "question_extra": 0.1,
+    "max_chars": 42,
+    "max_lines": 2,
+    "min_sub_s": 1.0
+  }
+}
