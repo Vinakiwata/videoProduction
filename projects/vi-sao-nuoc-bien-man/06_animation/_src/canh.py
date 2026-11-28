@@ -261,10 +261,40 @@ S["A-DAY-BIEN"] = svg("0 0 960 540",
 # ---------- A-BAN-DO-SONG + A-SANG-BIEN: bản đồ màu tự nhiên ----------
 _sea_d = "M590 0 C640 120 600 260 650 360 C690 440 640 500 660 540 L960 540 L960 0Z"
 _coast_d = "M590 0 C640 120 600 260 650 360 C690 440 640 500 660 540"
-_rivers = ("M40 60 C200 120 380 140 600 230", "M60 420 C220 380 400 320 600 280", "M20 240 C200 250 400 255 600 255",
-           "M200 20 C260 120 420 190 600 240", "M240 520 C330 420 460 330 600 270")
-_dots = ((150, 104), (330, 150), (480, 196), (150, 397), (330, 345), (470, 300), (140, 244), (330, 251), (480, 253),
-         (245, 92), (380, 170), (310, 450), (420, 360))
+_COAST_SEGS = [((590, 0), (640, 120), (600, 260), (650, 360)), ((650, 360), (690, 440), (640, 500), (660, 540))]
+
+
+def coast_x(y):
+    """Toạ độ x của đường bờ biển (cùng đường cong với _coast_d) tại độ cao y — tìm bằng chia đôi."""
+    for p0, p1, p2, p3 in _COAST_SEGS:
+        if p0[1] <= y <= p3[1]:
+            lo, hi = 0.0, 1.0
+            for _ in range(40):
+                t = (lo + hi) / 2
+                u = 1 - t
+                yy = u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1]
+                lo, hi = (t, hi) if yy < y else (lo, t)
+            u = 1 - t
+            return u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0]
+    raise ValueError(y)
+
+
+# Mỗi sông chảy qua bãi cát và đổ hẳn vào biển: điểm cuối nằm trong nước, cách mép bờ 22 px.
+_river_src = [((40, 60), (200, 120), (380, 150), 190), ((60, 420), (220, 400), (420, 330), 330), ((20, 240), (200, 250), (400, 258), 262),
+              ((200, 20), (260, 110), (430, 120), 112), ((240, 520), (330, 470), (480, 420), 420)]
+_rivers = tuple(f"M{a[0]} {a[1]} C{b[0]} {b[1]} {c[0]} {c[1]} {coast_x(y) + 18:.1f} {y}" for a, b, c, y in _river_src)
+
+
+def _bez_pt(src, t):
+    a, b, c, y = src
+    d = (coast_x(y) + 18, y)
+    u = 1 - t
+    return tuple(u ** 3 * a[i] + 3 * u * u * t * b[i] + 3 * u * t * t * c[i] + t ** 3 * d[i] for i in range(2))
+
+
+# chấm muối nằm đúng trên đường sông (tham số t dọc mỗi sông)
+_dots = tuple(_bez_pt(src, t) for src, ts in zip(_river_src, ((0.25, 0.55, 0.8), (0.3, 0.6, 0.85), (0.2, 0.5, 0.78), (0.35, 0.7), (0.4, 0.75)))
+              for t in ts)
 random.seed(13)
 _forest = "".join(f'<circle cx="{random.uniform(20, 560):.0f}" cy="{random.uniform(20, 520):.0f}" r="{random.uniform(14, 30):.0f}" '
                   f'fill="{random.choice((HILL, TREE))}" fill-opacity="0.9"/>' for _ in range(34))
@@ -275,5 +305,5 @@ S["A-BAN-DO-SONG"] = svg("0 0 960 540",
     g("sea", f'<path d="{_sea_d}" fill="{SEA}"/>', f'<path d="M760 0 C800 140 770 300 820 420 C850 480 830 520 840 540 L960 540 L960 0Z" fill="{SEA_MID}"/>',
       f'<path d="{_coast_d}" stroke="{SAND}" stroke-width="14" fill="none"/>'),
     g("rivers", *[f'<path d="{d}" stroke="{RIVER}" stroke-width="11" fill="none" stroke-linecap="round"/>' for d in _rivers]),
-    g("dots", *[f'<circle cx="{x}" cy="{y}" r="7" fill="{W}"/>' for x, y in _dots]))
+    g("dots", *[f'<circle cx="{x:.1f}" cy="{y:.1f}" r="7" fill="{W}"/>' for x, y in _dots]))
 S["A-SANG-BIEN"] = svg("0 0 960 540", g("glow", f'<path d="{_sea_d}" fill="{W}" fill-opacity="0.28"/>'))

@@ -89,15 +89,15 @@
     "animation": {
       "pending": null,
       "latest": {
-        "review": "reviews/animation/20261128-111656",
+        "review": "reviews/animation/20261128-114232",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "06_animation": "dir:4810a5de4c440f06d71c98e0618a506387ac0826fffeb31c4fc6223e97b46f14",
+          "06_animation": "dir:3914936a54c37aa037d54673d80f40d2aa8faafe74d9612ab6b7f956303eb6dc",
           "02_design/storyboard.yaml": "239630144b5d47cae24a3875c41658adb8ad5efb4feec79d81138100d4a65c41",
           "05_timeline/timeline.yaml": "eaae4508575608f8fade0c4f18933592c876aaeebb5782996d110b18eb140a5f"
         },
-        "finalized_at": "2026-11-28T11:17:17+07:00",
+        "finalized_at": "2026-11-28T11:43:36+07:00",
         "override": null
       }
     }
