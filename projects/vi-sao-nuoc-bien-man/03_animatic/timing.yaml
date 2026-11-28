@@ -1,80 +1,80 @@
-total_s: 47.56
+total_s: 47.9
 segments:
 - id: S01-01
   kind: voice
   start_s: 0.0
-  dur_s: 4.46
+  dur_s: 4.66
   source: scratch
   text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
 - id: S01-02
   kind: silent
-  start_s: 4.46
+  start_s: 4.66
   dur_s: 1.0
   source: silent
   text: null
 - id: S02-01
   kind: voice
-  start_s: 5.46
-  dur_s: 3.96
+  start_s: 5.66
+  dur_s: 3.9
   source: scratch
   text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
 - id: S02-02
   kind: voice
-  start_s: 9.42
+  start_s: 9.56
   dur_s: 4.94
   source: scratch
   text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
 - id: S02-03
   kind: silent
-  start_s: 14.36
+  start_s: 14.5
   dur_s: 1.0
   source: silent
   text: null
 - id: S03-01
   kind: voice
-  start_s: 15.36
+  start_s: 15.5
   dur_s: 4.78
   source: scratch
   text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
 - id: S03-02
   kind: voice
-  start_s: 20.14
-  dur_s: 4.97
+  start_s: 20.28
+  dur_s: 5.07
   source: scratch
   text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
 - id: S04-01
   kind: voice
-  start_s: 25.11
-  dur_s: 4.53
+  start_s: 25.35
+  dur_s: 4.63
   source: scratch
   text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
 - id: S04-02
   kind: silent
-  start_s: 29.64
+  start_s: 29.98
   dur_s: 1.0
   source: silent
   text: null
 - id: S04-03
   kind: voice
-  start_s: 30.64
+  start_s: 30.98
   dur_s: 5.0
   source: scratch
   text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
 - id: S04-04
   kind: voice
-  start_s: 35.64
+  start_s: 35.98
   dur_s: 4.2
   source: scratch
   text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
 - id: S05-01
   kind: voice
-  start_s: 39.84
+  start_s: 40.18
   dur_s: 4.52
   source: scratch
   text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
 - id: S05-02
   kind: voice
-  start_s: 44.36
+  start_s: 44.7
   dur_s: 3.2
   source: scratch
   text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
@@ -82,72 +82,72 @@ shots:
 - id: S01-01-a
   segment: S01-01
   start_s: 0.0
-  dur_s: 1.739
+  dur_s: 1.817
 - id: S01-01-b
   segment: S01-01
-  start_s: 1.739
-  dur_s: 2.721
+  start_s: 1.817
+  dur_s: 2.843
 - id: S01-02-a
   segment: S01-02
-  start_s: 4.46
+  start_s: 4.66
   dur_s: 1.0
 - id: S02-01-a
   segment: S02-01
-  start_s: 5.46
-  dur_s: 3.96
+  start_s: 5.66
+  dur_s: 3.9
 - id: S02-02-a
   segment: S02-02
-  start_s: 9.42
+  start_s: 9.56
   dur_s: 1.729
 - id: S02-02-b
   segment: S02-02
-  start_s: 11.149
+  start_s: 11.289
   dur_s: 3.211
 - id: S02-03-a
   segment: S02-03
-  start_s: 14.36
+  start_s: 14.5
   dur_s: 1.0
 - id: S03-01-a
   segment: S03-01
-  start_s: 15.36
+  start_s: 15.5
   dur_s: 1.673
 - id: S03-01-b
   segment: S03-01
-  start_s: 17.033
+  start_s: 17.173
   dur_s: 3.107
 - id: S03-02-a
   segment: S03-02
-  start_s: 20.14
-  dur_s: 2.584
+  start_s: 20.28
+  dur_s: 2.636
 - id: S03-02-b
   segment: S03-02
-  start_s: 22.724
-  dur_s: 2.386
+  start_s: 22.916
+  dur_s: 2.434
 - id: S04-01-a
   segment: S04-01
-  start_s: 25.11
-  dur_s: 4.53
+  start_s: 25.35
+  dur_s: 4.63
 - id: S04-02-a
   segment: S04-02
-  start_s: 29.64
+  start_s: 29.98
   dur_s: 1.0
 - id: S04-03-a
   segment: S04-03
-  start_s: 30.64
+  start_s: 30.98
   dur_s: 1.1
 - id: S04-03-b
   segment: S04-03
-  start_s: 31.74
+  start_s: 32.08
   dur_s: 3.9
 - id: S04-04-a
   segment: S04-04
-  start_s: 35.64
+  start_s: 35.98
   dur_s: 4.2
 - id: S05-01-a
   segment: S05-01
-  start_s: 39.84
+  start_s: 40.18
   dur_s: 4.52
 - id: S05-02-a
   segment: S05-02
-  start_s: 44.36
+  start_s: 44.7
   dur_s: 3.2

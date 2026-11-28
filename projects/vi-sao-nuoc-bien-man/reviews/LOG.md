@@ -18,3 +18,4 @@
 | 2026-11-28T10:23:13+07:00 | animatic | ✅ ĐẠT | 97 | ATC-C06 | [animatic/20261128-102313/report.md](animatic/20261128-102313/report.md) |
 | 2026-11-28T10:33:15+07:00 | script | ✅ ĐẠT | 100 | — | [script/20261128-103315/report.md](script/20261128-103315/report.md) |
 | 2026-11-28T10:33:16+07:00 | design | ✅ ĐẠT | 100 | — | [design/20261128-103316/report.md](design/20261128-103316/report.md) |
+| 2026-11-28T10:36:27+07:00 | animatic | ✅ ĐẠT | 97 | ATC-C06 | [animatic/20261128-103627/report.md](animatic/20261128-103627/report.md) |

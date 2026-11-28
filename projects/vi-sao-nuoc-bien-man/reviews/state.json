@@ -44,15 +44,15 @@
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-102313",
+        "review": "reviews/animatic/20261128-103627",
         "decision": "DAT",
         "score": 97,
         "artifacts": {
-          "03_animatic": "dir:d1213563c7fac0c9516f7991b4bbf7c78d4ce21dd4f9f3c8fab0a0cb7e99d33b",
+          "03_animatic": "dir:6752e0d310b74550e74057c200097d5c7e8e685bb545d2b303a3490248c60fef",
           "02_design/storyboard.yaml": "82024fb70d2f43cf1e0ac877508469463bfcd6ee5476faf8280174de4e4d8e2a",
-          "01_script/script.yaml": "f1e243f1430c98b5a589d8d7961d3cf637e073806ab568fa22a1d37dff2865f1"
+          "01_script/script.yaml": "c15dd0b128e4e0afc9b6180ce0ed47d034a0133d204a31eda97f56eb2997a82b"
         },
-        "finalized_at": "2026-11-28T10:23:13+07:00",
+        "finalized_at": "2026-11-28T10:36:27+07:00",
         "override": null
       }
     },

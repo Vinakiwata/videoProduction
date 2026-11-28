@@ -2,45 +2,45 @@ engine: vieneu-v3turbo (Mac, theo câu)
 voice: Hải Đăng
 tempo: 1.0
 pauses:
-  sentence_s: 0.35
-  question_s: 0.45
+  sentence_s: 0.45
+  question_s: 0.55
   per_sentence: true
 sample_rate: 48000
-total_s: 47.56
-measured_sps_median: 4.53
+total_s: 47.9
+measured_sps_median: 4.48
 pronunciation_applied:
-  cacbonic: các bô níc
+  cacbonic: các bô ních
 segments:
 - id: S01-01
   file: segments/S01-01.wav
   text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
   spoken_text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
-  duration_s: 4.46
+  duration_s: 4.66
   syllables: 18
-  sps: 4.04
+  sps: 3.86
   peak_dbfs: -1.5
   lead_s: 0.06
   trail_s: 0.04
-  max_gap_s: 0.34
+  max_gap_s: 0.44
   takes: 2
   tempo: 1.0
   sentences: 3
-  sha256: c35157d9500aeccc8dded58d14fd17569ad3bd0d6cb3386f32bc2c79c7b7298f
+  sha256: 1f40ef7d7915c9b59134a98f7baf150fe716898639cc011c5db76c46ae1673f8
 - id: S02-01
   file: segments/S02-01.wav
   text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
-  spoken_text: Khi rơi qua bầu trời, nước mưa hoà tan khí các bô níc và trở nên hơi chua.
-  duration_s: 3.96
+  spoken_text: Khi rơi qua bầu trời, nước mưa hoà tan khí các bô ních và trở nên hơi chua.
+  duration_s: 3.9
   syllables: 16
-  sps: 4.04
+  sps: 4.1
   peak_dbfs: -1.5
-  lead_s: 0.08
-  trail_s: 0.04
-  max_gap_s: 0.18
+  lead_s: 0.06
+  trail_s: 0.08
+  max_gap_s: 0.26
   takes: 2
   tempo: 1.0
   sentences: 1
-  sha256: 4de035aede2a7e428c0a752a759fc45e91f57e8429605d038de1778006c3d341
+  sha256: d5c9121d4e3c6b2d40737bab7f585f9cfc6e30c4d63c6dd04e2a6ffca60d1baf
 - id: S02-02
   file: segments/S02-02.wav
   text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
@@ -75,32 +75,32 @@ segments:
   file: segments/S03-02.wav
   text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
   spoken_text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
-  duration_s: 4.97
+  duration_s: 5.07
   syllables: 23
-  sps: 4.63
+  sps: 4.54
   peak_dbfs: -1.5
   lead_s: 0.04
   trail_s: 0.04
-  max_gap_s: 0.34
+  max_gap_s: 0.44
   takes: 2
   tempo: 1.0
   sentences: 2
-  sha256: 4a510b61c1ba0d0e0779642843bdc95e137b832d16db9386348d7ee812c7ce3c
+  sha256: 9628a27e153ed9ad0e2bff3a12873a66d5024c26d8c6715853f6e5be52567e9d
 - id: S04-01
   file: segments/S04-01.wav
   text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
   spoken_text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
-  duration_s: 4.53
+  duration_s: 4.63
   syllables: 19
-  sps: 4.19
+  sps: 4.1
   peak_dbfs: -1.5
-  lead_s: 0.06
+  lead_s: 0.04
   trail_s: 0.06
-  max_gap_s: 0.3
+  max_gap_s: 0.4
   takes: 2
   tempo: 1.0
   sentences: 2
-  sha256: 12105ede8014a9f65d650e9a1249c38da666bcab63d28b8cda0fa9c1bbe43071
+  sha256: bb53ee3264fd2ed16f6cfd751d153d87c725061914ee120c4914ce9ced8c5a25
 - id: S04-03
   file: segments/S04-03.wav
   text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
