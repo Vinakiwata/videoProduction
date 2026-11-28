@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<g id="streams"><path d="M30 40 C120 90 160 150 300 210" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M80 330 C170 300 220 260 300 230" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M20 180 C120 190 200 215 300 220" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/></g>
+<g id="river"><path d="M290 200 C420 220 520 190 800 215 L800 290 C540 260 430 300 290 245Z" fill="#FFFFFF"/><path d="M420 238 q30 -10 60 0 M600 240 q30 -10 60 0" stroke="#0B3D91" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+</svg>

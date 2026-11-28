@@ -14,6 +14,7 @@
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
   voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
+  animation init|preview|lint <dự án>          Tool 6: danh mục hình SVG, tờ xem trước, kiểm nhanh
   timeline build <dự án> [--breath 0.6 --breath-scene 0.9]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
@@ -25,7 +26,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
-from vp import animatic, design_tools, review, script_tools, stages, timeline, voice
+from vp import animatic, animation_tools, design_tools, review, script_tools, stages, timeline, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -154,6 +155,16 @@ def cmd_timeline(a):
           f"{len(t['shots'])} khung hình, {len(t['cues'])} cue, {len(t['sfx'])} SFX; phụ đề 05_timeline/subtitles.srt")
 
 
+def cmd_animation(a):
+    p = Path(a.project)
+    if a.action == "init":
+        print(f"Đã tạo danh mục hình {animation_tools.init(p, force=a.force)}")
+    elif a.action == "preview":
+        print(f"Đã dựng tờ xem trước {animation_tools.preview(p)}")
+    elif a.action == "lint":
+        _print_lint(animation_tools.lint(p))
+
+
 def cmd_gate(a):
     g = review.gate(Path(a.project), a.stage)
     print(("MỞ: " if g.ok else "ĐÓNG: ") + g.message)
@@ -204,12 +215,15 @@ def main(argv=None):
     tlp.add_argument("--breath-scene", type=float, default=0.90, help="ngắt khi sang cảnh mới (giây)")
     tlp.add_argument("--question-extra", type=float, default=0.10, help="cộng thêm sau câu hỏi/cảm thán (giây)")
     tlp.set_defaults(fn=cmd_timeline)
+    an = sub.add_parser("animation"); an.add_argument("action", choices=["init", "preview", "lint"])
+    an.add_argument("project"); an.add_argument("--force", action="store_true"); an.set_defaults(fn=cmd_animation)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
-            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError) as e:
+            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError,
+            animation_tools.AnimationToolError) as e:
         sys.exit(f"LỖI: {e}")
 
 

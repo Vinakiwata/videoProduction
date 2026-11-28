@@ -11,7 +11,7 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 | 3 | Animatic | `03_animatic` | checklist ✅ · tool ✅ (`vp animatic build`, skill `vp-animatic`) |
 | 4 | Giọng đọc (VieNeu-TTS) | `04_voice` | checklist ✅ · tool ✅ (`vp voice …`, skill `vp-giong-doc`; chạy thật cần mạng hoặc file thu âm) |
 | 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ✅ (`vp timeline build`, skill `vp-timeline`) |
-| 6 | Hoạt ảnh 2D | `06_animation` | checklist ✅ · tool ⏳ |
+| 6 | Hoạt ảnh 2D | `06_animation` | checklist ✅ · tool ✅ (`vp animation init/preview/lint`, skill `vp-hoat-anh`) |
 | 7 | Web trình chiếu 1920×1080 | `07_presentation` | checklist ✅ · tool ⏳ |
 | 8 | Render khung hình | `08_render` | checklist ✅ · tool ⏳ |
 | 9 | Mix âm thanh & ghép | `09_mix` | checklist ✅ · tool ⏳ |
@@ -41,6 +41,8 @@ python -m vp voice sheet|calibrate|to-animatic projects/<dự án>
 python -m vp timeline build projects/<dự án>
 # Animatic
 python -m vp animatic build projects/<dự án>
+# Hoạt ảnh 2D (SVG vẽ bằng code: 06_animation/_src/ve_hinh.py)
+python -m vp animation init|preview|lint projects/<dự án>
 # Cổng duyệt
 python -m vp new projects/<dự án> --title "Tên video"
 python -m vp status projects/<dự án>

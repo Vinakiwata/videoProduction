@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" preserveAspectRatio="none">
+<g id="water"><path d="M0 70 C150 30 260 120 400 85 S650 40 800 75 L800 140 C650 105 560 170 400 150 S150 110 0 135Z" fill="#FFFFFF"/><path d="M0 135 C150 110 260 170 400 150 S650 105 800 140 L800 150 C650 118 560 182 400 162 S150 122 0 146Z" fill="#1B1B1F" fill-opacity="0.25"/></g>
+<g id="ripples"><path d="M90 104 q30 -10 60 0" stroke="#0B3D91" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M300 118 q30 -10 60 0" stroke="#0B3D91" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M520 98 q30 -10 60 0" stroke="#0B3D91" stroke-width="7" stroke-linecap="round" fill="none"/><path d="M690 108 q30 -10 60 0" stroke="#0B3D91" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+</svg>

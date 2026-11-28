@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+<g transform="translate(160 0)">
+<ellipse cx="220" cy="300" rx="190" ry="16" fill="#1B1B1F" fill-opacity="0.25"/>
+<g id="rock"><path d="M40 250 C20 200 50 120 110 95 C170 70 250 60 320 90 C390 118 420 180 400 235 C380 280 300 300 210 298 C130 296 60 290 40 250Z" fill="#0B3D91"/><path d="M110 95 C170 70 250 60 320 90 C300 100 240 110 180 130 C140 142 120 120 110 95Z" fill="#FFFFFF" fill-opacity="0.12"/><path d="M40 250 C20 200 50 120 110 95 C170 70 250 60 320 90 C390 118 420 180 400 235 C380 280 300 300 210 298 C130 296 60 290 40 250Z" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/></g>
+<g id="cracks"><path d="M150 150 l30 40 l-12 36 M260 120 l-20 50 l26 30 l-8 40 M330 200 l30 20" stroke="#FFFFFF" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g>
+</svg>
