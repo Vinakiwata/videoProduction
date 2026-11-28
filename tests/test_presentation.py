@@ -222,3 +222,17 @@ def test_check_vertical_canvas_real_chrome(vproj):
     assert any("Reels" in i for i in issues), issues
     out = pt.preview(vproj)
     assert out.is_file() and (out.parent / "contact_ui.png").is_file()
+
+
+@pytest.mark.skipif(not (__import__("shutil").which("google-chrome") and __import__("shutil").which("node")),
+                    reason="cần Chrome + Node")
+def test_player_honours_newline_in_text(pproj):
+    """Chữ có '\\n' phải xuống dòng đúng chỗ (storyboard và DSN-A07 đều tính theo dòng đã ngắt)."""
+    sb = yaml.safe_load((pproj / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    e2 = sb["shots"][0]["elements"][1]
+    e2["text"], e2["box"] = "Xin\nchào", {"x": 10, "y": 60, "w": 80, "h": 13}    # 140 px: vừa 1 dòng 80 px (121 px), không vừa 2 dòng (224 px)
+    write_yaml(pproj / "02_design" / "storyboard.yaml", sb)
+    pt.build(pproj)
+    man = json.loads(pt.check(pproj).read_text(encoding="utf-8"))
+    issues = [i for r in man["frames"] for i in r["issues"]]
+    assert any("e2: chữ tràn hộp" in i for i in issues), issues        # 2 dòng không vừa hộp 1 dòng → phải bị đo ra

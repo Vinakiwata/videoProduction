@@ -31,6 +31,15 @@ def psnr(a: np.ndarray, b: np.ndarray) -> float:
     return float("inf") if mse == 0 else 10 * np.log10(255 ** 2 / mse)
 
 
+def psnr_luma(a: np.ndarray, b: np.ndarray) -> float:
+    """PSNR trên độ sáng (Y theo hệ số BT.709). yuv420p bắt buộc của nền tảng chỉ giữ màu ở 1/4 độ phân giải,
+    nên PSNR màu bị chặn trên ~36 dB kể cả khi mã hoá không mất dữ liệu; độ sáng mới phản ánh đúng khung, độ nét, vỡ khối."""
+    k = np.array([0.2126, 0.7152, 0.0722])
+    ya, yb = a.astype(np.float64) @ k, b.astype(np.float64) @ k
+    mse = np.mean((ya - yb) ** 2)
+    return float("inf") if mse == 0 else 10 * np.log10(255 ** 2 / mse)
+
+
 @register("render_frame_count")
 def frame_count(project: Path, params: dict) -> CheckResult:
     v = project / params.get("path", VIDEO)
@@ -66,13 +75,15 @@ def matches_presentation(project: Path, params: dict) -> CheckResult:
         res = []
         for r in cap["frames"]:
             ref = np.asarray(Image.open(r["file"]).convert("RGB"))
-            res.append((r["frame"], r["shot"], psnr(_decode_frame(v, r["frame"], w, h), ref)))
-    bad = [f"khung {f} ({s}): {p:.1f} dB < {lo:g} dB" for f, s, p in res if p < lo]
+            dec = _decode_frame(v, r["frame"], w, h)
+            res.append((r["frame"], r["shot"], psnr_luma(dec, ref), psnr(dec, ref)))
+    bad = [f"khung {f} ({s}): độ sáng {p:.1f} dB < {lo:g} dB" for f, s, p, _ in res if p < lo]
     if bad:
-        return CheckResult("fail", "Khung trong video khác trang trình chiếu:\n" + "\n".join(f"- {b}" for b in bad))
+        return CheckResult("fail", "Khung trong video khác trang trình chiếu (PSNR độ sáng):\n" + "\n".join(f"- {b}" for b in bad))
     worst = min(res, key=lambda x: x[2])
-    return CheckResult("pass", f"{len(res)} khung mốc giống trang 07: PSNR thấp nhất {worst[2]:.1f} dB (khung {worst[0]}, {worst[1]}), "
-                               f"trung bình {sum(p for *_, p in res) / len(res):.1f} dB ≥ {lo:g} dB.")
+    return CheckResult("pass", f"{len(res)} khung mốc giống trang 07: PSNR độ sáng thấp nhất {worst[2]:.1f} dB (khung {worst[0]}, {worst[1]}), "
+                               f"trung bình {sum(r[2] for r in res) / len(res):.1f} dB ≥ {lo:g} dB; PSNR màu {min(r[3] for r in res):.1f}–"
+                               f"{max(r[3] for r in res):.1f} dB (giới hạn của yuv420p).")
 
 
 @register("render_in_sync")

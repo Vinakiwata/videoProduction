@@ -115,3 +115,19 @@ def test_rnd_a07_stale_build(rendered):
     css = rendered / "07_presentation" / "player.css"
     css.write_text(css.read_text(encoding="utf-8") + "\n", encoding="utf-8")
     assert _rc("render_in_sync", rendered).status == "fail"
+
+
+def test_psnr_luma_ignores_chroma_only_difference():
+    """yuv420p làm nhoè màu ở mép (mất chroma) nhưng giữ độ sáng: PSNR độ sáng phải cao, PSNR màu thì không."""
+    import numpy as np
+    from vp.checks.render import psnr, psnr_luma
+    a = np.zeros((40, 40, 3), np.uint8); a[:, :20] = (255, 201, 7)        # vàng | xanh đậm
+    a[:, 20:] = (11, 61, 145)
+    y = lambda c: 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+    b = a.copy()
+    # đổi màu cột 19–20 sang màu khác nhưng giữ đúng độ sáng (mô phỏng nhoè chroma)
+    for x in (19, 20):
+        c = a[0, x].astype(float); g = (y(c) - 0.2126 * c[2] - 0.0722 * c[0]) / 0.7152
+        b[:, x] = np.clip([c[2], g, c[0]], 0, 255).astype(np.uint8)
+    assert psnr_luma(a, b) > psnr(a, b) + 10
+    assert psnr_luma(a, a) == float("inf")

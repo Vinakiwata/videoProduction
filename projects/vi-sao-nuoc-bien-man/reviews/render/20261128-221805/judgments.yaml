@@ -1,0 +1,8 @@
+RND-C02:
+  verdict: pass
+  evidence: 'Trích khung giữa 18 khung hình từ chính video_silent.mp4 (giải mã BT.709 chính xác) và ghép thành tờ, so với tờ khung mốc 07: bố cục, chữ, linh vật, màu nhận diện khớp (nền xanh đậm #0B3D91, màn kết #0078E0, chữ vàng #FFC907). Vùng phẳng sau khi mã hoá lệch ≤ 1 mức so với ảnh chụp trang (đã đo: (11,61,145) → (11,60,145)) nhờ đổi màu BT.709 chế độ chính xác; trước khi sửa lệch 1–2 mức. RND-A06: PSNR độ sáng 47,3–49,8 dB trên 12 khung mốc. Chữ hai dòng ngắt đúng storyboard sau khi sửa bộ dựng 07 (pre-line). Không banding thấy được ở nền tia sáng đáy biển. Chủ dự án xem bản có tiếng trên điện thoại ngày 28/11/2026: ''Nét, màu đúng''. Mép màu bão hoà (logo, chữ vàng trên xanh) nhoè nhẹ ở mức điểm ảnh — giới hạn vốn có của yuv420p mà nền tảng bắt buộc.'
+  fix: ''
+RND-C03:
+  verdict: pass
+  evidence: 'H.264 CRF 18, preset veryfast, 1080×1920, 30 fps, bitrate trung bình ≈ 1,3 Mbit/giây cho 53,4 giây (8,6 MB). Đã xem vùng cắt cỡ thật 540×540 ở cảnh mưa (khung 272, mưa rơi + giọt + phân tử, cảnh khó nén nhất vì hạt nhỏ chuyển động khắp khung) và bản đồ (khung 815, chấm muối chạy trên sông): mép giọt mưa, vệt mưa, sông, chấm trắng sắc nét, không vỡ khối, không bóng ma. Cảnh phẳng nên CRF 18 dư bitrate; Shorts/TikTok sẽ nén lại nhưng nguồn sạch giúp bản sau nén ít hỏng hơn. Chủ dự án xem trên điện thoại: không thấy nhoè hay vỡ khối.'
+  fix: ''

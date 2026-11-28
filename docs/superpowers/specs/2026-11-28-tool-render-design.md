@@ -21,11 +21,11 @@ Biến trang trình chiếu đã duyệt (07) thành video chưa có tiếng, đ
 - **Manifest** `08_render/manifest.json`: `build_hash` của 07, số khung, fps, kích thước, CRF, thời gian dựng.
 - **Checklist `render` v3** (chủ dự án duyệt cùng thiết kế):
   - RND-A05 (thay RND-C01): số khung đếm bằng ffprobe = `timeline.total_frames`.
-  - RND-A06 (mới): giải mã khung mốc của tờ kiểm 07 từ MP4, so với ảnh chụp lại cùng khung từ trang 07, PSNR ≥ 40 dB.
+  - RND-A06 (mới): giải mã khung mốc của tờ kiểm 07 từ MP4, so với ảnh chụp lại cùng khung từ trang 07, **PSNR độ sáng** ≥ 40 dB. *Sửa ngày 28/11/2026, chủ dự án duyệt:* ban đầu đo PSNR màu, nhưng yuv420p chỉ giữ màu ở 1/4 độ phân giải nên kể cả mã hoá không mất dữ liệu cũng chỉ đạt 36,7 dB ở màn kết.
   - RND-A07 (mới): video dựng từ đúng bản 07 hiện tại (`build_hash` khớp).
   - Giữ C02 (màu, độ nét bằng mắt) và C03 (vỡ khối).
 - **Artifacts cổng:** `08_render`, `07_presentation/presentation.json`.
 
 ## Để lại cho người xây
 - Mã nguồn chụp dùng chung với `capture.mjs` khi hợp lý.
-- Ngưỡng PSNR 40 dB đủ cho H.264 CRF 18. Thấp hơn nghĩa là sai khung hoặc sai màu.
+- Ngưỡng PSNR độ sáng 40 dB: video mẫu đạt 47–50 dB. Thấp hơn nghĩa là sai khung, mờ hoặc vỡ khối.

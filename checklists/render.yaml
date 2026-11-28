@@ -42,11 +42,12 @@ items:
     params: {path: 08_render/video_silent.mp4}
   - id: RND-A06
     group: Chất lượng hình
-    title: Khung mốc trong video giống trang trình chiếu 07 (PSNR ≥ 40 dB)
+    title: Khung mốc trong video giống trang trình chiếu 07 (PSNR độ sáng ≥ 40 dB)
     severity: nghiem_trong
     method: auto
     check: render_matches_presentation
     params: {path: 08_render/video_silent.mp4, min_psnr: 40, max_frames: 12}
+    notes: "Chủ dự án duyệt 28/11/2026: đo PSNR trên độ sáng. yuv420p (bắt buộc của nền tảng) chỉ giữ màu ở 1/4 độ phân giải — mã hoá không mất dữ liệu ở yuv420p cũng chỉ đạt 36,7 dB PSNR màu ở màn kết; độ sáng phản ánh đúng khung, độ nét, vỡ khối."
   - id: RND-A07
     group: Cấu trúc
     title: Video dựng từ đúng bản trình chiếu hiện tại
