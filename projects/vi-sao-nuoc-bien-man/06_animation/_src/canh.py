@@ -103,6 +103,23 @@ def ripples(center, every=5, color=W, op=0.85, width=4):
     return "".join(out)
 
 
+def flow_path(center, n=11):
+    """Đường tâm ẩn cho công thức chuyển động `along` của Tool 07: gợn sóng trôi xuôi dòng theo đường này.
+    data-flow = nửa chiều dài gợn ở n điểm cách đều theo độ dài cung (gợn to dần khi sông rộng ra)."""
+    pts = [(x, y) for x, y, _ in center]
+    acc = [0.0]
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        acc.append(acc[-1] + math.hypot(x1 - x0, y1 - y0))
+    sizes, j = [], 0
+    for k in range(n):
+        target = acc[-1] * k / (n - 1)
+        while j < len(acc) - 2 and acc[j + 1] < target:
+            j += 1
+        sizes.append(max(6.0, center[j][2] * 0.32))
+    d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
+    return f'<path data-flow="{" ".join(f"{v:.1f}" for v in sizes)}" d="{d}" fill="none" stroke="none"/>'
+
+
 def small_cloud(x, y, s=1.0):
     return (f'<g fill="{W}" fill-opacity="0.9"><circle cx="{x - 22 * s}" cy="{y}" r="{16 * s}"/><circle cx="{x}" cy="{y - 9 * s}" r="{22 * s}"/>'
             f'<circle cx="{x + 24 * s}" cy="{y + 1 * s}" r="{15 * s}"/><rect x="{x - 38 * s}" y="{y}" width="{78 * s}" height="{16 * s}" rx="{8 * s}"/></g>')
@@ -126,7 +143,7 @@ S["A-SONG"] = svg("0 0 960 540",
       f'<path d="M0 330 C160 292 320 314 470 300 C640 286 800 312 960 292 V540 H0Z" fill="{HILL_L}"/>',
       f'<path d="M0 420 C200 392 380 432 960 402 V540 H0Z" fill="{HILL}"/>'),
     g("river", f'<path d="{_song_d}" fill="{RIVER}"/>'),
-    g("ripples", ripples(_song_c, every=34, width=3)),
+    g("ripples", flow_path(_song_c), ripples(_song_c, every=34, width=3)),
     g("trees", *[pine(x, y, s) for x, y, s in _far_trees], *[pine(x, y, s) for x, y, s in _near_trees],
       bush(380, 520, 1.2), bush(640, 525, 1.4)))
 
@@ -147,7 +164,8 @@ S["A-CUA-SONG"] = svg("0 0 960 540",
       f'<path d="M0 430 C180 398 360 444 560 420 C600 452 650 500 670 540 H0Z" fill="{HILL}"/>'),
     g("beach", f'<path d="{_coast}" stroke="{SAND}" stroke-width="26" fill="none" stroke-linecap="round"/>',
       f'<path d="{_coast}" stroke="{SAND_WET}" stroke-width="8" fill="none" stroke-linecap="round" transform="translate(12 0)"/>'),
-    g("river", f'<path d="{_cs_d}" fill="{RIVER}"/>', ripples(_cs_c[:-60], every=30, width=3)),
+    g("river", f'<path d="{_cs_d}" fill="{RIVER}"/>'),
+    g("ripples", flow_path(_cs_c[:-60]), ripples(_cs_c[:-60], every=30, width=3)),
     g("waves", *[f'<path d="M{x} {y} q12 -6 24 0 t24 0" stroke="{W}" stroke-width="4" fill="none" stroke-linecap="round" stroke-opacity="0.85"/>'
                  for x, y in ((700, 300), (820, 330), (760, 380), (880, 420), (740, 460), (860, 500))],
       f'<path d="M640 392 q10 -8 20 0 t20 0 M646 416 q10 -8 20 0 t20 0" stroke="{W}" stroke-width="5" fill="none" stroke-linecap="round"/>'),
@@ -205,14 +223,16 @@ S["A-SUOI"] = svg("0 0 960 540",
     g("hills", f'<path d="M0 360 C120 300 260 280 400 300 C560 320 760 300 960 330 V540 H0Z" fill="{HILL_L}"/>',
       f'<path d="M0 470 C220 440 420 480 960 452 V540 H0Z" fill="{HILL}"/>'),
     g("streams", *[f'<path d="{river_path(st)[0]}" fill="{RIVER}"/>' for st in _streams]),
-    g("river", f'<path d="{_rv_d}" fill="{RIVER}"/>', ripples(_rv_c, every=26, width=3)),
+    g("river", f'<path d="{_rv_d}" fill="{RIVER}"/>'),
+    g("ripples", flow_path(_rv_c), ripples(_rv_c, every=26, width=3)),
     g("trees", *[pine(x, y, s) for x, y, s in _suoi_trees],
       f'<path d="M120 520 C128 500 160 498 170 520Z" fill="{ROCK}"/><path d="M146 520 C150 506 166 506 170 520Z" fill="{ROCK_D}"/>'))
 
 # ---------- A-NEN-MUA: đồi dưới trời mưa ----------
 random.seed(9)
 _rain = "".join(f'<path d="M{x:.0f} {y:.0f} l-8 26" stroke="{W}" stroke-opacity="0.35" stroke-width="2.5" stroke-linecap="round"/>'
-                for x, y in ((random.uniform(0, 980), random.uniform(0, 400)) for _ in range(90)))
+                for x, y in ((random.uniform(-170, 1150), random.uniform(-30, 510)) for _ in range(160)))
+# Mưa phủ rộng hơn khung (x −170…1150, cả chiều cao) để Tool 07 cho rơi lặp liền mạch: công thức `fall` dời (−166, 540)/chu kỳ.
 S["A-NEN-MUA"] = svg("0 0 960 540",
     g("sky", f'<rect width="960" height="540" fill="{RAIN_SKY}"/>'),
     g("hills", f'<path d="M0 410 C140 380 260 396 420 384 C600 370 780 392 960 376 V540 H0Z" fill="{MTN}"/>',

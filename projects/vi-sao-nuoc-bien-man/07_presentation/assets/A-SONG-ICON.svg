@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220">
+<ellipse cx="150" cy="204" rx="120" ry="9" fill="#5E270E" fill-opacity="0.25"/>
+<g id="water"><path d="M20 60 C90 30 120 110 170 100 S250 60 285 90 L285 140 C240 112 210 160 160 156 S80 92 20 118Z" fill="#FFFFFF"/></g>
+<g id="ripples"><path d="M50 92 q14 -6 28 0" stroke="#0078E0" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M140 126 q14 -6 28 0" stroke="#0078E0" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M225 108 q14 -6 28 0" stroke="#0078E0" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+</svg>

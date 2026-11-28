@@ -1,51 +1,85 @@
-# Tool 6 — Web trình chiếu đúng khung 1920×1080, chạy theo timeline, điều khiển được thời gian để render.
+# Tool 07 — Web trình chiếu: trang tất định 1920×1080 dựng từ timeline + storyboard + hình (thiết kế: docs/superpowers/specs/2026-11-28-tool-trinh-chieu-design.md).
+# Trang này là bộ dựng duy nhất: Tool 08 chụp đúng trang này thành khung hình.
 stage: presentation
 version: 1
 title: Kiểm duyệt web trình chiếu
-artifacts: [07_presentation]
+artifacts: [07_presentation, 05_timeline/timeline.yaml, 02_design/storyboard.yaml, 06_animation/assets.yaml]
 items:
   - id: PRS-A01
     group: Cấu trúc
-    title: Có trang trình chiếu
+    title: presentation.json khớp đầu vào (timeline, storyboard, hình, giọng)
     severity: chan
     method: auto
-    check: file_exists
-    params: {paths: [07_presentation/index.html]}
-  - id: PRS-C01
-    group: Kích thước
-    title: Khung đúng 1920×1080, không cuộn, không viền, không phụ thuộc cỡ cửa sổ
+    check: presentation_input_hash
+  - id: PRS-A02
+    group: Cấu trúc
+    title: Mọi hình có trong assets/ và trùng hash với 06_animation
     severity: chan
-    method: ai
-    guidance: Mở bằng Playwright ở viewport 1920×1080, chụp ảnh. Kiểm tra không có thanh cuộn hay khoảng trắng.
-  - id: PRS-C02
-    group: Điều khiển thời gian
-    title: Tua tới mốc t bất kỳ cho ra đúng khung hình (tất định)
+    method: auto
+    check: presentation_assets
+  - id: PRS-A03
+    group: Nhận diện
+    title: Font nhận diện có file, có giấy phép và trình duyệt nạp được
     severity: chan
-    method: ai
-    guidance: |
-      Trang phải có hàm seek(t) hoặc tương đương, không dựa vào đồng hồ thật. Chụp cùng một mốc t hai lần phải ra hai ảnh giống hệt.
-      Đây là điều kiện để render từng khung hình không lệch.
-  - id: PRS-C03
-    group: Đồng bộ
-    title: Mọi cue đọc từ timeline đã khoá, không mã cứng thời gian
-    severity: chan
-    method: ai
-    guidance: Tìm trong mã nguồn các con số thời gian viết tay. Mọi mốc phải đến từ 05_timeline/timeline.yaml.
-  - id: PRS-C04
-    group: Tài nguyên
-    title: Chạy hoàn toàn offline — font, ảnh, script nằm trong thư mục, không gọi mạng
-    severity: chan
-    method: ai
-    guidance: Kiểm tra mọi src/href. Font tiếng Việt phải được nhúng.
-  - id: PRS-C05
-    group: Hiển thị
-    title: Font đã tải xong trước khung đầu, tiếng Việt hiển thị đủ dấu
-    severity: chan
-    method: ai
-    guidance: Chụp khung đầu và các khung có chữ. Kiểm tra dấu không bị lỗi ô vuông hay font dự phòng.
-  - id: PRS-C06
+    method: auto
+    check: presentation_fonts
+  - id: PRS-A04
     group: Kỹ thuật
-    title: Không lỗi console khi chạy hết timeline
+    title: Dựng thử không lỗi JS/console, đúng 1920×1080, không khung đen hay trống
+    severity: chan
+    method: auto
+    check: presentation_render
+  - id: PRS-A05
+    group: Kỹ thuật
+    title: Tất định — tua xuôi, tua ngược cho ảnh trùng hash điểm ảnh
+    severity: chan
+    method: auto
+    check: presentation_deterministic
+  - id: PRS-A06
+    group: Hiển thị
+    title: Chữ không tràn box và nằm trong vùng an toàn 5% (đo trong DOM)
+    severity: nghiem_trong
+    method: auto
+    check: presentation_text_fit
+  - id: PRS-A07
+    group: Chuyển động
+    title: Mọi vòng lặp và chuyển động lớp có công thức; cảnh có loop phải chạy bằng lớp
+    severity: nghiem_trong
+    method: auto
+    check: presentation_motion
+  - id: PRS-A08
+    group: Cấu trúc
+    title: Tờ kiểm và tờ ảnh khung mốc khớp bản dựng hiện tại
+    severity: chan
+    method: auto
+    check: presentation_check_in_sync
+  - id: PRS-C01
+    group: Bố cục
+    title: Bố cục từng khung hình khớp storyboard (vị trí, thứ tự lớp, nền)
+    severity: chan
+    method: ai
+    guidance: Đối chiếu check/contact.png với 02_design/frames/*.png từng mã khung hình. Ghi khung lệch bố cục hay thiếu phần tử.
+  - id: PRS-C02
+    group: Chuyển cảnh
+    title: Chuyển cảnh mượt, đúng loại đã khai
     severity: nghiem_trong
     method: ai
-    guidance: Đọc console messages trong lúc tua toàn bộ. Mọi lỗi hay cảnh báo đều ghi lại.
+    guidance: Xem các khung vai 'transition' trong contact.png và mở trang ở chế độ xem để tua qua từng chỗ chuyển cảnh.
+  - id: PRS-C03
+    group: Chuyển động
+    title: Chuyển động tự nhiên, khớp lời đọc
+    severity: chan
+    method: ai
+    guidance: Chủ dự án chấm mục này. Người duyệt mở 07_presentation/index.html (chế độ xem, có tiếng) hoặc video xem trước, xem hết một lượt. Ghi mốc giây chỗ hình đi trước/sau lời hoặc chuyển động máy móc.
+  - id: PRS-C04
+    group: Hiển thị
+    title: Chữ đúng font nhận diện, đọc rõ, không lỗi dấu tiếng Việt
+    severity: chan
+    method: ai
+    guidance: Xem các khung có chữ ở cỡ thật. Dấu chồng (ặ, ổ, ữ…) không vỡ, không rơi về font dự phòng.
+  - id: PRS-C05
+    group: Nhận diện
+    title: Linh vật và thương hiệu đúng luật kênh
+    severity: nghiem_trong
+    method: ai
+    guidance: Linh vật đúng 2–3 lần phản ứng + kết video, không che nội dung chính; màu nền/chữ theo brand; không méo PNG.

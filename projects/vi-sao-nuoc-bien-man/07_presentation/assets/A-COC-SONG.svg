@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440">
+<g transform="translate(30 0)">
+<ellipse cx="150" cy="370" rx="85" ry="12" fill="#5E270E" fill-opacity="0.25"/>
+<g id="water"><path d="M72 130 L228 130 L215 340 Q213 360 193 360 L107 360 Q87 360 85 340Z" fill="#FFFFFF" fill-opacity="0.22"/></g>
+<g id="drop"><path d="M150 181.4 C161.2 207.0 182 231.0 182 255 A32 32 0 1 1 118 255 C118 231.0 138.8 207.0 150 181.4Z" fill="#FFFFFF"/><circle cx="139" cy="248" r="7" fill="#0078E0" fill-opacity="0.35"/></g>
+<g id="glass"><path d="M60 40 L240 40 L215 340 Q213 360 193 360 L107 360 Q87 360 85 340Z" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/><path d="M95 70 L108 300" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="8" stroke-linecap="round"/></g>
+</g>
+<g id="label"><text x="180" y="425" font-family="Be Vietnam Pro, DejaVu Sans, sans-serif" font-size="40" font-weight="700" text-anchor="middle" fill="#FFFFFF">sông</text></g>
+</svg>
