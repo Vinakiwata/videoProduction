@@ -1,0 +1,8 @@
+RND-C02:
+  verdict: pass
+  evidence: 'Trích khung giữa 19 khung hình từ chính video_silent.mp4 (giải mã BT.709 chính xác), so với tờ khung mốc 07: bố cục, chữ, linh vật, màu nhận diện khớp. Khung 0 là ảnh bìa 1 giây (bãi biển thật + câu hỏi ''Vì sao nước biển lại mặn?'' + Khỉ thắc mắc), xuất riêng thumbnail.png 1080×1920 từ khung 0. Màn kết: logo + ''Cảm ơn bạn đã xem!'' + nút ĐĂNG KÝ, lời đọc kêu gọi mới. RND-A06: 12 khung mốc, PSNR độ sáng thấp nhất 47,0 dB (khung 1577, S05-02-a), trung bình 50,2 dB ≥ 40 dB; PSNR màu 35,7–46,7 dB (giới hạn của yuv420p). Chữ hai dòng ngắt đúng storyboard. Chủ dự án xem bản v2 có tiếng trên điện thoại ngày 28/11/2026: ''Nét, màu đúng''. Mép màu bão hoà nhoè nhẹ ở mức điểm ảnh — giới hạn vốn có của yuv420p mà nền tảng bắt buộc.'
+  fix: ''
+RND-C03:
+  verdict: pass
+  evidence: 'H.264 CRF 18, preset veryfast, 1080×1920, 30 fps, 1626 khung = 54,2 giây, bitrate trung bình ≈ 1,29 Mbit/giây (8,7 MB). Đã xem vùng cắt cỡ thật 540×540 ở cảnh mưa (khung 302, mưa rơi + giọt, cảnh khó nén nhất): mép giọt, vệt mưa sắc nét, không vỡ khối, không bóng ma. Cảnh phẳng nên CRF 18 dư bitrate; nguồn sạch giúp bản nền tảng nén lại ít hỏng hơn. Chủ dự án xem trên điện thoại: nét, không vỡ khối.'
+  fix: ''

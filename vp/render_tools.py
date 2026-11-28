@@ -88,11 +88,28 @@ def build(project: Path, check_gate: bool = True, step_timeout_s: float = 60) ->
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(final), "-i", str(voice), "-map", "0:v", "-map", "1:a",
                         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart",
                         str(out_dir / "preview_voice.mp4")], check=True)
+    thumb = _export_thumbnail(project, pres, cv, out_dir)
     (out_dir / "manifest.json").write_text(json.dumps({
         "build_hash": presentation_tools.build_hash(project), "frames": total, "fps": cv["fps"],
-        "size": [cv["width"], cv["height"]], "crf": CRF, "preset": PRESET, "seconds": round(time.time() - t0, 1),
+        "size": [cv["width"], cv["height"]], "crf": CRF, "preset": PRESET, "seconds": round(time.time() - t0, 1), "thumbnail": thumb,
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     return final
+
+
+def _export_thumbnail(project: Path, pres: Path, cv: dict, out_dir: Path) -> str | None:
+    """Khung đầu có `thumbnail: true` → xuất ảnh bìa PNG không nén (khung 0 chụp thẳng từ trang 07) cho Shorts/TikTok."""
+    from vp.checks.files import load_yaml
+    shots = load_yaml(project, "02_design/storyboard.yaml").get("shots") or []
+    dst = out_dir / "thumbnail.png"
+    if not (shots and shots[0].get("thumbnail")):
+        dst.unlink(missing_ok=True)
+        return None
+    with tempfile.TemporaryDirectory() as tmp:
+        cap = presentation_tools._run_capture(pres / "index.html", [0], Path(tmp) / "t", measure=False, canvas=cv)
+        if cap["errors"]:
+            raise RenderError("Lỗi trang khi chụp ảnh bìa: " + "; ".join(cap["errors"]))
+        shutil.copyfile(cap["frames"][0]["file"], dst)
+    return dst.name
 
 
 def lint(project: Path, checklist_dir: Path | None = None):

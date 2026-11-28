@@ -282,6 +282,12 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
     # cao độ chung của cả bài = trung vị cao độ mọi lượt -> chọn lượt gần nhất để giọng đồng nhất giữa các đoạn
     allf = [f for p in plan if p[3] for opts in p[3] for _, _, f in opts if f]
     ref_f0 = float(np.median(allf)) if allf else None
+    kept = [old[seg["id"]] for seg, _s, _ss, cands in plan if cands is None]      # các đoạn giữ nguyên khi --only
+    if kept:
+        # --only: giữ mốc của cả bài — cao độ các đoạn giữ nguyên (quy về trước khi nâng tông), không chỉ các lượt mới
+        kf = [k["f0_hz"] / 2 ** (float(k.get("pitch_semitones") or 0) / 12) for k in kept if k.get("f0_hz")]
+        if kf:
+            ref_f0 = float(np.median(kf))
 
     def pick(opts):
         def sc(o):
@@ -302,7 +308,9 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
         raw_a = np.concatenate(pieces)
         built[seg["id"]] = (raw_a, measure(raw_a, seg["text"])["sps"])
     # cân tốc độ: đoạn lệch quá ±even_speed so với trung vị được làm nhanh/chậm về mép dải, tối đa ±max_tempo_adjust (giữ cao độ)
-    med_sps = float(np.median([v[1] for v in built.values()])) if built else 0.0
+    # trung vị tốc độ tính trên cả bài: đoạn giữ nguyên (--only) quy về tốc độ trước khi cân (sps / tempo đã áp)
+    all_sps = [v[1] for v in built.values()] + [k["sps"] / float(k.get("tempo") or 1.0) for k in kept if k.get("sps")]
+    med_sps = float(np.median(all_sps)) if all_sps else 0.0
     seg_tempo = {}
     for sid, (_, sp) in built.items():
         t_ = 1.0

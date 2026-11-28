@@ -1,6 +1,6 @@
 {
- "build_hash": "de9c47be1d4563bca7492e37b0875436adb6c522a8182c3e2373ec533e5f73f8",
- "frames": 1602,
+ "build_hash": "f75e4028894fdc7cc6b92dfa89569ac44fa57d35d5672a5d1474bf02de4c20de",
+ "frames": 1626,
  "fps": 30,
  "size": [
   1080,
@@ -8,5 +8,6 @@
  ],
  "crf": 18,
  "preset": "veryfast",
- "seconds": 194.0
+ "seconds": 205.1,
+ "thumbnail": "thumbnail.png"
 }

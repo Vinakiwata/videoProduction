@@ -1,26 +1,96 @@
 {
- "build_hash": "de9c47be1d4563bca7492e37b0875436adb6c522a8182c3e2373ec533e5f73f8",
- "input_hash": "6578b4e1f4c8990b1f4df0e008bbaf5d4d17f3e8dba926466e8ad350d575c47d",
+ "build_hash": "f75e4028894fdc7cc6b92dfa89569ac44fa57d35d5672a5d1474bf02de4c20de",
+ "input_hash": "60df63110560f71e816341a73f941fdf6b52919cd23837eb3d080d0e419eb505",
  "frames": [
   {
    "frame": 0,
    "role": "start",
-   "shot": "S01-01-a",
+   "shot": "S01-00-a",
    "file": "check/f00000.jpg",
    "size": [
     1080,
     1920
    ],
-   "sha256": "bde20dc41adadb2ee95b4f670c14a00f29feef112dd23e06ddfcb4b3a20785e1",
-   "stddev": 0.0,
-   "max": 145,
+   "sha256": "57acde1599291affd9572210b91ab1ef42920f4d237fe505d6f019734cdb0d86",
+   "stddev": 94.73,
+   "max": 255,
    "issues": []
   },
   {
-   "frame": 28,
+   "frame": 14,
+   "role": "mid",
+   "shot": "S01-00-a",
+   "file": "check/f00014.jpg",
+   "size": [
+    1080,
+    1920
+   ],
+   "sha256": "68fd8088edabeaba1978073fafe2d5ee663cde18866337585e190d6ba7eb0432",
+   "stddev": 94.73,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 29,
+   "role": "end",
+   "shot": "S01-00-a",
+   "file": "check/f00029.jpg",
+   "size": [
+    1080,
+    1920
+   ],
+   "sha256": "2bf83d41c09c0805876e6097b5fcb9a32950c582ef96854f29b9d351523f2df9",
+   "stddev": 94.73,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 30,
+   "role": "start",
+   "shot": "S01-01-a",
+   "file": "check/f00030.jpg",
+   "size": [
+    1080,
+    1920
+   ],
+   "sha256": "f597cf6e59f3939b7e11956cfa79672a02bb7de72623e203a5fa64e214dcfd01",
+   "stddev": 94.73,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 34,
+   "role": "transition",
+   "shot": "S01-01-a",
+   "file": "check/f00034.jpg",
+   "size": [
+    1080,
+    1920
+   ],
+   "sha256": "42733505f6fcd0e08f19781544e49e6de88692ddb209d33dc41b193094cdee0a",
+   "stddev": 54.68,
+   "max": 255,
+   "issues": []
+  },
+  {
+   "frame": 38,
+   "role": "settled",
+   "shot": "S01-01-a",
+   "file": "check/f00038.jpg",
+   "size": [
+    1080,
+    1920
+   ],
+   "sha256": "f1648fce8ee9c6f0f5a257b6411c4cfbdf0b689b7ffafa8ecd46e6ec8f5e4227",
+   "stddev": 44.79,
+   "max": 236,
+   "issues": []
+  },
+  {
+   "frame": 58,
    "role": "mid",
    "shot": "S01-01-a",
-   "file": "check/f00028.jpg",
+   "file": "check/f00058.jpg",
    "size": [
     1080,
     1920
@@ -31,10 +101,10 @@
    "issues": []
   },
   {
-   "frame": 56,
+   "frame": 86,
    "role": "end",
    "shot": "S01-01-a",
-   "file": "check/f00056.jpg",
+   "file": "check/f00086.jpg",
    "size": [
     1080,
     1920
@@ -45,10 +115,10 @@
    "issues": []
   },
   {
-   "frame": 57,
+   "frame": 87,
    "role": "start",
    "shot": "S01-01-b",
-   "file": "check/f00057.jpg",
+   "file": "check/f00087.jpg",
    "size": [
     1080,
     1920
@@ -59,10 +129,10 @@
    "issues": []
   },
   {
-   "frame": 62,
+   "frame": 92,
    "role": "transition",
    "shot": "S01-01-b",
-   "file": "check/f00062.jpg",
+   "file": "check/f00092.jpg",
    "size": [
     1080,
     1920
@@ -73,10 +143,10 @@
    "issues": []
   },
   {
-   "frame": 67,
+   "frame": 97,
    "role": "settled",
    "shot": "S01-01-b",
-   "file": "check/f00067.jpg",
+   "file": "check/f00097.jpg",
    "size": [
     1080,
     1920
@@ -87,10 +157,10 @@
    "issues": []
   },
   {
-   "frame": 100,
+   "frame": 130,
    "role": "mid",
    "shot": "S01-01-b",
-   "file": "check/f00100.jpg",
+   "file": "check/f00130.jpg",
    "size": [
     1080,
     1920
@@ -101,10 +171,10 @@
    "issues": []
   },
   {
-   "frame": 144,
+   "frame": 174,
    "role": "end",
    "shot": "S01-01-b",
-   "file": "check/f00144.jpg",
+   "file": "check/f00174.jpg",
    "size": [
     1080,
     1920
@@ -115,10 +185,10 @@
    "issues": []
   },
   {
-   "frame": 145,
+   "frame": 175,
    "role": "start",
    "shot": "S01-02-a",
-   "file": "check/f00145.jpg",
+   "file": "check/f00175.jpg",
    "size": [
     1080,
     1920
@@ -129,10 +199,10 @@
    "issues": []
   },
   {
-   "frame": 159,
+   "frame": 189,
    "role": "mid",
    "shot": "S01-02-a",
-   "file": "check/f00159.jpg",
+   "file": "check/f00189.jpg",
    "size": [
     1080,
     1920
@@ -143,10 +213,10 @@
    "issues": []
   },
   {
-   "frame": 174,
+   "frame": 204,
    "role": "end",
    "shot": "S01-02-a",
-   "file": "check/f00174.jpg",
+   "file": "check/f00204.jpg",
    "size": [
     1080,
     1920
@@ -157,10 +227,10 @@
    "issues": []
   },
   {
-   "frame": 175,
+   "frame": 205,
    "role": "start",
    "shot": "S02-01-a",
-   "file": "check/f00175.jpg",
+   "file": "check/f00205.jpg",
    "size": [
     1080,
     1920
@@ -171,10 +241,10 @@
    "issues": []
   },
   {
-   "frame": 179,
+   "frame": 209,
    "role": "transition",
    "shot": "S02-01-a",
-   "file": "check/f00179.jpg",
+   "file": "check/f00209.jpg",
    "size": [
     1080,
     1920
@@ -185,10 +255,10 @@
    "issues": []
   },
   {
-   "frame": 183,
+   "frame": 213,
    "role": "settled",
    "shot": "S02-01-a",
-   "file": "check/f00183.jpg",
+   "file": "check/f00213.jpg",
    "size": [
     1080,
     1920
@@ -199,10 +269,10 @@
    "issues": []
   },
   {
-   "frame": 272,
+   "frame": 302,
    "role": "mid",
    "shot": "S02-01-a",
-   "file": "check/f00272.jpg",
+   "file": "check/f00302.jpg",
    "size": [
     1080,
     1920
@@ -213,10 +283,10 @@
    "issues": []
   },
   {
-   "frame": 369,
+   "frame": 399,
    "role": "end",
    "shot": "S02-01-a",
-   "file": "check/f00369.jpg",
+   "file": "check/f00399.jpg",
    "size": [
     1080,
     1920
@@ -227,10 +297,10 @@
    "issues": []
   },
   {
-   "frame": 370,
+   "frame": 400,
    "role": "start",
    "shot": "S02-02-a",
-   "file": "check/f00370.jpg",
+   "file": "check/f00400.jpg",
    "size": [
     1080,
     1920
@@ -241,10 +311,10 @@
    "issues": []
   },
   {
-   "frame": 375,
+   "frame": 405,
    "role": "transition",
    "shot": "S02-02-a",
-   "file": "check/f00375.jpg",
+   "file": "check/f00405.jpg",
    "size": [
     1080,
     1920
@@ -255,10 +325,10 @@
    "issues": []
   },
   {
-   "frame": 380,
+   "frame": 410,
    "role": "settled",
    "shot": "S02-02-a",
-   "file": "check/f00380.jpg",
+   "file": "check/f00410.jpg",
    "size": [
     1080,
     1920
@@ -269,10 +339,10 @@
    "issues": []
   },
   {
-   "frame": 392,
+   "frame": 422,
    "role": "mid",
    "shot": "S02-02-a",
-   "file": "check/f00392.jpg",
+   "file": "check/f00422.jpg",
    "size": [
     1080,
     1920
@@ -283,10 +353,10 @@
    "issues": []
   },
   {
-   "frame": 414,
+   "frame": 444,
    "role": "end",
    "shot": "S02-02-a",
-   "file": "check/f00414.jpg",
+   "file": "check/f00444.jpg",
    "size": [
     1080,
     1920
@@ -297,10 +367,10 @@
    "issues": []
   },
   {
-   "frame": 415,
+   "frame": 445,
    "role": "start",
    "shot": "S02-02-b",
-   "file": "check/f00415.jpg",
+   "file": "check/f00445.jpg",
    "size": [
     1080,
     1920
@@ -311,10 +381,10 @@
    "issues": []
   },
   {
-   "frame": 456,
+   "frame": 486,
    "role": "mid",
    "shot": "S02-02-b",
-   "file": "check/f00456.jpg",
+   "file": "check/f00486.jpg",
    "size": [
     1080,
     1920
@@ -325,10 +395,10 @@
    "issues": []
   },
   {
-   "frame": 497,
+   "frame": 527,
    "role": "end",
    "shot": "S02-02-b",
-   "file": "check/f00497.jpg",
+   "file": "check/f00527.jpg",
    "size": [
     1080,
     1920
@@ -339,10 +409,10 @@
    "issues": []
   },
   {
-   "frame": 498,
+   "frame": 528,
    "role": "start",
    "shot": "S02-03-a",
-   "file": "check/f00498.jpg",
+   "file": "check/f00528.jpg",
    "size": [
     1080,
     1920
@@ -353,10 +423,10 @@
    "issues": []
   },
   {
-   "frame": 512,
+   "frame": 542,
    "role": "mid",
    "shot": "S02-03-a",
-   "file": "check/f00512.jpg",
+   "file": "check/f00542.jpg",
    "size": [
     1080,
     1920
@@ -367,10 +437,10 @@
    "issues": []
   },
   {
-   "frame": 527,
+   "frame": 557,
    "role": "end",
    "shot": "S02-03-a",
-   "file": "check/f00527.jpg",
+   "file": "check/f00557.jpg",
    "size": [
     1080,
     1920
@@ -381,10 +451,10 @@
    "issues": []
   },
   {
-   "frame": 528,
+   "frame": 558,
    "role": "start",
    "shot": "S03-01-a",
-   "file": "check/f00528.jpg",
+   "file": "check/f00558.jpg",
    "size": [
     1080,
     1920
@@ -395,10 +465,10 @@
    "issues": []
   },
   {
-   "frame": 532,
+   "frame": 562,
    "role": "transition",
    "shot": "S03-01-a",
-   "file": "check/f00532.jpg",
+   "file": "check/f00562.jpg",
    "size": [
     1080,
     1920
@@ -409,10 +479,10 @@
    "issues": []
   },
   {
-   "frame": 536,
+   "frame": 566,
    "role": "settled",
    "shot": "S03-01-a",
-   "file": "check/f00536.jpg",
+   "file": "check/f00566.jpg",
    "size": [
     1080,
     1920
@@ -423,10 +493,10 @@
    "issues": []
   },
   {
-   "frame": 553,
+   "frame": 583,
    "role": "mid",
    "shot": "S03-01-a",
-   "file": "check/f00553.jpg",
+   "file": "check/f00583.jpg",
    "size": [
     1080,
     1920
@@ -437,10 +507,10 @@
    "issues": []
   },
   {
-   "frame": 579,
+   "frame": 609,
    "role": "end",
    "shot": "S03-01-a",
-   "file": "check/f00579.jpg",
+   "file": "check/f00609.jpg",
    "size": [
     1080,
     1920
@@ -451,10 +521,10 @@
    "issues": []
   },
   {
-   "frame": 580,
+   "frame": 610,
    "role": "start",
    "shot": "S03-01-b",
-   "file": "check/f00580.jpg",
+   "file": "check/f00610.jpg",
    "size": [
     1080,
     1920
@@ -465,10 +535,10 @@
    "issues": []
   },
   {
-   "frame": 636,
+   "frame": 666,
    "role": "mid",
    "shot": "S03-01-b",
-   "file": "check/f00636.jpg",
+   "file": "check/f00666.jpg",
    "size": [
     1080,
     1920
@@ -479,10 +549,10 @@
    "issues": []
   },
   {
-   "frame": 693,
+   "frame": 723,
    "role": "end",
    "shot": "S03-01-b",
-   "file": "check/f00693.jpg",
+   "file": "check/f00723.jpg",
    "size": [
     1080,
     1920
@@ -493,10 +563,10 @@
    "issues": []
   },
   {
-   "frame": 694,
+   "frame": 724,
    "role": "start",
    "shot": "S03-02-a",
-   "file": "check/f00694.jpg",
+   "file": "check/f00724.jpg",
    "size": [
     1080,
     1920
@@ -507,10 +577,10 @@
    "issues": []
   },
   {
-   "frame": 730,
+   "frame": 760,
    "role": "mid",
    "shot": "S03-02-a",
-   "file": "check/f00730.jpg",
+   "file": "check/f00760.jpg",
    "size": [
     1080,
     1920
@@ -521,10 +591,10 @@
    "issues": []
   },
   {
-   "frame": 767,
+   "frame": 797,
    "role": "end",
    "shot": "S03-02-a",
-   "file": "check/f00767.jpg",
+   "file": "check/f00797.jpg",
    "size": [
     1080,
     1920
@@ -535,10 +605,10 @@
    "issues": []
   },
   {
-   "frame": 768,
+   "frame": 798,
    "role": "start",
    "shot": "S03-02-b",
-   "file": "check/f00768.jpg",
+   "file": "check/f00798.jpg",
    "size": [
     1080,
     1920
@@ -549,10 +619,10 @@
    "issues": []
   },
   {
-   "frame": 773,
+   "frame": 803,
    "role": "transition",
    "shot": "S03-02-b",
-   "file": "check/f00773.jpg",
+   "file": "check/f00803.jpg",
    "size": [
     1080,
     1920
@@ -563,10 +633,10 @@
    "issues": []
   },
   {
-   "frame": 778,
+   "frame": 808,
    "role": "settled",
    "shot": "S03-02-b",
-   "file": "check/f00778.jpg",
+   "file": "check/f00808.jpg",
    "size": [
     1080,
     1920
@@ -577,10 +647,10 @@
    "issues": []
   },
   {
-   "frame": 815,
+   "frame": 845,
    "role": "mid",
    "shot": "S03-02-b",
-   "file": "check/f00815.jpg",
+   "file": "check/f00845.jpg",
    "size": [
     1080,
     1920
@@ -591,10 +661,10 @@
    "issues": []
   },
   {
-   "frame": 862,
+   "frame": 892,
    "role": "end",
    "shot": "S03-02-b",
-   "file": "check/f00862.jpg",
+   "file": "check/f00892.jpg",
    "size": [
     1080,
     1920
@@ -605,10 +675,10 @@
    "issues": []
   },
   {
-   "frame": 863,
+   "frame": 893,
    "role": "start",
    "shot": "S04-01-a",
-   "file": "check/f00863.jpg",
+   "file": "check/f00893.jpg",
    "size": [
     1080,
     1920
@@ -619,10 +689,10 @@
    "issues": []
   },
   {
-   "frame": 867,
+   "frame": 897,
    "role": "transition",
    "shot": "S04-01-a",
-   "file": "check/f00867.jpg",
+   "file": "check/f00897.jpg",
    "size": [
     1080,
     1920
@@ -633,10 +703,10 @@
    "issues": []
   },
   {
-   "frame": 871,
+   "frame": 901,
    "role": "settled",
    "shot": "S04-01-a",
-   "file": "check/f00871.jpg",
+   "file": "check/f00901.jpg",
    "size": [
     1080,
     1920
@@ -647,10 +717,10 @@
    "issues": []
   },
   {
-   "frame": 930,
+   "frame": 960,
    "role": "mid",
    "shot": "S04-01-a",
-   "file": "check/f00930.jpg",
+   "file": "check/f00960.jpg",
    "size": [
     1080,
     1920
@@ -661,10 +731,10 @@
    "issues": []
   },
   {
-   "frame": 998,
+   "frame": 1028,
    "role": "end",
    "shot": "S04-01-a",
-   "file": "check/f00998.jpg",
+   "file": "check/f01028.jpg",
    "size": [
     1080,
     1920
@@ -675,10 +745,10 @@
    "issues": []
   },
   {
-   "frame": 999,
+   "frame": 1029,
    "role": "start",
    "shot": "S04-02-a",
-   "file": "check/f00999.jpg",
+   "file": "check/f01029.jpg",
    "size": [
     1080,
     1920
@@ -689,10 +759,10 @@
    "issues": []
   },
   {
-   "frame": 1013,
+   "frame": 1043,
    "role": "mid",
    "shot": "S04-02-a",
-   "file": "check/f01013.jpg",
+   "file": "check/f01043.jpg",
    "size": [
     1080,
     1920
@@ -703,10 +773,10 @@
    "issues": []
   },
   {
-   "frame": 1028,
+   "frame": 1058,
    "role": "end",
    "shot": "S04-02-a",
-   "file": "check/f01028.jpg",
+   "file": "check/f01058.jpg",
    "size": [
     1080,
     1920
@@ -717,10 +787,10 @@
    "issues": []
   },
   {
-   "frame": 1029,
+   "frame": 1059,
    "role": "start",
    "shot": "S04-03-a",
-   "file": "check/f01029.jpg",
+   "file": "check/f01059.jpg",
    "size": [
     1080,
     1920
@@ -731,10 +801,10 @@
    "issues": []
   },
   {
-   "frame": 1034,
+   "frame": 1064,
    "role": "transition",
    "shot": "S04-03-a",
-   "file": "check/f01034.jpg",
+   "file": "check/f01064.jpg",
    "size": [
     1080,
     1920
@@ -745,10 +815,10 @@
    "issues": []
   },
   {
-   "frame": 1039,
+   "frame": 1069,
    "role": "settled",
    "shot": "S04-03-a",
-   "file": "check/f01039.jpg",
+   "file": "check/f01069.jpg",
    "size": [
     1080,
     1920
@@ -759,10 +829,10 @@
    "issues": []
   },
   {
-   "frame": 1045,
+   "frame": 1075,
    "role": "mid",
    "shot": "S04-03-a",
-   "file": "check/f01045.jpg",
+   "file": "check/f01075.jpg",
    "size": [
     1080,
     1920
@@ -773,10 +843,10 @@
    "issues": []
   },
   {
-   "frame": 1061,
+   "frame": 1091,
    "role": "end",
    "shot": "S04-03-a",
-   "file": "check/f01061.jpg",
+   "file": "check/f01091.jpg",
    "size": [
     1080,
     1920
@@ -787,10 +857,10 @@
    "issues": []
   },
   {
-   "frame": 1062,
+   "frame": 1092,
    "role": "start",
    "shot": "S04-03-b",
-   "file": "check/f01062.jpg",
+   "file": "check/f01092.jpg",
    "size": [
     1080,
     1920
@@ -801,10 +871,10 @@
    "issues": []
   },
   {
-   "frame": 1066,
+   "frame": 1096,
    "role": "transition",
    "shot": "S04-03-b",
-   "file": "check/f01066.jpg",
+   "file": "check/f01096.jpg",
    "size": [
     1080,
     1920
@@ -815,10 +885,10 @@
    "issues": []
   },
   {
-   "frame": 1070,
+   "frame": 1100,
    "role": "settled",
    "shot": "S04-03-b",
-   "file": "check/f01070.jpg",
+   "file": "check/f01100.jpg",
    "size": [
     1080,
     1920
@@ -829,10 +899,10 @@
    "issues": []
   },
   {
-   "frame": 1128,
+   "frame": 1158,
    "role": "mid",
    "shot": "S04-03-b",
-   "file": "check/f01128.jpg",
+   "file": "check/f01158.jpg",
    "size": [
     1080,
     1920
@@ -843,10 +913,10 @@
    "issues": []
   },
   {
-   "frame": 1194,
+   "frame": 1224,
    "role": "end",
    "shot": "S04-03-b",
-   "file": "check/f01194.jpg",
+   "file": "check/f01224.jpg",
    "size": [
     1080,
     1920
@@ -857,10 +927,10 @@
    "issues": []
   },
   {
-   "frame": 1195,
+   "frame": 1225,
    "role": "start",
    "shot": "S04-04-a",
-   "file": "check/f01195.jpg",
+   "file": "check/f01225.jpg",
    "size": [
     1080,
     1920
@@ -871,10 +941,10 @@
    "issues": []
   },
   {
-   "frame": 1200,
+   "frame": 1230,
    "role": "transition",
    "shot": "S04-04-a",
-   "file": "check/f01200.jpg",
+   "file": "check/f01230.jpg",
    "size": [
     1080,
     1920
@@ -885,10 +955,10 @@
    "issues": []
   },
   {
-   "frame": 1205,
+   "frame": 1235,
    "role": "settled",
    "shot": "S04-04-a",
-   "file": "check/f01205.jpg",
+   "file": "check/f01235.jpg",
    "size": [
     1080,
     1920
@@ -899,10 +969,10 @@
    "issues": []
   },
   {
-   "frame": 1270,
+   "frame": 1300,
    "role": "mid",
    "shot": "S04-04-a",
-   "file": "check/f01270.jpg",
+   "file": "check/f01300.jpg",
    "size": [
     1080,
     1920
@@ -913,10 +983,10 @@
    "issues": []
   },
   {
-   "frame": 1346,
+   "frame": 1376,
    "role": "end",
    "shot": "S04-04-a",
-   "file": "check/f01346.jpg",
+   "file": "check/f01376.jpg",
    "size": [
     1080,
     1920
@@ -927,10 +997,10 @@
    "issues": []
   },
   {
-   "frame": 1347,
+   "frame": 1377,
    "role": "start",
    "shot": "S05-01-a",
-   "file": "check/f01347.jpg",
+   "file": "check/f01377.jpg",
    "size": [
     1080,
     1920
@@ -941,10 +1011,10 @@
    "issues": []
   },
   {
-   "frame": 1351,
+   "frame": 1381,
    "role": "transition",
    "shot": "S05-01-a",
-   "file": "check/f01351.jpg",
+   "file": "check/f01381.jpg",
    "size": [
     1080,
     1920
@@ -955,10 +1025,10 @@
    "issues": []
   },
   {
-   "frame": 1355,
+   "frame": 1385,
    "role": "settled",
    "shot": "S05-01-a",
-   "file": "check/f01355.jpg",
+   "file": "check/f01385.jpg",
    "size": [
     1080,
     1920
@@ -969,10 +1039,10 @@
    "issues": []
   },
   {
-   "frame": 1422,
+   "frame": 1452,
    "role": "mid",
    "shot": "S05-01-a",
-   "file": "check/f01422.jpg",
+   "file": "check/f01452.jpg",
    "size": [
     1080,
     1920
@@ -983,10 +1053,10 @@
    "issues": []
   },
   {
-   "frame": 1498,
+   "frame": 1528,
    "role": "end",
    "shot": "S05-01-a",
-   "file": "check/f01498.jpg",
+   "file": "check/f01528.jpg",
    "size": [
     1080,
     1920
@@ -997,10 +1067,10 @@
    "issues": []
   },
   {
-   "frame": 1499,
+   "frame": 1529,
    "role": "start",
    "shot": "S05-02-a",
-   "file": "check/f01499.jpg",
+   "file": "check/f01529.jpg",
    "size": [
     1080,
     1920
@@ -1011,10 +1081,10 @@
    "issues": []
   },
   {
-   "frame": 1503,
+   "frame": 1533,
    "role": "transition",
    "shot": "S05-02-a",
-   "file": "check/f01503.jpg",
+   "file": "check/f01533.jpg",
    "size": [
     1080,
     1920
@@ -1025,10 +1095,10 @@
    "issues": []
   },
   {
-   "frame": 1507,
+   "frame": 1537,
    "role": "settled",
    "shot": "S05-02-a",
-   "file": "check/f01507.jpg",
+   "file": "check/f01537.jpg",
    "size": [
     1080,
     1920
@@ -1039,30 +1109,30 @@
    "issues": []
   },
   {
-   "frame": 1550,
+   "frame": 1577,
    "role": "mid",
    "shot": "S05-02-a",
-   "file": "check/f01550.jpg",
+   "file": "check/f01577.jpg",
    "size": [
     1080,
     1920
    ],
-   "sha256": "22f49fd66be0be23c83cd04364623feba8b9d985e6ce1c2d993662254da876be",
-   "stddev": 72.99,
+   "sha256": "2028200611f106dee3031df63d7509dcc67655d537aa8cc0c47e8a5984d345a6",
+   "stddev": 73.09,
    "max": 255,
    "issues": []
   },
   {
-   "frame": 1601,
+   "frame": 1625,
    "role": "end",
    "shot": "S05-02-a",
-   "file": "check/f01601.jpg",
+   "file": "check/f01625.jpg",
    "size": [
     1080,
     1920
    ],
-   "sha256": "e7b5a20dc87f1b47763e9a0db7c634593a20dc7dc4745ccf613f74a05ed33eb6",
-   "stddev": 71.9,
+   "sha256": "51d7d78612bd2832c236879998db79a988f49520e60729508c18a6a225db9e8e",
+   "stddev": 71.81,
    "max": 255,
    "issues": []
   }
@@ -1074,10 +1144,10 @@
   "Be Vietnam Pro 800"
  ],
  "determinism": {
-  "checked": 76,
+  "checked": 81,
   "order": "xuôi rồi ngược",
   "mismatch": []
  },
  "contact_ui_platform": "youtube_shorts",
- "contact_build_hash": "de9c47be1d4563bca7492e37b0875436adb6c522a8182c3e2373ec533e5f73f8"
+ "contact_build_hash": "f75e4028894fdc7cc6b92dfa89569ac44fa57d35d5672a5d1474bf02de4c20de"
 }

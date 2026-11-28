@@ -1,0 +1,21 @@
+PRS-C01:
+  verdict: pass
+  evidence: 'Khung dọc 1080×1920 (Shorts/TikTok/Reels). Đối chiếu check/contact.png (76 khung mốc) với 02_design/frames và ảnh ghép bằng hình thật cả 18 khung: vị trí, thứ tự lớp, nền khớp storyboard dọc. Ví dụ: S01-01-b/S01-02-a tiêu đề ''Sông ngọt, biển mặn?'' trên, hai cốc cạnh nhau, Khỉ thắc mắc dưới (bố cục chủ dự án chọn); S02-02-b hạt muối ở miệng vết nứt, nhãn ''muối'' phải trên; S03-01-b kính lúp trên lòng sông; S03-02-b sông chảy xuống biển, biển sáng trong vùng an toàn; S04-01-a hơi nước bốc từ mặt biển, hàng muối dưới nước, Khỉ ngạc nhiên phải dưới, chữ trái dưới; S04-03-b chữ trên, vòng tuần hoàn giữa, Khỉ và cốc biển hai góc dưới; S04-04-a khoáng chất bay ra từ miệng núi lửa và khe nứt; S05-01-a chuỗi dọc mũi tên chỉ xuống; S05-02-a logo, ''Cảm ơn bạn đã xem!'', nút ĐĂNG KÝ (phương án A chủ dự án chọn). check/contact_ui.png chồng giao diện YouTube Shorts (nền tảng che nhiều nhất): không chữ, Khỉ, nút nào nằm dưới vùng che; đã xem thêm khung 1000 ở cỡ thật với lớp phủ TikTok.
+    Cập nhật 28/11/2026 23:00: thêm khung thumbnail S01-00-a (30 khung đầu: bãi biển, câu hỏi ba dòng ''Vì sao / nước biển / lại mặn?'', Khỉ thắc mắc; hiện đủ từ khung 0; chuyển mờ sang cửa sông) và câu kết mới; 19 khung hình, 1626 khung = 54,2 giây.'
+  fix: ''
+PRS-C02:
+  verdict: pass
+  evidence: '19 khung hình: crossfade 7 (thêm thumbnail → cửa sông), match_cut 5, zoom_through 3, cut 2, push_up 1, push_left 1 — đúng loại timeline khai. Đã xem các khung vai ''transition'' và ''settled'' trong contact.png: zoom_through khung cũ phóng và mờ, khung mới hiện lên; crossfade 8 khung chồng mờ không giật; push_up (đá đẩy lên, cùng nền mưa) và push_left (bãi biển sang nền mưa) liền mạch; match_cut giữ nguyên vị trí vật (hai cốc S01-01-b → S01-02-a, đá S02-02-a → b, bãi biển S04-01-a → S04-02-a). Không khung ''settled'' nào kẹt giữa hai cảnh. Chủ dự án xem cả bản có tiếng, không báo lỗi chuyển cảnh.'
+  fix: ''
+PRS-C03:
+  verdict: pass
+  evidence: 'Chủ dự án (Vinakiwata) chấm ngày 28/11/2026 trên bản dọc 9:16 (Documents/DEV_WORK_SUB/VieNeu-TTS/videoproduction/vi-sao-nuoc-bien-man/trinh_chieu_doc/index.html), phát hết 53,4 giây có tiếng, có lớp phủ Shorts/TikTok/Reels. Lượt đầu chủ dự án báo ''có chỗ chưa ổn'' ở đoạn ''Sông ngọt, biển mặn'' → đã đổi bố cục (tiêu đề trên, hai cốc cạnh nhau, Khỉ dưới) theo ảnh trước/sau chủ dự án duyệt; sau đó yêu cầu làm lại màn kết, bỏ bớt icon, lồng lời cảm ơn → phương án A (logo, ''Cảm ơn bạn đã xem!'', nút ĐĂNG KÝ; bỏ chuông, Khỉ thứ hai, ''Cùng Khỉ nhé!''), lời cảm ơn chỉ bằng chữ. Xem lại bản cập nhật: ''Đã thấy, ổn''. Lượt 28/11 23:00 (thumbnail 1 giây ở đầu + câu kết ''Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!''): chủ dự án xem bản trình chiếu 54,2 giây có tiếng — ''Ổn, khớp lời''.'
+  fix: ''
+PRS-C04:
+  verdict: pass
+  evidence: 'Trình duyệt nạp đúng ''Be Vietnam Pro 700'' và ''Be Vietnam Pro 800'' (check_manifest.fonts), font nhúng base64 (OFL). Mọi ký tự chữ trên màn hình đều có trong font (đã đo; bỏ ký tự → không có trong font). Đã xem ở cỡ thật khung 1000 (S04-02-a, ''Nước bay đi, muối ở lại'' hai dòng) và các khung có chữ: dấu chồng đúng, không ô vuông, không font dự phòng. Sửa bộ dựng 28/11 (Tool 08 phát hiện): chữ nay xuống dòng đúng ''\n'' của storyboard (white-space: pre-line); đã chụp lại khung 100, 1128, 1550: ''Sông ngọt, / biển mặn?'', ''hàng triệu / năm'', ''Cảm ơn bạn / đã xem!'' đúng hai dòng như storyboard. Chữ vàng/trắng trên tấm nền xanh đậm 90%, đọc rõ trên mưa, bãi biển, đáy biển. PRS-A06 đo trong DOM: không chữ nào tràn hộp hay ra ngoài vùng an toàn của Shorts/TikTok/Reels (lề 220/461/65/173 px).'
+  fix: ''
+PRS-C05:
+  verdict: pass
+  evidence: 'Linh vật phản ứng 3 lần (DSN-A11): thắc mắc (S01-01-b → S01-02-a tính 1), ngạc nhiên (S04-01-a → S04-02-a), ôm Trái Đất (S04-03-b); màn kết có logo Khỉ Khám Phá (linh vật trong logo). PNG giữ tỉ lệ, không phóng quá cỡ file (lớn nhất 367 px/512, logo 540/1024). Khỉ không che nội dung chính và luôn nằm trong vùng an toàn, không dưới cột nút hay dải chú thích của nền tảng. Màu khung, chữ, nút đúng brand (#0B3D91, #0078E0, #FFC907, chữ nút nâu #5E270E). Không logo góc, không intro. Khỉ thắc mắc ở thumbnail là ảnh bìa kênh, không tính lần phản ứng (DSN-A11, chủ dự án duyệt).'
+  fix: ''

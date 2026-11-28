@@ -5,7 +5,7 @@
   "height": 1920,
   "fps": 30
  },
- "total_frames": 1602,
+ "total_frames": 1626,
  "fonts": {
   "title": "Be Vietnam Pro",
   "body": "Be Vietnam Pro"
@@ -112,18 +112,76 @@
  ],
  "shots": [
   {
+   "id": "S01-00-a",
+   "segment": "S01-00",
+   "start": 0,
+   "end": 30,
+   "background": "#0B3D91",
+   "camera": {
+    "move": "static"
+   },
+   "transition": {
+    "type": "cut",
+    "frames": 0
+   },
+   "elements": [
+    {
+     "id": "e1",
+     "z": 0,
+     "box": {
+      "x": 0.0,
+      "y": 0.0,
+      "w": 100.0,
+      "h": 100.0
+     },
+     "asset": "A-BIEN",
+     "file": "assets/A-BIEN.svg",
+     "kind": "scene",
+     "layer_motion": true
+    },
+    {
+     "id": "e2",
+     "z": 1,
+     "box": {
+      "x": 7.0,
+      "y": 12.0,
+      "w": 76.0,
+      "h": 27.5
+     },
+     "text": "Vì sao\nnước biển\nlại mặn?",
+     "style": "title",
+     "font_px": 128,
+     "color": "#FFC907"
+    },
+    {
+     "id": "e3",
+     "z": 2,
+     "box": {
+      "x": 44.0,
+      "y": 53.0,
+      "w": 40.0,
+      "h": 22.5
+     },
+     "asset": "A-KHI-THAC-MAC",
+     "file": "assets/A-KHI-THAC-MAC.png",
+     "kind": "mascot",
+     "layer_motion": false
+    }
+   ]
+  },
+  {
    "id": "S01-01-a",
    "segment": "S01-01",
-   "start": 0,
-   "end": 57,
+   "start": 30,
+   "end": 87,
    "background": "#0B3D91",
    "camera": {
     "move": "pan_down",
     "amount": 0.1
    },
    "transition": {
-    "type": "cut",
-    "frames": 0
+    "type": "crossfade",
+    "frames": 8
    },
    "elements": [
     {
@@ -141,13 +199,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "fade",
-      "start": 0,
+      "start": 30,
       "dur": 18,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "flow",
-      "start": 0,
+      "start": 30,
       "period": 45
      }
     }
@@ -156,8 +214,8 @@
   {
    "id": "S01-01-b",
    "segment": "S01-01",
-   "start": 57,
-   "end": 145,
+   "start": 87,
+   "end": 175,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -182,7 +240,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 57,
+      "start": 87,
       "dur": 12,
       "ease": "back_out"
      }
@@ -202,7 +260,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 70,
+      "start": 100,
       "dur": 12,
       "ease": "back_out"
      }
@@ -222,13 +280,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 110,
+      "start": 140,
       "dur": 10,
       "ease": "back_out"
      },
      "loop": {
       "anim": "bob",
-      "start": 110,
+      "start": 140,
       "period": 45
      }
     },
@@ -247,7 +305,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 90,
+      "start": 120,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -257,8 +315,8 @@
   {
    "id": "S01-02-a",
    "segment": "S01-02",
-   "start": 145,
-   "end": 175,
+   "start": 175,
+   "end": 205,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_in",
@@ -312,7 +370,7 @@
      "layer_motion": false,
      "loop": {
       "anim": "wiggle",
-      "start": 145,
+      "start": 175,
       "period": 45
      }
     },
@@ -331,7 +389,7 @@
      "color": "#FFC907",
      "exit": {
       "anim": "fade",
-      "start": 175,
+      "start": 205,
       "dur": 9,
       "ease": "ease_in"
      }
@@ -341,8 +399,8 @@
   {
    "id": "S02-01-a",
    "segment": "S02-01",
-   "start": 175,
-   "end": 370,
+   "start": 205,
+   "end": 400,
    "background": "#0B3D91",
    "camera": {
     "move": "pan_down",
@@ -382,7 +440,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "fade",
-      "start": 175,
+      "start": 205,
       "dur": 12,
       "ease": "ease_out"
      }
@@ -402,7 +460,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "drop",
-      "start": 184,
+      "start": 214,
       "dur": 18,
       "ease": "ease_in"
      }
@@ -422,13 +480,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "slide_right",
-      "start": 237,
+      "start": 267,
       "dur": 21,
       "ease": "ease_in_out"
      },
      "exit": {
       "anim": "scale_out",
-      "start": 281,
+      "start": 311,
       "dur": 9,
       "ease": "back_in"
      }
@@ -448,13 +506,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "morph",
-      "start": 285,
+      "start": 315,
       "dur": 12,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 285,
+      "start": 315,
       "period": 45
      }
     },
@@ -473,7 +531,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 295,
+      "start": 325,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -483,8 +541,8 @@
   {
    "id": "S02-02-a",
    "segment": "S02-02",
-   "start": 370,
-   "end": 415,
+   "start": 400,
+   "end": 445,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -523,7 +581,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "slide_up",
-      "start": 370,
+      "start": 400,
       "dur": 15,
       "ease": "ease_out"
      }
@@ -543,13 +601,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "drop",
-      "start": 374,
+      "start": 404,
       "dur": 18,
       "ease": "ease_in"
      },
      "loop": {
       "anim": "flow",
-      "start": 374,
+      "start": 404,
       "period": 45
      }
     }
@@ -558,8 +616,8 @@
   {
    "id": "S02-02-b",
    "segment": "S02-02",
-   "start": 415,
-   "end": 498,
+   "start": 445,
+   "end": 528,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_in",
@@ -613,13 +671,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "grow",
-      "start": 427,
+      "start": 457,
       "dur": 24,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "shimmer",
-      "start": 427,
+      "start": 457,
       "period": 45
      }
     },
@@ -638,7 +696,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "pop",
-      "start": 452,
+      "start": 482,
       "dur": 9,
       "ease": "back_out"
      }
@@ -648,8 +706,8 @@
   {
    "id": "S02-03-a",
    "segment": "S02-03",
-   "start": 498,
-   "end": 528,
+   "start": 528,
+   "end": 558,
    "background": "#0B3D91",
    "camera": {
     "move": "pan_right",
@@ -703,7 +761,7 @@
      "layer_motion": true,
      "enter": {
       "anim": "slide_right",
-      "start": 498,
+      "start": 528,
       "dur": 30,
       "ease": "ease_in_out"
      }
@@ -713,8 +771,8 @@
   {
    "id": "S03-01-a",
    "segment": "S03-01",
-   "start": 528,
-   "end": 580,
+   "start": 558,
+   "end": 610,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_out",
@@ -740,13 +798,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "draw",
-      "start": 528,
+      "start": 558,
       "dur": 42,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "flow",
-      "start": 528,
+      "start": 558,
       "period": 45
      }
     }
@@ -755,8 +813,8 @@
   {
    "id": "S03-01-b",
    "segment": "S03-01",
-   "start": 580,
-   "end": 694,
+   "start": 610,
+   "end": 724,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -781,7 +839,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "flow",
-      "start": 580,
+      "start": 610,
       "period": 45
      }
     },
@@ -800,7 +858,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "scale_in",
-      "start": 580,
+      "start": 610,
       "dur": 15,
       "ease": "back_out"
      }
@@ -820,7 +878,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 599,
+      "start": 629,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -830,8 +888,8 @@
   {
    "id": "S03-02-a",
    "segment": "S03-02",
-   "start": 694,
-   "end": 768,
+   "start": 724,
+   "end": 798,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -856,7 +914,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "flow",
-      "start": 694,
+      "start": 724,
       "period": 45
      }
     },
@@ -875,7 +933,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "slide_down",
-      "start": 694,
+      "start": 724,
       "dur": 15,
       "ease": "ease_out"
      }
@@ -895,13 +953,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "drop",
-      "start": 701,
+      "start": 731,
       "dur": 18,
       "ease": "ease_in"
      },
      "loop": {
       "anim": "flow",
-      "start": 701,
+      "start": 731,
       "period": 45
      }
     },
@@ -920,7 +978,7 @@
      "color": "#FFFFFF",
      "enter": {
       "anim": "fade",
-      "start": 709,
+      "start": 739,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -930,8 +988,8 @@
   {
    "id": "S03-02-b",
    "segment": "S03-02",
-   "start": 768,
-   "end": 863,
+   "start": 798,
+   "end": 893,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_out",
@@ -957,13 +1015,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "fade",
-      "start": 768,
+      "start": 798,
       "dur": 15,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "flow",
-      "start": 768,
+      "start": 798,
       "period": 45
      }
     },
@@ -982,7 +1040,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "pulse",
-      "start": 768,
+      "start": 798,
       "period": 36
      }
     },
@@ -1001,7 +1059,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 768,
+      "start": 798,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1011,8 +1069,8 @@
   {
    "id": "S04-01-a",
    "segment": "S04-01",
-   "start": 863,
-   "end": 999,
+   "start": 893,
+   "end": 1029,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -1037,7 +1095,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "bob",
-      "start": 863,
+      "start": 893,
       "period": 75
      }
     },
@@ -1056,13 +1114,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "scale_in",
-      "start": 863,
+      "start": 893,
       "dur": 15,
       "ease": "back_out"
      },
      "loop": {
       "anim": "rotate",
-      "start": 863,
+      "start": 893,
       "period": 240
      }
     },
@@ -1081,13 +1139,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "slide_up",
-      "start": 877,
+      "start": 907,
       "dur": 30,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "flow",
-      "start": 877,
+      "start": 907,
       "period": 45
      }
     },
@@ -1106,7 +1164,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 924,
+      "start": 954,
       "dur": 12,
       "ease": "back_out"
      }
@@ -1126,13 +1184,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "fade",
-      "start": 945,
+      "start": 975,
       "dur": 12,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "shimmer",
-      "start": 945,
+      "start": 975,
       "period": 45
      }
     },
@@ -1151,7 +1209,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 942,
+      "start": 972,
       "dur": 10,
       "ease": "back_out"
      }
@@ -1171,7 +1229,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 931,
+      "start": 961,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1181,8 +1239,8 @@
   {
    "id": "S04-02-a",
    "segment": "S04-02",
-   "start": 999,
-   "end": 1029,
+   "start": 1029,
+   "end": 1059,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -1207,7 +1265,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "bob",
-      "start": 999,
+      "start": 1029,
       "period": 75
      }
     },
@@ -1226,7 +1284,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "rotate",
-      "start": 999,
+      "start": 1029,
       "period": 240
      }
     },
@@ -1245,7 +1303,7 @@
      "layer_motion": false,
      "exit": {
       "anim": "slide_left",
-      "start": 1005,
+      "start": 1035,
       "dur": 24,
       "ease": "ease_in"
      }
@@ -1265,7 +1323,7 @@
      "layer_motion": true,
      "loop": {
       "anim": "shimmer",
-      "start": 999,
+      "start": 1029,
       "period": 45
      }
     },
@@ -1298,7 +1356,7 @@
      "color": "#FFC907",
      "exit": {
       "anim": "fade",
-      "start": 1029,
+      "start": 1059,
       "dur": 9,
       "ease": "ease_in"
      }
@@ -1308,8 +1366,8 @@
   {
    "id": "S04-03-a",
    "segment": "S04-03",
-   "start": 1029,
-   "end": 1062,
+   "start": 1059,
+   "end": 1092,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -1348,7 +1406,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "slide_left",
-      "start": 1029,
+      "start": 1059,
       "dur": 15,
       "ease": "ease_out"
      }
@@ -1368,13 +1426,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "drop",
-      "start": 1036,
+      "start": 1066,
       "dur": 15,
       "ease": "ease_in"
      },
      "loop": {
       "anim": "flow",
-      "start": 1036,
+      "start": 1066,
       "period": 45
      }
     },
@@ -1397,8 +1455,8 @@
   {
    "id": "S04-03-b",
    "segment": "S04-03",
-   "start": 1062,
-   "end": 1195,
+   "start": 1092,
+   "end": 1225,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_out",
@@ -1424,13 +1482,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "draw",
-      "start": 1062,
+      "start": 1092,
       "dur": 30,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "rotate",
-      "start": 1062,
+      "start": 1092,
       "period": 90
      }
     },
@@ -1449,7 +1507,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "typewriter",
-      "start": 1079,
+      "start": 1109,
       "dur": 30,
       "ease": "steps"
      }
@@ -1469,13 +1527,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "scale_in",
-      "start": 1131,
+      "start": 1161,
       "dur": 15,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 1131,
+      "start": 1161,
       "period": 45
      }
     },
@@ -1494,13 +1552,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1102,
+      "start": 1132,
       "dur": 10,
       "ease": "back_out"
      },
      "loop": {
       "anim": "bob",
-      "start": 1102,
+      "start": 1132,
       "period": 75
      }
     }
@@ -1509,8 +1567,8 @@
   {
    "id": "S04-04-a",
    "segment": "S04-04",
-   "start": 1195,
-   "end": 1347,
+   "start": 1225,
+   "end": 1377,
    "background": "#0B3D91",
    "camera": {
     "move": "zoom_in",
@@ -1536,13 +1594,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "fade",
-      "start": 1195,
+      "start": 1225,
       "dur": 15,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 1195,
+      "start": 1225,
       "period": 45
      }
     },
@@ -1561,13 +1619,13 @@
      "layer_motion": true,
      "enter": {
       "anim": "slide_up",
-      "start": 1283,
+      "start": 1313,
       "dur": 24,
       "ease": "ease_out"
      },
      "loop": {
       "anim": "flow",
-      "start": 1283,
+      "start": 1313,
       "period": 45
      }
     },
@@ -1586,7 +1644,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 1207,
+      "start": 1237,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1596,8 +1654,8 @@
   {
    "id": "S05-01-a",
    "segment": "S05-01",
-   "start": 1347,
-   "end": 1499,
+   "start": 1377,
+   "end": 1529,
    "background": "#0B3D91",
    "camera": {
     "move": "static"
@@ -1622,7 +1680,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1360,
+      "start": 1390,
       "dur": 10,
       "ease": "back_out"
      }
@@ -1642,7 +1700,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "draw",
-      "start": 1394,
+      "start": 1424,
       "dur": 9,
       "ease": "ease_in_out"
      }
@@ -1662,7 +1720,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1401,
+      "start": 1431,
       "dur": 10,
       "ease": "back_out"
      }
@@ -1682,7 +1740,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "draw",
-      "start": 1427,
+      "start": 1457,
       "dur": 9,
       "ease": "ease_in_out"
      }
@@ -1702,7 +1760,7 @@
      "layer_motion": true,
      "enter": {
       "anim": "pop",
-      "start": 1434,
+      "start": 1464,
       "dur": 10,
       "ease": "back_out"
      }
@@ -1722,7 +1780,7 @@
      "color": "#FFFFFF",
      "enter": {
       "anim": "fade",
-      "start": 1360,
+      "start": 1390,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1742,7 +1800,7 @@
      "color": "#FFFFFF",
      "enter": {
       "anim": "fade",
-      "start": 1401,
+      "start": 1431,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1762,7 +1820,7 @@
      "color": "#FFFFFF",
      "enter": {
       "anim": "fade",
-      "start": 1434,
+      "start": 1464,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1772,8 +1830,8 @@
   {
    "id": "S05-02-a",
    "segment": "S05-02",
-   "start": 1499,
-   "end": 1602,
+   "start": 1529,
+   "end": 1626,
    "background": "#0078E0",
    "camera": {
     "move": "static"
@@ -1798,7 +1856,7 @@
      "layer_motion": false,
      "enter": {
       "anim": "scale_in",
-      "start": 1499,
+      "start": 1529,
       "dur": 12,
       "ease": "back_out"
      }
@@ -1818,7 +1876,7 @@
      "color": "#FFC907",
      "enter": {
       "anim": "fade",
-      "start": 1509,
+      "start": 1539,
       "dur": 9,
       "ease": "ease_out"
      }
@@ -1838,13 +1896,13 @@
      "layer_motion": false,
      "enter": {
       "anim": "pop",
-      "start": 1535,
+      "start": 1563,
       "dur": 12,
       "ease": "back_out"
      },
      "loop": {
       "anim": "pulse",
-      "start": 1535,
+      "start": 1563,
       "period": 36
      }
     }
@@ -2157,7 +2215,7 @@
    "motion": []
   }
  },
- "input_hash": "6578b4e1f4c8990b1f4df0e008bbaf5d4d17f3e8dba926466e8ad350d575c47d",
+ "input_hash": "60df63110560f71e816341a73f941fdf6b52919cd23837eb3d080d0e419eb505",
  "font_files": [
   "BeVietnamPro-Bold.ttf",
   "BeVietnamPro-ExtraBold.ttf",

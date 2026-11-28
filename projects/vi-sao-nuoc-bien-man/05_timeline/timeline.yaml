@@ -1,294 +1,309 @@
 fps: 30.0
-total_frames: 1602
-total_s: 53.4
+total_frames: 1626
+total_s: 54.2
 params:
   breath_s: 0.6
   breath_scene_s: 0.9
   question_extra_s: 0.1
 segments:
+- id: S01-00
+  kind: silent
+  text: null
+  start_frame: 0
+  speech_end_frame: 30
+  end_frame: 30
+  breath_s: 0.0
 - id: S01-01
   kind: voice
   text: Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối trong biển từ đâu mà có?
-  start_frame: 0
-  speech_end_frame: 145
-  end_frame: 145
+  start_frame: 30
+  speech_end_frame: 175
+  end_frame: 175
   breath_s: 0.0
 - id: S01-02
   kind: silent
   text: null
-  start_frame: 145
-  speech_end_frame: 175
-  end_frame: 175
+  start_frame: 175
+  speech_end_frame: 205
+  end_frame: 205
   breath_s: 0.0
 - id: S02-01
   kind: voice
   text: Câu trả lời bắt đầu từ nước mưa. Khi rơi qua bầu trời, mưa hoà tan khí cacbonic nên hơi có tính axit.
-  start_frame: 175
-  speech_end_frame: 352
-  end_frame: 370
+  start_frame: 205
+  speech_end_frame: 382
+  end_frame: 400
   breath_s: 0.6
 - id: S02-02
   kind: voice
   text: Nước mưa ấy chảy trên đá, bào mòn dần và hoà tan các khoáng chất li ti, trong đó có muối.
-  start_frame: 370
-  speech_end_frame: 498
-  end_frame: 498
+  start_frame: 400
+  speech_end_frame: 528
+  end_frame: 528
   breath_s: 0.0
 - id: S02-03
   kind: silent
   text: null
-  start_frame: 498
-  speech_end_frame: 528
-  end_frame: 528
+  start_frame: 528
+  speech_end_frame: 558
+  end_frame: 558
   breath_s: 0.0
 - id: S03-01
   kind: voice
   text: Nước mưa chảy về suối, về sông, mang theo một lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
-  start_frame: 528
-  speech_end_frame: 676
-  end_frame: 694
+  start_frame: 558
+  speech_end_frame: 706
+  end_frame: 724
   breath_s: 0.6
 - id: S03-02
   kind: voice
   text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển nhận muối từ tất cả các dòng sông.
-  start_frame: 694
-  speech_end_frame: 836
-  end_frame: 863
+  start_frame: 724
+  speech_end_frame: 866
+  end_frame: 893
   breath_s: 0.9
 - id: S04-01
   kind: voice
   text: Dưới nắng, nước biển bốc hơi thành mây. Nhưng muối không bốc hơi theo, mà ở lại trong biển.
-  start_frame: 863
-  speech_end_frame: 999
-  end_frame: 999
+  start_frame: 893
+  speech_end_frame: 1029
+  end_frame: 1029
   breath_s: 0.0
 - id: S04-02
   kind: silent
   text: null
-  start_frame: 999
-  speech_end_frame: 1029
-  end_frame: 1029
+  start_frame: 1029
+  speech_end_frame: 1059
+  end_frame: 1059
   breath_s: 0.0
 - id: S04-03
   kind: voice
   text: Mây lại đổ mưa, vòng tuần hoàn ấy lặp lại suốt hàng triệu năm, khiến muối trong biển tích tụ dần.
-  start_frame: 1029
-  speech_end_frame: 1177
-  end_frame: 1195
+  start_frame: 1059
+  speech_end_frame: 1207
+  end_frame: 1225
   breath_s: 0.6
 - id: S04-04
   kind: voice
   text: Ngoài ra, núi lửa và các khe nứt nóng dưới đáy biển cũng bổ sung thêm khoáng chất vào nước.
-  start_frame: 1195
-  speech_end_frame: 1320
-  end_frame: 1347
+  start_frame: 1225
+  speech_end_frame: 1350
+  end_frame: 1377
   breath_s: 0.9
 - id: S05-01
   kind: voice
   text: Tóm lại, mưa hoà tan muối từ đá, sông đưa muối ra biển, nước bốc hơi còn muối ở lại.
-  start_frame: 1347
-  speech_end_frame: 1481
-  end_frame: 1499
+  start_frame: 1377
+  speech_end_frame: 1511
+  end_frame: 1529
   breath_s: 0.6
 - id: S05-02
   kind: voice
-  text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
-  start_frame: 1499
-  speech_end_frame: 1602
-  end_frame: 1602
+  text: Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!
+  start_frame: 1529
+  speech_end_frame: 1626
+  end_frame: 1626
   breath_s: 0.0
 voice:
 - segment: S01-01
   file: 04_voice/segments/S01-01.wav
-  start_frame: 0
-  end_frame: 145
+  start_frame: 30
+  end_frame: 175
 - segment: S02-01
   file: 04_voice/segments/S02-01.wav
-  start_frame: 175
-  end_frame: 352
+  start_frame: 205
+  end_frame: 382
 - segment: S02-02
   file: 04_voice/segments/S02-02.wav
-  start_frame: 370
-  end_frame: 498
+  start_frame: 400
+  end_frame: 528
 - segment: S03-01
   file: 04_voice/segments/S03-01.wav
-  start_frame: 528
-  end_frame: 676
+  start_frame: 558
+  end_frame: 706
 - segment: S03-02
   file: 04_voice/segments/S03-02.wav
-  start_frame: 694
-  end_frame: 836
+  start_frame: 724
+  end_frame: 866
 - segment: S04-01
   file: 04_voice/segments/S04-01.wav
-  start_frame: 863
-  end_frame: 999
+  start_frame: 893
+  end_frame: 1029
 - segment: S04-03
   file: 04_voice/segments/S04-03.wav
-  start_frame: 1029
-  end_frame: 1177
+  start_frame: 1059
+  end_frame: 1207
 - segment: S04-04
   file: 04_voice/segments/S04-04.wav
-  start_frame: 1195
-  end_frame: 1320
+  start_frame: 1225
+  end_frame: 1350
 - segment: S05-01
   file: 04_voice/segments/S05-01.wav
-  start_frame: 1347
-  end_frame: 1481
+  start_frame: 1377
+  end_frame: 1511
 - segment: S05-02
   file: 04_voice/segments/S05-02.wav
-  start_frame: 1499
-  end_frame: 1602
+  start_frame: 1529
+  end_frame: 1626
 shots:
+- id: S01-00-a
+  segment: S01-00
+  start_frame: 0
+  end_frame: 30
+  content_end_frame: 30
+  transition_in: cut
+  camera:
+    move: static
 - id: S01-01-a
   segment: S01-01
-  start_frame: 0
-  end_frame: 57
-  content_end_frame: 57
-  transition_in: cut
+  start_frame: 30
+  end_frame: 87
+  content_end_frame: 87
+  transition_in: crossfade
   camera:
     move: pan_down
     amount: 0.1
 - id: S01-01-b
   segment: S01-01
-  start_frame: 57
-  end_frame: 145
-  content_end_frame: 145
+  start_frame: 87
+  end_frame: 175
+  content_end_frame: 175
   transition_in: zoom_through
   camera:
     move: static
 - id: S01-02-a
   segment: S01-02
-  start_frame: 145
-  end_frame: 175
-  content_end_frame: 175
+  start_frame: 175
+  end_frame: 205
+  content_end_frame: 205
   transition_in: match_cut
   camera:
     move: zoom_in
     amount: 0.05
 - id: S02-01-a
   segment: S02-01
-  start_frame: 175
-  end_frame: 370
-  content_end_frame: 352
+  start_frame: 205
+  end_frame: 400
+  content_end_frame: 382
   transition_in: crossfade
   camera:
     move: pan_down
     amount: 0.1
 - id: S02-02-a
   segment: S02-02
-  start_frame: 370
-  end_frame: 415
-  content_end_frame: 415
+  start_frame: 400
+  end_frame: 445
+  content_end_frame: 445
   transition_in: push_up
   camera:
     move: static
 - id: S02-02-b
   segment: S02-02
-  start_frame: 415
-  end_frame: 498
-  content_end_frame: 498
+  start_frame: 445
+  end_frame: 528
+  content_end_frame: 528
   transition_in: match_cut
   camera:
     move: zoom_in
     amount: 0.25
 - id: S02-03-a
   segment: S02-03
-  start_frame: 498
-  end_frame: 528
-  content_end_frame: 528
+  start_frame: 528
+  end_frame: 558
+  content_end_frame: 558
   transition_in: match_cut
   camera:
     move: pan_right
     amount: 0.15
 - id: S03-01-a
   segment: S03-01
-  start_frame: 528
-  end_frame: 580
-  content_end_frame: 580
+  start_frame: 558
+  end_frame: 610
+  content_end_frame: 610
   transition_in: crossfade
   camera:
     move: zoom_out
     amount: 0.2
 - id: S03-01-b
   segment: S03-01
-  start_frame: 580
-  end_frame: 694
-  content_end_frame: 676
+  start_frame: 610
+  end_frame: 724
+  content_end_frame: 706
   transition_in: match_cut
   camera:
     move: static
 - id: S03-02-a
   segment: S03-02
-  start_frame: 694
-  end_frame: 768
-  content_end_frame: 768
+  start_frame: 724
+  end_frame: 798
+  content_end_frame: 798
   transition_in: cut
   camera:
     move: static
 - id: S03-02-b
   segment: S03-02
-  start_frame: 768
-  end_frame: 863
-  content_end_frame: 836
+  start_frame: 798
+  end_frame: 893
+  content_end_frame: 866
   transition_in: zoom_through
   camera:
     move: zoom_out
     amount: 0.3
 - id: S04-01-a
   segment: S04-01
-  start_frame: 863
-  end_frame: 999
-  content_end_frame: 999
+  start_frame: 893
+  end_frame: 1029
+  content_end_frame: 1029
   transition_in: crossfade
   camera:
     move: static
 - id: S04-02-a
   segment: S04-02
-  start_frame: 999
-  end_frame: 1029
-  content_end_frame: 1029
+  start_frame: 1029
+  end_frame: 1059
+  content_end_frame: 1059
   transition_in: match_cut
   camera:
     move: static
 - id: S04-03-a
   segment: S04-03
-  start_frame: 1029
-  end_frame: 1062
-  content_end_frame: 1062
+  start_frame: 1059
+  end_frame: 1092
+  content_end_frame: 1092
   transition_in: push_left
   camera:
     move: static
 - id: S04-03-b
   segment: S04-03
-  start_frame: 1062
-  end_frame: 1195
-  content_end_frame: 1177
+  start_frame: 1092
+  end_frame: 1225
+  content_end_frame: 1207
   transition_in: crossfade
   camera:
     move: zoom_out
     amount: 0.15
 - id: S04-04-a
   segment: S04-04
-  start_frame: 1195
-  end_frame: 1347
-  content_end_frame: 1320
+  start_frame: 1225
+  end_frame: 1377
+  content_end_frame: 1350
   transition_in: zoom_through
   camera:
     move: zoom_in
     amount: 0.2
 - id: S05-01-a
   segment: S05-01
-  start_frame: 1347
-  end_frame: 1499
-  content_end_frame: 1481
+  start_frame: 1377
+  end_frame: 1529
+  content_end_frame: 1511
   transition_in: crossfade
   camera:
     move: static
 - id: S05-02-a
   segment: S05-02
-  start_frame: 1499
-  end_frame: 1602
-  content_end_frame: 1602
+  start_frame: 1529
+  end_frame: 1626
+  content_end_frame: 1626
   transition_in: crossfade
   camera:
     move: static
@@ -296,528 +311,528 @@ cues:
 - shot: S01-01-a
   element: e1
   event: enter
-  frame: 0
+  frame: 30
   anim: fade
   dur_frames: 18
   ease: ease_out
 - shot: S01-01-a
   element: e1
   event: loop
-  frame: 0
+  frame: 30
   anim: flow
   period_frames: 45
 - shot: S01-01-b
   element: e1
   event: enter
-  frame: 57
+  frame: 87
   anim: pop
   dur_frames: 12
   ease: back_out
 - shot: S01-01-b
   element: e2
   event: enter
-  frame: 70
+  frame: 100
   anim: pop
   dur_frames: 12
   ease: back_out
 - shot: S01-01-b
   element: e4
   event: enter
-  frame: 90
+  frame: 120
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S01-01-b
   element: e3
   event: enter
-  frame: 110
+  frame: 140
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S01-01-b
   element: e3
   event: loop
-  frame: 110
+  frame: 140
   anim: bob
   period_frames: 45
 - shot: S01-02-a
   element: e3
   event: loop
-  frame: 145
+  frame: 175
   anim: wiggle
   period_frames: 45
 - shot: S01-02-a
   element: e4
   event: exit
-  frame: 175
+  frame: 205
   anim: fade
   dur_frames: 9
   ease: ease_in
 - shot: S02-01-a
   element: e1
   event: enter
-  frame: 175
+  frame: 205
   anim: fade
   dur_frames: 12
   ease: ease_out
 - shot: S02-01-a
   element: e2
   event: enter
-  frame: 184
+  frame: 214
   anim: drop
   dur_frames: 18
   ease: ease_in
 - shot: S02-01-a
   element: e3
   event: enter
-  frame: 237
+  frame: 267
   anim: slide_right
   dur_frames: 21
   ease: ease_in_out
 - shot: S02-01-a
   element: e3
   event: exit
-  frame: 281
+  frame: 311
   anim: scale_out
   dur_frames: 9
   ease: ease_out
 - shot: S02-01-a
   element: e4
   event: enter
-  frame: 285
+  frame: 315
   anim: morph
   dur_frames: 12
   ease: ease_out
 - shot: S02-01-a
   element: e4
   event: loop
-  frame: 285
+  frame: 315
   anim: pulse
   period_frames: 45
 - shot: S02-01-a
   element: e5
   event: enter
-  frame: 295
+  frame: 325
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S02-02-a
   element: e1
   event: enter
-  frame: 370
+  frame: 400
   anim: slide_up
   dur_frames: 15
   ease: ease_out
 - shot: S02-02-a
   element: e2
   event: enter
-  frame: 374
+  frame: 404
   anim: drop
   dur_frames: 18
   ease: ease_in
 - shot: S02-02-a
   element: e2
   event: loop
-  frame: 374
+  frame: 404
   anim: flow
   period_frames: 45
 - shot: S02-02-b
   element: e2
   event: enter
-  frame: 427
+  frame: 457
   anim: grow
   dur_frames: 24
   ease: ease_out
 - shot: S02-02-b
   element: e2
   event: loop
-  frame: 427
+  frame: 457
   anim: shimmer
   period_frames: 45
 - shot: S02-02-b
   element: e3
   event: enter
-  frame: 452
+  frame: 482
   anim: pop
   dur_frames: 9
   ease: back_out
 - shot: S02-03-a
   element: e2
   event: enter
-  frame: 498
+  frame: 528
   anim: slide_right
   dur_frames: 30
   ease: ease_in_out
 - shot: S03-01-a
   element: e1
   event: enter
-  frame: 528
+  frame: 558
   anim: draw
   dur_frames: 42
   ease: ease_out
 - shot: S03-01-a
   element: e1
   event: loop
-  frame: 528
+  frame: 558
   anim: flow
   period_frames: 45
 - shot: S03-01-b
   element: e1
   event: loop
-  frame: 580
+  frame: 610
   anim: flow
   period_frames: 45
 - shot: S03-01-b
   element: e2
   event: enter
-  frame: 580
+  frame: 610
   anim: scale_in
   dur_frames: 15
   ease: back_out
 - shot: S03-01-b
   element: e3
   event: enter
-  frame: 599
+  frame: 629
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S03-02-a
   element: e1
   event: loop
-  frame: 694
+  frame: 724
   anim: flow
   period_frames: 45
 - shot: S03-02-a
   element: e2
   event: enter
-  frame: 694
+  frame: 724
   anim: slide_down
   dur_frames: 15
   ease: ease_out
 - shot: S03-02-a
   element: e3
   event: enter
-  frame: 701
+  frame: 731
   anim: drop
   dur_frames: 18
   ease: ease_in
 - shot: S03-02-a
   element: e3
   event: loop
-  frame: 701
+  frame: 731
   anim: flow
   period_frames: 45
 - shot: S03-02-a
   element: e4
   event: enter
-  frame: 709
+  frame: 739
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S03-02-b
   element: e1
   event: enter
-  frame: 768
+  frame: 798
   anim: fade
   dur_frames: 15
   ease: ease_out
 - shot: S03-02-b
   element: e1
   event: loop
-  frame: 768
+  frame: 798
   anim: flow
   period_frames: 45
 - shot: S03-02-b
   element: e2
   event: loop
-  frame: 768
+  frame: 798
   anim: pulse
   period_frames: 36
 - shot: S03-02-b
   element: e3
   event: enter
-  frame: 768
+  frame: 798
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S04-01-a
   element: e1
   event: enter
-  frame: 863
+  frame: 893
   anim: scale_in
   dur_frames: 15
   ease: back_out
 - shot: S04-01-a
   element: e1
   event: loop
-  frame: 863
+  frame: 893
   anim: rotate
   period_frames: 240
 - shot: S04-01-a
   element: e2
   event: loop
-  frame: 863
+  frame: 893
   anim: bob
   period_frames: 75
 - shot: S04-01-a
   element: e3
   event: enter
-  frame: 877
+  frame: 907
   anim: slide_up
   dur_frames: 30
   ease: ease_out
 - shot: S04-01-a
   element: e3
   event: loop
-  frame: 877
+  frame: 907
   anim: flow
   period_frames: 45
 - shot: S04-01-a
   element: e4
   event: enter
-  frame: 924
+  frame: 954
   anim: pop
   dur_frames: 12
   ease: back_out
 - shot: S04-01-a
   element: e6
   event: enter
-  frame: 931
+  frame: 961
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S04-01-a
   element: e7
   event: enter
-  frame: 942
+  frame: 972
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S04-01-a
   element: e5
   event: enter
-  frame: 945
+  frame: 975
   anim: fade
   dur_frames: 12
   ease: ease_out
 - shot: S04-01-a
   element: e5
   event: loop
-  frame: 945
+  frame: 975
   anim: shimmer
   period_frames: 45
 - shot: S04-02-a
   element: e1
   event: loop
-  frame: 999
+  frame: 1029
   anim: rotate
   period_frames: 240
 - shot: S04-02-a
   element: e2
   event: loop
-  frame: 999
+  frame: 1029
   anim: bob
   period_frames: 75
 - shot: S04-02-a
   element: e5
   event: loop
-  frame: 999
+  frame: 1029
   anim: shimmer
   period_frames: 45
 - shot: S04-02-a
   element: e4
   event: exit
-  frame: 1005
+  frame: 1035
   anim: slide_left
   dur_frames: 24
   ease: ease_in
 - shot: S04-02-a
   element: e6
   event: exit
-  frame: 1029
+  frame: 1059
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S04-03-a
   element: e1
   event: enter
-  frame: 1029
+  frame: 1059
   anim: slide_left
   dur_frames: 15
   ease: ease_out
 - shot: S04-03-a
   element: e2
   event: enter
-  frame: 1036
+  frame: 1066
   anim: drop
   dur_frames: 15
   ease: ease_in
 - shot: S04-03-a
   element: e2
   event: loop
-  frame: 1036
+  frame: 1066
   anim: flow
   period_frames: 45
 - shot: S04-03-b
   element: e1
   event: enter
-  frame: 1062
+  frame: 1092
   anim: draw
   dur_frames: 30
   ease: ease_out
 - shot: S04-03-b
   element: e1
   event: loop
-  frame: 1062
+  frame: 1092
   anim: rotate
   period_frames: 90
 - shot: S04-03-b
   element: e2
   event: enter
-  frame: 1079
+  frame: 1109
   anim: typewriter
   dur_frames: 30
   ease: ease_out
 - shot: S04-03-b
   element: e4
   event: enter
-  frame: 1102
+  frame: 1132
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S04-03-b
   element: e4
   event: loop
-  frame: 1102
+  frame: 1132
   anim: bob
   period_frames: 75
 - shot: S04-03-b
   element: e3
   event: enter
-  frame: 1131
+  frame: 1161
   anim: scale_in
   dur_frames: 15
   ease: ease_out
 - shot: S04-03-b
   element: e3
   event: loop
-  frame: 1131
+  frame: 1161
   anim: pulse
   period_frames: 45
 - shot: S04-04-a
   element: e1
   event: enter
-  frame: 1195
+  frame: 1225
   anim: fade
   dur_frames: 15
   ease: ease_out
 - shot: S04-04-a
   element: e1
   event: loop
-  frame: 1195
+  frame: 1225
   anim: pulse
   period_frames: 45
 - shot: S04-04-a
   element: e2
   event: enter
-  frame: 1207
+  frame: 1237
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S04-04-a
   element: e3
   event: enter
-  frame: 1283
+  frame: 1313
   anim: slide_up
   dur_frames: 24
   ease: ease_out
 - shot: S04-04-a
   element: e3
   event: loop
-  frame: 1283
+  frame: 1313
   anim: flow
   period_frames: 45
 - shot: S05-01-a
   element: e1
   event: enter
-  frame: 1360
+  frame: 1390
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S05-01-a
   element: e6
   event: enter
-  frame: 1360
+  frame: 1390
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S05-01-a
   element: e2
   event: enter
-  frame: 1394
+  frame: 1424
   anim: draw
   dur_frames: 9
   ease: ease_out
 - shot: S05-01-a
   element: e3
   event: enter
-  frame: 1401
+  frame: 1431
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S05-01-a
   element: e7
   event: enter
-  frame: 1401
+  frame: 1431
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S05-01-a
   element: e4
   event: enter
-  frame: 1427
+  frame: 1457
   anim: draw
   dur_frames: 9
   ease: ease_out
 - shot: S05-01-a
   element: e5
   event: enter
-  frame: 1434
+  frame: 1464
   anim: pop
   dur_frames: 10
   ease: back_out
 - shot: S05-01-a
   element: e8
   event: enter
-  frame: 1434
+  frame: 1464
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S05-02-a
   element: e4
   event: enter
-  frame: 1499
+  frame: 1529
   anim: scale_in
   dur_frames: 12
   ease: back_out
 - shot: S05-02-a
   element: e3
   event: enter
-  frame: 1509
+  frame: 1539
   anim: fade
   dur_frames: 9
   ease: ease_out
 - shot: S05-02-a
   element: e1
   event: enter
-  frame: 1535
+  frame: 1563
   anim: pop
   dur_frames: 12
   ease: back_out
 - shot: S05-02-a
   element: e1
   event: loop
-  frame: 1535
+  frame: 1563
   anim: pulse
   period_frames: 36
 sfx:
@@ -825,30 +840,30 @@ sfx:
   shot: S01-01-b
   target: e3
   event: enter
-  frame: 110
+  frame: 140
 - name: lách tách nhẹ
   shot: S02-02-b
   target: e2
   event: enter
-  frame: 427
+  frame: 457
 - name: nước chảy róc rách
   shot: S02-03-a
   target: e2
   event: enter
-  frame: 498
+  frame: 528
 - name: pop nhẹ
   shot: S04-01-a
   target: e4
   event: enter
-  frame: 924
+  frame: 954
 - name: whoosh nhẹ
   shot: S04-02-a
   target: e4
   event: exit
-  frame: 1005
+  frame: 1035
 - name: click
   shot: S05-02-a
   target: e1
   event: enter
-  frame: 1535
+  frame: 1563
 music: []

@@ -1,153 +1,163 @@
-total_s: 49.232
+total_s: 50.028
 segments:
+- id: S01-00
+  kind: silent
+  start_s: 0.0
+  dur_s: 1.0
+  source: silent
+  text: null
 - id: S01-01
   kind: voice
-  start_s: 0.0
+  start_s: 1.0
   dur_s: 4.84
   source: scratch
   text: Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối trong biển từ đâu mà có?
 - id: S01-02
   kind: silent
-  start_s: 4.84
+  start_s: 5.84
   dur_s: 1.0
   source: silent
   text: null
 - id: S02-01
   kind: voice
-  start_s: 5.84
+  start_s: 6.84
   dur_s: 5.91
   source: scratch
   text: Câu trả lời bắt đầu từ nước mưa. Khi rơi qua bầu trời, mưa hoà tan khí cacbonic nên hơi có tính axit.
 - id: S02-02
   kind: voice
-  start_s: 11.75
+  start_s: 12.75
   dur_s: 4.28
   source: scratch
   text: Nước mưa ấy chảy trên đá, bào mòn dần và hoà tan các khoáng chất li ti, trong đó có muối.
 - id: S02-03
   kind: silent
-  start_s: 16.03
+  start_s: 17.03
   dur_s: 1.0
   source: silent
   text: null
 - id: S03-01
   kind: voice
-  start_s: 17.03
+  start_s: 18.03
   dur_s: 4.94
   source: scratch
   text: Nước mưa chảy về suối, về sông, mang theo một lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
 - id: S03-02
   kind: voice
-  start_s: 21.97
+  start_s: 22.97
   dur_s: 4.73
   source: scratch
   text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển nhận muối từ tất cả các dòng sông.
 - id: S04-01
   kind: voice
-  start_s: 26.7
+  start_s: 27.7
   dur_s: 4.53
   source: scratch
   text: Dưới nắng, nước biển bốc hơi thành mây. Nhưng muối không bốc hơi theo, mà ở lại trong biển.
 - id: S04-02
   kind: silent
-  start_s: 31.23
+  start_s: 32.23
   dur_s: 1.0
   source: silent
   text: null
 - id: S04-03
   kind: voice
-  start_s: 32.23
+  start_s: 33.23
   dur_s: 4.92
   source: scratch
   text: Mây lại đổ mưa, vòng tuần hoàn ấy lặp lại suốt hàng triệu năm, khiến muối trong biển tích tụ dần.
 - id: S04-04
   kind: voice
-  start_s: 37.15
+  start_s: 38.15
   dur_s: 4.18
   source: scratch
   text: Ngoài ra, núi lửa và các khe nứt nóng dưới đáy biển cũng bổ sung thêm khoáng chất vào nước.
 - id: S05-01
   kind: voice
-  start_s: 41.33
+  start_s: 42.33
   dur_s: 4.46
   source: scratch
   text: Tóm lại, mưa hoà tan muối từ đá, sông đưa muối ra biển, nước bốc hơi còn muối ở lại.
 - id: S05-02
   kind: voice
-  start_s: 45.79
-  dur_s: 3.442
+  start_s: 46.79
+  dur_s: 3.238
   source: scratch
-  text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
+  text: Đăng ký kênh để Khỉ khám phá cùng bạn thêm nhiều hiện tượng khoa học nhé!
 shots:
+- id: S01-00-a
+  segment: S01-00
+  start_s: 0.0
+  dur_s: 1.0
 - id: S01-01-a
   segment: S01-01
-  start_s: 0.0
+  start_s: 1.0
   dur_s: 1.888
 - id: S01-01-b
   segment: S01-01
-  start_s: 1.888
+  start_s: 2.888
   dur_s: 2.952
 - id: S01-02-a
   segment: S01-02
-  start_s: 4.84
+  start_s: 5.84
   dur_s: 1.0
 - id: S02-01-a
   segment: S02-01
-  start_s: 5.84
+  start_s: 6.84
   dur_s: 5.91
 - id: S02-02-a
   segment: S02-02
-  start_s: 11.75
+  start_s: 12.75
   dur_s: 1.498
 - id: S02-02-b
   segment: S02-02
-  start_s: 13.248
+  start_s: 14.248
   dur_s: 2.782
 - id: S02-03-a
   segment: S02-03
-  start_s: 16.03
+  start_s: 17.03
   dur_s: 1.0
 - id: S03-01-a
   segment: S03-01
-  start_s: 17.03
+  start_s: 18.03
   dur_s: 1.729
 - id: S03-01-b
   segment: S03-01
-  start_s: 18.759
+  start_s: 19.759
   dur_s: 3.211
 - id: S03-02-a
   segment: S03-02
-  start_s: 21.97
+  start_s: 22.97
   dur_s: 2.46
 - id: S03-02-b
   segment: S03-02
-  start_s: 24.43
+  start_s: 25.43
   dur_s: 2.27
 - id: S04-01-a
   segment: S04-01
-  start_s: 26.7
+  start_s: 27.7
   dur_s: 4.53
 - id: S04-02-a
   segment: S04-02
-  start_s: 31.23
+  start_s: 32.23
   dur_s: 1.0
 - id: S04-03-a
   segment: S04-03
-  start_s: 32.23
+  start_s: 33.23
   dur_s: 1.082
 - id: S04-03-b
   segment: S04-03
-  start_s: 33.312
+  start_s: 34.312
   dur_s: 3.838
 - id: S04-04-a
   segment: S04-04
-  start_s: 37.15
+  start_s: 38.15
   dur_s: 4.18
 - id: S05-01-a
   segment: S05-01
-  start_s: 41.33
+  start_s: 42.33
   dur_s: 4.46
 - id: S05-02-a
   segment: S05-02
-  start_s: 45.79
-  dur_s: 3.442
+  start_s: 46.79
+  dur_s: 3.238

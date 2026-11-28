@@ -344,3 +344,27 @@ def test_target_speed_from_channel(project, monkeypatch, tmp_path):
     brief.pop("voice_profile", None); brief["channel_ref"] = "kenh"
     write_yaml(project / "00_brief" / "brief.yaml", brief)
     assert v.target_speed(project, channels_dir=tmp_path / "channels") == 4.15
+
+
+def test_only_keeps_track_speed_and_pitch_reference(project, monkeypatch, good_script):
+    """--only dựng lại một đoạn: mốc trung vị tốc độ và cao độ phải tính cả các đoạn giữ nguyên,
+    không chỉ riêng các lượt mới (lỗi phát hiện 28/11: câu kết nhanh 30% mà không được cân, cao độ lệch 1,2 nửa cung)."""
+    gate_open(monkeypatch)
+    segs = voice_segments(good_script)
+    write_yaml(project / "01_script" / "script.yaml", good_script)
+    voice.synth_all(project, PitchyEngine(), takes=3, even_speed=0.12)        # cả bài: cao độ chung 120 Hz
+    last = segs[-1]["id"]
+
+    class FastOnly(PitchyEngine):
+        """Đoạn cuối dựng lại: đọc nhanh hơn hẳn; ba lượt cao độ 150/132/120 → lượt 120 Hz mới khớp cả bài."""
+        def synth(self, text, voice_name):
+            k = self.n.get(text, 0); self.n[text] = k + 1
+            f = (150, 132, 120)[k % 3]
+            t = np.arange(int(syllables(text) * 0.16 * SR)) / SR
+            pad = np.zeros(int(0.5 * SR))
+            return np.concatenate([pad, 0.3 * np.sin(2 * np.pi * f * t), pad]).astype(np.float32), SR
+
+    m = voice.synth_all(project, FastOnly(), takes=3, only={last}, even_speed=0.12)
+    e = next(x for x in m["segments"] if x["id"] == last)
+    assert e["tempo"] < 1.0                                             # được cân theo trung vị cả bài
+    assert _f0(project / "04_voice" / e["file"]) == pytest.approx(120, rel=0.04)

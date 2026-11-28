@@ -1,0 +1,25 @@
+TML-C03:
+  verdict: pass
+  evidence: 'Timeline khoá theo giọng thật lời văn nghiêm túc: 1626 khung = 54,2 giây, 19 khung hình, 79 cue, 6 SFX (28/11 22:55: thêm thumbnail S01-00-a 30 khung ở đầu, câu kết mới ngắn hơn 6 khung; mọi mốc dời +30 khung, độ lệch hình–lời giữ nguyên, số khung dưới đây đã cộng 30) (màn kết S05-02-a bớt chuông và Khỉ thứ hai nên giảm 4 cue so với 83 trước đó). Dựng lại sau khi đổi sang storyboard dọc 9:16: so với bản ngang, mọi start/end khung hình, các cue còn lại và rãnh giọng trùng khớp; chỉ khác camera S01-01-a pan_right → pan_down (lia theo dòng sông chảy xuống). Đã đối chiếu 12 mốc với vị trí từ khoá trong lời (ước theo tỉ lệ âm tiết trong đoạn):
+
+    - Khỉ thắc mắc (khung 140) so với "từ đâu mà có": sớm 0,23 giây.
+
+    - Nhãn "axit nhẹ": lần dựng đầu sớm 2,1 giây; đã lùi trong storyboard (0,56 → 0,68), giờ ở khung 325, sớm 1,4 giây. Chưa lùi thêm được vì DSN-A07 cần nhãn hiện ≥ 1,6 giây; trước đây các nhãn vào sớm 1,3–1,5 giây đã được chấp nhận vì cần thời gian đọc.
+
+    - Nhãn "muối": sớm 1,1 giây. "rất ít muối": sớm 0,5 giây. "nước ngọt mới": sớm 0,8 giây. "Muối dồn về biển": sớm 1,2 giây so với "tất cả các dòng sông", nhưng hiện cùng lúc câu "Còn biển nhận muối" bắt đầu.
+
+    - "Nước bay đi, muối ở lại": muộn 0,13 giây so với "muối không bốc hơi"; Khỉ ngạc nhiên muộn 0,5 giây.
+
+    - "hàng triệu năm" (gõ chữ): sớm 0,9 giây; Khỉ ôm Trái Đất sớm 0,17 giây.
+
+    - "Nguồn thêm: đáy biển": đúng lúc "núi lửa". Khoáng chất bay lên: sớm 0,4 giây so với "khoáng chất".
+
+    Các nhãn vào sớm khoảng 1 giây là có chủ ý để kịp đọc. Không cue nào muộn hơn lời quá 0,5 giây.
+
+    SFX: pop khi Khỉ thắc mắc hiện; lách tách khi hạt muối bong khỏi đá; róc rách khi muối trôi; pop nhẹ khi mây hiện; whoosh khi mây trôi đi; click khi nút đăng ký hiện — đều đúng hành động.'
+TML-C05:
+  verdict: na
+  evidence: 'Rãnh music rỗng: công đoạn này chưa dùng nhạc nền. Nhạc (có giấy phép, ducking) sẽ được chọn và kiểm ở Tool mix (09).'
+TML-C07:
+  verdict: pass
+  evidence: 'params: breath 0,6 giây (cùng cảnh), breath_scene 0,9 giây, question_extra 0,1 giây. Ngắt giữa câu trong đoạn 0,45 giây (câu hỏi 0,55). 6 chỗ ngắt đoạn: S02-01, S03-01, S04-03, S05-01 = 0,6 giây; S03-02, S04-04 = 0,9 giây (sang cảnh). Đúng các giá trị chủ dự án đã nghe và xác nhận "ổn" ở giong_ban_3_toan_bai.mp3 (28/11).'

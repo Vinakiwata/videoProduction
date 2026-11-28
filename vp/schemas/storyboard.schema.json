@@ -457,6 +457,10 @@
           },
           "notes": {
             "type": "string"
+          },
+          "thumbnail": {
+            "type": "boolean",
+            "description": "Khung thumbnail (ảnh bìa) — chỉ khung đầu tiên; miễn thời gian đọc (DSN-A07) và không tính lần linh vật phản ứng (DSN-A11)."
           }
         }
       }

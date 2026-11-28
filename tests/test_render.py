@@ -207,3 +207,21 @@ def test_rnd_a06_samples_mid_and_transition_frames():
     many = [{"frame": i, "role": "mid" if i % 2 else "transition"} for i in range(40)]
     got = sample_frames(many, 12)
     assert len(got) == 12 and got[0] == 0 and got[-1] == 39
+
+
+@NEED
+def test_render_exports_thumbnail_png_when_first_shot_marked(built):
+    import yaml
+    from PIL import Image
+    from conftest import write_yaml
+    rt.build(built, check_gate=False)
+    assert not (built / "08_render" / "thumbnail.png").exists()        # khung đầu không đánh dấu → không xuất
+    sb = yaml.safe_load((built / "02_design" / "storyboard.yaml").read_text(encoding="utf-8"))
+    sb["shots"][0]["thumbnail"] = True
+    write_yaml(built / "02_design" / "storyboard.yaml", sb)
+    pt.build(built)
+    rt.build(built, check_gate=False)
+    im = Image.open(built / "08_render" / "thumbnail.png")
+    assert im.size == (1920, 1080) and im.format == "PNG"
+    man = json.loads((built / "08_render" / "manifest.json").read_text(encoding="utf-8"))
+    assert man["thumbnail"] == "thumbnail.png"

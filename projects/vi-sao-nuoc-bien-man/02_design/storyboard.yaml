@@ -44,6 +44,20 @@ assets:
   - {id: A-KHI-LOGO, kind: mascot, expression: logo, description: 'Logo tròn Khỉ Khám Phá có bảng tên gỗ — cảnh kết', colors: ['#FFC907', '#5E270E', '#0078E0', '#669F2D']}
 shots:
   # ---------------- S01 Móc ----------------
+  - id: S01-00-a
+    segment: S01-00
+    thumbnail: true
+    span: [0, 1]
+    purpose: Thumbnail — nêu thẳng câu hỏi của video, cũng là ảnh bìa Shorts/TikTok (chủ dự án chọn phương án A ngày 28/11/2026)
+    background: '#0B3D91'
+    focal: e2
+    camera: {move: static}
+    transition_in: cut
+    elements:
+      - {id: e1, asset: A-BIEN, box: {x: 0, y: 0, w: 100, h: 100}}
+      - {id: e2, text: "Vì sao\nnước biển\nlại mặn?", style: title, font_px: 128, color: '#FFC907', box: {x: 7, y: 12, w: 76, h: 27.5}}
+      - {id: e3, asset: A-KHI-THAC-MAC, box: {x: 44, y: 53, w: 40, h: 22.5}}
+    notes: Khung tĩnh, mọi phần tử hiện đủ ngay khung 0 (không lượt vào) để khung đầu làm ảnh bìa; chỉ sóng biển dập dềnh. Chuyển mờ sang cảnh cửa sông khi lời đọc bắt đầu.
   - id: S01-01-a
     segment: S01-01
     span: [0, 0.39]
@@ -51,7 +65,7 @@ shots:
     background: '#0B3D91'
     focal: e1
     camera: {move: pan_down, amount: 0.1}
-    transition_in: cut
+    transition_in: crossfade
     elements:
       - {id: e1, asset: A-CUA-SONG, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.6, ease: ease_out}, loop: {anim: flow}}
     notes: Một cảnh cửa sông duy nhất — gợn sóng trôi xuôi dòng từ trên xuống (flow), lớp waves dập dềnh (bob 2,5 s); cửa sông ở khoảng 65% chiều cao; camera lia xuống theo dòng chảy.
