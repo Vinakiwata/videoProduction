@@ -1,0 +1,19 @@
+ATC-C01:
+  verdict: pass
+  evidence: Animatic dựng bằng giọng thật (47,9 giây). Nhịp hình theo đúng storyboard đã duyệt; các mốc hình co giãn theo tỉ lệ đoạn nên tương quan giữ nguyên so với bản trích 49 khung trước (không khoảng nào > 4 giây không đổi hình, dài nhất S04-04-a ≈ 3,3 giây có camera và núi lửa nhấp nháy). Ngắt giữa các đoạn (0,6–0,9 giây) sẽ do timeline thêm; hình được giữ lại qua các khoảng ngắt.
+ATC-C02:
+  verdict: pass
+  evidence: 'Che dải phụ đề vẫn đọc được mạch: sông ra biển → 2 cốc + "Sông ngọt → Biển mặn?" → giọt mưa "axit nhẹ" → đá, hạt bong ra "muối" → suối thành sông, kính lúp "rất ít muối" → mưa xuống sông "nước ngọt mới" → bản đồ "Muối dồn về biển" → mặt trời, hơi nước "Nước bay đi, muối ở lại" → vòng tuần hoàn "hàng triệu năm" → đáy biển "Nguồn thêm" → Mưa → Sông → Bốc hơi → nút đăng ký "Mỗi tuần một hiện tượng". Đây là wireframe; hình thật ở Tool 06 phải giữ đúng chuỗi và nhãn này.'
+ATC-C03:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: Chủ dự án nghe bản giọng 3 (giong_ban_3_toan_bai.mp3, 28/11/2026 10:43) và trả lời "ổn" cho phiếu nghe, gồm mục "chỉ nghe, không nhìn có chỗ nào dễ hiểu sai". Hai lỗi phát hiện ở các bản trước (cacbonic đọc sai, ngắt câu chưa tự nhiên) đã sửa trước bản này.
+ATC-C04:
+  verdict: pass
+  evidence: 00:00 dòng sông vẽ ra; 00:01 biển; 00:02 zoom xuyên sang khung hai cốc; 00:03 dấu hỏi vàng + "Sông ngọt → Biển mặn?". Nghịch lý được nói và hiện ngay từ giây 0.
+ATC-C05:
+  verdict: pass
+  evidence: Cấu trúc nhân quả giữ nguyên. Tổng dự kiến sau timeline ≈ 52 giây so với mục tiêu 50 (+4%). Chủ dự án đã nghe và chấp nhận giọng, nhịp. Không cần đổi cấu trúc.
+ATC-C06:
+  verdict: pass
+  evidence: 'timing.yaml: cả 10 đoạn giọng có source = scratch (giọng VieNeu Hải Đăng thật, theo câu, ngắt 0,45/0,55 giây). manifest.voice_source = scratch. Tổng 47,9 giây (chưa gồm ngắt giữa các đoạn, do timeline thêm vào).'

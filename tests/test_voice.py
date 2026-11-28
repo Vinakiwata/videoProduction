@@ -217,3 +217,40 @@ def test_quality_relative_speed(project, monkeypatch):
     write_yaml(project / "04_voice" / "voice_manifest.yaml", man)
     r = run_check("voice_segment_quality", project, q)
     assert r.status == "fail" and "trung vị" in r.evidence
+
+
+def test_split_sentences():
+    assert voice.split_sentences("Sông đổ ra biển. Vậy mà mặn chát. Muối từ đâu ra?") == [
+        "Sông đổ ra biển.", "Vậy mà mặn chát.", "Muối từ đâu ra?"]
+    assert voice.split_sentences("Một câu, có dấu phẩy") == ["Một câu, có dấu phẩy"]
+
+
+def test_per_sentence_pauses(project, monkeypatch, good_script):
+    gate_open(monkeypatch)
+    good_script["scenes"][0]["segments"][0]["text"] = "Trời xanh lắm. Vì sao vậy? Cùng tìm hiểu nhé."
+    write_yaml(project / "01_script" / "script.yaml", good_script)
+    eng = FakeEngine()
+    man = voice.synth_all(project, eng, pause_sentence=0.35, pause_question=0.45)  # tham số tường minh
+    first = man["segments"][0]
+    assert first["sentences"] == 3
+    assert [c[0] for c in eng.calls[:3]] == ["Trời xanh lắm.", "Vì sao vậy?", "Cùng tìm hiểu nhé."]
+    assert 0.38 <= first["max_gap_s"] <= 0.5                # khoảng ngắt dài nhất ~0,45 giây sau câu hỏi
+    n = syllables(good_script["scenes"][0]["segments"][0]["text"])
+    assert first["duration_s"] == pytest.approx(n * 0.3 + 0.35 + 0.45 + 0.16, abs=0.08)
+    assert man["pauses"]["question_s"] == 0.45
+
+
+def test_recording_per_sentence_files(project, monkeypatch, good_script):
+    gate_open(monkeypatch)
+    good_script["scenes"][0]["segments"][0]["text"] = "Câu một ngắn. Câu hai ngắn."
+    write_yaml(project / "01_script" / "script.yaml", good_script)
+    rec = project / "04_voice" / "recordings"
+    rec.mkdir(parents=True)
+    import vp.voice as V
+    for s in voice_segments(good_script):
+        parts = voice.split_sentences(s["text"])
+        for k, sent in enumerate(parts, 1):
+            a, _ = FakeEngine().synth(sent, "x")
+            V._write_wav(rec / f"{s['id']}_s{k}_t1.wav", a)
+    man = voice.synth_all(project, voice.RecordingEngine(project), takes=1)
+    assert man["segments"][0]["sentences"] == 2

@@ -10,7 +10,7 @@ Giữa hai công đoạn luôn có một **cổng kiểm duyệt theo checklist*
 | 2 | Thiết kế nội dung & storyboard | `02_design` | checklist ✅ · tool ✅ (`vp design …`, skill `vp-thiet-ke`) |
 | 3 | Animatic | `03_animatic` | checklist ✅ · tool ✅ (`vp animatic build`, skill `vp-animatic`) |
 | 4 | Giọng đọc (VieNeu-TTS) | `04_voice` | checklist ✅ · tool ✅ (`vp voice …`, skill `vp-giong-doc`; chạy thật cần mạng hoặc file thu âm) |
-| 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ⏳ |
+| 5 | Timeline tổng | `05_timeline` | checklist ✅ · tool ✅ (`vp timeline build`, skill `vp-timeline`) |
 | 6 | Hoạt ảnh 2D | `06_animation` | checklist ✅ · tool ⏳ |
 | 7 | Web trình chiếu 1920×1080 | `07_presentation` | checklist ✅ · tool ⏳ |
 | 8 | Render khung hình | `08_render` | checklist ✅ · tool ⏳ |
@@ -37,6 +37,8 @@ python -m vp design init|preview|view|lint projects/<dự án>
 # Giọng đọc
 python -m vp voice synth projects/<dự án> [--engine recording]
 python -m vp voice sheet|calibrate|to-animatic projects/<dự án>
+# Timeline
+python -m vp timeline build projects/<dự án>
 # Animatic
 python -m vp animatic build projects/<dự án>
 # Cổng duyệt

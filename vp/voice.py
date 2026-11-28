@@ -40,6 +40,16 @@ def prepare_text(text: str, pronunciation: dict | None) -> str:
     return out
 
 
+def split_sentences(text: str) -> list[str]:
+    """Tách câu theo . ? ! … (giữ dấu). Mỗi câu được đọc riêng để chèn khoảng ngắt có kiểm soát."""
+    parts = [p.strip() for p in re.split(r"(?<=[.!?…])\s+", text.strip()) if p.strip()]
+    return parts or [text.strip()]
+
+
+def pause_after(sentence: str, pause_sentence: float, pause_question: float) -> float:
+    return pause_question if sentence.rstrip().endswith(("?", "!")) else pause_sentence
+
+
 def voice_name(brand_voice: str) -> str:
     return brand_voice.split(":", 1)[1].strip() if ":" in brand_voice else brand_voice.strip()
 
@@ -79,19 +89,29 @@ class RecordingEngine:
         self.dir = Path(project) / DIR / "recordings"
         self.name = name
         self.current_id = None
-        self._served: dict[str, int] = {}
+        self._served: dict = {}
+        self.current_part = None
 
-    def files(self, seg_id: str) -> list[Path]:
+    def files(self, seg_id: str, part: int | None = None) -> list[Path]:
         if not self.dir.is_dir():
             return []
+        if part is not None:
+            return sorted(self.dir.glob(f"{seg_id}_s{part}_t*.*")) or sorted(self.dir.glob(f"{seg_id}_s{part}.*"))
         return sorted({*self.dir.glob(f"{seg_id}.*"), *self.dir.glob(f"{seg_id}_t*.*")})
 
+    def has_parts(self, seg_id: str) -> bool:
+        """Có file theo từng câu (<mã>_s1_t1.wav …) không; nếu không, đọc nguyên đoạn như cũ."""
+        return bool(self.files(seg_id, 1))
+
     def synth(self, text: str, voice_name_: str):
-        files = self.files(self.current_id)
+        part = getattr(self, "current_part", None)
+        files = self.files(self.current_id, part) if part is not None else self.files(self.current_id)
         if not files:
-            raise VoiceError(f"Thiếu file giọng cho {self.current_id} trong {self.dir} (vd. {self.current_id}.m4a hoặc {self.current_id}_t1.wav).")
-        k = self._served.get(self.current_id, 0)
-        self._served[self.current_id] = k + 1
+            what = f"{self.current_id}_s{part}_t1.wav" if part is not None else f"{self.current_id}.m4a hoặc {self.current_id}_t1.wav"
+            raise VoiceError(f"Thiếu file giọng cho {self.current_id} trong {self.dir} (vd. {what}).")
+        key = (self.current_id, part)
+        k = self._served.get(key, 0)
+        self._served[key] = k + 1
         return _decode(files[k % len(files)]), SR
 
 
@@ -179,7 +199,8 @@ def _score(m: dict, target_sps: float) -> float:
 # ---------- dựng ----------
 
 def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = None, check_gate: bool = True,
-              tempo: float = 1.0) -> dict:
+              tempo: float = 1.0, pause_sentence: float = 0.45, pause_question: float = 0.55,
+              per_sentence: bool = True) -> dict:
     project = Path(project)
     if check_gate:
         g = review.gate(project, "animatic")
@@ -203,20 +224,30 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
             entries.append(old[seg["id"]])
             continue
         spoken = prepare_text(seg["text"], pron)
-        best = None
-        for _ in range(max(1, takes)):
-            if hasattr(engine, "current_id"):
-                engine.current_id = seg["id"]
-            raw, sr = engine.synth(spoken, vname)
-            a = loudnorm(trim(_resample(np.asarray(raw, dtype=np.float32), sr)), tempo)
-            m = measure(a, seg["text"])
-            if best is None or _score(m, target_sps) < _score(best[1], target_sps):
-                best = (a, m)
-        a, m = best
+        use_parts = per_sentence and (not hasattr(engine, "has_parts") or engine.has_parts(seg["id"]))
+        sentences = split_sentences(spoken) if use_parts else [spoken]
+        pieces = []
+        for k, sent in enumerate(sentences, 1):
+            best = None
+            for _ in range(max(1, takes)):
+                if hasattr(engine, "current_id"):
+                    engine.current_id = seg["id"]
+                    engine.current_part = k if use_parts else None
+                raw, sr = engine.synth(sent, vname)
+                part = trim(_resample(np.asarray(raw, dtype=np.float32), sr))
+                pm = measure(part, sent)
+                if best is None or _score(pm, target_sps) < _score(best[1], target_sps):
+                    best = (part, pm)
+            pieces.append(best[0])
+            if k < len(sentences):     # khoảng ngắt sau câu (đã có 2 x PAD_S đệm hai bên)
+                gap = max(0.0, pause_after(sent, pause_sentence, pause_question) - 2 * PAD_S)
+                pieces.append(np.zeros(int(round(gap * SR)), dtype=np.float32))
+        a = loudnorm(np.concatenate(pieces), tempo)
+        m = measure(a, seg["text"])
         f = project / DIR / "segments" / f"{seg['id']}.wav"
         _write_wav(f, a)
         entries.append({"id": seg["id"], "file": f"segments/{seg['id']}.wav", "text": seg["text"], "spoken_text": spoken,
-                        **m, "takes": max(1, takes), "tempo": tempo, "sha256": _sha(f)})
+                        **m, "takes": max(1, takes), "tempo": tempo, "sentences": len(sentences), "sha256": _sha(f)})
 
     # nối toàn bộ theo thứ tự kịch bản, chèn im lặng
     by = {e["id"]: e for e in entries}
@@ -229,7 +260,8 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
     full = np.concatenate(parts) if parts else np.zeros(0, dtype=np.float32)
     _write_wav(project / DIR / "voice_full.wav", full)
     sps = [e["sps"] for e in entries]
-    man = {"engine": engine.name, "voice": vname, "tempo": tempo, "sample_rate": SR, "total_s": round(len(full) / SR, 3),
+    man = {"engine": engine.name, "voice": vname, "tempo": tempo,
+           "pauses": {"sentence_s": pause_sentence, "question_s": pause_question, "per_sentence": per_sentence}, "sample_rate": SR, "total_s": round(len(full) / SR, 3),
            "measured_sps_median": round(statistics.median(sps), 2) if sps else None,
            "pronunciation_applied": pron, "segments": entries}
     dump_yaml(mpath, man)

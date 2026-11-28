@@ -1,138 +1,163 @@
-engine: vieneu-v3turbo (Mac)
+engine: vieneu-v3turbo (Mac, theo câu)
 voice: Hải Đăng
+tempo: 1.0
+pauses:
+  sentence_s: 0.45
+  question_s: 0.55
+  per_sentence: true
 sample_rate: 48000
-total_s: 47.48
-measured_sps_median: 4.43
+total_s: 47.9
+measured_sps_median: 4.48
 pronunciation_applied:
-  cacbonic: các-bon-níc
+  cacbonic: các bô ních
 segments:
 - id: S01-01
   file: segments/S01-01.wav
   text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
   spoken_text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
-  duration_s: 4.38
+  duration_s: 4.66
   syllables: 18
-  sps: 4.11
+  sps: 3.86
   peak_dbfs: -1.5
   lead_s: 0.06
-  trail_s: 0.08
-  max_gap_s: 0.42
+  trail_s: 0.04
+  max_gap_s: 0.44
   takes: 2
-  sha256: d1c63b39ab024acc02bc7cb0b02f16d3277304f8e2378db0e3b248c881ef52fe
+  tempo: 1.0
+  sentences: 3
+  sha256: 1f40ef7d7915c9b59134a98f7baf150fe716898639cc011c5db76c46ae1673f8
 - id: S02-01
   file: segments/S02-01.wav
   text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
-  spoken_text: Khi rơi qua bầu trời, nước mưa hoà tan khí các-bon-níc và trở nên hơi chua.
-  duration_s: 4.2
+  spoken_text: Khi rơi qua bầu trời, nước mưa hoà tan khí các bô ních và trở nên hơi chua.
+  duration_s: 3.9
   syllables: 16
-  sps: 3.81
-  peak_dbfs: -1.49
+  sps: 4.1
+  peak_dbfs: -1.5
   lead_s: 0.06
-  trail_s: 0.04
+  trail_s: 0.08
   max_gap_s: 0.26
   takes: 2
-  sha256: 9e66fe0059ec00eeb9d05cf2a2f65b1a8afda5b146e7e109c0218d672747fae5
+  tempo: 1.0
+  sentences: 1
+  sha256: d5c9121d4e3c6b2d40737bab7f585f9cfc6e30c4d63c6dd04e2a6ffca60d1baf
 - id: S02-02
   file: segments/S02-02.wav
   text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
   spoken_text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
-  duration_s: 5.28
+  duration_s: 4.94
   syllables: 23
-  sps: 4.36
+  sps: 4.66
   peak_dbfs: -1.5
   lead_s: 0.08
   trail_s: 0.06
-  max_gap_s: 0.34
+  max_gap_s: 0.2
   takes: 2
-  sha256: 23ee4b2d031a0d1b5ed816454a03566edd9cfce78e3530eba79f9e42f501795e
+  tempo: 1.0
+  sentences: 1
+  sha256: 227f4350c551f1ce660ef99cc1fdb5d19cdcb31bd4111293c68fb805e8cc2121
 - id: S03-01
   file: segments/S03-01.wav
   text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
   spoken_text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
+  duration_s: 4.78
+  syllables: 20
+  sps: 4.18
+  peak_dbfs: -1.5
+  lead_s: 0.08
+  trail_s: 0.06
+  max_gap_s: 0.26
+  takes: 2
+  tempo: 1.0
+  sentences: 1
+  sha256: 3702b3760bcaeb1ed5c41ac0b0dbe72830c7254a9024c032ea31c903262860cc
+- id: S03-02
+  file: segments/S03-02.wav
+  text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
+  spoken_text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
+  duration_s: 5.07
+  syllables: 23
+  sps: 4.54
+  peak_dbfs: -1.5
+  lead_s: 0.04
+  trail_s: 0.04
+  max_gap_s: 0.44
+  takes: 2
+  tempo: 1.0
+  sentences: 2
+  sha256: 9628a27e153ed9ad0e2bff3a12873a66d5024c26d8c6715853f6e5be52567e9d
+- id: S04-01
+  file: segments/S04-01.wav
+  text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
+  spoken_text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
+  duration_s: 4.63
+  syllables: 19
+  sps: 4.1
+  peak_dbfs: -1.5
+  lead_s: 0.04
+  trail_s: 0.06
+  max_gap_s: 0.4
+  takes: 2
+  tempo: 1.0
+  sentences: 2
+  sha256: bb53ee3264fd2ed16f6cfd751d153d87c725061914ee120c4914ce9ced8c5a25
+- id: S04-03
+  file: segments/S04-03.wav
+  text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
+  spoken_text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
+  duration_s: 5.0
+  syllables: 24
+  sps: 4.8
+  peak_dbfs: -1.5
+  lead_s: 0.06
+  trail_s: 0.06
+  max_gap_s: 0.4
+  takes: 2
+  tempo: 1.0
+  sentences: 1
+  sha256: 8628770a27c1487955050ba671f7ea00626b3a791d8c845964caa0fb52edcd8b
+- id: S04-04
+  file: segments/S04-04.wav
+  text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
+  spoken_text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
+  duration_s: 4.2
+  syllables: 20
+  sps: 4.76
+  peak_dbfs: -1.5
+  lead_s: 0.06
+  trail_s: 0.04
+  max_gap_s: 0.26
+  takes: 2
+  tempo: 1.0
+  sentences: 1
+  sha256: c98f52b4077c49b755d1cdb1acba677f2fa71b73a6fe92a853a043c1e2e8ad99
+- id: S05-01
+  file: segments/S05-01.wav
+  text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
+  spoken_text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
   duration_s: 4.52
   syllables: 20
   sps: 4.42
   peak_dbfs: -1.5
   lead_s: 0.06
   trail_s: 0.06
-  max_gap_s: 0.26
-  takes: 2
-  sha256: 80d552b6c945e6bfb331b374dc9a759ae0201bed132c129706156b1d673c86d5
-- id: S03-02
-  file: segments/S03-02.wav
-  text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
-  spoken_text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
-  duration_s: 5.16
-  syllables: 23
-  sps: 4.46
-  peak_dbfs: -1.5
-  lead_s: 0.08
-  trail_s: 0.06
-  max_gap_s: 0.24
-  takes: 2
-  sha256: d9df5be5791a25f11bd236f83a958ab6eb1974be4596ea2e198d32e88612eb94
-- id: S04-01
-  file: segments/S04-01.wav
-  text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
-  spoken_text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
-  duration_s: 4.38
-  syllables: 19
-  sps: 4.34
-  peak_dbfs: -1.5
-  lead_s: 0.08
-  trail_s: 0.06
   max_gap_s: 0.3
   takes: 2
-  sha256: 2f0e937b8f7463bea07199731259c304218c1aa87a69461eb3c8fead7dcff7f4
-- id: S04-03
-  file: segments/S04-03.wav
-  text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
-  spoken_text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
-  duration_s: 5.06
-  syllables: 24
-  sps: 4.74
-  peak_dbfs: -1.5
-  lead_s: 0.08
-  trail_s: 0.08
-  max_gap_s: 0.36
-  takes: 2
-  sha256: 14f948ee51cb897d18c113ab4e12b7606c1a5c0f590baceeb4086cccacbe7c61
-- id: S04-04
-  file: segments/S04-04.wav
-  text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
-  spoken_text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
-  duration_s: 3.88
-  syllables: 20
-  sps: 5.15
-  peak_dbfs: -1.5
-  lead_s: 0.08
-  trail_s: 0.06
-  max_gap_s: 0.1
-  takes: 2
-  sha256: bafe4af8aa78c25694ede199074a5921572d8743ba0956a845a133b87e422135
-- id: S05-01
-  file: segments/S05-01.wav
-  text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
-  spoken_text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
-  duration_s: 4.5
-  syllables: 20
-  sps: 4.44
-  peak_dbfs: -1.5
-  lead_s: 0.06
-  trail_s: 0.06
-  max_gap_s: 0.28
-  takes: 2
-  sha256: b9ab4d4ebb04f2386b323432c2617b7d9eb58aa3e5a2e61447421cf358f3ecdd
+  tempo: 1.0
+  sentences: 1
+  sha256: 919859f2d0f56fad7f6a2923048366c74a0efdb9599862e464640b89e9924180
 - id: S05-02
   file: segments/S05-02.wav
   text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
   spoken_text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
-  duration_s: 3.12
+  duration_s: 3.2
   syllables: 17
-  sps: 5.45
+  sps: 5.31
   peak_dbfs: -1.5
   lead_s: 0.08
   trail_s: 0.06
   max_gap_s: 0.04
   takes: 2
-  sha256: dbf32e53c6300643b8b24c0fc35e42f0314a297c30eaeb1d6b2ac315dab1fdab
+  tempo: 1.0
+  sentences: 1
+  sha256: b1f9b7f50450f97bb46c175d92dcfc1eee0fa1fc338d0168525d085ab896c752

@@ -135,3 +135,23 @@ def view_in_sync(project: Path, params: dict) -> CheckResult:
     if vpath.read_text(encoding="utf-8") != render_view(s):
         return CheckResult("fail", f"{params['view']} đã cũ so với {params['path']}. Chạy lại: python -m vp script view <dự án>")
     return CheckResult("pass", f"{params['view']} khớp {params['path']}.")
+
+
+@register("script_pronunciation_format")
+def pronunciation_format(project: Path, params: dict) -> CheckResult:
+    """Cách đọc trong meta.pronunciation phải là các âm tiết tiếng Việt viết RỜI bằng dấu cách.
+    Gạch nối, chữ số, ký hiệu làm TTS đọc sai (vd. 'các-bon-níc' bị đọc thành 'cacbon-i-c')."""
+    s = load_yaml(project, params["path"])
+    pr = (s.get("meta") or {}).get("pronunciation") or s.get("pronunciation") or {}
+    bad = [f"'{k}' → '{v}': chỉ dùng chữ cái và dấu cách (không gạch nối, số, ký hiệu)"
+           for k, v in pr.items() if not re.fullmatch(r"[^\W\d_]+( [^\W\d_]+)*", str(v).strip())]
+    # chính tả vần: sau i/ê âm cuối phải là ch/nh (ích, ếch, inh, ênh) — viết 'níc' bị TTS đánh vần thành 'n-i-xê'
+    for k, v in pr.items():
+        for syl in str(v).split():
+            m = re.search(r"([iíìỉĩịêếềểễệ])(c|ng)$", syl.lower())
+            if m:
+                fix = syl[: m.start(2)] + ("ch" if m.group(2) == "c" else "nh")
+                bad.append(f"'{k}' → '{v}': âm tiết '{syl}' sai chính tả tiếng Việt, phải viết '{fix}'")
+    if bad:
+        return _fmt(bad, "Cách đọc sai định dạng — viết rời từng âm tiết, vd. 'các bô ních':")
+    return CheckResult("pass", f"{len(pr)} mục phát âm đúng định dạng (âm tiết viết rời)." if pr else "Không có mục phát âm.")

@@ -14,6 +14,7 @@
   design init|view|preview|lint <dự án>        Tool 3: storyboard, bản đọc, ảnh phác thảo, kiểm nhanh
   voice synth <dự án> [--engine vieneu|recording] [--takes N] [--only S01-01,..]   tạo/nhập giọng, đo, manifest
   voice calibrate <dự án> [--apply] · voice to-animatic <dự án>
+  timeline build <dự án> [--breath 0.6 --breath-scene 0.9]        khoá thời gian theo khung + phụ đề
   animatic build <dự án> [--fps 15]            animatic: khung theo mốc thời gian + phụ đề + tiếng động nháp
 """
 import argparse
@@ -24,7 +25,7 @@ from pathlib import Path
 import yaml
 
 from vp import brief as brief_tool
-from vp import animatic, design_tools, review, script_tools, stages, voice
+from vp import animatic, design_tools, review, script_tools, stages, timeline, voice
 from vp.project import create_project
 from vp.checklist import ChecklistError
 
@@ -131,7 +132,8 @@ def cmd_voice(a):
         else:
             eng = voice.RecordingEngine(p, name=a.source_name or "recording")
         only = set(a.only.split(",")) if a.only else None
-        man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only, tempo=a.tempo)
+        man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only, tempo=a.tempo,
+                               pause_sentence=a.pause_sentence, pause_question=a.pause_question)
         for e in man["segments"]:
             print(f"  {e['id']}: {e['duration_s']:.2f}s, {e['sps']} âm tiết/giây, lặng giữa câu {e['max_gap_s']}s")
         print(f"Tổng {man['total_s']:.1f}s; tốc độ trung vị {man['measured_sps_median']} âm tiết/giây ({man['engine']}, {man['voice']})")
@@ -142,6 +144,14 @@ def cmd_voice(a):
         print(f"Đã ghi phiếu thu âm {voice.recording_sheet(p)}")
     elif a.action == "to-animatic":
         print(f"Đã chép {voice.to_animatic(p)} đoạn giọng sang 03_animatic/scratch_voice — dựng lại animatic và duyệt lại nhịp.")
+
+
+def cmd_timeline(a):
+    out = timeline.build(Path(a.project), breath=a.breath, breath_scene=a.breath_scene, question_extra=a.question_extra)
+    import yaml as _y
+    t = _y.safe_load(out.read_text(encoding="utf-8"))
+    print(f"Đã khoá timeline {out}: {t['total_frames']} khung = {t['total_s']}s @ {t['fps']:g} fps, "
+          f"{len(t['shots'])} khung hình, {len(t['cues'])} cue, {len(t['sfx'])} SFX; phụ đề 05_timeline/subtitles.srt")
 
 
 def cmd_gate(a):
@@ -185,14 +195,21 @@ def main(argv=None):
     vo.add_argument("project"); vo.add_argument("--engine", choices=["vieneu", "recording"], default="vieneu")
     vo.add_argument("--takes", type=int); vo.add_argument("--only"); vo.add_argument("--apply", action="store_true")
     vo.add_argument("--tempo", type=float, default=1.0, help="<1 làm chậm giọng, giữ cao độ (vd. 0.9)")
+    vo.add_argument("--pause-sentence", type=float, default=0.45, help="khoảng ngắt sau câu kết thúc bằng dấu chấm (giây)")
+    vo.add_argument("--pause-question", type=float, default=0.55, help="khoảng ngắt sau câu hỏi/cảm thán (giây)")
     vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
+    tlp = sub.add_parser("timeline"); tlp.add_argument("action", choices=["build"]); tlp.add_argument("project")
+    tlp.add_argument("--breath", type=float, default=0.60, help="ngắt giữa hai đoạn cùng cảnh (giây)")
+    tlp.add_argument("--breath-scene", type=float, default=0.90, help="ngắt khi sang cảnh mới (giây)")
+    tlp.add_argument("--question-extra", type=float, default=0.10, help="cộng thêm sau câu hỏi/cảm thán (giây)")
+    tlp.set_defaults(fn=cmd_timeline)
     s = sub.add_parser("status"); s.add_argument("project"); s.set_defaults(fn=cmd_status)
     a = ap.parse_args(argv)
     try:
         a.fn(a)
     except (review.ReviewError, ChecklistError, brief_tool.BriefError, script_tools.ScriptToolError,
-            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError) as e:
+            design_tools.DesignToolError, animatic.AnimaticError, voice.VoiceError, timeline.TimelineError) as e:
         sys.exit(f"LỖI: {e}")
 
 
