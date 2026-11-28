@@ -22,6 +22,12 @@ def voice_manifest(project: Path, params: dict) -> CheckResult:
     want = {s["id"]: s for _, s in script_segments(script) if s.get("kind") == "voice"}
     have = {e["id"]: e for e in man.get("segments") or []}
     bad = [f"{i}: chưa có giọng" for i in want if i not in have]
+    brief = load_yaml(project, params.get("brief", "00_brief/brief.yaml"))
+    want_pitch = float(brief["brand"].get("voice_pitch_semitones") or 0.0)
+    for i, e in have.items():
+        got = float(e.get("pitch_semitones") or 0.0)
+        if abs(got - want_pitch) > 1e-6:
+            bad.append(f"{i}: nâng tông {got:+g} nửa cung ≠ bộ nhận diện {want_pitch:+g} → tạo lại giọng")
     bad += [f"{i}: có giọng nhưng kịch bản không còn đoạn này" for i in have if i not in want]
     for i, e in have.items():
         if i not in want:
@@ -42,7 +48,8 @@ def voice_manifest(project: Path, params: dict) -> CheckResult:
     if bad:
         return _fmt(bad, "Manifest giọng không khớp kịch bản/file:")
     total = sum(float(e["duration_s"]) for e in have.values())
-    return CheckResult("pass", f"{len(have)} đoạn giọng ({man.get('engine')}, {man.get('voice')}), tổng lời {total:.1f}s, "
+    pitch = f", nâng tông {want_pitch:+g} nửa cung" if want_pitch else ""
+    return CheckResult("pass", f"{len(have)} đoạn giọng ({man.get('engine')}, {man.get('voice')}{pitch}), tổng lời {total:.1f}s, "
                                f"tốc độ trung vị {man.get('measured_sps_median')} âm tiết/giây; khớp kịch bản và file.")
 
 

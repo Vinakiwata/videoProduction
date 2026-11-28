@@ -1,87 +1,87 @@
 1
-00:00:00,000 --> 00:00:03,633
-Sông đổ ra biển là nước ngọt.
-Vậy mà nước biển lại mặn chát.
+00:00:00,000 --> 00:00:03,233
+Sông đổ ra biển toàn là nước ngọt.
+Vậy mà nước biển lại mặn.
 
 2
-00:00:03,633 --> 00:00:04,667
-Muối từ đâu ra?
+00:00:03,233 --> 00:00:04,833
+Muối trong biển từ đâu mà có?
 
 3
-00:00:05,667 --> 00:00:08,567
+00:00:05,833 --> 00:00:09,167
+Câu trả lời bắt đầu từ nước mưa.
 Khi rơi qua bầu trời,
-nước mưa hoà tan khí cacbonic và trở
 
 4
-00:00:08,567 --> 00:00:09,567
-nên hơi chua.
+00:00:09,167 --> 00:00:11,733
+mưa hoà tan khí cacbonic nên hơi có tính
+axit.
 
 5
-00:00:10,167 --> 00:00:13,800
-Nước mưa chua nhẹ ấy chảy trên đá,
-bào mòn và hoà tan những hạt khoáng chất
+00:00:12,333 --> 00:00:15,600
+Nước mưa ấy chảy trên đá,
+bào mòn dần và hoà tan các khoáng chất li
 
 6
-00:00:13,800 --> 00:00:15,100
-li ti, trong đó có muối.
+00:00:15,600 --> 00:00:16,600
+ti, trong đó có muối.
 
 7
-00:00:16,100 --> 00:00:19,200
-Nước mưa gom về suối, về sông,
-mang theo lượng muối rất nhỏ,
+00:00:17,600 --> 00:00:20,900
+Nước mưa chảy về suối, về sông,
+mang theo một lượng muối rất nhỏ,
 
 8
-00:00:19,200 --> 00:00:20,867
+00:00:20,900 --> 00:00:22,533
 nhỏ đến mức ta không nếm ra.
 
 9
-00:00:21,467 --> 00:00:24,100
+00:00:23,133 --> 00:00:25,700
 Sông luôn được mưa bổ sung nước ngọt mới,
 nên vẫn ngọt.
 
 10
-00:00:24,100 --> 00:00:26,533
-Còn biển thì nhận muối từ tất cả các dòng
+00:00:25,700 --> 00:00:27,867
+Còn biển nhận muối từ tất cả các dòng
 sông.
 
 11
-00:00:27,433 --> 00:00:29,867
-Dưới nắng,
-nước biển bốc hơi bay lên thành mây.
+00:00:28,767 --> 00:00:32,100
+Dưới nắng, nước biển bốc hơi thành mây.
+Nhưng muối không bốc hơi theo,
 
 12
-00:00:29,867 --> 00:00:32,067
-Nhưng muối thì không bay theo, nó ở lại.
+00:00:32,100 --> 00:00:33,300
+mà ở lại trong biển.
 
 13
-00:00:33,067 --> 00:00:35,767
-Mây lại mưa xuống đất,
-vòng lặp ấy kéo dài hàng triệu năm,
+00:00:34,300 --> 00:00:37,367
+Mây lại đổ mưa,
+vòng tuần hoàn ấy lặp lại suốt hàng triệu
 
 14
-00:00:35,767 --> 00:00:38,067
-muối trong biển tích dần đến độ mặn
-như hôm nay.
+00:00:37,367 --> 00:00:39,233
+năm, khiến muối trong biển tích tụ dần.
 
 15
-00:00:38,667 --> 00:00:41,600
-Thêm một nguồn nữa,
+00:00:39,833 --> 00:00:42,333
+Ngoài ra,
 núi lửa và các khe nứt nóng dưới đáy biển
 
 16
-00:00:41,600 --> 00:00:42,867
-cũng thả khoáng chất vào nước.
+00:00:42,333 --> 00:00:44,000
+cũng bổ sung thêm khoáng chất vào nước.
 
 17
-00:00:43,767 --> 00:00:46,700
+00:00:44,900 --> 00:00:47,800
 Tóm lại, mưa hoà tan muối từ đá,
-sông chở muối ra biển,
+sông đưa muối ra biển,
 
 18
-00:00:46,700 --> 00:00:48,300
+00:00:47,800 --> 00:00:49,367
 nước bốc hơi còn muối ở lại.
 
 19
-00:00:48,900 --> 00:00:52,100
-Đăng ký kênh để mỗi tuần cùng mình khám
-phá thêm một hiện tượng khoa học nhé!
+00:00:49,967 --> 00:00:53,400
+Đăng ký kênh để mỗi tuần cùng Khỉ khám phá
+thêm một hiện tượng khoa học nhé!

@@ -101,7 +101,7 @@ shots:
       - {id: e2, asset: A-GIOT-MUA, box: {x: 45, y: 32, w: 10, h: 18}, enter: {anim: drop, at: 0.05, dur_s: 0.6, ease: ease_in}}
       - {id: e3, asset: A-PHANTU-KHI, box: {x: 20, y: 35, w: 22, h: 25}, enter: {anim: slide_right, at: 0.35, dur_s: 0.7, ease: ease_in_out}, exit: {anim: scale_out, at: 0.6, dur_s: 0.3}}
       - {id: e4, asset: A-GIOT-MUA-CHUA, box: {x: 45, y: 32, w: 10, h: 18}, enter: {anim: morph, at: 0.62, dur_s: 0.4, ease: ease_out}, loop: {anim: pulse}}
-      - {id: e5, text: 'axit nhẹ', style: label, font_px: 64, color: '#FFC907', box: {x: 58, y: 40, w: 25, h: 10}, enter: {anim: fade, at: 0.56, dur_s: 0.3}}
+      - {id: e5, text: 'axit nhẹ', style: label, font_px: 64, color: '#FFC907', box: {x: 58, y: 40, w: 25, h: 10}, enter: {anim: fade, at: 0.68, dur_s: 0.3}}
     notes: Phân tử khí bay vào trong giọt mưa rồi biến mất; giọt mưa trắng biến hình (morph) thành giọt viền vàng đúng lúc nói "hơi chua".
   - id: S02-02-a
     segment: S02-02
@@ -128,7 +128,7 @@ shots:
       - {id: e0, asset: A-NEN-MUA, box: {x: 0, y: 0, w: 100, h: 100}}
       - {id: e1, asset: A-DA, box: {x: -10, y: 30, w: 120, h: 80}}
       - {id: e2, asset: A-HAT-MUOI, box: {x: 40, y: 46, w: 22, h: 18}, enter: {anim: grow, at: 0.15, dur_s: 0.8, ease: ease_out}, loop: {anim: shimmer}}
-      - {id: e3, text: muối, style: label, font_px: 72, color: '#FFC907', box: {x: 64, y: 30, w: 16, h: 11}, enter: {anim: pop, at: 0.6, dur_s: 0.3, ease: back_out}}
+      - {id: e3, text: muối, style: label, font_px: 72, color: '#FFC907', box: {x: 64, y: 30, w: 16, h: 11}, enter: {anim: pop, at: 0.45, dur_s: 0.3, ease: back_out}}
     sfx:
       - {name: lách tách nhẹ, target: e2, event: enter}
     notes: Zoom vào vết nứt chính trên đỉnh đá (hạt muối nằm ngay miệng vết nứt); hạt li ti bong ra theo dòng nước, vài hạt sáng lên thành hình lập phương muối khi nói "trong đó có muối".
@@ -184,7 +184,7 @@ shots:
       - {id: e1, asset: A-SONG, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: flow}}
       - {id: e2, asset: A-MAY, box: {x: 32, y: 4, w: 36, h: 18}, enter: {anim: slide_down, at: 0, dur_s: 0.5, ease: ease_out}}
       - {id: e3, asset: A-GIOT-MUA, box: {x: 38, y: 22, w: 24, h: 34}, enter: {anim: drop, at: 0.1, dur_s: 0.6, ease: ease_in}, loop: {anim: flow}}
-      - {id: e4, text: 'nước ngọt mới', style: label, font_px: 64, color: '#FFFFFF', box: {x: 60, y: 82, w: 34, h: 10}, enter: {anim: fade, at: 0.28, dur_s: 0.3}}
+      - {id: e4, text: 'nước ngọt mới', style: label, font_px: 64, color: '#FFFFFF', box: {x: 60, y: 82, w: 34, h: 10}, enter: {anim: fade, at: 0.2, dur_s: 0.3}}
   - id: S03-02-b
     segment: S03-02
     span: [0.52, 1]
@@ -196,7 +196,7 @@ shots:
     elements:
       - {id: e1, asset: A-BAN-DO-SONG, box: {x: 0, y: 0, w: 100, h: 100}, enter: {anim: fade, at: 0, dur_s: 0.5}, loop: {anim: flow}}
       - {id: e2, asset: A-SANG-BIEN, box: {x: 0, y: 0, w: 100, h: 100}, loop: {anim: pulse, period_s: 1.2}}
-      - {id: e3, text: 'Muối dồn về biển', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 82, w: 60, h: 10}, enter: {anim: fade, at: 0.1, dur_s: 0.3}}
+      - {id: e3, text: 'Muối dồn về biển', style: label, font_px: 64, color: '#FFC907', box: {x: 6, y: 82, w: 60, h: 10}, enter: {anim: fade, at: 0.0, dur_s: 0.3}}
     notes: Camera lùi từ một dòng sông ra toàn bản đồ; chuỗi chấm trắng trên mọi sông chạy về biển, biển sáng nhẹ khi nói "tất cả các dòng sông".
   # ---------------- S04 Bốc hơi ----------------
   - id: S04-01-a

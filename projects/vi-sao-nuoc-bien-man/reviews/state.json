@@ -3,101 +3,101 @@
     "brief": {
       "pending": null,
       "latest": {
-        "review": "reviews/brief/20261128-153337",
+        "review": "reviews/brief/20261128-161138",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "00_brief/brief.yaml": "88b8a58841c75400b8d85e96ee8e67a3a18229fbda775e5ee1f8f7ed364c1d7f"
+          "00_brief/brief.yaml": "5d59457f09d659ed0303ca9e8a1a8ff8d93951b23bd5dc4905db6ea6309afe2b"
         },
-        "finalized_at": "2026-11-28T15:33:37+07:00",
+        "finalized_at": "2026-11-28T16:11:38+07:00",
         "override": null
       }
     },
     "script": {
       "pending": null,
       "latest": {
-        "review": "reviews/script/20261128-153338",
+        "review": "reviews/script/20261128-161832",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92",
-          "00_brief/brief.yaml": "88b8a58841c75400b8d85e96ee8e67a3a18229fbda775e5ee1f8f7ed364c1d7f"
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671",
+          "00_brief/brief.yaml": "5d59457f09d659ed0303ca9e8a1a8ff8d93951b23bd5dc4905db6ea6309afe2b"
         },
-        "finalized_at": "2026-11-28T15:33:38+07:00",
+        "finalized_at": "2026-11-28T16:18:33+07:00",
         "override": null
       }
     },
     "design": {
       "pending": null,
       "latest": {
-        "review": "reviews/design/20261128-153339",
+        "review": "reviews/design/20261128-162406",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "02_design": "dir:9773d421d95b9e3cebdb5a7d2b91134aa3c485ee39ac5670e5bd1cd2affa580f",
-          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
+          "02_design": "dir:9497291f3ecd3bd3a3dce4648415da1208cbc898c2bacd1f6c23f8b771a17d02",
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T15:33:40+07:00",
+        "finalized_at": "2026-11-28T16:24:07+07:00",
         "override": null
       }
     },
     "animatic": {
       "pending": null,
       "latest": {
-        "review": "reviews/animatic/20261128-153414",
+        "review": "reviews/animatic/20261128-162342",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "03_animatic": "dir:6c1f6c55444511d210ace0e29f9301cd2843c1df1876071cff895e5f5f9a4d65",
-          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
-          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
+          "03_animatic": "dir:2da03b6ab5b2526efe94ee0e78eea6929d14f955920a1ad267251b68a20a4f3f",
+          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T15:34:14+07:00",
+        "finalized_at": "2026-11-28T16:23:42+07:00",
         "override": null
       }
     },
     "voice": {
       "pending": null,
       "latest": {
-        "review": "reviews/voice/20261128-151907",
+        "review": "reviews/voice/20261128-161858",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "04_voice": "dir:6257bb80f1db31a0640c1d6cd37ab403c64fa7a0f63b14044e4991e48e197d63",
-          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
+          "04_voice": "dir:f5a2e7a039877b38467ff51b58497593406adcb7ee8acc63008c6073a7899509",
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T15:19:38+07:00",
+        "finalized_at": "2026-11-28T16:22:04+07:00",
         "override": null
       }
     },
     "timeline": {
       "pending": null,
       "latest": {
-        "review": "reviews/timeline/20261128-153423",
+        "review": "reviews/timeline/20261128-162405",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
-          "05_timeline": "dir:1b9210b0319f4f44ed73547fdc245eac9ee06bcf576dc0ccaa18f8c683465e81",
-          "04_voice/voice_manifest.yaml": "82404499a83aa6f21cacf8f49365c22119f87f08a4c57c12b63527249c846b95",
-          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
-          "01_script/script.yaml": "fcd113c10281807c5c46f56cff4bf7062749a5c226805e558801b866c6aa4f92"
+          "05_timeline": "dir:8f5a6a96238ffdda286aef10b90d356c71eb4e4347f627b6d93ae595415b8223",
+          "04_voice/voice_manifest.yaml": "d39cfc5c3750a77ce66309e0cdc8f271c408d147b5e0b1f103de247cea0496a8",
+          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "01_script/script.yaml": "81fe36e768ec0aeae075542f2f2236be61b1a76bfe5d563a52dac6eec259b671"
         },
-        "finalized_at": "2026-11-28T15:34:23+07:00",
+        "finalized_at": "2026-11-28T16:24:05+07:00",
         "override": null
       }
     },
     "animation": {
       "pending": null,
       "latest": {
-        "review": "reviews/animation/20261128-153423",
+        "review": "reviews/animation/20261128-162415",
         "decision": "DAT",
         "score": 100,
         "artifacts": {
           "06_animation": "dir:8f73d2717688d3fdd8595ce824f6dcc1ab73f12722f04f8dc4da845f1317f42f",
-          "02_design/storyboard.yaml": "da9fc6eb6ce2813871baa7a3648ceeb2b2eccac4ff64d2fcdcd8c78715ce9b84",
-          "05_timeline/timeline.yaml": "7ab8ae0a2500598a6c061c28f7a9933e9464b9fc91a40af125d46767e6405ff6"
+          "02_design/storyboard.yaml": "369ae12028c325bda5fd332dcaf571a9bdcb9b6164442faec719b163a49ea398",
+          "05_timeline/timeline.yaml": "11997789b3395a6ee7e84b64ae8da5c99e3c0886114f8a910af700499e8d8873"
         },
-        "finalized_at": "2026-11-28T15:34:24+07:00",
+        "finalized_at": "2026-11-28T16:24:16+07:00",
         "override": null
       }
     }

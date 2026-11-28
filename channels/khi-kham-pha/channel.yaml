@@ -5,7 +5,7 @@ format:
   height: 1080
   fps: 30
 default_duration_s: 60
-tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
+tone: Thân thiện, rõ ràng, nghiêm túc vừa phải; gọi "bạn"; giải thích chính xác, không dùng tiếng lóng; Khỉ là người dẫn, xuất hiện ở lời mời cuối
 cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học
 audience: Học sinh trung học và người lớn tò mò, xem trên điện thoại và máy tính
 brand:
@@ -19,7 +19,7 @@ brand:
   - '#0B3D91'
   fonts:
   - Be Vietnam Pro
-  voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
+  voice: 'VieNeu-TTS v3 Turbo: Xuân Vĩnh'
   style: 'Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Khung giải thích nền xanh đậm #0B3D91 (chủ dự án chọn 28/11/2026, giữ cảm giác của kênh trước); mọi chữ đặt trên tấm nền xanh đậm. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết'
   scene_colors:
   - '#4A98D6'
@@ -72,8 +72,9 @@ brand:
     - id: logo
       file: logo.png
       use: Logo tròn của kênh — cảnh kết
+  voice_pitch_semitones: 2.5
 voice_profile:
-  syllables_per_second: 4.43
+  syllables_per_second: 4.41
   calibrated: true
-  calibrated_from: vi-sao-nuoc-bien-man (vieneu-v3turbo (Mac), Hải Đăng)
-notes: 'Bộ nhận diện do chủ dự án cung cấp ngày 28/11/2026 (ảnh tổng 1536x1024, tên file cho thấy tạo bằng ChatGPT). Linh vật cắt từ ảnh tổng: mỗi biểu cảm gốc chỉ khoảng 150–200 px, đã phóng lên 512 px, nên chỉ đặt Khỉ ở cỡ vừa (≤ 30% chiều cao khung); nên thay bằng ảnh gốc độ phân giải cao khi có. Vì hình tạo bằng AI, phải gắn nhãn nội dung AI khi đăng (Luật AI 134/2025/QH15), cùng với nhãn giọng AI. Màu đo tương phản: chữ trắng trên xanh dương #0078E0 chỉ 4,41:1 nên mọi chữ đặt trên tấm nền. Khung giải thích nền xanh đậm #0B3D91, chủ dự án chọn sau khi so sánh với nền nâu gỗ (28/11/2026).'
+  calibrated_from: vi-sao-nuoc-bien-man (vieneu-v3turbo (Mac, theo câu), Xuân Vĩnh)
+notes: 'Bộ nhận diện do chủ dự án cung cấp ngày 28/11/2026 (ảnh tổng 1536x1024, tên file cho thấy tạo bằng ChatGPT). Linh vật cắt từ ảnh tổng: mỗi biểu cảm gốc chỉ khoảng 150–200 px, đã phóng lên 512 px, nên chỉ đặt Khỉ ở cỡ vừa (≤ 30% chiều cao khung); nên thay bằng ảnh gốc độ phân giải cao khi có. Vì hình tạo bằng AI, phải gắn nhãn nội dung AI khi đăng (Luật AI 134/2025/QH15), cùng với nhãn giọng AI. Màu đo tương phản: chữ trắng trên xanh dương #0078E0 chỉ 4,41:1 nên mọi chữ đặt trên tấm nền. Khung giải thích nền xanh đậm #0B3D91, chủ dự án chọn sau khi so sánh với nền nâu gỗ (28/11/2026). Giọng (28/11/2026): Xuân Vĩnh nâng +2,5 nửa cung (rubberband, dịch formant) cho giống bạn nam ~15 tuổi; chủ dự án chọn sau khi nghe 9 giọng và 4 mức tông. Tốc độ đọc cần hiệu chỉnh lại sau lần tạo giọng đầu tiên. Văn phong (28/11/2026): sau khi thử bản dí dỏm, chủ dự án chọn lời văn nghiêm túc vừa phải.'

@@ -1,0 +1,29 @@
+VOI-C01:
+  verdict: pass
+  evidence: 'Chủ dự án nghe giong_khi_nghiem_tuc.mp3 (voice_full, 49,2 giây, Xuân Vĩnh +2,5 nửa cung, lời văn nghiêm túc) ngày 28/11/2026 16:19, phiếu nghe 1/3: ''Đúng hết'' — đọc đủ và đúng từng chữ của 10 đoạn, không sót, thừa hay sai. VOI-A01 xác nhận spoken_text khớp kịch bản.'
+  fix: ''
+  reviewer: Vinakiwata (chủ dự án, nghe)
+VOI-C02:
+  verdict: pass
+  evidence: 'Chủ dự án nghe giong_khi_nghiem_tuc.mp3 (voice_full, 49,2 giây, Xuân Vĩnh +2,5 nửa cung, lời văn nghiêm túc), phiếu nghe 1/3: ''cacbonic'' đọc đúng ''các bô ních'' (meta.pronunciation). Lời không có số, viết tắt hay tên riêng nào khác.'
+  fix: ''
+  reviewer: Vinakiwata (chủ dự án, nghe)
+VOI-C03:
+  verdict: pass
+  evidence: 'Chủ dự án nghe giong_khi_nghiem_tuc.mp3 (voice_full, 49,2 giây, Xuân Vĩnh +2,5 nửa cung, lời văn nghiêm túc), phiếu nghe 2/3: ''Sạch, không méo'' — không tạp âm, không rè do nâng tông, không cắt đầu/cuối câu, kể cả câu cuối S05-02 đã làm chậm 8%. Máy đo: đỉnh ≤ −1 dBFS, lặng hai đầu ≤ 0,35 giây, −16 LUFS (VOI-A02/A03 đạt).'
+  fix: ''
+  reviewer: Vinakiwata (chủ dự án, nghe)
+VOI-C04:
+  verdict: pass
+  evidence: 'Chủ dự án nghe giong_khi_nghiem_tuc.mp3 (voice_full, 49,2 giây, Xuân Vĩnh +2,5 nửa cung, lời văn nghiêm túc), phiếu nghe 3/3: ''Đồng nhất, ổn''. Số đo hỗ trợ: cao độ trung vị 123 Hz, chênh giữa các đoạn 1,36 nửa cung (lần dí dỏm 2,5); tốc độ 3,9–4,9 âm tiết/giây sau khi cân (VOI-A04 đạt, lệch trung vị ≤ 30%); cùng một preset Xuân Vĩnh cho cả 10 đoạn.'
+  fix: ''
+  reviewer: Vinakiwata (chủ dự án, nghe)
+VOI-C05:
+  verdict: pass
+  evidence: 'Chủ dự án nghe giong_khi_nghiem_tuc.mp3 (voice_full, 49,2 giây, Xuân Vĩnh +2,5 nửa cung, lời văn nghiêm túc), phiếu nghe 3/3: ngữ điệu phù hợp lời văn nghiêm túc. Câu hỏi ''Muối trong biển từ đâu mà có?'' kết bằng ''mà có?'' rõ ý hỏi. Lần trước (bản dí dỏm) chủ dự án báo có đoạn chưa ổn; bản này đã viết lại lời và chọn lượt theo độ đồng nhất.'
+  fix: ''
+  reviewer: Vinakiwata (chủ dự án, nghe)
+VOI-C07:
+  verdict: pass
+  evidence: 'Không nhân bản giọng người thật: dùng giọng dựng sẵn ''Xuân Vĩnh'' của VieNeu-TTS v3 Turbo, rồi nâng tông +2,5 nửa cung bằng xử lý tín hiệu (rubberband), không có mẫu giọng của ai. Không cần sự đồng ý của chủ giọng. Giọng AI sẽ được gắn nhãn khi xuất bản (constraints của brief).'
+  fix: ''

@@ -1,153 +1,153 @@
-total_s: 47.9
+total_s: 49.232
 segments:
 - id: S01-01
   kind: voice
   start_s: 0.0
-  dur_s: 4.66
+  dur_s: 4.84
   source: scratch
-  text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
+  text: Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối trong biển từ đâu mà có?
 - id: S01-02
   kind: silent
-  start_s: 4.66
+  start_s: 4.84
   dur_s: 1.0
   source: silent
   text: null
 - id: S02-01
   kind: voice
-  start_s: 5.66
-  dur_s: 3.9
+  start_s: 5.84
+  dur_s: 5.91
   source: scratch
-  text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
+  text: Câu trả lời bắt đầu từ nước mưa. Khi rơi qua bầu trời, mưa hoà tan khí cacbonic nên hơi có tính axit.
 - id: S02-02
   kind: voice
-  start_s: 9.56
-  dur_s: 4.94
+  start_s: 11.75
+  dur_s: 4.28
   source: scratch
-  text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
+  text: Nước mưa ấy chảy trên đá, bào mòn dần và hoà tan các khoáng chất li ti, trong đó có muối.
 - id: S02-03
   kind: silent
-  start_s: 14.5
+  start_s: 16.03
   dur_s: 1.0
   source: silent
   text: null
 - id: S03-01
   kind: voice
-  start_s: 15.5
-  dur_s: 4.78
+  start_s: 17.03
+  dur_s: 4.94
   source: scratch
-  text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
+  text: Nước mưa chảy về suối, về sông, mang theo một lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
 - id: S03-02
   kind: voice
-  start_s: 20.28
-  dur_s: 5.07
+  start_s: 21.97
+  dur_s: 4.73
   source: scratch
-  text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
+  text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển nhận muối từ tất cả các dòng sông.
 - id: S04-01
   kind: voice
-  start_s: 25.35
-  dur_s: 4.63
+  start_s: 26.7
+  dur_s: 4.53
   source: scratch
-  text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
+  text: Dưới nắng, nước biển bốc hơi thành mây. Nhưng muối không bốc hơi theo, mà ở lại trong biển.
 - id: S04-02
   kind: silent
-  start_s: 29.98
+  start_s: 31.23
   dur_s: 1.0
   source: silent
   text: null
 - id: S04-03
   kind: voice
-  start_s: 30.98
-  dur_s: 5.0
+  start_s: 32.23
+  dur_s: 4.92
   source: scratch
-  text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
+  text: Mây lại đổ mưa, vòng tuần hoàn ấy lặp lại suốt hàng triệu năm, khiến muối trong biển tích tụ dần.
 - id: S04-04
   kind: voice
-  start_s: 35.98
-  dur_s: 4.2
+  start_s: 37.15
+  dur_s: 4.18
   source: scratch
-  text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
+  text: Ngoài ra, núi lửa và các khe nứt nóng dưới đáy biển cũng bổ sung thêm khoáng chất vào nước.
 - id: S05-01
   kind: voice
-  start_s: 40.18
-  dur_s: 4.52
+  start_s: 41.33
+  dur_s: 4.46
   source: scratch
-  text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
+  text: Tóm lại, mưa hoà tan muối từ đá, sông đưa muối ra biển, nước bốc hơi còn muối ở lại.
 - id: S05-02
   kind: voice
-  start_s: 44.7
-  dur_s: 3.2
+  start_s: 45.79
+  dur_s: 3.442
   source: scratch
-  text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
+  text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
 shots:
 - id: S01-01-a
   segment: S01-01
   start_s: 0.0
-  dur_s: 1.817
+  dur_s: 1.888
 - id: S01-01-b
   segment: S01-01
-  start_s: 1.817
-  dur_s: 2.843
+  start_s: 1.888
+  dur_s: 2.952
 - id: S01-02-a
   segment: S01-02
-  start_s: 4.66
+  start_s: 4.84
   dur_s: 1.0
 - id: S02-01-a
   segment: S02-01
-  start_s: 5.66
-  dur_s: 3.9
+  start_s: 5.84
+  dur_s: 5.91
 - id: S02-02-a
   segment: S02-02
-  start_s: 9.56
-  dur_s: 1.729
+  start_s: 11.75
+  dur_s: 1.498
 - id: S02-02-b
   segment: S02-02
-  start_s: 11.289
-  dur_s: 3.211
+  start_s: 13.248
+  dur_s: 2.782
 - id: S02-03-a
   segment: S02-03
-  start_s: 14.5
+  start_s: 16.03
   dur_s: 1.0
 - id: S03-01-a
   segment: S03-01
-  start_s: 15.5
-  dur_s: 1.673
+  start_s: 17.03
+  dur_s: 1.729
 - id: S03-01-b
   segment: S03-01
-  start_s: 17.173
-  dur_s: 3.107
+  start_s: 18.759
+  dur_s: 3.211
 - id: S03-02-a
   segment: S03-02
-  start_s: 20.28
-  dur_s: 2.636
+  start_s: 21.97
+  dur_s: 2.46
 - id: S03-02-b
   segment: S03-02
-  start_s: 22.916
-  dur_s: 2.434
+  start_s: 24.43
+  dur_s: 2.27
 - id: S04-01-a
   segment: S04-01
-  start_s: 25.35
-  dur_s: 4.63
+  start_s: 26.7
+  dur_s: 4.53
 - id: S04-02-a
   segment: S04-02
-  start_s: 29.98
+  start_s: 31.23
   dur_s: 1.0
 - id: S04-03-a
   segment: S04-03
-  start_s: 30.98
-  dur_s: 1.1
+  start_s: 32.23
+  dur_s: 1.082
 - id: S04-03-b
   segment: S04-03
-  start_s: 32.08
-  dur_s: 3.9
+  start_s: 33.312
+  dur_s: 3.838
 - id: S04-04-a
   segment: S04-04
-  start_s: 35.98
-  dur_s: 4.2
+  start_s: 37.15
+  dur_s: 4.18
 - id: S05-01-a
   segment: S05-01
-  start_s: 40.18
-  dur_s: 4.52
+  start_s: 41.33
+  dur_s: 4.46
 - id: S05-02-a
   segment: S05-02
-  start_s: 44.7
-  dur_s: 3.2
+  start_s: 45.79
+  dur_s: 3.442

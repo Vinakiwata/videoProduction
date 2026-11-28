@@ -134,7 +134,7 @@ def cmd_voice(a):
             eng = voice.RecordingEngine(p, name=a.source_name or "recording")
         only = set(a.only.split(",")) if a.only else None
         man = voice.synth_all(p, eng, takes=a.takes or (2 if a.engine == "vieneu" else 1), only=only, tempo=a.tempo,
-                               pause_sentence=a.pause_sentence, pause_question=a.pause_question)
+                               pause_sentence=a.pause_sentence, pause_question=a.pause_question, even_speed=a.even_speed)
         for e in man["segments"]:
             print(f"  {e['id']}: {e['duration_s']:.2f}s, {e['sps']} âm tiết/giây, lặng giữa câu {e['max_gap_s']}s")
         print(f"Tổng {man['total_s']:.1f}s; tốc độ trung vị {man['measured_sps_median']} âm tiết/giây ({man['engine']}, {man['voice']})")
@@ -210,6 +210,8 @@ def main(argv=None):
     vo.add_argument("--tempo", type=float, default=1.0, help="<1 làm chậm giọng, giữ cao độ (vd. 0.9)")
     vo.add_argument("--pause-sentence", type=float, default=0.45, help="khoảng ngắt sau câu kết thúc bằng dấu chấm (giây)")
     vo.add_argument("--pause-question", type=float, default=0.55, help="khoảng ngắt sau câu hỏi/cảm thán (giây)")
+    vo.add_argument("--even-speed", type=float, default=0.12,
+                    help="cân tốc độ: đoạn lệch quá ±tỉ lệ này so với trung vị được chỉnh nhẹ (tối đa ±10%%, giữ cao độ); 0 = tắt")
     vo.add_argument("--source-name", help="Tên nguồn ghi vào manifest khi dùng file có sẵn (vd. vieneu-mac)")
     vo.set_defaults(fn=cmd_voice)
     tlp = sub.add_parser("timeline"); tlp.add_argument("action", choices=["build"]); tlp.add_argument("project")

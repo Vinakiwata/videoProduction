@@ -34,8 +34,8 @@ scenes:
   segments:
   - id: S01-01
     kind: voice
-    text: Sông đổ ra biển là nước ngọt. Vậy mà nước biển lại mặn chát. Muối từ đâu ra?
-    est_duration_s: 4.1
+    text: Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn. Muối trong biển từ đâu mà có?
+    est_duration_s: 4.8
     visual: Dòng sông xanh nhạt chảy vào biển xanh đậm; hai cốc nước bật lên cạnh nhau, cốc nước sông có giọt nước, cốc nước biển có hạt muối; dấu chấm hỏi lớn màu vàng bật ra giữa hai cốc để người xem thấy rõ sự trái ngược
     on_screen_text: Muối từ đâu ra?
     sfx:
@@ -50,8 +50,8 @@ scenes:
   segments:
   - id: S02-01
     kind: voice
-    text: Khi rơi qua bầu trời, nước mưa hoà tan khí cacbonic và trở nên hơi chua.
-    est_duration_s: 3.7
+    text: Câu trả lời bắt đầu từ nước mưa. Khi rơi qua bầu trời, mưa hoà tan khí cacbonic nên hơi có tính axit.
+    est_duration_s: 5.3
     visual: Giọt mưa rơi qua đám mây, các phân tử khí nhỏ bay vào trong giọt mưa; giọt mưa đổi sang viền vàng nhạt, nhãn chữ "axit nhẹ" để người xem nhận ra mưa không hoàn toàn trung tính
     on_screen_text: Mưa hơi chua (axit nhẹ)
     source_ids:
@@ -59,8 +59,8 @@ scenes:
     - SRC3
   - id: S02-02
     kind: voice
-    text: Nước mưa chua nhẹ ấy chảy trên đá, bào mòn và hoà tan những hạt khoáng chất li ti, trong đó có muối.
-    est_duration_s: 5.2
+    text: Nước mưa ấy chảy trên đá, bào mòn dần và hoà tan các khoáng chất li ti, trong đó có muối.
+    est_duration_s: 4.8
     visual: Cận cảnh mặt đá xám, mưa chảy qua làm bong ra các hạt li ti màu trắng; vài hạt được đánh dấu hình lập phương muối để người xem thấy muối đến từ đá
     sfx:
     - lách tách nhẹ
@@ -79,16 +79,16 @@ scenes:
   segments:
   - id: S03-01
     kind: voice
-    text: Nước mưa gom về suối, về sông, mang theo lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
-    est_duration_s: 4.6
+    text: Nước mưa chảy về suối, về sông, mang theo một lượng muối rất nhỏ, nhỏ đến mức ta không nếm ra.
+    est_duration_s: 4.8
     visual: Các dòng suối nhỏ nhập thành sông, trong dòng nước có vài hạt muối thưa thớt; kính lúp phóng to cho thấy muối rất ít
     source_ids:
     - SRC1
     - SRC2
   - id: S03-02
     kind: voice
-    text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển thì nhận muối từ tất cả các dòng sông.
-    est_duration_s: 5.2
+    text: Sông luôn được mưa bổ sung nước ngọt mới, nên vẫn ngọt. Còn biển nhận muối từ tất cả các dòng sông.
+    est_duration_s: 5.0
     visual: Bản đồ phẳng nhiều con sông từ các phía cùng đổ vào một vùng biển, mỗi sông mang một dòng chấm trắng nhỏ dồn về biển để người xem thấy muối gom lại một chỗ
     source_ids:
     - SRC2
@@ -98,8 +98,8 @@ scenes:
   segments:
   - id: S04-01
     kind: voice
-    text: Dưới nắng, nước biển bốc hơi bay lên thành mây. Nhưng muối thì không bay theo, nó ở lại.
-    est_duration_s: 4.3
+    text: Dưới nắng, nước biển bốc hơi thành mây. Nhưng muối không bốc hơi theo, mà ở lại trong biển.
+    est_duration_s: 4.4
     visual: Mặt trời vàng chiếu xuống mặt biển; các phân tử nước màu xanh bay lên thành mây, các hạt muối trắng ở lại dưới biển, mũi tên lên chỉ có nước để người xem thấy muối bị bỏ lại
     on_screen_text: Nước bay đi, muối ở lại
     source_ids:
@@ -112,15 +112,15 @@ scenes:
     - whoosh nhẹ
   - id: S04-03
     kind: voice
-    text: Mây lại mưa xuống đất, vòng lặp ấy kéo dài hàng triệu năm, muối trong biển tích dần đến độ mặn như hôm nay.
-    est_duration_s: 5.5
+    text: Mây lại đổ mưa, vòng tuần hoàn ấy lặp lại suốt hàng triệu năm, khiến muối trong biển tích tụ dần.
+    est_duration_s: 4.8
     visual: Vòng tuần hoàn mưa → đá → sông → biển → mây chạy nhanh vài vòng, bộ đếm năm chạy tới hàng triệu, mặt biển đậm màu dần rồi dừng lại để người xem thấy độ mặn đã đạt mức hiện nay
     source_ids:
     - SRC5
     - SRC2
   - id: S04-04
     kind: voice
-    text: Thêm một nguồn nữa, núi lửa và các khe nứt nóng dưới đáy biển cũng thả khoáng chất vào nước.
+    text: Ngoài ra, núi lửa và các khe nứt nóng dưới đáy biển cũng bổ sung thêm khoáng chất vào nước.
     est_duration_s: 4.6
     visual: Mặt cắt đáy biển với một núi lửa nhỏ và khe nứt toả hơi nóng, các chấm khoáng chất bay lên hoà vào nước
     source_ids:
@@ -132,13 +132,13 @@ scenes:
   segments:
   - id: S05-01
     kind: voice
-    text: Tóm lại, mưa hoà tan muối từ đá, sông chở muối ra biển, nước bốc hơi còn muối ở lại.
+    text: Tóm lại, mưa hoà tan muối từ đá, sông đưa muối ra biển, nước bốc hơi còn muối ở lại.
     est_duration_s: 4.6
     visual: Ba biểu tượng nối bằng mũi tên hiện lần lượt theo từng vế câu — giọt mưa trên đá, dòng sông, mặt trời trên biển
     on_screen_text: Mưa → Sông → Bốc hơi
   - id: S05-02
     kind: voice
-    text: Đăng ký kênh để mỗi tuần cùng mình khám phá thêm một hiện tượng khoa học nhé!
+    text: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học nhé!
     est_duration_s: 3.9
     visual: Cảnh kết của kênh Khỉ Khám Phá — Khỉ giơ tay vui mừng bên logo tròn, nút đăng ký vàng nảy lên, chuông nhỏ rung, chữ 'Cùng Khỉ nhé!' trên bảng gỗ
     sfx:

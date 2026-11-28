@@ -161,6 +161,12 @@
         "slogan": {
           "type": "string",
           "description": "Khẩu hiệu kênh"
+        },
+        "voice_pitch_semitones": {
+          "type": "number",
+          "minimum": -6,
+          "maximum": 6,
+          "description": "Nâng/hạ tông giọng sau khi tạo (nửa cung, giữ độ dài). Khỉ Khám Phá: +2,5 để giọng giống bạn ~15 tuổi"
         }
       }
     },

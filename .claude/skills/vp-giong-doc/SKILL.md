@@ -22,3 +22,13 @@ description: Dùng khi cần tạo, nhập, sửa hoặc duyệt giọng đọc 
    - `python -m vp animatic build projects/<dự án>`
    - duyệt lại cổng `animatic`
    - sau đó duyệt cổng `voice` bằng skill `vp-kiem-duyet`.
+
+## Giọng kênh Khỉ Khám Phá (từ 28/11/2026)
+- **Giọng:** preset VieNeu v3 Turbo **Xuân Vĩnh**, nâng **+2,5 nửa cung** (`brand.voice_pitch_semitones`) cho giống bạn nam khoảng 15 tuổi (đo ~107 → ~123 Hz). Dây chuyền tự nâng tông bằng rubberband (dịch cả formant), không đổi độ dài. VOI-A01 chặn nếu manifest nâng tông khác bộ nhận diện.
+- **Văn phong:** nghiêm túc vừa phải, thân thiện, không tiếng lóng. Chủ dự án đã thử bản dí dỏm và chọn bỏ.
+- **Mỗi câu tạo 3 lượt.** Khi chọn lượt, dây chuyền xét:
+  - tốc độ gần mức đã hiệu chỉnh của kênh (`target_speed`: đọc brief, nếu không có thì đọc channel);
+  - cao độ gần trung vị của cả bài, để giọng đồng nhất (`pitch_spread_semitones` trong manifest).
+- `voice synth` mặc định **cân tốc độ ±12%**: đoạn lệch nhiều được chỉnh nhẹ, tối đa ±10%, giữ cao độ. Dùng `--even-speed 0` để tắt.
+- Sau mỗi lần đổi giọng hoặc đổi lời, chạy `voice calibrate --apply`, rồi `script estimate`. Thứ tự cổng: script → design → animatic (theo ước tính) → `voice synth` → `voice to-animatic` → animatic → voice (chủ dự án nghe) → timeline.
+

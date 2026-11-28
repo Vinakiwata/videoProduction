@@ -145,15 +145,41 @@ def trim(a: np.ndarray) -> np.ndarray:
     return a[max(0, s - pad): min(len(a), e + pad)]
 
 
-def loudnorm(a: np.ndarray, tempo: float = 1.0) -> np.ndarray:
-    """Chuẩn -16 LUFS; tempo < 1 làm chậm giọng (giữ nguyên cao độ, ffmpeg atempo)."""
-    af = (f"atempo={tempo:.4f}," if abs(tempo - 1) > 1e-6 else "") + "loudnorm=I=-16:TP=-1.5:LRA=11"
+def loudnorm(a: np.ndarray, tempo: float = 1.0, pitch_semitones: float = 0.0) -> np.ndarray:
+    """Chuẩn -16 LUFS; tempo < 1 làm chậm giọng (giữ nguyên cao độ, ffmpeg atempo);
+    pitch_semitones > 0 nâng tông mà giữ nguyên độ dài (ffmpeg rubberband, dịch cả formant cho giọng trẻ hơn)."""
+    af = (f"atempo={tempo:.4f}," if abs(tempo - 1) > 1e-6 else "")
+    if abs(pitch_semitones) > 1e-6:
+        af += f"rubberband=pitch={2 ** (pitch_semitones / 12):.6f}:formant=shifted:pitchq=quality,"
+    af += "loudnorm=I=-16:TP=-1.5:LRA=11"
     r = subprocess.run(["ffmpeg", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
                         "-af", af, "-ar", str(SR), "-f", "f32le", "-"],
                        input=a.astype(np.float32).tobytes(), capture_output=True, check=True)
     out = np.frombuffer(r.stdout, dtype=np.float32).copy()
     n = int(round(len(a) / tempo))
     return out[:n] if len(out) >= n else np.pad(out, (0, n - len(out)))
+
+
+def f0_median(a: np.ndarray) -> float | None:
+    """Cao độ trung vị (Hz) của phần có tiếng — tự tương quan trên khung 40 ms, đã hạ mẫu 16 kHz cho nhanh."""
+    sr = 16000
+    x = a[:: SR // sr].astype(np.float64)
+    fr, hop = int(0.04 * sr), int(0.02 * sr)
+    if len(x) < fr:
+        return None
+    thr = max(1e-4, 0.1 * float(np.sqrt(np.mean(x ** 2)) or 0))
+    lo, hi = int(sr / 400), int(sr / 70)
+    out = []
+    for i in range(0, len(x) - fr, hop):
+        s_ = x[i:i + fr]
+        if np.sqrt(np.mean(s_ ** 2)) < thr:
+            continue
+        s_ = s_ - s_.mean()
+        c = np.correlate(s_, s_, "full")[fr - 1:]
+        k = lo + int(np.argmax(c[lo:hi]))
+        if c[0] > 0 and c[k] > 0.4 * c[0]:
+            out.append(sr / k)
+    return float(np.median(out)) if out else None
 
 
 def measure(a: np.ndarray, text: str) -> dict:
@@ -198,9 +224,21 @@ def _score(m: dict, target_sps: float) -> float:
 
 # ---------- dựng ----------
 
+def target_speed(project: Path, channels_dir: Path | None = None) -> float:
+    """Tốc độ mục tiêu để chọn lượt: voice_profile của brief, nếu không có thì của kênh (channel_ref), cuối cùng 3,2."""
+    brief = load_yaml(Path(project), "00_brief/brief.yaml")
+    v = (brief.get("voice_profile") or {}).get("syllables_per_second")
+    if not v and brief.get("channel_ref"):
+        cp = Path(channels_dir or CHANNELS_DIR) / brief["channel_ref"] / "channel.yaml"
+        if cp.is_file():
+            v = (load_yaml(cp.parent, "channel.yaml").get("voice_profile") or {}).get("syllables_per_second")
+    return float(v or 3.2)
+
+
 def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = None, check_gate: bool = True,
               tempo: float = 1.0, pause_sentence: float = 0.45, pause_question: float = 0.55,
-              per_sentence: bool = True) -> dict:
+              per_sentence: bool = True, pitch_semitones: float | None = None,
+              even_speed: float = 0.0, max_tempo_adjust: float = 0.10) -> dict:
     project = Path(project)
     if check_gate:
         g = review.gate(project, "animatic")
@@ -209,45 +247,84 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
     script = load_yaml(project, "01_script/script.yaml")
     brief = load_yaml(project, "00_brief/brief.yaml")
     vname = voice_name(brief["brand"]["voice"])
+    if pitch_semitones is None:
+        pitch_semitones = float(brief["brand"].get("voice_pitch_semitones") or 0.0)
     pron = (script.get("meta") or {}).get("pronunciation") or script.get("pronunciation") or {}
     mpath = project / DIR / "voice_manifest.yaml"
     old = {}
     if only and mpath.is_file():
         old = {m["id"]: m for m in load_yaml(project, f"{DIR}/voice_manifest.yaml")["segments"]}
-    target_sps = float(((brief.get("voice_profile") or {}).get("syllables_per_second")) or 3.2)
+    target_sps = target_speed(project)
 
-    entries = []
+    # lượt 1: thu mọi lượt của mọi câu
+    plan = []
     for _, seg in script_segments(script):
         if seg.get("kind") != "voice":
             continue
         if only and seg["id"] not in only and seg["id"] in old:
-            entries.append(old[seg["id"]])
+            plan.append((seg, None, None, None))
             continue
         spoken = prepare_text(seg["text"], pron)
         use_parts = per_sentence and (not hasattr(engine, "has_parts") or engine.has_parts(seg["id"]))
         sentences = split_sentences(spoken) if use_parts else [spoken]
-        pieces = []
+        cands = []
         for k, sent in enumerate(sentences, 1):
-            best = None
+            opts = []
             for _ in range(max(1, takes)):
                 if hasattr(engine, "current_id"):
                     engine.current_id = seg["id"]
                     engine.current_part = k if use_parts else None
                 raw, sr = engine.synth(sent, vname)
                 part = trim(_resample(np.asarray(raw, dtype=np.float32), sr))
-                pm = measure(part, sent)
-                if best is None or _score(pm, target_sps) < _score(best[1], target_sps):
-                    best = (part, pm)
-            pieces.append(best[0])
+                opts.append((part, measure(part, sent), f0_median(part)))
+            cands.append(opts)
+        plan.append((seg, spoken, sentences, cands))
+    # cao độ chung của cả bài = trung vị cao độ mọi lượt -> chọn lượt gần nhất để giọng đồng nhất giữa các đoạn
+    allf = [f for p in plan if p[3] for opts in p[3] for _, _, f in opts if f]
+    ref_f0 = float(np.median(allf)) if allf else None
+
+    def pick(opts):
+        def sc(o):
+            pen = abs(12 * np.log2(o[2] / ref_f0)) if (ref_f0 and o[2]) else 0.0
+            return _score(o[1], target_sps) + pen
+        return min(opts, key=sc)
+
+    built = {}
+    for seg, spoken, sentences, cands in plan:
+        if cands is None:
+            continue
+        pieces = []
+        for k, (sent, opts) in enumerate(zip(sentences, cands), 1):
+            pieces.append(pick(opts)[0])
             if k < len(sentences):     # khoảng ngắt sau câu (đã có 2 x PAD_S đệm hai bên)
                 gap = max(0.0, pause_after(sent, pause_sentence, pause_question) - 2 * PAD_S)
                 pieces.append(np.zeros(int(round(gap * SR)), dtype=np.float32))
-        a = loudnorm(np.concatenate(pieces), tempo)
+        raw_a = np.concatenate(pieces)
+        built[seg["id"]] = (raw_a, measure(raw_a, seg["text"])["sps"])
+    # cân tốc độ: đoạn lệch quá ±even_speed so với trung vị được làm nhanh/chậm về mép dải, tối đa ±max_tempo_adjust (giữ cao độ)
+    med_sps = float(np.median([v[1] for v in built.values()])) if built else 0.0
+    seg_tempo = {}
+    for sid, (_, sp) in built.items():
+        t_ = 1.0
+        if even_speed and med_sps and sp:
+            want = min(max(sp, med_sps * (1 - even_speed)), med_sps * (1 + even_speed))
+            t_ = min(max(want / sp, 1 - max_tempo_adjust), 1 + max_tempo_adjust)
+            t_ = 1.0 if abs(t_ - 1) < 1e-3 else round(t_, 4)
+        seg_tempo[sid] = t_
+
+    entries = []
+    for seg, spoken, sentences, cands in plan:
+        if cands is None:
+            entries.append(old[seg["id"]])
+            continue
+        a = loudnorm(built[seg["id"]][0], tempo * seg_tempo[seg["id"]], pitch_semitones)
         m = measure(a, seg["text"])
         f = project / DIR / "segments" / f"{seg['id']}.wav"
         _write_wav(f, a)
+        fz = f0_median(a)
         entries.append({"id": seg["id"], "file": f"segments/{seg['id']}.wav", "text": seg["text"], "spoken_text": spoken,
-                        **m, "takes": max(1, takes), "tempo": tempo, "sentences": len(sentences), "sha256": _sha(f)})
+                        **m, "takes": max(1, takes), "tempo": round(tempo * seg_tempo[seg["id"]], 4), "pitch_semitones": pitch_semitones,
+                        "f0_hz": round(fz, 1) if fz else None, "sentences": len(sentences), "sha256": _sha(f)})
 
     # nối toàn bộ theo thứ tự kịch bản, chèn im lặng
     by = {e["id"]: e for e in entries}
@@ -260,7 +337,10 @@ def synth_all(project: Path, engine, takes: int = 1, only: set[str] | None = Non
     full = np.concatenate(parts) if parts else np.zeros(0, dtype=np.float32)
     _write_wav(project / DIR / "voice_full.wav", full)
     sps = [e["sps"] for e in entries]
-    man = {"engine": engine.name, "voice": vname, "tempo": tempo,
+    fs = [e["f0_hz"] for e in entries if e.get("f0_hz")]
+    man = {"engine": engine.name, "voice": vname, "tempo": tempo, "pitch_semitones": pitch_semitones,
+           "f0_median_hz": round(float(np.median(fs)), 1) if fs else None,
+           "pitch_spread_semitones": round(float(12 * np.log2(max(fs) / min(fs))), 2) if len(fs) > 1 else 0.0,
            "pauses": {"sentence_s": pause_sentence, "question_s": pause_question, "per_sentence": per_sentence}, "sample_rate": SR, "total_s": round(len(full) / SR, 3),
            "measured_sps_median": round(statistics.median(sps), 2) if sps else None,
            "pronunciation_applied": pron, "segments": entries}

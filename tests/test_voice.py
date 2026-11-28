@@ -254,3 +254,93 @@ def test_recording_per_sentence_files(project, monkeypatch, good_script):
             V._write_wav(rec / f"{s['id']}_s{k}_t1.wav", a)
     man = voice.synth_all(project, voice.RecordingEngine(project), takes=1)
     assert man["segments"][0]["sentences"] == 2
+
+
+def _f0(path):
+    with wave.open(str(path)) as w:
+        a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float)
+    a = a[len(a) // 4: len(a) // 4 + SR // 2]
+    spec = np.abs(np.fft.rfft(a * np.hanning(len(a))))
+    return np.argmax(spec) * SR / len(a)
+
+
+def test_pitch_from_brand_raises_tone_keeps_length(project, monkeypatch):
+    """Giọng kênh Khỉ Khám Phá: Xuân Vĩnh nâng +2,5 nửa cung (brand.voice_pitch_semitones) — cao hơn, không dài/ngắn đi."""
+    gate_open(monkeypatch)
+    m0 = voice.synth_all(project, FakeEngine())
+    f0 = _f0(project / "04_voice" / m0["segments"][0]["file"])
+    brief = yaml.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["voice_pitch_semitones"] = 2.5
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    m1 = voice.synth_all(project, FakeEngine())
+    f1 = _f0(project / "04_voice" / m1["segments"][0]["file"])
+    assert f1 / f0 == pytest.approx(2 ** (2.5 / 12), rel=0.03)
+    assert m1["pitch_semitones"] == 2.5 and m1["segments"][0]["pitch_semitones"] == 2.5
+    assert m1["segments"][0]["duration_s"] == pytest.approx(m0["segments"][0]["duration_s"], rel=0.02)
+
+
+def test_manifest_pitch_must_match_brand(project, monkeypatch):
+    gate_open(monkeypatch)
+    voice.synth_all(project, FakeEngine())                       # tạo khi brief chưa đặt nâng tông
+    brief = yaml.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief["brand"]["voice_pitch_semitones"] = 2.5
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    r = run_check("voice_manifest", project, {"path": "04_voice/voice_manifest.yaml"})
+    assert r.status == "fail" and "nâng tông" in r.evidence
+
+
+class PitchyEngine(FakeEngine):
+    """Mỗi câu có 3 lượt: lượt 1 lệch cao, lượt 2 đúng giọng chung, lượt 3 lệch thấp (cùng tốc độ)."""
+    def __init__(self):
+        super().__init__()
+        self.n = {}
+
+    def synth(self, text, voice_name):
+        k = self.n.get(text, 0); self.n[text] = k + 1
+        f = (150, 120, 96)[k % 3]
+        n = syllables(text)
+        t = np.arange(int(n * self.spsyl * SR)) / SR
+        speech = 0.3 * np.sin(2 * np.pi * f * t)
+        pad = np.zeros(int(0.5 * SR))
+        return np.concatenate([pad, speech, pad]).astype(np.float32), SR
+
+
+def test_takes_prefer_consistent_pitch(project, monkeypatch):
+    """Chọn lượt có cao độ gần cao độ chung của cả bài -> giọng đồng nhất giữa các đoạn."""
+    gate_open(monkeypatch)
+    m = voice.synth_all(project, PitchyEngine(), takes=3)
+    for e in m["segments"]:
+        f = _f0(project / "04_voice" / e["file"])
+        assert f == pytest.approx(120, rel=0.04), (e["id"], f)
+    assert m["pitch_spread_semitones"] < 0.5
+
+
+class UnevenEngine(FakeEngine):
+    """Đoạn chứa 'nhanh' đọc nhanh hơn hẳn các đoạn khác (TTS đọc vội câu cuối)."""
+    def synth(self, text, voice_name):
+        self.spsyl = 0.16 if "Đăng ký" in text else 0.24
+        return super().synth(text, voice_name)
+
+
+def test_speed_evened_within_limit(project, monkeypatch, good_script):
+    gate_open(monkeypatch)
+    segs = voice_segments(good_script)
+    segs[-1]["text"] = "Đăng ký kênh để xem thêm nhiều hiện tượng thú vị mỗi tuần nhé!"
+    write_yaml(project / "01_script" / "script.yaml", good_script)
+    m = voice.synth_all(project, UnevenEngine(), even_speed=0.12)
+    sps = {e["id"]: e["sps"] for e in m["segments"]}
+    med = float(np.median(list(sps.values())))
+    last = m["segments"][-1]
+    assert last["tempo"] < 1.0 and last["tempo"] >= 0.9           # chỉ chỉnh nhẹ, tối đa 10%
+    assert sps[last["id"]] <= med * 1.12 + 0.05 or last["tempo"] == pytest.approx(0.9)
+    assert all(e["tempo"] == 1.0 for e in m["segments"][:-1])
+
+
+def test_target_speed_from_channel(project, monkeypatch, tmp_path):
+    """Brief không ghi voice_profile -> lấy tốc độ đã hiệu chỉnh của kênh, không dùng mặc định 3,2."""
+    from vp import voice as v
+    write_yaml(tmp_path / "channels" / "kenh" / "channel.yaml", {"voice_profile": {"syllables_per_second": 4.15}})
+    brief = yaml.safe_load((project / "00_brief" / "brief.yaml").read_text(encoding="utf-8"))
+    brief.pop("voice_profile", None); brief["channel_ref"] = "kenh"
+    write_yaml(project / "00_brief" / "brief.yaml", brief)
+    assert v.target_speed(project, channels_dir=tmp_path / "channels") == 4.15

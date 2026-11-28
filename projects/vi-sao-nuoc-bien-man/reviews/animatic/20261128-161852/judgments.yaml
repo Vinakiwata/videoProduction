@@ -1,0 +1,19 @@
+ATC-C01:
+  verdict: pass
+  evidence: Animatic dựng lại bằng giọng thật lời văn nghiêm túc (Xuân Vĩnh +2,5 nửa cung), 49,2 giây lời. Đoạn dài nhất S02-01 (5,9 giây), ngắn nhất S05-02 (3,4 giây). Tốc độ đã cân trong khoảng 3,9–4,9 âm tiết/giây (S05-02 làm chậm 8%). Ba khoảng nghỉ vẫn giữ. Không khoảng nào > 4 giây không đổi hình.
+ATC-C02:
+  verdict: pass
+  evidence: 'Che phụ đề vẫn theo được mạch. Lần này đối chiếu với 18 khung ghép bằng hình SVG thật: cửa sông → hai cốc + ''Sông ngọt → Biển mặn?'' → trời mưa, giọt ''axit nhẹ'' → tảng đá thật, hạt bong ra ở vết nứt ''muối'' → sườn núi, suối nhập sông → kính lúp trên lòng sông ''rất ít muối'' → mưa xuống thung lũng sông ''nước ngọt mới'' → bản đồ, biển sáng lên ''Muối dồn về biển'' → bãi biển: mặt trời, hơi nước bốc từ mặt biển, muối ở dưới nước ''Nước bay đi, muối ở lại'' → vòng tuần hoàn ''hàng triệu năm'' → đáy biển núi lửa ''Nguồn thêm'' → Mưa → Sông → Bốc hơi → nút đăng ký. Cảnh thật giúp nhận ra sông, biển, đá ngay mà không cần chữ. Khỉ làm mạch rõ hơn khi tắt tiếng: thắc mắc ở câu hỏi mở đầu, ngạc nhiên lúc lộ đáp án, ôm Trái Đất ở ''hàng triệu năm'', vui mừng ở lời mời đăng ký.'
+ATC-C03:
+  verdict: pass
+  reviewer: Vinakiwata (chủ dự án, nghe)
+  evidence: 'Đọc lời văn nghiêm túc mà không nhìn hình vẫn theo được mạch nhân quả, không có câu nào gây hiểu sai: câu hỏi → nước mưa hơi có tính axit → bào mòn, hoà tan khoáng chất có muối → sông mang lượng muối rất nhỏ → sông vẫn ngọt, biển nhận muối → muối không bốc hơi theo → tích tụ qua hàng triệu năm → nguồn bổ sung dưới đáy biển → tóm tắt.'
+ATC-C04:
+  verdict: pass
+  evidence: 00:00 cảnh cửa sông hiện ra cùng câu móc "Sông đổ ra biển toàn là nước ngọt. Vậy mà nước biển lại mặn."; khoảng 1,8 giây chuyển xuyên sang hai cốc với Khỉ thắc mắc; câu hỏi "Muối trong biển từ đâu mà có?" kết thúc ở khoảng 4,8 giây (giọng thật). Thay đổi thị giác mạnh và câu móc đều trong 5 giây đầu.
+ATC-C05:
+  verdict: pass
+  evidence: Các thay đổi lớn (cảnh chân thật; kênh Khỉ Khám Phá; giọng Xuân Vĩnh; văn phong nghiêm túc) đều đã chốt và chủ dự án đã duyệt. Việc còn lại chỉ là thay ước tính bằng giọng thật.
+ATC-C06:
+  verdict: pass
+  evidence: 'Nguồn thời lượng: giọng nháp thật lời văn nghiêm túc (VieNeu v3 Turbo Xuân Vĩnh, Mac, theo câu, chọn trong 3 lượt theo tốc độ và độ đồng nhất cao độ, nâng +2,5 nửa cung, cao độ trung vị 123 Hz, chênh giữa các đoạn 1,36 nửa cung), đã chép sang 03_animatic/scratch_voice. Tốc độ kênh hiệu chỉnh lại 4,41 âm tiết/giây.'

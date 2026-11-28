@@ -7,7 +7,7 @@ format:
   height: 1080
   fps: 30
 target_duration_s: 50
-tone: Thân thiện, tò mò, rõ ràng; xưng "mình" – gọi "bạn"
+tone: Thân thiện, rõ ràng, nghiêm túc vừa phải; gọi "bạn"; giải thích chính xác, không dùng tiếng lóng; Khỉ là người dẫn, xuất hiện ở lời mời cuối
 cta: Đăng ký kênh để mỗi tuần cùng Khỉ khám phá thêm một hiện tượng khoa học
 brand:
   colors:
@@ -20,7 +20,7 @@ brand:
   - '#0B3D91'
   fonts:
   - Be Vietnam Pro
-  voice: 'VieNeu-TTS v3 Turbo: Hải Đăng'
+  voice: 'VieNeu-TTS v3 Turbo: Xuân Vĩnh'
   style: 'Minh hoạ phẳng (flat), nét tròn, bóng đổ nhẹ. Cảnh minh hoạ vẽ như phong cảnh thật bằng màu tự nhiên trong scene_colors; icon, chữ, nút dùng bảng màu Khỉ Khám Phá (xanh dương, vàng, trắng, nâu gỗ, cam, xanh lá). Khung giải thích nền xanh đậm #0B3D91 (chủ dự án chọn 28/11/2026, giữ cảm giác của kênh trước); mọi chữ đặt trên tấm nền xanh đậm. Linh vật Khỉ (PNG gốc của bộ nhận diện) phản ứng 2–3 lần ở điểm nhấn và có mặt ở cảnh kết'
   scene_colors:
   - '#4A98D6'
@@ -73,6 +73,7 @@ brand:
     - id: logo
       file: logo.png
       use: Logo tròn của kênh — cảnh kết
+  voice_pitch_semitones: 2.5
 is_advertising: false
 channel_ref: khi-kham-pha
 assumptions:
@@ -80,10 +81,12 @@ assumptions:
 - 'target_duration_s lấy mặc định của kênh: 60 giây'
 - Chủ đề do Claude chọn để chạy thử Tool 0–1; chủ dự án chưa yêu cầu video này
 - Dùng hồ sơ kênh khi-kham-pha (Khỉ Khám Phá) — bộ nhận diện do chủ dự án cung cấp và chọn ngày 28/11/2026, thay cho kênh mẫu
-- 'Quyết định của chủ dự án (27/11/2026): giữ tốc độ đọc gốc của VieNeu Hải Đăng (~4,4 âm tiết/giây), nên mục tiêu thời lượng hạ từ 60 xuống 50 giây'
 - 'Quyết định của chủ dự án (28/11/2026): cảnh minh hoạ phải chân thật (sông có núi, cây, dòng sông uốn lượn; biển là bãi biển), dùng màu tự nhiên; icon, chữ, nút theo bảng màu kênh'
 - 'Quyết định của chủ dự án (28/11/2026): đổi toàn bộ kênh sang Khỉ Khám Phá; linh vật Khỉ (PNG gốc) phản ứng ở các điểm nhấn và có mặt ở cảnh kết; không dùng logo góc, không intro'
 - 'Quyết định của chủ dự án (28/11/2026, sau khi xem so sánh): khung giải thích dùng nền xanh đậm #0B3D91 như trước, không dùng nâu gỗ; thêm #0B3D91 vào bộ màu kênh'
+- 'Quyết định của chủ dự án (27/11/2026): giữ tốc độ đọc gốc của VieNeu (~4,4 âm tiết/giây), nên mục tiêu thời lượng hạ từ 60 xuống 50 giây'
+- 'Quyết định của chủ dự án (28/11/2026): giọng Khỉ là bạn nam ~15 tuổi, dí dỏm — chọn preset Xuân Vĩnh sau buổi nghe thử 9 giọng, nâng +2,5 nửa cung (đo ~107 → ~123 Hz); kịch bản viết lại'
+- 'Quyết định của chủ dự án (28/11/2026, sau khi nghe bản dí dỏm): bớt dí dỏm, lời văn nghiêm túc vừa phải, bỏ tiếng lóng; chủ dự án đã duyệt bản nháp nghiêm túc'
 constraints:
 - Chỉ dùng hình, nhạc, font tự tạo hoặc có giấy phép rõ ràng
 - Giọng đọc AI phải được gắn nhãn khi xuất bản (Luật Trí tuệ nhân tạo 134/2025/QH15)
